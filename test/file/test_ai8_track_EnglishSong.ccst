@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Definition Id="">
+  <Generation>
+    <Author Version="8.3.17.0" />
+    <TTS Version="6.0.20">
+      <Dictionary Version="3.0.15">
+        <Extension Version="2.0.2" Language="English" />
+      </Dictionary>
+      <SoundSources>
+        <SoundSource Version="1.0.0" Id="CTNV-JPF-A" Name="さとうささら" />
+        <SoundSource Version="1.1.1" Id="CTNV-JPF-AHS2" Name="小春六花" />
+        <SoundSource Version="1.1.0" Id="CTNV-JPF-FP5" Name="IA" />
+        <SoundSource Version="1.1.0" Id="CTNV-JPF-FP4" Name="OИE" />
+        <SoundSource Version="1.0.0" Id="CTNV-JPF-AHS3" Name="弦巻マキ (日)" />
+        <SoundSource Version="1.0.0" Id="CTNV-ENF-AHS3" Name="弦巻マキ (英)" />
+        <SoundSource Version="1.0.1" Id="CTNV-JPF-AHS4" Name="夏色花梨" />
+        <SoundSource Version="1.0.0" Id="CTNV-JPF-USTL1" Name="フィーちゃん" />
+        <SoundSource Version="1.0.0" Id="CTNV-JPF-ZNSN1" Name="ロサ (ROSA)" />
+        <SoundSource Version="1.0.1" Id="CTNV-JPF-B" Name="すずきつづみ" />
+        <SoundSource Version="1.0.0" Id="CTNV-JPF-AHS7" Name="花隈千冬" />
+      </SoundSources>
+    </TTS>
+    <SVSS Version="6.1.5">
+      <Dictionary Version="3.0.1">
+        <Extension Version="2.0.1" Language="English" />
+      </Dictionary>
+      <SoundSources>
+        <SoundSource Version="1.0.1" Id="CSNV-JPF-A" Name="さとうささら" />
+        <SoundSource Version="1.0.2" Id="CSNV-JPF-THR1" Name="可不(KAFU)" />
+        <SoundSource Version="1.1.0" Id="CSNV-JPF-VCLMK1" Name="結月ゆかり 麗" />
+        <SoundSource Version="1.1.0" Id="CSNV-JPF-AHS1" Name="東北きりたん" />
+        <SoundSource Version="1.0.1" Id="CSNV-JPF-FP5" Name="IA" />
+        <SoundSource Version="1.0.2" Id="CSNV-ENF-FP5" Name="IA (ENG)" />
+        <SoundSource Version="1.0.1" Id="CSNV-JPF-FP4" Name="OИE" />
+        <SoundSource Version="1.0.2" Id="CSNV-JPF-AHS5" Name="東北ずん子" />
+        <SoundSource Version="1.0.1" Id="CSNV-JPF-AHS6" Name="東北イタコ" />
+        <SoundSource Version="1.0.1" Id="CSNV-JPF-B" Name="すずきつづみ" />
+        <SoundSource Version="1.0.0" Id="CSNV-JPF-THR2" Name="星界(SEKAI)" />
+        <SoundSource Version="1.0.0" Id="CSNV-JPF-KZA1" Name="#kzn" />
+      </SoundSources>
+    </SVSS>
+  </Generation>
+  <Timeline Partition="228.571428571429,238.285714285714" CurrentPosition="00:00:00">
+    <ViewScale Horizontal="0.31" Vertical="0.64583333333333337" />
+  </Timeline>
+  <TalkEditor Partition="596">
+    <Extension VerticalRatio="224.571428571429*,336.571428571429*" />
+  </TalkEditor>
+  <SongEditor Partition="64" Quantize="240" Mode="0" EditingTool="1">
+    <ViewScale Horizontal="80" Vertical="14" />
+    <ReferenceState Current="None" Previous="None" />
+  </SongEditor>
+  <Units>
+    <Unit Version="1.0" Id="" Category="SingerSong" Group="97d3f6eb-9913-408b-9941-bed246145962" StartTime="00:00:00" Duration="00:00:07.9930000" CastId="CSNV-ENF-FP5" Language="Japanese">
+      <Song Version="1.07">
+        <Tempo>
+          <Sound Clock="0" Tempo="123" />
+          <Sound Clock="7680" Tempo="88" />
+        </Tempo>
+        <Beat>
+          <Time Clock="0" Beats="8" BeatType="8" />
+          <Time Clock="7680" Beats="3" BeatType="4" />
+        </Beat>
+        <Score>
+          <Key Clock="0" Fifths="0" Mode="0" />
+          <Dynamics Clock="0" Value="5" />
+          <Note Clock="3840" PitchStep="10" PitchOctave="3" Duration="960" Lyric="Ti" DoReMi="true" />
+          <Note Clock="4800" PitchStep="0" PitchOctave="4" Duration="960" Lyric="Do" DoReMi="true" />
+          <Note Clock="5760" PitchStep="2" PitchOctave="4" Duration="960" Lyric="Re" DoReMi="true" />
+          <Note Clock="6720" PitchStep="3" PitchOctave="4" Duration="960" Lyric="Mi" DoReMi="true" />
+          <Note Clock="7680" PitchStep="0" PitchOctave="4" Duration="960" Lyric="Do" DoReMi="true" />
+          <Note Clock="8640" PitchStep="2" PitchOctave="4" Duration="960" Lyric="Re" DoReMi="true" SlurStart="true" Syllabic="1" />
+          <Note Clock="9600" PitchStep="4" PitchOctave="4" Duration="960" Lyric="-Mi" SlurStop="true" Syllabic="3" />
+        </Score>
+      </Song>
+    </Unit>
+  </Units>
+  <Groups>
+    <Group Version="1.0" Id="97d3f6eb-9913-408b-9941-bed246145962" Category="SingerSong" Name="EnglishSong" Color="#FFAF1F14" Volume="0" Pan="0" IsSolo="false" IsMuted="false" CastId="CSNV-ENF-FP5" Language="English" />
+  </Groups>
+  <SoundSetting Rhythm="4/4" Tempo="78" MasterVolume="0" />
+</Definition>

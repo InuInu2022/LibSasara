@@ -1,0 +1,113 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Definition Id="">
+  <Generation>
+    <Author Version="7.0.23.1" />
+    <TTS Version="5.1.5">
+      <Dictionary Version="3.0.2" />
+      <SoundSources>
+        <SoundSource Version="1.7.3" Id="A" Name="さとうささら" />
+        <SoundSource Version="1.6.0" Id="B" Name="すずきつづみ" />
+        <SoundSource Version="1.7.0" Id="C" Name="タカハシ" />
+      </SoundSources>
+    </TTS>
+    <SVSS Version="5.1.1">
+      <Dictionary Version="3.0.0" />
+      <SoundSources>
+        <SoundSource Version="1.7.0" Id="A" Name="さとうささら" />
+        <SoundSource Version="1.1.0" Id="XSV-JPF-W" Name="緑咲 香澄" />
+        <SoundSource Version="1.1.0" Id="XSV-JPM-P" Name="赤咲 湊" />
+        <SoundSource Version="1.1.0" Id="XSV-JPF-E" Name="金咲 小春" />
+        <SoundSource Version="1.1.0" Id="XSV-JPM-E" Name="銀咲 大和" />
+        <SoundSource Version="1.1.0" Id="XSV-JPF-P" Name="黄咲 愛里" />
+        <SoundSource Version="1.1.0" Id="XSV-JPM-W" Name="白咲 優大" />
+        <SoundSource Version="1.0.0" Id="XSV-JPM-HRM-P" Name="ハルオロイド" />
+      </SoundSources>
+    </SVSS>
+  </Generation>
+  <Timeline Partition="256,279.428571428571" CurrentPosition="00:00:00">
+    <ViewScale Horizontal="1" Vertical="0.64583333333333337" />
+  </Timeline>
+  <TalkEditor Partition="575">
+    <Extension VerticalRatio="144*,506.857142857143*" />
+  </TalkEditor>
+  <SongEditor Partition="64" Quantize="240" Mode="0" EditingTool="1">
+    <ViewScale Horizontal="80" Vertical="14" />
+    <ReferenceState Current="None" Previous="None" />
+  </SongEditor>
+  <Units>
+    <Unit Version="1.1" Id="" Category="TextVocal" Group="0b57c464-92e3-49af-9880-30102c4ec297" StartTime="00:00:04.1640000" Duration="00:00:02.5400000" Text="こんにちは。さとうささらです。" CastId="A" Language="Japanese">
+      <Metadata>MAEBAXNpbAEqASoAMAHjgZPjgpPjgavjgaHjga8B44Kz44Oz44OL44OB44OvAWssb3xOfG4saXxjaCxpfHcsYQEqASoAMAHjgIIBAXBhdQEqASoAMQHjgZXjgajjgYYB44K144OI44O8AXMsYXx0LG98bwEqASoANAHjgZXjgZXjgokC44Gn44GZAeOCteOCteODqQLjg4fjgrnigJkBcyxhfHMsYXxyLGECZCxlfHMsVQEqAioBKgIqADABAQFzaWwBKgEq</Metadata>
+      <Direction Volume="0" Speed="1" Tone="0" Alpha="0.55" LogF0Scale="1">
+        <Component Name="fine" Value="0.00" />
+        <Component Name="normal" Value="1.00" />
+        <Component Name="angry" Value="0.00" />
+        <Component Name="sad" Value="0.00" />
+        <Component Name="cool" Value="1.00" />
+        <Component Name="bashful" Value="0.00" />
+        <Component Name="cheerful" Value="0.00" />
+        <Component Name="ordinary" Value="1.00" />
+        <Component Name="depression" Value="0.00" />
+      </Direction>
+      <Phonemes>
+        <Phoneme Data="k" />
+        <Phoneme Data="o" />
+        <Phoneme Data="N" />
+        <Phoneme Data="n" />
+        <Phoneme Data="i" />
+        <Phoneme Data="ch" />
+        <Phoneme Data="i" />
+        <Phoneme Data="w" />
+        <Phoneme Data="a" />
+        <Phoneme Speed="0.14" />
+        <Phoneme Data="s" />
+        <Phoneme Data="a" />
+        <Phoneme Data="t" />
+        <Phoneme Data="o" />
+        <Phoneme Data="o" />
+        <Phoneme Data="s" />
+        <Phoneme Data="a" />
+        <Phoneme Data="s" />
+        <Phoneme Data="a" />
+        <Phoneme Data="r" />
+        <Phoneme Data="a" />
+        <Phoneme Data="d" />
+        <Phoneme Data="e" />
+        <Phoneme Data="s" />
+        <Phoneme Data="U" />
+      </Phonemes>
+    </Unit>
+    <Unit Version="1.1" Id="" Category="TextVocal" Group="0b57c464-92e3-49af-9880-30102c4ec297" StartTime="00:00:07.9860000" Duration="00:00:01.3650000" Text="タカハシでーす！" CastId="C" Language="Japanese">
+      <Metadata>MAEBAXNpbAEqASoAMAHjgr/jgqsB44K/44KrAXQsYXxrLGEBKgEqADAB44OP44K3AeODj+OCtwFoLGF8c2gsaQEqASoAMgHjgafjg7zjgZkB44OH44O844K54oCZAWQsZXxlfHMsVQHjgafjg7zjgZkK44OH44O844K54oCZCmQsZXxlfHMsVQpoaGwKMQEqADABAQFzaWwBKgEq;MAEBAXNpbAEqASoAMAHjgr/jgqsB44K/44KrAXQsYXxrLGEBKgEqADEB44OP44K3AeODj+OCtwFoLGF8c2gsaQEqASoAMAHjgafjg7zjgZkB44OH44O844K54oCZAWQsZXxlfHMsVQHjgafjg7zjgZkK44OH44O844K54oCZCmQsZXxlfHMsVQpoaGwKMQEqADABAQFzaWwBKgEq</Metadata>
+      <Direction Volume="0" Speed="1" Tone="6" Alpha="0.55" LogF0Scale="2">
+        <Component Name="fine" Value="1.00" />
+        <Component Name="normal" Value="0.00" />
+        <Component Name="angry" Value="0.00" />
+        <Component Name="sad" Value="0.00" />
+        <Component Name="cool" Value="1.00" />
+        <Component Name="bashful" Value="0.00" />
+        <Component Name="cheerful" Value="1.00" />
+        <Component Name="ordinary" Value="1.00" />
+        <Component Name="depression" Value="0.00" />
+      </Direction>
+      <Phonemes>
+        <Phoneme Data="t" Volume="1.2462701684846036" Speed="0.0015650406504064893" Tone="0.11552453009332453" />
+        <Phoneme Data="a" Volume="0.10407246789767655" Speed="0.1013066202090592" Tone="0.11552453009332453" />
+        <Phoneme Data="k" Volume="0.15203153957250581" Speed="0.0017073170731707402" Tone="0.057762265046662264" />
+        <Phoneme Data="a" Volume="-0.30139988665561734" Speed="0.0018495934959349564" Tone="0.057762265046662264" />
+        <Phoneme Data="h" Volume="0.36748176323940207" />
+        <Phoneme Data="a" Volume="-0.25423217725310376" Speed="0.15178571428571425" />
+        <Phoneme Data="sh" Volume="-0.22605787229094609" />
+        <Phoneme Data="i" />
+        <Phoneme Data="d" />
+        <Phoneme Data="e" />
+        <Phoneme Data="e" Speed="0.13571428571428559" />
+        <Phoneme Data="s" />
+        <Phoneme Data="U" />
+      </Phonemes>
+    </Unit>
+  </Units>
+  <Groups>
+    <Group Version="1.0" Id="0b57c464-92e3-49af-9880-30102c4ec297" Category="TextVocal" Name="トーク 1" Color="#FF267CCB" Volume="0" Pan="0" IsSolo="false" IsMuted="false" CastId="Mixed" Language="Japanese" />
+  </Groups>
+  <SoundSetting Rhythm="4/4" Tempo="78" MasterVolume="-8.8817841970012523E-15" />
+</Definition>

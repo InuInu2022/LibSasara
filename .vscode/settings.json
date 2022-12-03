@@ -1,0 +1,12 @@
+{
+	"workbench.colorCustomizations": {
+        "titleBar.activeBackground": "#00fffb",
+        "titleBar.activeForeground": "#000000",
+        "activityBar.background": "#00fffb",
+        "activityBar.foreground": "#000000",
+
+        //outline icons color
+        "symbolIcon.functionForeground":"#fff200c5",
+        "symbolIcon.methodForeground":"#f5f2b4"
+    }
+}

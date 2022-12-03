@@ -1,0 +1,989 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Scenario Code="7251BC4B6168E7B2992FA620BD3E1E77">
+  <Generation>
+    <Author Version="8.3.17.0" />
+    <TTS Version="6.0.20">
+      <Dictionary Version="3.0.15">
+        <Extension Version="2.0.2" Language="English" />
+      </Dictionary>
+      <SoundSources>
+        <SoundSource Version="1.0.0" Id="CTNV-JPF-A" Name="さとうささら" />
+        <SoundSource Version="1.1.1" Id="CTNV-JPF-AHS2" Name="小春六花" />
+        <SoundSource Version="1.0.0" Id="CTNV-ENF-AHS3" Name="弦巻マキ (英)" />
+        <SoundSource Version="1.0.1" Id="CTNV-JPF-B" Name="すずきつづみ" />
+      </SoundSources>
+    </TTS>
+    <SVSS Version="6.1.5">
+      <Dictionary Version="3.0.1">
+        <Extension Version="2.0.1" Language="English" />
+      </Dictionary>
+      <SoundSources>
+        <SoundSource Version="1.0.1" Id="CSNV-JPF-A" Name="さとうささら" />
+        <SoundSource Version="1.0.2" Id="CSNV-ENF-FP5" Name="IA (ENG)" />
+      </SoundSources>
+    </SVSS>
+  </Generation>
+  <Sequence Id="">
+    <Scene Id="">
+      <Timeline Partition="228.571428571429,238.285714285714" CurrentPosition="00:00:06.5850000">
+        <ViewScale Horizontal="0.31" Vertical="0.64583333333333337" />
+      </Timeline>
+      <TalkEditor Partition="596">
+        <Extension VerticalRatio="224.571428571429*,336.571428571429*" />
+      </TalkEditor>
+      <SongEditor Partition="64" Quantize="240" Mode="0" EditingTool="1">
+        <ViewScale Horizontal="80" Vertical="14" />
+        <ReferenceState Current="None" Previous="None" />
+      </SongEditor>
+      <Units>
+        <Unit Version="1.0" Id="" Category="SingerSong" Group="68ebc1fd-93dc-445d-9d13-9a3274df102d" StartTime="00:00:00" Duration="00:00:07.9930000" CastId="CSNV-JPF-A" Language="Japanese">
+          <Song Version="1.07">
+            <Tempo>
+              <Sound Clock="0" Tempo="123" />
+              <Sound Clock="7680" Tempo="88" />
+            </Tempo>
+            <Beat>
+              <Time Clock="0" Beats="8" BeatType="8" />
+              <Time Clock="7680" Beats="3" BeatType="4" />
+            </Beat>
+            <Score>
+              <Key Clock="0" Fifths="-2" Mode="0" />
+              <Dynamics Clock="0" Value="4" />
+              <Note Clock="3840" PitchStep="10" PitchOctave="3" Duration="960" Lyric="ド" DoReMi="true" />
+              <Note Clock="4800" PitchStep="0" PitchOctave="4" Duration="960" Lyric="レ" DoReMi="true" />
+              <Note Clock="5760" PitchStep="2" PitchOctave="4" Duration="960" Lyric="ミ" DoReMi="true" />
+              <Note Clock="6720" PitchStep="3" PitchOctave="4" Duration="960" Lyric="ファ" DoReMi="true" Breath="true" />
+              <Key Clock="7680" Fifths="0" Mode="1" />
+              <Dynamics Clock="7680" Value="7" />
+              <Note Clock="7680" PitchStep="0" PitchOctave="4" Duration="960" Lyric="ド" DoReMi="true" Accent="true" Staccato="true" />
+              <Note Clock="8640" PitchStep="2" PitchOctave="4" Duration="960" Lyric="レ" DoReMi="true" SlurStart="true" />
+              <Note Clock="9600" PitchStep="4" PitchOctave="4" Duration="960" Lyric="me$" SlurStop="true" />
+            </Score>
+            <Parameter>
+              <Timing Length="85">
+                <Data Index="0">0.50015870729573442</Data>
+                <Data>1.0003174145914688</Data>
+                <Data>1.5004761218872034</Data>
+                <Data>1.8452457162366904</Data>
+                <Data>1.8501016260162604</Data>
+                <Data>1.92147212543554</Data>
+                <Data>1.9303934378629501</Data>
+                <Data>1.93931475029036</Data>
+                <Data>1.9482360627177702</Data>
+              </Timing>
+              <LogF0 Length="1599">
+                <NoData Index="1" Repeat="2" />
+                <Data Index="360">5.62699946115076</Data>
+                <Data Repeat="9">5.6317147480933443</Data>
+                <Data>5.62699946115076</Data>
+                <Data>5.6258206394151138</Data>
+                <Data>5.615211243794298</Data>
+                <Data>5.6104959568517137</Data>
+                <Data>5.601065382966544</Data>
+                <Data>5.5939924525526674</Data>
+                <Data>5.58691952213879</Data>
+                <Data>5.5822042351962056</Data>
+                <Data>5.5704160178397437</Data>
+                <Data>5.5114749310574354</Data>
+                <Data>5.5020443571722666</Data>
+                <Data>5.4855408528732195</Data>
+                <Data>5.4831832094019273</Data>
+                <Data>5.4761102789880507</Data>
+                <Data>5.4737526355167585</Data>
+                <Data Repeat="2">5.4713949920454663</Data>
+                <Data>5.47021617030982</Data>
+                <Data Repeat="3">5.4690373485741741</Data>
+                <Data Repeat="11">5.466679705102881</Data>
+                <Data Index="760">5.7354510608302069</Data>
+                <Data>5.7366298825658539</Data>
+                <Data>5.7378087043015</Data>
+                <Data>5.7389875260371461</Data>
+                <Data>5.7401663477727922</Data>
+                <Data>5.7425239912440844</Data>
+                <Data>5.7448816347153766</Data>
+                <Data Repeat="3">5.749596921657961</Data>
+                <Data Repeat="2">5.7543122086005463</Data>
+                <Data>5.7590274955431306</Data>
+                <Data>5.7602063172787759</Data>
+                <Data Repeat="2">5.7661004259570063</Data>
+                <Data>5.7755309998421769</Data>
+                <Data>5.7778886433134691</Data>
+                <Data>5.7849615737273457</Data>
+                <Data>5.78967686066993</Data>
+                <Data Repeat="2">5.85451205613047</Data>
+                <Data>5.8663002734869316</Data>
+                <Data Repeat="2">5.8686579169582238</Data>
+                <Data>5.8733732039008082</Data>
+                <Data>5.8828037777859787</Data>
+                <Data Repeat="2">5.8875190647285631</Data>
+                <Data>5.8969496386137319</Data>
+                <Data Repeat="2">5.9040225690276085</Data>
+                <Data>5.939387221096994</Data>
+                <Data>5.965321299281209</Data>
+                <Data Repeat="2">5.9936130209367171</Data>
+                <NoData Index="1593" Repeat="4" />
+              </LogF0>
+              <VibAmp Length="1599">
+                <Data Index="691" Repeat="11">30.630026809651525</Data>
+                <Data>30.697050938337849</Data>
+                <Data>30.764075067024173</Data>
+                <Data>30.8310991957105</Data>
+                <Data>30.898123324396824</Data>
+                <Data>31.112600536193078</Data>
+                <Data>31.327077747989328</Data>
+                <Data>31.541554959785579</Data>
+                <Data>31.756032171581829</Data>
+                <Data Repeat="14">31.970509383378083</Data>
+                <Data>32.015192135835633</Data>
+                <Data>32.059874888293187</Data>
+                <Data>32.104557640750734</Data>
+                <Data>32.149240393208281</Data>
+                <Data>32.193923145665828</Data>
+                <Data>32.238605898123382</Data>
+                <Data>32.439678284182357</Data>
+                <Data>32.640750670241331</Data>
+                <Data>32.841823056300314</Data>
+                <Data Repeat="4">33.042895442359288</Data>
+                <Data>33.109919571045616</Data>
+                <Data>33.176943699731936</Data>
+                <Data>33.243967828418256</Data>
+                <Data>33.310991957104584</Data>
+                <Data>33.579088471849914</Data>
+                <Data>33.847184986595238</Data>
+                <Data>34.048257372654213</Data>
+                <Data>34.249329758713188</Data>
+                <Data>34.450402144772163</Data>
+                <Data Repeat="5">34.651474530831138</Data>
+                <Data>34.830205540661339</Data>
+                <Data>35.008936550491541</Data>
+                <Data>35.187667560321742</Data>
+                <Data>35.348525469168933</Data>
+                <Data>35.509383378016125</Data>
+                <Data>35.670241286863316</Data>
+                <Data>35.831099195710507</Data>
+                <Data>35.9919571045577</Data>
+                <Data>36.126005361930353</Data>
+                <Data>36.260053619303</Data>
+                <Data>36.4387846291332</Data>
+                <Data>36.6175156389634</Data>
+                <Data>36.7962466487936</Data>
+                <Data>37.3324396782842</Data>
+                <Data>37.600536193029555</Data>
+                <Data>37.73458445040221</Data>
+                <Data>37.868632707774857</Data>
+                <Data>38.002680965147505</Data>
+                <Data>38.13672922252016</Data>
+                <Data>38.315460232350354</Data>
+                <Data>38.494191242180555</Data>
+                <Data>38.672922252010757</Data>
+                <Data>38.806970509383405</Data>
+                <Data Repeat="3">38.941018766756059</Data>
+                <Data>39.142091152815048</Data>
+                <Data>39.343163538874037</Data>
+                <Data>39.544235924933027</Data>
+                <Data Repeat="2">39.745308310992016</Data>
+                <Data>39.946380697050991</Data>
+                <Data Repeat="2">40.147453083109966</Data>
+                <Data>40.348525469168941</Data>
+                <Data>40.549597855227915</Data>
+                <Data Repeat="2">40.817694369973211</Data>
+                <Data>41.085790884718513</Data>
+                <Data Repeat="2">41.353887399463844</Data>
+                <Data>41.621983914209174</Data>
+                <Data>41.890080428954469</Data>
+                <Data Repeat="2">42.694369973190376</Data>
+                <Data>42.962466487935671</Data>
+                <Data Repeat="2">43.498659517426333</Data>
+                <Data>43.588025022341434</Data>
+                <Data>43.677390527256534</Data>
+                <Data Repeat="2">43.766756032171628</Data>
+                <Data>44.302949061662233</Data>
+                <Data Repeat="2">44.83914209115283</Data>
+                <Data>45.375335120643491</Data>
+                <Data>47.25201072386065</Data>
+              </VibAmp>
+              <VibFrq Length="1599">
+                <Data Index="676">3.45040214477212</Data>
+                <Data>3.4745308310991976</Data>
+                <Data>3.4986595174262751</Data>
+                <Data>3.5227882037533527</Data>
+                <Data>3.54691689008043</Data>
+                <Data>3.5719392314566591</Data>
+                <Data>3.5969615728328876</Data>
+                <Data>3.6219839142091161</Data>
+                <Data>3.6380697050938351</Data>
+                <Data>3.6541554959785536</Data>
+                <Data>3.6702412868632726</Data>
+                <Data>3.6863270777479911</Data>
+                <Data>3.7131367292225219</Data>
+                <Data>3.7399463806970532</Data>
+                <Data>3.7649687220732821</Data>
+                <Data>3.7899910634495106</Data>
+                <Data>3.8150134048257396</Data>
+                <Data>3.8257372654155515</Data>
+                <Data>3.8364611260053634</Data>
+                <Data>3.8579088471849885</Data>
+                <Data>3.8793565683646136</Data>
+                <Data>3.8857908847185008</Data>
+                <Data>3.8922252010723879</Data>
+                <Data>3.8986595174262755</Data>
+                <Data>3.9050938337801626</Data>
+                <Data>3.9115281501340498</Data>
+                <Data>3.932975871313674</Data>
+                <Data>3.9401251117068825</Data>
+                <Data>3.9472743521000915</Data>
+                <Data>3.9544235924933004</Data>
+                <Data>3.9687220732797162</Data>
+                <Data>3.9830205540661319</Data>
+                <Data>3.9973190348525485</Data>
+                <Data>4.0008936550491523</Data>
+                <Data>4.0044682752457561</Data>
+                <Data>4.00804289544236</Data>
+                <Data>4.0123324396782847</Data>
+                <Data>4.01662198391421</Data>
+                <Data>4.0209115281501351</Data>
+                <Data>4.0252010723860607</Data>
+                <Data>4.0294906166219864</Data>
+                <Data>4.0402144772117987</Data>
+                <Data>4.05093833780161</Data>
+                <Data Repeat="3">4.0616621983914225</Data>
+                <Data>4.0670241286863291</Data>
+                <Data>4.0723860589812348</Data>
+                <Data>4.0745308310991977</Data>
+                <Data>4.07667560321716</Data>
+                <Data>4.0788203753351224</Data>
+                <Data>4.0809651474530844</Data>
+                <Data Repeat="43">4.0831099195710472</Data>
+                <Data>4.0723860589812348</Data>
+                <Data>4.0616621983914225</Data>
+                <Data>4.0563002680965168</Data>
+                <Data Repeat="3">4.0509383378016111</Data>
+                <Data>4.0455764075067044</Data>
+                <Data>4.0402144772117987</Data>
+                <Data>4.0187667560321723</Data>
+                <Data Repeat="2">4.00804289544236</Data>
+                <Data>3.9973190348525485</Data>
+                <Data Repeat="3">3.9865951742627361</Data>
+                <Data Repeat="6">3.9758713136729242</Data>
+                <Data>3.9651474530831123</Data>
+                <Data>3.9544235924933</Data>
+                <Data Repeat="2">3.9490616621983929</Data>
+                <Data>3.9436997319034859</Data>
+                <Data Repeat="2">3.932975871313674</Data>
+              </VibFrq>
+              <Alpha Length="1599">
+                <Data Index="360" Repeat="85">-0.015415549597854739</Data>
+                <Data>-0.016309204647005748</Data>
+                <Data>-0.017202859696156758</Data>
+                <Data>-0.018096514745307768</Data>
+                <Data>-0.018990169794458778</Data>
+                <Data>-0.019883824843609788</Data>
+                <Data Repeat="3">-0.020777479892760797</Data>
+                <Data>-0.022117962466487423</Data>
+                <Data>-0.023458445040214049</Data>
+                <Data>-0.024798927613940674</Data>
+                <Data>-0.0261394101876673</Data>
+                <Data>-0.028150134048257058</Data>
+                <Data>-0.030160857908846816</Data>
+                <Data>-0.032171581769436575</Data>
+                <Data Repeat="4">-0.034182305630026333</Data>
+                <Data>-0.034718498659516948</Data>
+                <Data>-0.035254691689007564</Data>
+                <Data>-0.035790884718498187</Data>
+                <Data>-0.0363270777479888</Data>
+                <Data>-0.036863270777479418</Data>
+                <Data>-0.038203753351205995</Data>
+                <Data>-0.039544235924932579</Data>
+                <Data>-0.040884718498659156</Data>
+                <Data>-0.042225201072385733</Data>
+                <Data>-0.043565683646112317</Data>
+                <Data Repeat="6">-0.044906166219838894</Data>
+                <Data>-0.045289161240903618</Data>
+                <Data>-0.045672156261968348</Data>
+                <Data>-0.046055151283033072</Data>
+                <Data>-0.0464381463040978</Data>
+                <Data>-0.046821141325162526</Data>
+                <Data>-0.047204136346227256</Data>
+                <Data>-0.047587131367291979</Data>
+                <Data>-0.048123324396782574</Data>
+                <Data>-0.048659517426273169</Data>
+                <Data>-0.049195710455763764</Data>
+                <Data>-0.049731903485254358</Data>
+                <Data>-0.050268096514744953</Data>
+                <Data>-0.050938337801608211</Data>
+                <Data>-0.051608579088471468</Data>
+                <Data>-0.052278820375334725</Data>
+                <Data>-0.052949061662197983</Data>
+                <Data>-0.05361930294906124</Data>
+                <Data>-0.0542895442359245</Data>
+                <Data>-0.054959785522787755</Data>
+                <Data>-0.055630026809651012</Data>
+                <Data>-0.05607685433422651</Data>
+                <Data>-0.056523681858802</Data>
+                <Data>-0.0569705093833775</Data>
+                <Data>-0.057417336907953</Data>
+                <Data>-0.057864164432528488</Data>
+                <Data>-0.058310991957103986</Data>
+                <Data>-0.059842972041362921</Data>
+                <Data>-0.061374952125621864</Data>
+                <Data>-0.062906932209880792</Data>
+                <Data>-0.064438912294139741</Data>
+                <Data>-0.065970892378398677</Data>
+                <Data>-0.067502872462657612</Data>
+                <Data Repeat="6">-0.069034852546916547</Data>
+                <Data>-0.0710455764075063</Data>
+                <Data>-0.073056300268096064</Data>
+                <Data>-0.075067024128685822</Data>
+                <Data>-0.07707774798927558</Data>
+                <Data>-0.077412868632707271</Data>
+                <Data>-0.077747989276138962</Data>
+                <Data>-0.078083109919570654</Data>
+                <Data>-0.078418230563002345</Data>
+                <Data>-0.078753351206434036</Data>
+                <Data>-0.079088471849865727</Data>
+                <Data>-0.079423592493297418</Data>
+                <Data Repeat="4">-0.079758713136729109</Data>
+                <Data>-0.081769436997318867</Data>
+                <Data>-0.083780160857908625</Data>
+                <Data>-0.085790884718498384</Data>
+                <Data Repeat="3">-0.087801608579088142</Data>
+                <Data>-0.088471849865951385</Data>
+                <Data>-0.089142091152814629</Data>
+                <Data>-0.089812332439677872</Data>
+                <Data>-0.090482573726541116</Data>
+                <Data>-0.093163538873994145</Data>
+                <Data>-0.095844504021447174</Data>
+                <Data>-0.098525469168900426</Data>
+                <Data Repeat="3">-0.10120643431635368</Data>
+                <Data>-0.10388739946380665</Data>
+                <Data>-0.10656836461125968</Data>
+                <Data>-0.10924932975871271</Data>
+                <Data>-0.1097855227882033</Data>
+                <Data>-0.1103217158176939</Data>
+                <Data>-0.11085790884718449</Data>
+                <Data>-0.11139410187667509</Data>
+                <Data>-0.11193029490616568</Data>
+                <Data>-0.11595174262734548</Data>
+                <Data>-0.11997319034852527</Data>
+                <Data>-0.12131367292225176</Data>
+                <Data>-0.12265415549597825</Data>
+                <Data>-0.1280160857908843</Data>
+                <Data>-0.13069705093833728</Data>
+                <Data>-0.13337801608579025</Data>
+                <Data>-0.13427167113494146</Data>
+                <Data>-0.13516532618409269</Data>
+                <Data>-0.13605898123324389</Data>
+                <Data>-0.1396336014298479</Data>
+                <Data>-0.14320822162645189</Data>
+                <Data>-0.1467828418230559</Data>
+                <Data>-0.14892761394101842</Data>
+                <Data>-0.15107238605898093</Data>
+                <Data>-0.15321715817694342</Data>
+                <Data>-0.15536193029490594</Data>
+                <Data>-0.15750670241286846</Data>
+                <Data>-0.16018766756032143</Data>
+                <Data>-0.16286863270777441</Data>
+                <Data>-0.16465594280607643</Data>
+                <Data>-0.16644325290437845</Data>
+                <Data>-0.16823056300268047</Data>
+                <Data>-0.17225201072386026</Data>
+                <Data>-0.17627345844504005</Data>
+                <Data>-0.18029490616621952</Data>
+                <Data>-0.18431635388739898</Data>
+                <Data>-0.186997319034852</Data>
+                <Data>-0.18967828418230503</Data>
+                <Data>-0.19235924932975829</Data>
+                <Data>-0.19504021447721154</Data>
+                <Data>-0.19906166219839105</Data>
+                <Data>-0.20308310991957057</Data>
+                <Data>-0.20844504021447663</Data>
+                <Data>-0.21045576407506653</Data>
+                <Data>-0.21246648793565642</Data>
+                <Data>-0.21447721179624632</Data>
+                <Data>-0.21648793565683622</Data>
+                <Data>-0.22453083109919525</Data>
+                <Data>-0.22989276139410153</Data>
+                <Data>-0.23525469168900781</Data>
+                <Data>-0.23793565683646078</Data>
+                <Data>-0.24061662198391376</Data>
+                <Data>-0.24329758713136673</Data>
+                <Data>-0.24463806970509328</Data>
+                <Data>-0.24597855227881982</Data>
+                <Data>-0.250446827524575</Data>
+                <Data>-0.25491510277033019</Data>
+                <Data>-0.25938337801608535</Data>
+                <Data>-0.26117068811438737</Data>
+                <Data>-0.26295799821268939</Data>
+                <Data>-0.26474530831099141</Data>
+                <Data>-0.2665326184092936</Data>
+                <Data>-0.26831992850759573</Data>
+                <Data>-0.27010723860589791</Data>
+                <Data>-0.27815013404825695</Data>
+                <Data>-0.28083109919571</Data>
+                <Data>-0.283512064343163</Data>
+                <Data>-0.28619302949061654</Data>
+                <Data>-0.28708668453976754</Data>
+                <Data>-0.2879803395889185</Data>
+                <Data>-0.28887399463806951</Data>
+                <Data>-0.29155495978552254</Data>
+                <Data>-0.29423592493297557</Data>
+                <Data>-0.29781054512957977</Data>
+                <Data>-0.30138516532618392</Data>
+                <Data>-0.30495978552278813</Data>
+                <Data>-0.30630026809651462</Data>
+                <Data>-0.3076407506702411</Data>
+                <Data>-0.30898123324396759</Data>
+                <Data>-0.31032171581769408</Data>
+                <Data>-0.31300268096514711</Data>
+                <Data Repeat="4">-0.31568364611260014</Data>
+                <Data>-0.3174709562109021</Data>
+                <Data>-0.31925826630920412</Data>
+                <Data Repeat="2">-0.32372654155495961</Data>
+                <Data>-0.32640750670241264</Data>
+                <Data>-0.32908847184986567</Data>
+                <Data Repeat="10">-0.33176943699731865</Data>
+                <Data>-0.33310991957104519</Data>
+                <Data Repeat="5">-0.33445040214477173</Data>
+                <Data>-0.33552278820375292</Data>
+                <Data>-0.33659517426273411</Data>
+                <Data>-0.3376675603217153</Data>
+                <Data>-0.33873994638069649</Data>
+                <Data Repeat="3">-0.33981233243967768</Data>
+                <Data>-0.34070598748882891</Data>
+                <Data>-0.34159964253798</Data>
+                <Data>-0.34249329758713126</Data>
+                <Data Repeat="2">-0.34249329758713121</Data>
+                <Data>-0.34383378016085775</Data>
+                <Data Repeat="2">-0.34517426273458429</Data>
+                <Data>-0.34785522788203727</Data>
+                <Data Repeat="3">-0.35053619302949024</Data>
+                <Data>-0.35232350312779226</Data>
+                <Data>-0.35411081322609422</Data>
+                <Data Repeat="3">-0.3558981233243963</Data>
+                <Data>-0.35656836461125951</Data>
+                <Data>-0.35723860589812279</Data>
+                <Data>-0.35790884718498606</Data>
+                <Data Repeat="4">-0.35857908847184927</Data>
+                <Data Repeat="3">-0.3612600536193028</Data>
+                <Data Repeat="6">-0.36126005361930275</Data>
+                <Data Repeat="8">-0.3612600536193028</Data>
+                <Data Repeat="3">-0.36126005361930275</Data>
+                <Data Repeat="2">-0.3612600536193028</Data>
+                <Data Repeat="3">-0.36126005361930275</Data>
+                <Data Repeat="7">-0.3612600536193028</Data>
+                <Data>-0.35857908847184955</Data>
+                <Data Repeat="3">-0.3558981233243963</Data>
+                <Data>-0.35321715817694327</Data>
+                <Data>-0.35053619302949024</Data>
+                <Data>-0.34785522788203727</Data>
+                <Data>-0.34517426273458429</Data>
+                <Data>-0.34428060768543328</Data>
+                <Data>-0.34338695263628222</Data>
+                <Data>-0.34249329758713126</Data>
+                <Data>-0.33981233243967768</Data>
+                <Data>-0.33579088471849816</Data>
+                <Data>-0.33176943699731865</Data>
+                <Data>-0.32908847184986567</Data>
+                <Data>-0.32774798927613918</Data>
+                <Data>-0.3264075067024127</Data>
+                <Data>-0.32104557640750608</Data>
+                <Data>-0.31836461126005311</Data>
+                <Data>-0.31702412868632662</Data>
+                <Data>-0.31568364611260014</Data>
+                <Data>-0.31300268096514711</Data>
+                <Data>-0.31032171581769408</Data>
+                <Data>-0.3076407506702411</Data>
+                <Data>-0.30495978552278813</Data>
+                <Data>-0.30227882037533449</Data>
+                <Data>-0.29691689008042854</Data>
+                <Data>-0.29557640750670205</Data>
+                <Data>-0.29423592493297557</Data>
+                <Data>-0.29021447721179605</Data>
+                <Data>-0.28619302949061654</Data>
+                <Data>-0.28217158176943674</Data>
+                <Data>-0.27815013404825695</Data>
+                <Data Repeat="2">-0.27278820375335089</Data>
+                <Data>-0.26742627345844494</Data>
+                <Data>-0.26206434316353833</Data>
+                <Data>-0.25938337801608535</Data>
+                <Data>-0.25670241286863238</Data>
+                <Data>-0.25134048257372632</Data>
+                <Data>-0.24329758713136673</Data>
+                <Data>-0.24061662198391376</Data>
+                <Data>-0.23525469168900781</Data>
+                <Data>-0.23257372654155478</Data>
+                <Data>-0.22989276139410175</Data>
+                <Data>-0.22453083109919525</Data>
+                <Data>-0.22184986595174216</Data>
+                <Data>-0.21112600536193016</Data>
+                <Data>-0.20844504021447663</Data>
+                <Data>-0.20308310991957057</Data>
+                <Data>-0.2004021447721176</Data>
+                <Data>-0.19504021447721154</Data>
+                <Data>-0.19235924932975856</Data>
+                <Data>-0.18967828418230531</Data>
+                <Data>-0.18431635388739898</Data>
+                <Data Repeat="2">-0.181635388739946</Data>
+                <Data>-0.17359249329758697</Data>
+                <Data>-0.16823056300268047</Data>
+                <Data>-0.16554959785522749</Data>
+                <Data>-0.16286863270777446</Data>
+                <Data>-0.16018766756032143</Data>
+                <Data Repeat="2">-0.15482573726541538</Data>
+                <Data>-0.14946380697050887</Data>
+                <Data Repeat="2">-0.14678284182305584</Data>
+                <Data>-0.14410187667560281</Data>
+                <Data>-0.14008042895442335</Data>
+                <Data Repeat="2">-0.13337801608579025</Data>
+                <Data>-0.12935656836461079</Data>
+                <Data Repeat="2">-0.12533512064343133</Data>
+                <Data>-0.11997319034852527</Data>
+                <Data>-0.11729222520107202</Data>
+                <Data Repeat="2">-0.11193029490616568</Data>
+                <Data>-0.10924932975871271</Data>
+                <Data Repeat="2">-0.10388739946380665</Data>
+                <Data>-0.10120643431635368</Data>
+                <Data>-0.09986595174262719</Data>
+                <Data Repeat="2">-0.0985254691689007</Data>
+                <Data>-0.09316353887399409</Data>
+                <Data Repeat="2">-0.090482573726541116</Data>
+                <Data>-0.087801608579088142</Data>
+                <Data>-0.085120643431635112</Data>
+                <Data Repeat="2">-0.082439678284182083</Data>
+                <Data>-0.07707774798927558</Data>
+                <Data Repeat="4">-0.071715817694369521</Data>
+                <Data Repeat="5">-0.069034852546916547</Data>
+                <Data>-0.067694369973190061</Data>
+                <Data>-0.066353887399463574</Data>
+                <Data Repeat="2">-0.06233243967828378</Data>
+                <Data Repeat="4">-0.058310991957103986</Data>
+                <Data>-0.057417336907953</Data>
+                <Data Repeat="2">-0.056523681858802</Data>
+                <Data>-0.055630026809651012</Data>
+                <Data Repeat="2">-0.05428954423592447</Data>
+                <Data>-0.052949061662197927</Data>
+                <Data Repeat="4">-0.050268096514744953</Data>
+                <Data Repeat="2">-0.048927613941018466</Data>
+                <Data>-0.047587131367291979</Data>
+                <Data>-0.046246648793565437</Data>
+                <Data Repeat="2">-0.044906166219838894</Data>
+                <Data>-0.043565683646112269</Data>
+                <Data Repeat="2">-0.042225201072385643</Data>
+                <Data>-0.040884718498659017</Data>
+                <Data Repeat="4">-0.039544235924932392</Data>
+                <Data Repeat="2">-0.038471849865951181</Data>
+                <Data>-0.037399463806969971</Data>
+                <Data>-0.036327077747988754</Data>
+                <Data Repeat="2">-0.035254691689007543</Data>
+                <Data>-0.034182305630026333</Data>
+                <Data Repeat="2">-0.033288650580875344</Data>
+                <Data>-0.032394995531724348</Data>
+                <Data>-0.031501340482573359</Data>
+                <Data Repeat="2">-0.030965147453082764</Data>
+                <Data>-0.030428954423592169</Data>
+                <Data Repeat="2">-0.029892761394101575</Data>
+                <Data>-0.02935656836461098</Data>
+                <Data Repeat="7">-0.028820375335120385</Data>
+                <Data>-0.027926720285969358</Data>
+                <Data Repeat="2">-0.027033065236818327</Data>
+                <Data Repeat="3">-0.0261394101876673</Data>
+                <Data>-0.025469168900804057</Data>
+                <Data>-0.024798927613940813</Data>
+                <Data Repeat="2">-0.02412868632707757</Data>
+                <Data>-0.023458445040214326</Data>
+                <Data Repeat="2">-0.020777479892761075</Data>
+                <Data Repeat="18">-0.018096514745307823</Data>
+                <Data>-0.017202859696156796</Data>
+                <Data>-0.016309204647005766</Data>
+                <Data Repeat="149">-0.015415549597854739</Data>
+                <Data Repeat="11">-0.010053619302948791</Data>
+                <Data>-0.0087131367292223039</Data>
+                <Data Repeat="3">-0.0073726541554958169</Data>
+                <Data>-0.004691689008042732</Data>
+                <Data Repeat="2">-0.0033512064343159675</Data>
+                <Data Repeat="5">-0.002010723860589203</Data>
+              </Alpha>
+            </Parameter>
+          </Song>
+        </Unit>
+        <Unit Version="1.1" Id="" Category="TextVocal" Group="c1b2d602-b06f-4647-93ff-e62993a1b4bf" StartTime="00:00:04.3550000" Duration="00:00:02.3600000" Text="こんにちは、さとうささらです。" CastId="CTNV-JPF-A" Language="Japanese" SnapShot="8A11FA97A653AB69CCCCD398E72185DF:16B792A03C00E6E227D3809E66F91CEA">
+          <Metadata>MAEBAXNpbAEqASoBMAEBMAEwADUB44GT44KT44Gr44Gh44GvAuOAgQHjgrPjg7Pjg4vjg4Hjg68CAWssb3xOfG4saXxjaCxpfHcsYQJwYXUBKgIqASoCKgEwAjABbGhoaGgCbAEwAjABMAIwADEB44GV44Go44GGAeOCteODiOODvAFzLGF8dCxvfG8BKgEqATABaGxsATABMAA0AeOBleOBleOCiQLjgafjgZkB44K144K144OpAuODh+OCueKAmQFzLGF8cyxhfHIsYQJkLGV8cyxVASoCKgEqAioBMAIwAWxoaAJobAEwAjABMAIwADABAQFzaWwBKgEqATABATABMA==</Metadata>
+          <Direction Volume="0" Speed="1" Tone="0" Alpha="0.55" LogF0Scale="1">
+            <Component Name="CTNV-JPF-A_FINE" Value="1.00" />
+            <Component Name="CTNV-JPF-A_NORMAL" Value="0.00" />
+            <Component Name="CTNV-JPF-A_ANGRY" Value="0.00" />
+            <Component Name="CTNV-JPF-A_SAD" Value="0.00" />
+            <Component Name="CTNV-JPF-AHS2_HAPPY" Value="0.00" />
+            <Component Name="CTNV-JPF-AHS2_NORMAL" Value="1.00" />
+            <Component Name="CTNV-JPF-AHS2_ANGRY" Value="0.00" />
+            <Component Name="CTNV-JPF-AHS2_SAD" Value="0.00" />
+            <Component Name="CTNV-JPF-AHS2_CALM" Value="0.00" />
+            <Component Name="CTNV-JPF-FP5_BRIGHT" Value="0.00" />
+            <Component Name="CTNV-JPF-FP5_NORMAL" Value="1.00" />
+            <Component Name="CTNV-JPF-FP5_STRONG" Value="0.00" />
+            <Component Name="CTNV-JPF-FP5_DARK" Value="0.00" />
+            <Component Name="CTNV-JPF-FP4_BRIGHT" Value="0.00" />
+            <Component Name="CTNV-JPF-FP4_NORMAL" Value="1.00" />
+            <Component Name="CTNV-JPF-FP4_STRONG" Value="0.00" />
+            <Component Name="CTNV-JPF-FP4_DARK" Value="0.00" />
+            <Component Name="CTNV-JPF-AHS3_NORMAL" Value="1.00" />
+            <Component Name="CTNV-JPF-AHS3_ANGRY" Value="0.00" />
+            <Component Name="CTNV-JPF-AHS3_CALM" Value="0.00" />
+            <Component Name="CTNV-JPF-AHS3_SAD" Value="0.00" />
+            <Component Name="CTNV-JPF-AHS3_MILD" Value="0.00" />
+            <Component Name="CTNV-ENF-AHS3_NORMAL" Value="1.00" />
+            <Component Name="CTNV-ENF-AHS3_ANGRY" Value="0.00" />
+            <Component Name="CTNV-ENF-AHS3_CALM" Value="0.00" />
+            <Component Name="CTNV-ENF-AHS3_SAD" Value="0.00" />
+            <Component Name="CTNV-ENF-AHS3_MILD" Value="0.00" />
+            <Component Name="CTNV-JPF-AHS4_HAPPY" Value="0.00" />
+            <Component Name="CTNV-JPF-AHS4_NORMAL" Value="1.00" />
+            <Component Name="CTNV-JPF-AHS4_ANGRY" Value="0.00" />
+            <Component Name="CTNV-JPF-AHS4_SAD" Value="0.00" />
+            <Component Name="CTNV-JPF-AHS4_CALM" Value="0.00" />
+            <Component Name="CTNV-JPF-USTL1_HAPPY" Value="0.00" />
+            <Component Name="CTNV-JPF-USTL1_NORMAL" Value="1.00" />
+            <Component Name="CTNV-JPF-USTL1_ANGRY" Value="0.00" />
+            <Component Name="CTNV-JPF-USTL1_SAD" Value="0.00" />
+            <Component Name="CTNV-JPF-USTL1_CALM" Value="0.00" />
+            <Component Name="CTNV-JPF-ZNSN1_HAPPY" Value="0.00" />
+            <Component Name="CTNV-JPF-ZNSN1_NORMAL" Value="1.00" />
+            <Component Name="CTNV-JPF-ZNSN1_ANGRY" Value="0.00" />
+            <Component Name="CTNV-JPF-ZNSN1_SAD" Value="0.00" />
+            <Component Name="CTNV-JPF-B_COOL" Value="1.00" />
+            <Component Name="CTNV-JPF-B_BASHFUL" Value="0.00" />
+            <Component Name="CTNV-JPF-B_ANGRY" Value="0.00" />
+            <Component Name="CTNV-JPF-B_HAPPY" Value="0.00" />
+            <Component Name="CTNV-JPF-B_WHISPER" Value="0.00" />
+            <Component Name="CTNV-JPF-AHS7_HAPPY" Value="0.00" />
+            <Component Name="CTNV-JPF-AHS7_NORMAL" Value="1.00" />
+            <Component Name="CTNV-JPF-AHS7_ANGRY" Value="0.00" />
+            <Component Name="CTNV-JPF-AHS7_SAD" Value="0.00" />
+            <Component Name="CTNV-JPF-AHS7_CALM" Value="0.00" />
+          </Direction>
+          <Phonemes>
+            <Phoneme Data="k" />
+            <Phoneme Data="o" />
+            <Phoneme Data="N" />
+            <Phoneme Data="n" />
+            <Phoneme Data="i" />
+            <Phoneme Data="ch" />
+            <Phoneme Data="i" />
+            <Phoneme Data="w" />
+            <Phoneme Data="a" />
+            <Phoneme Speed="-0.11000000000000004" />
+            <Phoneme Data="s" />
+            <Phoneme Data="a" />
+            <Phoneme Data="t" />
+            <Phoneme Data="o" />
+            <Phoneme Data="o" />
+            <Phoneme Data="s" />
+            <Phoneme Data="a" />
+            <Phoneme Data="s" />
+            <Phoneme Data="a" />
+            <Phoneme Data="r" />
+            <Phoneme Data="a" />
+            <Phoneme Data="d" />
+            <Phoneme Data="e" />
+            <Phoneme Data="s" />
+            <Phoneme Data="U" />
+          </Phonemes>
+        </Unit>
+        <Unit Version="1.1" Id="" Category="TextVocal" Group="c1b2d602-b06f-4647-93ff-e62993a1b4bf" StartTime="00:00:07.9260000" Duration="00:00:04.8500000" Text="小春六花です…。ヨーグルトキャラになってます…。" CastId="CTNV-JPF-AHS2" Language="Japanese" SnapShot="F0AE47A3602D84FA7E41CE932EBA6D26:66A0FBBE1BEFBB028C3C97EB94750E8B">
+          <Metadata>MAEBAXNpbAEqASoBMAEBMAEwADQB5bCP5pil5YWt6IqxAuOBp+OBmQLigKYC44CCAeOCs+ODj+ODq+ODquODg+OCqwLjg4fjgrnigJkCAgFrLG98aCxhfHIsdXxyLGl8Y2x8ayxhAmQsZXxzLFUCAnBhdQEqAioCKgIqASoCKgIqAioBMAIwAjACMAFsaGhobGwCbGwCbAJsATACMAIwAjABMAIwAjECMAA2AeODqOODvOOCsOODq+ODiALjgq3jg6Pjg6kC44GrAeODqOODvOOCsOODq+ODiALjgq3jg6Pjg6kC44OLAXksb3xvfGcsdXxyLHV8dCxvAmt5LGF8cixhAm4saQEqAioCKgEqAioCKgEwAjACMAFsaGhoaAJobAJsATACMAIwATACMAIwADEB44Gq44GjAuOBpgLjgb7jgZkB44OK44ODAuODhgLjg57jgrnigJkBbixhfGNsAnQsZQJtLGF8cyxVASoCKgIqASoCKgIqATACMAIwAWhsAmwCbGwBMAIwAjABMAIwAjAAMAHigKYBAQEqASoBMAFsATABMQAwAQEBc2lsASoBKgEwAQEwATA=</Metadata>
+          <Direction Volume="0" Speed="0.8243726967146906" Tone="-1.1999999999999993" Alpha="0.55" LogF0Scale="1.12">
+            <Component Name="CTNV-JPF-A_FINE" Value="1.00" />
+            <Component Name="CTNV-JPF-A_NORMAL" Value="0.00" />
+            <Component Name="CTNV-JPF-A_ANGRY" Value="0.00" />
+            <Component Name="CTNV-JPF-A_SAD" Value="0.00" />
+            <Component Name="CTNV-JPF-AHS2_HAPPY" Value="0.00" />
+            <Component Name="CTNV-JPF-AHS2_NORMAL" Value="0.12" />
+            <Component Name="CTNV-JPF-AHS2_ANGRY" Value="0.00" />
+            <Component Name="CTNV-JPF-AHS2_SAD" Value="1.00" />
+            <Component Name="CTNV-JPF-AHS2_CALM" Value="0.00" />
+            <Component Name="CTNV-JPF-FP5_BRIGHT" Value="0.00" />
+            <Component Name="CTNV-JPF-FP5_NORMAL" Value="1.00" />
+            <Component Name="CTNV-JPF-FP5_STRONG" Value="0.00" />
+            <Component Name="CTNV-JPF-FP5_DARK" Value="0.00" />
+            <Component Name="CTNV-JPF-FP4_BRIGHT" Value="0.00" />
+            <Component Name="CTNV-JPF-FP4_NORMAL" Value="1.00" />
+            <Component Name="CTNV-JPF-FP4_STRONG" Value="0.00" />
+            <Component Name="CTNV-JPF-FP4_DARK" Value="0.00" />
+            <Component Name="CTNV-JPF-AHS3_NORMAL" Value="1.00" />
+            <Component Name="CTNV-JPF-AHS3_ANGRY" Value="0.00" />
+            <Component Name="CTNV-JPF-AHS3_CALM" Value="0.00" />
+            <Component Name="CTNV-JPF-AHS3_SAD" Value="0.00" />
+            <Component Name="CTNV-JPF-AHS3_MILD" Value="0.00" />
+            <Component Name="CTNV-ENF-AHS3_NORMAL" Value="1.00" />
+            <Component Name="CTNV-ENF-AHS3_ANGRY" Value="0.00" />
+            <Component Name="CTNV-ENF-AHS3_CALM" Value="0.00" />
+            <Component Name="CTNV-ENF-AHS3_SAD" Value="0.00" />
+            <Component Name="CTNV-ENF-AHS3_MILD" Value="0.00" />
+            <Component Name="CTNV-JPF-AHS4_HAPPY" Value="0.00" />
+            <Component Name="CTNV-JPF-AHS4_NORMAL" Value="1.00" />
+            <Component Name="CTNV-JPF-AHS4_ANGRY" Value="0.00" />
+            <Component Name="CTNV-JPF-AHS4_SAD" Value="0.00" />
+            <Component Name="CTNV-JPF-AHS4_CALM" Value="0.00" />
+            <Component Name="CTNV-JPF-USTL1_HAPPY" Value="0.00" />
+            <Component Name="CTNV-JPF-USTL1_NORMAL" Value="1.00" />
+            <Component Name="CTNV-JPF-USTL1_ANGRY" Value="0.00" />
+            <Component Name="CTNV-JPF-USTL1_SAD" Value="0.00" />
+            <Component Name="CTNV-JPF-USTL1_CALM" Value="0.00" />
+            <Component Name="CTNV-JPF-ZNSN1_HAPPY" Value="0.00" />
+            <Component Name="CTNV-JPF-ZNSN1_NORMAL" Value="1.00" />
+            <Component Name="CTNV-JPF-ZNSN1_ANGRY" Value="0.00" />
+            <Component Name="CTNV-JPF-ZNSN1_SAD" Value="0.00" />
+            <Component Name="CTNV-JPF-B_COOL" Value="1.00" />
+            <Component Name="CTNV-JPF-B_BASHFUL" Value="0.00" />
+            <Component Name="CTNV-JPF-B_ANGRY" Value="0.00" />
+            <Component Name="CTNV-JPF-B_HAPPY" Value="0.00" />
+            <Component Name="CTNV-JPF-B_WHISPER" Value="0.00" />
+            <Component Name="CTNV-JPF-AHS7_HAPPY" Value="0.00" />
+            <Component Name="CTNV-JPF-AHS7_NORMAL" Value="1.00" />
+            <Component Name="CTNV-JPF-AHS7_ANGRY" Value="0.00" />
+            <Component Name="CTNV-JPF-AHS7_SAD" Value="0.00" />
+            <Component Name="CTNV-JPF-AHS7_CALM" Value="0.00" />
+          </Direction>
+          <Phonemes>
+            <Phoneme Data="k" />
+            <Phoneme Data="o" />
+            <Phoneme Data="h" />
+            <Phoneme Data="a" />
+            <Phoneme Data="r" />
+            <Phoneme Data="u" />
+            <Phoneme Data="r" />
+            <Phoneme Data="i" />
+            <Phoneme Data="cl" />
+            <Phoneme Data="k" />
+            <Phoneme Data="a" />
+            <Phoneme Data="d" Volume="-0.70810681354440774" Speed="0.010746268656716448" />
+            <Phoneme Data="e" Volume="-0.70810681354440774" Speed="0.01552238805970152" />
+            <Phoneme Data="s" Volume="-0.70810681354440774" Speed="0.026268656716417926" />
+            <Phoneme Data="U" Volume="-0.70810681354440774" Speed="0.027462686567164246" />
+            <Phoneme Volume="0.17702670338610271" Speed="0.53357142857142881" />
+            <Phoneme Data="y" Tone="0.17217400232950997" />
+            <Phoneme Data="o" Tone="0.076538667389842274" />
+            <Phoneme Data="o" Tone="-0.026567414601642803" />
+            <Phoneme Data="g" Tone="0.02138644683055535" />
+            <Phoneme Data="u" Tone="-0.1346581141153953" />
+            <Phoneme Data="r" Tone="-0.067064391242131371" />
+            <Phoneme Data="u" Tone="-0.12614478486956848" />
+            <Phoneme Data="t" Tone="-0.11063273747761926" />
+            <Phoneme Data="o" Tone="-0.099600548744200879" />
+            <Phoneme Data="ky" />
+            <Phoneme Data="a" />
+            <Phoneme Data="r" />
+            <Phoneme Data="a" />
+            <Phoneme Data="n" Speed="0.016326530612244872" />
+            <Phoneme Data="i" Speed="0.012244897959183612" />
+            <Phoneme Data="n" />
+            <Phoneme Data="a" />
+            <Phoneme Data="cl" />
+            <Phoneme Data="t" />
+            <Phoneme Data="e" />
+            <Phoneme Data="m" />
+            <Phoneme Data="a" />
+            <Phoneme Data="s" />
+            <Phoneme Data="U" Volume="-0.33859045299054014" />
+          </Phonemes>
+        </Unit>
+        <Unit Version="1.1" Id="" Category="TextVocal" Group="07170d83-9e5e-4ec3-acef-b761800b6932" StartTime="00:00:06.6590000" Duration="00:00:01.3600000" Text="すずきつづみよ。" CastId="CTNV-JPF-B" Language="Japanese" SnapShot="B66DB5259162EAE9CDC0062161D7368F:671F86106F5D4333F4F92F9AE1B8BA81">
+          <Metadata>MAEBAXNpbAEqASoBMAEBMAEwADAB44GZ44Ga44GNAeOCueOCuuOCreKAmQFzLHV8eix1fGssSQEqASoBMAFsaGgBMAEwADAB44Gk44Gl44G/AuOCiAHjg4Tjg4Xjg58C44OoAXRzLHV8eix1fG0saQJ5LG8BKgIqASoCKgEwAjABbGhoAmgBMAIwATACMAAwAQEBc2lsASoBKgEwAQEwATA=</Metadata>
+          <Direction Volume="0" Speed="1" Tone="0" Alpha="0.55" LogF0Scale="1">
+            <Component Name="CTNV-JPF-A_FINE" Value="1.00" />
+            <Component Name="CTNV-JPF-A_NORMAL" Value="0.00" />
+            <Component Name="CTNV-JPF-A_ANGRY" Value="0.00" />
+            <Component Name="CTNV-JPF-A_SAD" Value="0.00" />
+            <Component Name="CTNV-JPF-AHS2_HAPPY" Value="0.00" />
+            <Component Name="CTNV-JPF-AHS2_NORMAL" Value="1.00" />
+            <Component Name="CTNV-JPF-AHS2_ANGRY" Value="0.00" />
+            <Component Name="CTNV-JPF-AHS2_SAD" Value="0.00" />
+            <Component Name="CTNV-JPF-AHS2_CALM" Value="0.00" />
+            <Component Name="CTNV-JPF-FP5_BRIGHT" Value="0.00" />
+            <Component Name="CTNV-JPF-FP5_NORMAL" Value="1.00" />
+            <Component Name="CTNV-JPF-FP5_STRONG" Value="0.00" />
+            <Component Name="CTNV-JPF-FP5_DARK" Value="0.00" />
+            <Component Name="CTNV-JPF-FP4_BRIGHT" Value="0.00" />
+            <Component Name="CTNV-JPF-FP4_NORMAL" Value="1.00" />
+            <Component Name="CTNV-JPF-FP4_STRONG" Value="0.00" />
+            <Component Name="CTNV-JPF-FP4_DARK" Value="0.00" />
+            <Component Name="CTNV-JPF-AHS3_NORMAL" Value="1.00" />
+            <Component Name="CTNV-JPF-AHS3_ANGRY" Value="0.00" />
+            <Component Name="CTNV-JPF-AHS3_CALM" Value="0.00" />
+            <Component Name="CTNV-JPF-AHS3_SAD" Value="0.00" />
+            <Component Name="CTNV-JPF-AHS3_MILD" Value="0.00" />
+            <Component Name="CTNV-ENF-AHS3_NORMAL" Value="1.00" />
+            <Component Name="CTNV-ENF-AHS3_ANGRY" Value="0.00" />
+            <Component Name="CTNV-ENF-AHS3_CALM" Value="0.00" />
+            <Component Name="CTNV-ENF-AHS3_SAD" Value="0.00" />
+            <Component Name="CTNV-ENF-AHS3_MILD" Value="0.00" />
+            <Component Name="CTNV-JPF-AHS4_HAPPY" Value="0.00" />
+            <Component Name="CTNV-JPF-AHS4_NORMAL" Value="1.00" />
+            <Component Name="CTNV-JPF-AHS4_ANGRY" Value="0.00" />
+            <Component Name="CTNV-JPF-AHS4_SAD" Value="0.00" />
+            <Component Name="CTNV-JPF-AHS4_CALM" Value="0.00" />
+            <Component Name="CTNV-JPF-USTL1_HAPPY" Value="0.00" />
+            <Component Name="CTNV-JPF-USTL1_NORMAL" Value="1.00" />
+            <Component Name="CTNV-JPF-USTL1_ANGRY" Value="0.00" />
+            <Component Name="CTNV-JPF-USTL1_SAD" Value="0.00" />
+            <Component Name="CTNV-JPF-USTL1_CALM" Value="0.00" />
+            <Component Name="CTNV-JPF-ZNSN1_HAPPY" Value="0.00" />
+            <Component Name="CTNV-JPF-ZNSN1_NORMAL" Value="1.00" />
+            <Component Name="CTNV-JPF-ZNSN1_ANGRY" Value="0.00" />
+            <Component Name="CTNV-JPF-ZNSN1_SAD" Value="0.00" />
+            <Component Name="CTNV-JPF-B_COOL" Value="1.00" />
+            <Component Name="CTNV-JPF-B_BASHFUL" Value="0.00" />
+            <Component Name="CTNV-JPF-B_ANGRY" Value="0.00" />
+            <Component Name="CTNV-JPF-B_HAPPY" Value="0.00" />
+            <Component Name="CTNV-JPF-B_WHISPER" Value="0.00" />
+            <Component Name="CTNV-JPF-AHS7_HAPPY" Value="0.00" />
+            <Component Name="CTNV-JPF-AHS7_NORMAL" Value="1.00" />
+            <Component Name="CTNV-JPF-AHS7_ANGRY" Value="0.00" />
+            <Component Name="CTNV-JPF-AHS7_SAD" Value="0.00" />
+            <Component Name="CTNV-JPF-AHS7_CALM" Value="0.00" />
+          </Direction>
+          <Phonemes>
+            <Phoneme Data="s" />
+            <Phoneme Data="u" />
+            <Phoneme Data="z" />
+            <Phoneme Data="u" />
+            <Phoneme Data="k" />
+            <Phoneme Data="I" />
+            <Phoneme Data="ts" />
+            <Phoneme Data="u" />
+            <Phoneme Data="z" />
+            <Phoneme Data="u" />
+            <Phoneme Data="m" />
+            <Phoneme Data="i" />
+            <Phoneme Data="y" />
+            <Phoneme Data="o" />
+          </Phonemes>
+        </Unit>
+        <Unit Version="1.1" Id="" Category="TextVocal" Group="07170d83-9e5e-4ec3-acef-b761800b6932" StartTime="00:00:08.5190000" Duration="00:00:01.6250000" Text="Hi! I'm Maki!" CastId="CTNV-ENF-AHS3" Language="English">
+          <Direction Volume="0" Speed="1" Tone="0" Alpha="0.55" LogF0Scale="1">
+            <Component Name="CTNV-JPF-A_FINE" Value="1.00" />
+            <Component Name="CTNV-JPF-A_NORMAL" Value="0.00" />
+            <Component Name="CTNV-JPF-A_ANGRY" Value="0.00" />
+            <Component Name="CTNV-JPF-A_SAD" Value="0.00" />
+            <Component Name="CTNV-JPF-AHS2_HAPPY" Value="0.00" />
+            <Component Name="CTNV-JPF-AHS2_NORMAL" Value="1.00" />
+            <Component Name="CTNV-JPF-AHS2_ANGRY" Value="0.00" />
+            <Component Name="CTNV-JPF-AHS2_SAD" Value="0.00" />
+            <Component Name="CTNV-JPF-AHS2_CALM" Value="0.00" />
+            <Component Name="CTNV-JPF-FP5_BRIGHT" Value="0.00" />
+            <Component Name="CTNV-JPF-FP5_NORMAL" Value="1.00" />
+            <Component Name="CTNV-JPF-FP5_STRONG" Value="0.00" />
+            <Component Name="CTNV-JPF-FP5_DARK" Value="0.00" />
+            <Component Name="CTNV-JPF-FP4_BRIGHT" Value="0.00" />
+            <Component Name="CTNV-JPF-FP4_NORMAL" Value="1.00" />
+            <Component Name="CTNV-JPF-FP4_STRONG" Value="0.00" />
+            <Component Name="CTNV-JPF-FP4_DARK" Value="0.00" />
+            <Component Name="CTNV-JPF-AHS3_NORMAL" Value="1.00" />
+            <Component Name="CTNV-JPF-AHS3_ANGRY" Value="0.00" />
+            <Component Name="CTNV-JPF-AHS3_CALM" Value="0.00" />
+            <Component Name="CTNV-JPF-AHS3_SAD" Value="0.00" />
+            <Component Name="CTNV-JPF-AHS3_MILD" Value="0.00" />
+            <Component Name="CTNV-ENF-AHS3_NORMAL" Value="1.00" />
+            <Component Name="CTNV-ENF-AHS3_ANGRY" Value="0.00" />
+            <Component Name="CTNV-ENF-AHS3_CALM" Value="0.00" />
+            <Component Name="CTNV-ENF-AHS3_SAD" Value="0.00" />
+            <Component Name="CTNV-ENF-AHS3_MILD" Value="0.00" />
+            <Component Name="CTNV-JPF-AHS4_HAPPY" Value="0.00" />
+            <Component Name="CTNV-JPF-AHS4_NORMAL" Value="1.00" />
+            <Component Name="CTNV-JPF-AHS4_ANGRY" Value="0.00" />
+            <Component Name="CTNV-JPF-AHS4_SAD" Value="0.00" />
+            <Component Name="CTNV-JPF-AHS4_CALM" Value="0.00" />
+            <Component Name="CTNV-JPF-USTL1_HAPPY" Value="0.00" />
+            <Component Name="CTNV-JPF-USTL1_NORMAL" Value="1.00" />
+            <Component Name="CTNV-JPF-USTL1_ANGRY" Value="0.00" />
+            <Component Name="CTNV-JPF-USTL1_SAD" Value="0.00" />
+            <Component Name="CTNV-JPF-USTL1_CALM" Value="0.00" />
+            <Component Name="CTNV-JPF-ZNSN1_HAPPY" Value="0.00" />
+            <Component Name="CTNV-JPF-ZNSN1_NORMAL" Value="1.00" />
+            <Component Name="CTNV-JPF-ZNSN1_ANGRY" Value="0.00" />
+            <Component Name="CTNV-JPF-ZNSN1_SAD" Value="0.00" />
+            <Component Name="CTNV-JPF-B_COOL" Value="1.00" />
+            <Component Name="CTNV-JPF-B_BASHFUL" Value="0.00" />
+            <Component Name="CTNV-JPF-B_ANGRY" Value="0.00" />
+            <Component Name="CTNV-JPF-B_HAPPY" Value="0.00" />
+            <Component Name="CTNV-JPF-B_WHISPER" Value="0.00" />
+            <Component Name="CTNV-JPF-AHS7_HAPPY" Value="0.00" />
+            <Component Name="CTNV-JPF-AHS7_NORMAL" Value="1.00" />
+            <Component Name="CTNV-JPF-AHS7_ANGRY" Value="0.00" />
+            <Component Name="CTNV-JPF-AHS7_SAD" Value="0.00" />
+            <Component Name="CTNV-JPF-AHS7_CALM" Value="0.00" />
+          </Direction>
+          <Phonemes>
+            <Phoneme Data="hh" />
+            <Phoneme Data="ay" Volume="0.23025850929940539" />
+            <Phoneme Speed="0.12392857142857155" />
+            <Phoneme Data="ay" />
+            <Phoneme Data="m" />
+            <Phoneme Data="m" />
+            <Phoneme Data="aa" />
+            <Phoneme Data="k" />
+            <Phoneme Data="iy" />
+          </Phonemes>
+          <Metadata_EN>
+            <Base>
+              <acoustic_phrase>
+                <word phoneme="sil" pronunciation=""></word>
+                <word phoneme="hh,ay" pronunciation="hh,ay1" pos="n">Hi</word>
+                <word phoneme="pau" pronunciation="" pos="punc">!</word>
+              </acoustic_phrase>
+              <acoustic_phrase>
+                <word phoneme="ay,m" pronunciation="ay1,m" pos="n">I'm</word>
+                <word phoneme="m,aa|k,iy" pronunciation="m,aa1|k,iy0" pos="n">Maki</word>
+                <word phoneme="sil" pronunciation="" pos="punc">!</word>
+              </acoustic_phrase>
+            </Base>
+            <Edited>
+              <acoustic_phrase>
+                <word phoneme="sil" pronunciation=""></word>
+                <word phoneme="hh,ay" pronunciation="hh,ay1" pos="n">Hi</word>
+                <word phoneme="pau" pronunciation="" pos="punc">!</word>
+              </acoustic_phrase>
+              <acoustic_phrase>
+                <word phoneme="ay,m" pronunciation="ay2,m" pos="n">I'm</word>
+                <word phoneme="m,aa|k,iy" pronunciation="m,aa1|k,iy0" pos="n">Maki</word>
+                <word phoneme="sil" pronunciation="" pos="punc">!</word>
+              </acoustic_phrase>
+            </Edited>
+          </Metadata_EN>
+        </Unit>
+        <Unit Version="1.0" Id="" Category="SingerSong" Group="97d3f6eb-9913-408b-9941-bed246145962" StartTime="00:00:00" Duration="00:00:10.0390000" CastId="CSNV-ENF-FP5" Language="Japanese">
+          <Song Version="1.07">
+            <Tempo>
+              <Sound Clock="0" Tempo="123" />
+              <Sound Clock="7680" Tempo="88" />
+            </Tempo>
+            <Beat>
+              <Time Clock="0" Beats="8" BeatType="8" />
+              <Time Clock="7680" Beats="3" BeatType="4" />
+            </Beat>
+            <Score>
+              <Key Clock="0" Fifths="0" Mode="0" />
+              <Dynamics Clock="0" Value="5" />
+              <Note Clock="3840" PitchStep="10" PitchOctave="3" Duration="960" Lyric="Ti" DoReMi="true" />
+              <Note Clock="4800" PitchStep="0" PitchOctave="4" Duration="960" Lyric="Do" DoReMi="true" />
+              <Note Clock="5760" PitchStep="2" PitchOctave="4" Duration="960" Lyric="Re" DoReMi="true" />
+              <Note Clock="6720" PitchStep="3" PitchOctave="4" Duration="960" Lyric="Mi" DoReMi="true" />
+              <Note Clock="7680" PitchStep="0" PitchOctave="4" Duration="960" Lyric="Do" DoReMi="true" />
+              <Note Clock="8640" PitchStep="2" PitchOctave="4" Duration="960" Lyric="Re" DoReMi="true" SlurStart="true" Syllabic="1" />
+              <Note Clock="9600" PitchStep="4" PitchOctave="4" Duration="960" Lyric="-Mi" SlurStop="true" Syllabic="2" />
+              <Note Clock="10560" PitchStep="5" PitchOctave="4" Duration="960" Lyric="-Fa" Syllabic="3" />
+            </Score>
+          </Song>
+        </Unit>
+      </Units>
+      <Groups ActiveGroup="97d3f6eb-9913-408b-9941-bed246145962">
+        <Group Version="1.0" Id="c1b2d602-b06f-4647-93ff-e62993a1b4bf" Category="TextVocal" Name="トーク" Color="#FF267CCB" Volume="0" Pan="0" IsSolo="false" IsMuted="false" CastId="Mixed" Language="Japanese" />
+        <Group Version="1.0" Id="07170d83-9e5e-4ec3-acef-b761800b6932" Category="TextVocal" Name="トーク2" Color="#FF267CCB" Volume="0" Pan="0" IsSolo="false" IsMuted="false" CastId="Mixed" Language="Japanese" SnapShot="68D73B4D854FB492724B107E4AF5CEB4" />
+        <Group Version="1.0" Id="68ebc1fd-93dc-445d-9d13-9a3274df102d" Category="SingerSong" Name="ソング" Color="#FFAF1F14" Volume="0" Pan="0" IsSolo="false" IsMuted="false" CastId="CSNV-JPF-A" Language="Japanese" />
+        <Group Version="1.0" Id="97d3f6eb-9913-408b-9941-bed246145962" Category="SingerSong" Name="EnglishSong" Color="#FFAF1F14" Volume="0" Pan="0" IsSolo="false" IsMuted="false" CastId="CSNV-ENF-FP5" Language="English" />
+        <Group Version="1.0" Id="1b852365-3f21-4b9d-83be-a33f965b35ff" Category="OuterAudio" Name="オーディオ" Color="#FF008000" Volume="0" Pan="0" IsSolo="false" IsMuted="false" CastId="Mixed" Language="Japanese" />
+      </Groups>
+      <SoundSetting Rhythm="4/4" Tempo="78" MasterVolume="0" />
+    </Scene>
+  </Sequence>
+</Scenario>
