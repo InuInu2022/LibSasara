@@ -401,7 +401,7 @@ internal class CeVIOService{
 		{
 			FileName = Path.Combine(
 				AppDomain.CurrentDomain.BaseDirectory,
-				@"..\..\..\server\FluentCeVIOWrapper.Server.exe"
+				@".\server\FluentCeVIOWrapper.Server.exe"
 			),
 			Arguments = $"-cevio {TTS}",
 			CreateNoWindow = true,

@@ -4,12 +4,58 @@
     <TargetFramework>net7.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <PublishSingleFile>true</PublishSingleFile>
+    <EnableCompressionInSingleFile>true</EnableCompressionInSingleFile>
+    <IncludeNativeLibrariesForSelfExtract>true</IncludeNativeLibrariesForSelfExtract>
+    <RuntimeIdentifier>win-x64</RuntimeIdentifier>
+    <Deterministic>true</Deterministic>
+    <DeterministicSourceRoot>/_/</DeterministicSourceRoot>
+    <RepoRoot>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\..\'))</RepoRoot>
+    <PathMap>$(RepoRoot)=$(DeterministicSourceRoot)</PathMap>
+    <DebugSymbols Condition="'$(Configuration)' == 'Release'">false</DebugSymbols>
+    <DebugType Condition="'$(Configuration)' == 'Release'">embedded</DebugType>
+    <DebugType Condition="'$(Configuration)' == 'Debug'">embedded</DebugType>
+    <!-- MinVer -->
+    <MinVerTagPrefix>v</MinVerTagPrefix>
+    <MinVerMinimumMajorMinor>0.1</MinVerMinimumMajorMinor>
   </PropertyGroup>
+  <Target Name="RemovePublishDirBeforeBuild" BeforeTargets="BeforeBuild">
+    <RemoveDir Directories="$(OutputPath)/publish/" />
+    <Message Text="RemovePublishDirBeforeBuild" Importance="high" />
+  </Target>
+  <Target Name="MakeZipPackage" AfterTargets="Publish">
+    <MakeDir Directories="$(OutputPath)/_publish/" />
+    <Delete Files="$(OutputPath)/LibSasara.xml" />
+    <Delete Files="$(OutputPath)/(AssemblyName).pdb" />
+    <Delete Files="$(OutputPath)/publish/LibSasara.xml" />
+    <Delete Files="$(OutputPath)/publish/(AssemblyName).pdb" />
+    <ZipDirectory SourceDirectory="$(OutputPath)/publish/" DestinationFile="$(OutputPath)/_publish/$(AssemblyName)-$(Platform)-v.$(Version).zip" Overwrite="true" />
+    <Message Text="Actions After Publish" Importance="high" />
+  </Target>
   <ItemGroup>
+    <!-- アプリに付与するファイル -->
+    <Content Include="./Licenses/*/*">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+    </Content>
+    <Content Include="./README.md">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+    </Content>
+    <Content Include="./server/*">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+    </Content>
+    <None Update="./LibSasara.xml" ExcludeFromSingleFile="true" />
+
     <PackageReference Include="ConsoleAppFramework" Version="4.2.4" />
     <PackageReference Include="DotnetWorld" Version="1.2.5" />
     <PackageReference Include="FluentCeVIOWrapper" Version="0.1.5" />
     <PackageReference Include="MathNet.Numerics" Version="5.0.0" />
+    <PackageReference Include="MinVer" Version="4.2.0">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
     <PackageReference Include="NAudio" Version="2.1.0" />
     <PackageReference Include="System.Linq.Async" Version="6.0.1" />
   </ItemGroup>
