@@ -80,6 +80,7 @@ The .NET library for convenient handling of project files (`.ccs`), track files 
 - LibSasara
   - [System.Threading.Tasks.Extensions](https://www.nuget.org/packages/System.Threading.Tasks.Extensions/)
   - [System.Memory](https://www.nuget.org/packages/System.Memory)
+  - [MinVer](https://github.com/adamralph/minver)
 - test
   - [xunit](https://github.com/xunit/xunit)
   - [coverlet.collector](https://github.com/coverlet-coverage/coverlet)
