@@ -164,7 +164,7 @@ internal class CeVIOService{
 			.SelectAwait(async (v, i) =>
 			{
 				//"っ"
-				return await REplaceCloseConsonantAsync(v, i, notes);
+				return await ReplaceCloseConsonantAsync(v, i, notes);
 			})
 			/*.SelectAwait(async v =>
 			{
@@ -269,7 +269,7 @@ internal class CeVIOService{
     /// <param name="i"></param>
     /// <param name="notes"></param>
     /// <returns></returns>
-	private async ValueTask<Note> REplaceCloseConsonantAsync(Note v, int i, List<Note> notes)
+	private async ValueTask<Note> ReplaceCloseConsonantAsync(Note v, int i, List<Note> notes)
 	{
 		//TODO:「っ」で始まる複数文字の歌詞の場合の対応
 		if (v.Lyric != "っ")
