@@ -29,7 +29,7 @@
     <Delete Files="$(OutputPath)/(AssemblyName).pdb" />
     <Delete Files="$(OutputPath)/publish/LibSasara.xml" />
     <Delete Files="$(OutputPath)/publish/(AssemblyName).pdb" />
-    <ZipDirectory SourceDirectory="$(OutputPath)/publish/" DestinationFile="$(OutputPath)/_publish/$(AssemblyName)-$(Platform)-v.$(Version).zip" Overwrite="true" />
+    <ZipDirectory SourceDirectory="$(OutputPath)/publish/" DestinationFile="$(OutputPath)/_publish/$(AssemblyName)-v.$(Version).zip" Overwrite="true" />
     <Message Text="Actions After Publish" Importance="high" />
   </Target>
   <ItemGroup>
