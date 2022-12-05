@@ -74,6 +74,10 @@ The .NET library for convenient handling of project files (`.ccs`), track files 
   - ソングのtickは相対時間
 - [ ] [FluentCeVIOWrapper](https://github.com/InuInu2022/FluentCeVIOWrapper)との連携 / [FluentCeVIOWrapper](https://github.com/InuInu2022/FluentCeVIOWrapper) integration extension
   - `LibSasara.Extensions.FluentCeVIO`
+- [ ] YMM4との連携 / YMM4 integration extension
+  - `LibSasara.Extensions.YMM4`
+- [ ] [OpenTimelineIO](https://github.com/AcademySoftwareFoundation/OpenTimelineIO) (OTIO) との連携 / [OpenTimelineIO](https://github.com/AcademySoftwareFoundation/OpenTimelineIO) integration extension
+  - `LibSasara.Extensions.OTIO`
 
 ## Libraries
 
