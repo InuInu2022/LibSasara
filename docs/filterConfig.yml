@@ -1,0 +1,21 @@
+apiRules:
+- include:
+    uidRegex: ^Global
+    type: Namespace
+- exclude:
+    uidRegex: ^System\.Object
+    type: Type
+- exclude:
+    uidRegex: ^LibSasara\.Model\.Note\.[a-zA-Z]+Specified$
+    type: Property
+- exclude:
+    hasAttribute:
+      uid: System.ComponentModel.EditorBrowsableAttribute
+      ctorArguments:
+      - System.ComponentModel.EditorBrowsableState.Never
+- exclude:
+    hasAttribute:
+      uid: System.ComponentModel.Obsolete
+- exclude:
+    uidRegex: ^LibSasara\.Model\.Serialize\..*\.[a-zA-Z]+Specified$
+    type: Property

@@ -1,0 +1,80 @@
+{
+  "metadata": [
+    {
+      "src": [
+        {
+          "files": ["*.csproj"],
+          "exclude": [ "**/bin/**", "**/obj/**" ],
+          "src": "../LibSasara/"
+        }
+      ],
+      "dest": "api",
+      "filter":"filterConfig.yml",
+      "disableGitFeatures": true,
+      "disableDefaultFilter": false,
+      "properties": {
+        "TargetFramework": "netstandard2.0"
+      }
+    }
+  ],
+  "build": {
+    "content": [
+      {
+        "files": [
+          "api/**.yml",
+          "api/index.md"
+        ]
+      },
+      {
+        "files": [
+          "articles/**.md",
+          "articles/**/toc.yml",
+          "toc.yml",
+          "*.md"
+        ]
+      }
+    ],
+    "resource": [
+      {
+        "files": [
+          "images/**"
+        ]
+      }
+    ],
+    "overwrite": [
+      {
+        "files": [
+          "apidoc/**.md"
+        ],
+        "exclude": [
+          "obj/**",
+          "_site/**"
+        ]
+      }
+    ],
+    "dest": "_site",
+    "globalMetadata": {
+      "_appTitle": "Documentation - LibSasara",
+    	"_appFooter": "LibSasara",
+      "_appLogoPath": "images/LibSasara_icon_48x48.png",
+      "_appFaviconPath": "images/LibSasara_icon.ico",
+      "_gitContribute": {
+        "repo": "https://github.com/InuInu2022/LibSasara/",
+        "branch": "master",
+        "apiSpecFolder": "docs"
+      },
+      "_enableSearch": true
+    },
+    "globalMetadataFiles": [],
+    "fileMetadataFiles": [],
+    "template": [
+      "default"
+    ],
+    "postProcessors": [],
+    "markdownEngineName": "markdig",
+    "xrefService": [ "https://xref.docs.microsoft.com/query?uid={uid}" ],
+    "keepFileLink": false,
+    "cleanupCacheHistory": false,
+    "disableGitFeatures": true
+  }
+}
