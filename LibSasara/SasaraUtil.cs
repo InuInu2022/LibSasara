@@ -13,7 +13,7 @@ public static class SasaraUtil
 	private const int TickPerTempo = 960;
 
 	/// <summary>
-	/// 文字列を <see keyword="decimal"/> 型に変換。失敗時は第2引数<paramref name="defaultValue"/>を返す
+	/// 文字列を <see cref="decimal"/> 型に変換。失敗時は第2引数<paramref name="defaultValue"/>を返す
 	/// </summary>
 	/// <param name="value">数を表す文字列</param>
 	/// <param name="defaultValue">失敗時に返す値</param>
@@ -30,7 +30,7 @@ public static class SasaraUtil
 	}
 
 	/// <summary>
-	/// 文字列を <see keyword="int"/> 型に変換。失敗時は第2引数<paramref name="defaultValue"/>を返す
+	/// 文字列を <see cref="int"/> 型に変換。失敗時は第2引数<paramref name="defaultValue"/>を返す
 	/// </summary>
 	/// <param name="value">数を表す文字列</param>
 	/// <param name="defaultValue">失敗時に返す値</param>
@@ -46,7 +46,7 @@ public static class SasaraUtil
 	}
 
 	/// <summary>
-	/// 文字列を <see keyword="bool"/> 型に変換。失敗時は第2引数<paramref name="defaultValue"/>を返す
+	/// 文字列を <see cref="bool"/> 型に変換。失敗時は第2引数<paramref name="defaultValue"/>を返す
 	/// </summary>
 	/// <param name="value">数を表す文字列</param>
 	/// <param name="defaultValue">失敗時に返す値</param>
@@ -62,12 +62,13 @@ public static class SasaraUtil
 	}
 
 	/// <summary>
-	/// Clockを時間（<see keyword="TimeSpan"/>）に変換
+	/// Clockを時間（<see cref="TimeSpan"/>）に変換
 	/// </summary>
 	/// <param name="tempoList">テンポ変更リスト。"clock, tempo"のリスト。</param>
 	/// <param name="clockTick">変換したいClock（tick）値</param>
 	/// <param name="maxClock">テンポ変更の最終Clock値。未指定の場合は<paramref name="tempoList"/>の最後のClock＋1小節（<see cref="TickPerTempo"/>*4）とみなす。</param>
     /// <exception cref="ArgumentOutOfRangeException" />
+    /// <seealso cref="SongUnit.Tempo"/>
 	/// <returns></returns>
 	public static TimeSpan ClockToTimeSpan(
 		SortedDictionary<int, int> tempoList,
@@ -145,6 +146,7 @@ public static class SasaraUtil
 	/// </summary>
 	/// <param name="freq">周波数</param>
 	/// <param name="baseFreq">基準ド周波数</param>
+    /// <seealso cref="NoteNumToFreq(int, double)"/>
 	/// <returns></returns>
 	public static int FreqToNoteNum(
 		double freq,
@@ -158,6 +160,7 @@ public static class SasaraUtil
 	/// <param name="num">MIDIノートナンバー</param>
 	/// <param name="baseFreq">基準ド周波数</param>
 	/// <returns>ノート中央の周波数</returns>
+    /// <seealso cref="FreqToNoteNum(double, double)"/>
 	public static double NoteNumToFreq(
 		int num,
 		double baseFreq = 440.0
@@ -169,6 +172,7 @@ public static class SasaraUtil
 	/// </summary>
 	/// <param name="num">MIDIノートナンバー</param>
 	/// <returns></returns>
+    /// <seealso cref="OctaveStepToNoteNum(int, int)"/>
 	public static (int octave, int step) NoteNumToOctaveStep(int num)
 	{
 		var oc = num == 0 ? -1 : (num / 12) - 1;
@@ -182,6 +186,7 @@ public static class SasaraUtil
     /// <param name="octave"></param>
     /// <param name="step"></param>
     /// <returns></returns>
+    /// <seealso cref="NoteNumToOctaveStep(int)"/>
 	public static int OctaveStepToNoteNum(int octave, int step)
 	{
 		return ((octave + 1) * 12) + step;
@@ -192,6 +197,7 @@ public static class SasaraUtil
     /// </summary>
     /// <param name="freq">周波数</param>
     /// <returns></returns>
+    /// <seealso cref="OctaveStepToFreq(int, int)"/>
 	public static (int octave, int step) FreqToOctaveStep(double freq){
 		int num = FreqToNoteNum(freq);
 		return NoteNumToOctaveStep(num);
@@ -203,6 +209,7 @@ public static class SasaraUtil
     /// <param name="octave"></param>
     /// <param name="step"></param>
     /// <returns></returns>
+    /// <seealso cref="FreqToOctaveStep(double)"/>
 	public static double OctaveStepToFreq(int octave, int step){
 		var num = OctaveStepToNoteNum(octave, step);
 		return NoteNumToFreq(num);
