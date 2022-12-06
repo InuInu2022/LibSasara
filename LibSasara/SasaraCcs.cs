@@ -68,6 +68,7 @@ public static class SasaraCcs
 	/// <returns>管理クラス</returns>
 	/// <exception cref="FileNotFoundException"></exception>
 	/// <exception cref="InvalidDataException"></exception>
+    /// <seealso cref="LoadAsync{T}(string)"/>
 	public static async Task<CeVIOFileBase> LoadAsync(string path)
 	{
 		//check file exists
@@ -109,6 +110,7 @@ public static class SasaraCcs
 
 	/// <inheritdoc cref="LoadAsync(string)"/>
     /// <typeparam name="T"><see cref="CcsProject"/>または<see cref="CcstTrack"/></typeparam>
+    /// <seealso cref="LoadAsync(string)"/>
 	public static async Task<T?> LoadAsync<T>(string path)
 		where T: CeVIOFileBase,ICeVIOFile
 	{
