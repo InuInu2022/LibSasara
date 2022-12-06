@@ -1,0 +1,1168 @@
+{
+  "homepages": [],
+  "source_base_path": "C:/Users/conquestarrow/Documents/my_proj/LibSasara/documents",
+  "xrefmap": "xrefmap.yml",
+  "files": [
+    {
+      "type": "Resource",
+      "output": {
+        "resource": {
+          "relative_path": "index.json"
+        }
+      },
+      "is_incremental": false
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibSasara.Builder.SongUnitBuilder.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibSasara.Builder.SongUnitBuilder.html",
+          "hash": "Q6yEf6uYRH98UCra5X9Q8pLcjpvoPFxx2eKyqG7Notg="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibSasara.Builder.TalkUnitBuilder.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibSasara.Builder.TalkUnitBuilder.html",
+          "hash": "jWrm0nznL6VyzUBRa8kd5q8NC8dZumOwLbZR0GCM+No="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibSasara.Builder.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibSasara.Builder.html",
+          "hash": "W2tIl+g236wFYY7D2a8++KhIT+4+/WOqfWpp0NLEHso="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibSasara.Model.AudioUnit.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibSasara.Model.AudioUnit.html",
+          "hash": "B00C9nJEQhHzqYXyDyYGgFXIc+RBUSPsqSIqW30kFtE="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibSasara.Model.Category.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibSasara.Model.Category.html",
+          "hash": "6A92KNuWYaqwxZBinALr5UjKeO9l6KIrOad+byV6Tio="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibSasara.Model.CcsProject.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibSasara.Model.CcsProject.html",
+          "hash": "ipIZ8UqXIoSB9mT5mhtVt0nmwduXEnve5WiYGL5aW30="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibSasara.Model.CcstTrack.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibSasara.Model.CcstTrack.html",
+          "hash": "CoZHD4rRAMT1VnAcwTpd1CJ4fBb3do0qQN6OyKsg9mY="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibSasara.Model.CeVIOFileBase.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibSasara.Model.CeVIOFileBase.html",
+          "hash": "WRmPLeIMnXOX/CewRsQrPOK9ZuM9qO/9xb5U7iPNE5U="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibSasara.Model.CeVIOFileExt.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibSasara.Model.CeVIOFileExt.html",
+          "hash": "CvcxRawG5DEm7yA3eRmWTa2hI0oQT8K6u8wEbRdphG8="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibSasara.Model.Dynamics.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibSasara.Model.Dynamics.html",
+          "hash": "GITzTy2KL9PlwPG3Wq9uBukNT+yxG5OJUCkJj41taZk="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibSasara.Model.ICeVIOFile.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibSasara.Model.ICeVIOFile.html",
+          "hash": "bJz5ady1L8sRs8h6mFyIqpFXmLIgSgyZCsA8IhCqMQo="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibSasara.Model.Lab.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibSasara.Model.Lab.html",
+          "hash": "eXK0PdN7qMSK452yDNpcKHclRrdvluixq2hGdkgsRzc="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibSasara.Model.LabLine.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibSasara.Model.LabLine.html",
+          "hash": "psUn5MUatMT5oFQNKBixymJYeHbyi2/XMPynCPdjlNc="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibSasara.Model.Note.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibSasara.Model.Note.html",
+          "hash": "FbRMd/kmLPuM19T3tRJn2ncxpvALOvcu0HB6LBp7wx0="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibSasara.Model.Serialize.AcousticPhrase.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibSasara.Model.Serialize.AcousticPhrase.html",
+          "hash": "ZuueGQxxUVHdNoisgkGLrQA2JJ4B4K+VbN6409P0kco="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibSasara.Model.Serialize.Author.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibSasara.Model.Serialize.Author.html",
+          "hash": "QjXZ2lh5mHVD1eYvecw42JZBqaGddxV8lI0UyZTkuA8="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibSasara.Model.Serialize.ClockObject.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibSasara.Model.Serialize.ClockObject.html",
+          "hash": "FESm3H5CgqyVi5BXAQ4mpW3ayp1mKkfKjJvLdoOUEE8="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibSasara.Model.Serialize.Component.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibSasara.Model.Serialize.Component.html",
+          "hash": "R+a877A0qByHRZ9q4aFTe11vN6xSNgPmyvBtpu3xbkk="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibSasara.Model.Serialize.Data.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibSasara.Model.Serialize.Data.html",
+          "hash": "X/PaEks1qVwYDQp1JtyBzsyblCoytJBaSjiEKQ7g9Ag="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibSasara.Model.Serialize.DictionaryInfo.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibSasara.Model.Serialize.DictionaryInfo.html",
+          "hash": "TYIT0rdHZfuWbUPLMZc6Sb3W3iGfmg3VhH1vQZHrXCk="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibSasara.Model.Serialize.Direction-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibSasara.Model.Serialize.Direction-1.html",
+          "hash": "7JY3v+ytMvrNDggkJev8Ulztt2l3z5HS+H7jwL5rO14="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibSasara.Model.Serialize.Dynamics.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibSasara.Model.Serialize.Dynamics.html",
+          "hash": "Kx/ZLcx4t0gNx6yJHoQ5acH7KOt6LlG5SrpHp9kbpZc="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibSasara.Model.Serialize.ExtensionInfo.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibSasara.Model.Serialize.ExtensionInfo.html",
+          "hash": "6YrzzVhb0FddRfwpAEOQQLO5E/cByg6fO7zezkA33WI="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibSasara.Model.Serialize.Generator.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibSasara.Model.Serialize.Generator.html",
+          "hash": "0S4+aIjOVot4fQ57KNJdL6rECp44plsNNFo9PzzNVPI="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibSasara.Model.Serialize.Group.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibSasara.Model.Serialize.Group.html",
+          "hash": "4OWzffFOMzd9WMfW885KMmOuqqvfbaedljPXiEtLxf8="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibSasara.Model.Serialize.Groups-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibSasara.Model.Serialize.Groups-1.html",
+          "hash": "QiHxpndDKiUUluOuXa5BVFBieGICb8JtoXfbDLiSj+I="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibSasara.Model.Serialize.IEditor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibSasara.Model.Serialize.IEditor.html",
+          "hash": "ZkiyATGWm3RArYo6e7dg3sjOKcHSI7QYiqtEW8Ql07s="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibSasara.Model.Serialize.IEngine.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibSasara.Model.Serialize.IEngine.html",
+          "hash": "nTdUt2WLxN7Ov3fnhFENByJxhXrF886+zGPuifmP8ys="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibSasara.Model.Serialize.IHasCategory.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibSasara.Model.Serialize.IHasCategory.html",
+          "hash": "iSjodEz6QUkaXBI9z9fVCML9w/ZxZQJfnDV9UhVfpuk="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibSasara.Model.Serialize.IHasId.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibSasara.Model.Serialize.IHasId.html",
+          "hash": "PP2n9qPYP/Kar9YOQa0/vGnT8Q8BfEWcPeDjIGQvCxw="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibSasara.Model.Serialize.IHasVersion.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibSasara.Model.Serialize.IHasVersion.html",
+          "hash": "7KNxjjAN/glpIJwO0btpL5pMIGNQZYXU6KZNB7idKZ4="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibSasara.Model.Serialize.IRoot.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibSasara.Model.Serialize.IRoot.html",
+          "hash": "d/NIneF1FfRoi+13faV0sujaBhbIDHOt/iT9dgRe9mg="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibSasara.Model.Serialize.IScene.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibSasara.Model.Serialize.IScene.html",
+          "hash": "LavyhTVsOSTlNEFbNDjaICUNRkgwIINl2b2DEu5/j/o="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibSasara.Model.Serialize.ITuneData.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibSasara.Model.Serialize.ITuneData.html",
+          "hash": "YKO7RHjGZICYCnOWvMJl4BGn3xPIbJQqlIug9FCgQRI="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibSasara.Model.Serialize.IUnit.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibSasara.Model.Serialize.IUnit.html",
+          "hash": "UwG6UasGjNnHacuG76fHaTlkGYFwA6droiIyzXNzJdU="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibSasara.Model.Serialize.Key.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibSasara.Model.Serialize.Key.html",
+          "hash": "JREAy4QXRwnVL4bW1VRe7IoAb+bO3EZyz1jC5H4OIxs="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibSasara.Model.Serialize.Metadata_EN.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibSasara.Model.Serialize.Metadata_EN.html",
+          "hash": "0wC4ir+PRoqyiJnI/0+meWoIspzChj8o65cNAXShUPA="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibSasara.Model.Serialize.NoData.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibSasara.Model.Serialize.NoData.html",
+          "hash": "/C7pgoKH0bLqhW/CAlGLiLNy0s0mrocb7/K8yMqeoW4="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibSasara.Model.Serialize.Parameter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibSasara.Model.Serialize.Parameter.html",
+          "hash": "3PYMye76tj6NuV4gpq+3fA6sWqXCplT1LEODVRc7g1I="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibSasara.Model.Serialize.Parameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibSasara.Model.Serialize.Parameters.html",
+          "hash": "d+zN65f2JntyflFWTA4nea7Vjz6gQsiOSJJGRNRQuDQ="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibSasara.Model.Serialize.Phoneme.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibSasara.Model.Serialize.Phoneme.html",
+          "hash": "bKZXaQAaS+21s2c59PvmxdRsJa5745RbLxHBL9MwjXI="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibSasara.Model.Serialize.Phonemes.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibSasara.Model.Serialize.Phonemes.html",
+          "hash": "YNV6XmhFTOOcjuzoaukiIqOVn/3s/uqcHwzJUIPwpRw="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibSasara.Model.Serialize.Project.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibSasara.Model.Serialize.Project.html",
+          "hash": "sip9yvVCz/VLSt2NKNrCCO4OocDDFZCKp/drDjH20nM="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibSasara.Model.Serialize.ReferenceState.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibSasara.Model.Serialize.ReferenceState.html",
+          "hash": "M0Mm1cMh02lA5j8aH9+4J4yNYPa5wZYZU4P5zsh5Sy0="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibSasara.Model.Serialize.RootBase.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibSasara.Model.Serialize.RootBase.html",
+          "hash": "ucYPXEPLMDDZJ73nWvxuYOwGhMKphnc0IQit7YOBUpM="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibSasara.Model.Serialize.RootExt.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibSasara.Model.Serialize.RootExt.html",
+          "hash": "RPBuMaNGzJMzE+7kjjAn5lr3cfEO095mPSJ1BWUL7kc="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibSasara.Model.Serialize.Scene.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibSasara.Model.Serialize.Scene.html",
+          "hash": "DzeWD03PjAxyD5+t8+hdP/um6MSvPUuhrxza6lsFsRk="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibSasara.Model.Serialize.SceneBase.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibSasara.Model.Serialize.SceneBase.html",
+          "hash": "OKztarwb8xlR50WsoBlmyofQgl2EVxhom9v4zgziR2s="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibSasara.Model.Serialize.ScoreObject.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibSasara.Model.Serialize.ScoreObject.html",
+          "hash": "FTU2dazWa5reXx54GE4YKPeruX2+vKZVpN946Gl5v1U="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibSasara.Model.Serialize.Sequence.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibSasara.Model.Serialize.Sequence.html",
+          "hash": "9y1SLvtuqZPRLahrfN16k5iCklUYniCcUf1TahOg5rw="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibSasara.Model.Serialize.Song.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibSasara.Model.Serialize.Song.html",
+          "hash": "s4q3BVca42usDaAgbuWeVDAXs5VYp0fxULEINRkLUgQ="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibSasara.Model.Serialize.SongEditor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibSasara.Model.Serialize.SongEditor.html",
+          "hash": "+eu4cBAKC21gPt+jNrN/BA2m4KELpV8Pwj2AjMCUiuU="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibSasara.Model.Serialize.SongEngine.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibSasara.Model.Serialize.SongEngine.html",
+          "hash": "EK48jcYNLg4x7/EQC4t7J3z/Bt+44AB+tY/3f2KC+K4="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibSasara.Model.Serialize.Sound.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibSasara.Model.Serialize.Sound.html",
+          "hash": "SolAQHB4SWGYYtWXkrn6FqnwjZ6wgrrIqmLMVW7wmhQ="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibSasara.Model.Serialize.SoundSetting.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibSasara.Model.Serialize.SoundSetting.html",
+          "hash": "gPD9dQCWegpKnMQvatD2v/qnQX/Sc2tfULv/9u6qkyk="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibSasara.Model.Serialize.SoundSource.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibSasara.Model.Serialize.SoundSource.html",
+          "hash": "tkIIlMlRyBD4e0qC/rMtyIFJnG5h+9eEu9iGX1TCtVU="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibSasara.Model.Serialize.TalkEditor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibSasara.Model.Serialize.TalkEditor.html",
+          "hash": "amVSJtro9LPZB802hFH23VUJN/f6twh+Tsy3Zg5++s8="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibSasara.Model.Serialize.TalkEditorExtension.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibSasara.Model.Serialize.TalkEditorExtension.html",
+          "hash": "OvDzKfDTaUF838ds2oZdEhE9r03fWPOVOsChVvpsRUQ="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibSasara.Model.Serialize.TalkEngine.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibSasara.Model.Serialize.TalkEngine.html",
+          "hash": "IzFhsRT3cGaVTbroHgXQAWGQwfc9Rkso4aeEzlVsXmI="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibSasara.Model.Serialize.Time.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibSasara.Model.Serialize.Time.html",
+          "hash": "fUPXCMq7BPblm/jBKlwp3Geczzpp5JISleYjFN9u4K0="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibSasara.Model.Serialize.Timeline.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibSasara.Model.Serialize.Timeline.html",
+          "hash": "ts7gcMAaKKjLbn971pZYCvpai40FkLDKB6GXfIrLRdw="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibSasara.Model.Serialize.Track.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibSasara.Model.Serialize.Track.html",
+          "hash": "0CPyw/bp7ih8LeZCPpfaG+kEEFMQMbhwSnlC4+9/+qU="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibSasara.Model.Serialize.TuneData.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibSasara.Model.Serialize.TuneData.html",
+          "hash": "Eaz1VKDC9uKO0mEOnxPq8Nl/mdSPKaElluomUG9/DWM="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibSasara.Model.Serialize.Unit.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibSasara.Model.Serialize.Unit.html",
+          "hash": "maq6ubbJ7GNIcScoTNYNQ7ANTWOxszu914g0uWHFLPI="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibSasara.Model.Serialize.ViewScale.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibSasara.Model.Serialize.ViewScale.html",
+          "hash": "A214s5aPLEcVWTWwHP1eg8YqqJxTo8rnr6ugIbFh+i8="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibSasara.Model.Serialize.Word.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibSasara.Model.Serialize.Word.html",
+          "hash": "WeCN08yQ2v73PXRGIX9xjlvZDioVmmuto+gGEDByqk0="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibSasara.Model.Serialize.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibSasara.Model.Serialize.html",
+          "hash": "/dpC31eBLyCM83OznJCCGj9a5XdwmlbVW/TBkM/Jf6w="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibSasara.Model.SongUnit.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibSasara.Model.SongUnit.html",
+          "hash": "wPBDyN5Sd/7h/BKo8vWY6eYGbqSPG4kCzLdnmxsQ7xo="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibSasara.Model.Syllabic.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibSasara.Model.Syllabic.html",
+          "hash": "LUU4YiVCjNtwQyycXrt//AJy3Lb5ZHLrUdkK2UAX4Mo="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibSasara.Model.TalkPhoneme.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibSasara.Model.TalkPhoneme.html",
+          "hash": "+dcRbklAfOl6v6ybJYqaZftcwzNq9wOVPpCwN/DbC/Y="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibSasara.Model.TalkUnit.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibSasara.Model.TalkUnit.html",
+          "hash": "QhX7/VZ0rGVfsleLjIV63CgWjP94qndL4xueyZQyTCE="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibSasara.Model.UnitBase.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibSasara.Model.UnitBase.html",
+          "hash": "6GJ1aBj/pA7nYUgfAptYlIXmo+hfe2nJEVl5db7ihTI="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibSasara.Model.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibSasara.Model.html",
+          "hash": "DYWq/fzXKJKVGL7WaYqBbsemi4njYRNnNHBZFvyOUvI="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibSasara.SasaraCcs.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibSasara.SasaraCcs.html",
+          "hash": "pdSAzx1ElltNWt3KpwRz+I7MwkvsMPf7gTrWq4EbS0w="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibSasara.SasaraLabel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibSasara.SasaraLabel.html",
+          "hash": "GWabkQ4Ktd0aIvUA6QbSMPZH7HuEvoz6zmx62QV8erU="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibSasara.SasaraUtil.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibSasara.SasaraUtil.html",
+          "hash": "A4oDUzeaOakH4E7QFUQHLgQwOZQpsE11Ge0uGPdFnRA="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibSasara.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibSasara.html",
+          "hash": "JlqELS4JDQLV2iKUA/W6Vc3+3NZa7ATX0eb1kIHU7tQ="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "api/index.md",
+      "output": {
+        ".html": {
+          "relative_path": "api/index.html",
+          "hash": "XaKpZZwIt2Nc43KwHiHKFu1MhSCm/WVv5Yb53MsNBF8="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "api/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/toc.html",
+          "hash": "H7bVx51W3HIgm3JjFoJcVf6tkYAe26j/QEFaygoXmpo="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/intro.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/intro.html",
+          "hash": "l6J/+/BA/xedyeCKWtXHItOypgWXB9HYsKIannxx5IA="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "articles/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "articles/toc.html",
+          "hash": "BlPxk5mtl2kgfcZUgkEguqiSAR/EUyUTT4EdebwkQvs="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/LibSasara.mdp",
+      "output": {
+        "resource": {
+          "relative_path": "images/LibSasara.mdp"
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/LibSasara_icon.ico",
+      "output": {
+        "resource": {
+          "relative_path": "images/LibSasara_icon.ico"
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/LibSasara_icon.mdp",
+      "output": {
+        "resource": {
+          "relative_path": "images/LibSasara_icon.mdp"
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/LibSasara_icon_128x128.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/LibSasara_icon_128x128.png"
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/LibSasara_icon_32x32.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/LibSasara_icon_32x32.png"
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/LibSasara_icon_48x48.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/LibSasara_icon_48x48.png"
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/LibSasara_icon_64x64.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/LibSasara_icon_64x64.png"
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/header.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/header.png"
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/libsasara-logo.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/libsasara-logo.png"
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "log_codes": [
+        "InvalidFileLink"
+      ],
+      "type": "Conceptual",
+      "source_relative_path": "index.md",
+      "output": {
+        ".html": {
+          "relative_path": "index.html",
+          "hash": "mgE9O/VcI11GjyZHlPLlRPi0/dq11WEngReL2ZmT+Zg="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "toc.html",
+          "hash": "THbRYyXL98cuFItq6hylBHLQLIjIkxT2PtiDiEJ5+Iw="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    }
+  ],
+  "incremental_info": [
+    {
+      "status": {
+        "can_incremental": true,
+        "incrementalPhase": "build",
+        "total_file_count": 0,
+        "skipped_file_count": 0
+      },
+      "processors": {
+        "ConceptualDocumentProcessor": {
+          "can_incremental": true,
+          "incrementalPhase": "build",
+          "total_file_count": 3,
+          "skipped_file_count": 3
+        },
+        "ManagedReferenceDocumentProcessor": {
+          "can_incremental": true,
+          "incrementalPhase": "build",
+          "total_file_count": 77,
+          "skipped_file_count": 77
+        },
+        "ResourceDocumentProcessor": {
+          "can_incremental": false,
+          "details": "Processor ResourceDocumentProcessor cannot support incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
+          "incrementalPhase": "build",
+          "total_file_count": 0,
+          "skipped_file_count": 0
+        },
+        "TocDocumentProcessor": {
+          "can_incremental": false,
+          "details": "Processor TocDocumentProcessor cannot support incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
+          "incrementalPhase": "build",
+          "total_file_count": 0,
+          "skipped_file_count": 0
+        }
+      }
+    },
+    {
+      "status": {
+        "can_incremental": false,
+        "details": "Cannot support incremental post processing, the reason is: should not trace intermediate info.",
+        "incrementalPhase": "postProcessing",
+        "total_file_count": 0,
+        "skipped_file_count": 0
+      },
+      "processors": {}
+    }
+  ],
+  "version_info": {},
+  "groups": [
+    {
+      "xrefmap": "xrefmap.yml"
+    }
+  ]
+}

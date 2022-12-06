@@ -15,7 +15,7 @@ apiRules:
       - System.ComponentModel.EditorBrowsableState.Never
 - exclude:
     hasAttribute:
-      uid: System.ComponentModel.Obsolete
+      uid: System.ComponentModel.ObsoleteAttribute
 - exclude:
     uidRegex: ^LibSasara\.Model\.Serialize\..*\.[a-zA-Z]+Specified$
     type: Property
