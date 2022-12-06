@@ -19,5 +19,5 @@ The utility library for **[CeVIO](https://cevio.jp/)** project file (`.ccs` / `.
 
 ## Links
 
-- [README](https://github.com/InuInu2022/LibSasara/README.md)
+- [README](https://github.com/InuInu2022/LibSasara/)
 - [github](https://github.com/InuInu2022/LibSasara/)
