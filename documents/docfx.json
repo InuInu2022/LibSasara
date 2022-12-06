@@ -52,7 +52,7 @@
         ]
       }
     ],
-    "dest": "_site",
+    "dest": "../docs/",
     "globalMetadata": {
       "_appTitle": "Documentation - LibSasara",
     	"_appFooter": "LibSasara",

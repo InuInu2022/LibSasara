@@ -1,7 +1,7 @@
 # LibSasara
 
 <p align="center">
-	<img src="./docs/images/libsasara-logo.png" alt="logo" width="256" />
+	<img src="./documents/images/libsasara-logo.png" alt="logo" width="256" />
 </p>
 
 [![MIT License](http://img.shields.io/badge/license-MIT-blue.svg?style=flat)](LICENSE) [![C Sharp 10](https://img.shields.io/badge/C%20Sharp-10-4FC08D.svg?logo=csharp&style=flat)](https://learn.microsoft.com/ja-jp/dotnet/csharp/) ![.NET Standard 2.0](https://img.shields.io/badge/%20.NET%20Standard-2.0-blue.svg?logo=dotnet&style=flat)
