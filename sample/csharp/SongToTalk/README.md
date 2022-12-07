@@ -73,6 +73,13 @@ For more information, use the --help command.
 dotnet run -s path/to/sourcesong.ccst -d path/to/override.ccs --cast フィーちゃん
 ```
 
+## FAQ
+
+- Q. CeVIOソングエディタ持ってない
+- Q. I don't have a CeVIO song editor.
+- A. 無料のVoiSonaかUtaFormatixを使ってください
+- A. Use the free VoiSona or UtaFormatix!
+
 ## Requirements
 
 ### Run
