@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Scenario Code="7251BC4B6168E7B2992FA620BD3E1E77">
+  <Generation>
+    <Author Version="8.3.17.0" />
+    <TTS Version="6.0.20">
+      <Dictionary Version="3.0.15">
+        <Extension Version="2.0.2" Language="English" />
+      </Dictionary>
+      <SoundSources />
+    </TTS>
+    <SVSS Version="6.1.5">
+      <Dictionary Version="3.0.1">
+        <Extension Version="2.0.1" Language="English" />
+      </Dictionary>
+      <SoundSources />
+    </SVSS>
+  </Generation>
+  <Sequence Id="">
+    <Scene Id="">
+      <Timeline Partition="228.571428571429,188.571428571429" CurrentPosition="00:00:17.5410000">
+        <ViewScale Horizontal="0.31" Vertical="0.375" />
+      </Timeline>
+      <TalkEditor Partition="596">
+        <Extension VerticalRatio="224.571428571429*,336.571428571429*" />
+      </TalkEditor>
+      <SongEditor Partition="64" Quantize="240" Mode="0" EditingTool="1">
+        <ViewScale Horizontal="80" Vertical="14" />
+        <ReferenceState Current="None" Previous="None" />
+      </SongEditor>
+      <Units />
+      <Groups ActiveGroup="7abcbac7-a4e6-459d-a507-bf0f0bb7123a">
+        <Group Version="1.0" Id="7abcbac7-a4e6-459d-a507-bf0f0bb7123a" Category="OuterAudio" Name="何もないCCSファイル" Color="#FF008000" Volume="0" Pan="0" IsSolo="false" IsMuted="true" CastId="Mixed" Language="Japanese" />
+      </Groups>
+      <SoundSetting Rhythm="4/4" Tempo="78" MasterVolume="0" />
+    </Scene>
+  </Sequence>
+</Scenario>
