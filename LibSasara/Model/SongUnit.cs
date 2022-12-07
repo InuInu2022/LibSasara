@@ -139,6 +139,101 @@ public class SongUnit : UnitBase
 	{
 	}
 
+	/// <summary>
+	/// SongのUnit要素生成
+	/// </summary>
+	/// <remarks>
+	/// <para>
+	/// SongのUnit要素の<see cref="XElement"/>を生成します。
+	/// </para>
+	/// <para>
+	/// 生成するだけで<see cref="CeVIOFileBase"/>には紐付けません。
+	/// <see cref="Builder.SongUnitBuilder"/>も活用してください。
+	/// </para>
+	/// </remarks>
+	/// <param name="StartTime"></param>
+	/// <param name="Duration"></param>
+	/// <param name="CastId"></param>
+	/// <param name="Group"></param>
+	/// <param name="Language"></param>
+	/// <param name="tempo"></param>
+	/// <param name="beat"></param>
+	/// <param name="songVersion"></param>
+	/// <returns>SongのUnit要素の<see cref="XElement"/></returns>
+	/// <seealso cref="Builder.TalkUnitBuilder"/>
+	//TODO: Add test
+	public static XElement CreateSongUnitRaw
+	(
+		TimeSpan StartTime,
+		TimeSpan Duration,
+		string CastId,
+		Guid? Group = null,
+		string? Language = "Japanese",
+		string songVersion = "1.07",
+		SortedDictionary<int, int>? tempo = null,
+		SortedDictionary<int, (int Beats, int BeatType)>? beat = null
+	)
+	{
+		XAttribute[] attrs = {
+			new("Version","1.0"),	//
+			new("Id",""),			//
+			new("Category", nameof(Category.SingerSong)),
+			new(nameof(StartTime),StartTime.ToString("c")),
+			new(nameof(Duration),Duration.ToString("c")),
+			new(nameof(CastId),CastId),
+			new(
+				nameof(Group),
+				Group is null ?
+					Guid.NewGuid() :
+					Group.ToString()),
+			new(nameof(Language),Language ?? "Japanaese")
+		};
+
+		var elem = new XElement("Unit", attrs);
+		var songElem = new XElement(
+			"Song",
+			new XAttribute("Version", songVersion)
+		);
+		elem.Add(songElem);
+
+		if (tempo is not null)
+		{
+			var tempos = tempo
+				.Select(v =>
+				{
+					var c = new XElement("Sound");
+					c.SetAttributeValue("Clock", v.Key);
+					c.SetAttributeValue("Tempo", v.Value);
+					return c;
+				});
+			var tempoElem = new XElement("Tempo");
+			tempoElem.Add(tempos);
+			elem
+				.Add(tempoElem);
+		}
+
+		if (beat is not null)
+		{
+			var beats = beat
+				.Select(v =>
+				{
+					var p = new XElement("Time");
+					p.SetAttributeValue("Clock", v.Key);
+					p.SetAttributeValue("Beats", v.Value.Beats);
+					p.SetAttributeValue("BeatType", v.Value.BeatType);
+
+					return p;
+				})
+				.ToArray();
+			var beatElem = new XElement("Beat");
+			beatElem.Add(beats);
+			elem
+				.Add(beatElem);
+		}
+
+		return elem;
+	}
+
 	int GetAttrInt(XElement v, string attr)
 		=> SasaraUtil.ConvertInt(
 			v.Attribute(attr)?.Value

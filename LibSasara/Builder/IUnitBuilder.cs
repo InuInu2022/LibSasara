@@ -12,10 +12,12 @@ internal interface IUnitBuilder<TUnit,TBuilder>
 	where TUnit: UnitBase
 	where TBuilder: IUnitBuilder<TUnit,TBuilder>
 {
-	/// <inheritdoc cref="UnitBase.Group"/>
+	/// <inheritdoc cref="UnitBase.Group" path="/summary"/>
+    /// <seealso cref="UnitBase.Group"/>
 	TBuilder Group(Guid guid);
 
-	/// <inheritdoc cref="UnitBase.Language"/>
+	/// <inheritdoc cref="UnitBase.Language" path="/summary"/>
+    /// <seealso cref="UnitBase.Language"/>
 	TBuilder Language(string lang);
 
 	/// <summary>
@@ -23,5 +25,6 @@ internal interface IUnitBuilder<TUnit,TBuilder>
 	/// </summary>
 	/// <param name="doAdd">生成と同時にccs/ccstに追加する</param>
 	/// <returns>作成した<see cref="UnitBase"/>を返す</returns>
+    /// <seealso cref="UnitBase"/>
 	TUnit Build(bool doAdd = true);
 }

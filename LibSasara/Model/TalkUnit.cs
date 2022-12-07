@@ -286,6 +286,15 @@ public class TalkUnit : UnitBase
 	/// <summary>
 	/// TalkのUnit要素生成
 	/// </summary>
+    /// <remarks>
+    /// <para>
+    /// TalkのUnit要素の<see cref="XElement"/>を生成します。
+    /// </para>
+    /// <para>
+    /// 生成するだけで<see cref="CeVIOFileBase"/>には紐付けません。
+    /// <see cref="Builder.TalkUnitBuilder"/>も活用してください。
+    /// </para>
+    /// </remarks>
 	/// <param name="StartTime"></param>
 	/// <param name="Duration"></param>
 	/// <param name="CastId"></param>
@@ -299,7 +308,8 @@ public class TalkUnit : UnitBase
 	/// <param name="LogF0Scale"></param>
 	/// <param name="components"></param>
 	/// <param name="phonemes"><inheritdoc cref="Phonemes"/></param>
-	/// <returns>TalkのUnit要素</returns>
+	/// <returns>alkのUnit要素の<see cref="XElement"/></returns>
+    /// <seealso cref="Builder.TalkUnitBuilder"/>
 	public static XElement CreateTalkUnitRaw
 	(
 		TimeSpan StartTime,

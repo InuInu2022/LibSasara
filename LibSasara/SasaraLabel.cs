@@ -11,10 +11,15 @@ namespace LibSasara;
 public static class SasaraLabel
 {
 	/// <summary>
-	/// .lab ファイルを読み込む
+	/// <c>.lab</c> ファイルを読み込む
 	/// </summary>
-	/// <param name="path"></param>
+	/// <param name="path"><c>.lab</c>ファイルへのpath</param>
 	/// <param name="fps">動画等で利用する際のフレームレート指定</param>
+	/// <returns>
+	/// <see cref="Lab"/>のインスタンス。
+	/// </returns>
+	/// <seealso cref="Lab"/>
+	/// <exception cref="FileNotFoundException"><paramref name="path" />のファイルが見つからない</exception>
 	public static async Task<Lab> LoadAsync(
 		string path,
 		int fps = 30)

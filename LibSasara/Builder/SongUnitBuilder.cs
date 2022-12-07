@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Xml.Linq;
 using LibSasara.Model;
 
 namespace LibSasara.Builder;
@@ -7,6 +8,8 @@ namespace LibSasara.Builder;
 /// <summary>
 /// <see cref="SongUnit"/>を生成するBuilder
 /// </summary>
+/// <seealso cref="SongUnit"/>
+/// <seealso cref="TalkUnitBuilder"/>
 public sealed class SongUnitBuilder : IUnitBuilder<SongUnit, SongUnitBuilder>
 {
 	private SongUnitBuilder(
@@ -27,9 +30,9 @@ public sealed class SongUnitBuilder : IUnitBuilder<SongUnit, SongUnitBuilder>
 	/// <see cref="SongUnitBuilder"/>を作成
 	/// </summary>
 	/// <param name="ccs">TalkUnitを追加する<see cref="CcsProject"/> or <see cref="CcstTrack"/></param>
-	/// <param name="StartTime"><inheritdoc cref="UnitBase.StartTime"/></param>
-	/// <param name="Duration"></param>
-	/// <param name="CastId"><inheritdoc cref="UnitBase.CastId"/></param>
+	/// <param name="StartTime"><see cref="UnitBase.StartTime"/></param>
+	/// <param name="Duration"><see cref="UnitBase.Duration"/></param>
+	/// <param name="CastId"><see cref="UnitBase.CastId"/></param>
 	/// <seealso cref="Build"/>
 	public static SongUnitBuilder Create(
 		CeVIOFileBase ccs,
@@ -40,6 +43,8 @@ public sealed class SongUnitBuilder : IUnitBuilder<SongUnit, SongUnitBuilder>
 		=> new(ccs, StartTime, Duration, CastId);
 
 	/// <inheritdoc cref="UnitBase.Group"/>
+    /// <param name="guid"><see cref="UnitBase.Group"/></param>
+    /// <seealso cref="UnitBase.Group"/>
 	public SongUnitBuilder Group(Guid guid)
 	{
 		group = guid;
@@ -47,6 +52,7 @@ public sealed class SongUnitBuilder : IUnitBuilder<SongUnit, SongUnitBuilder>
 	}
 
 	/// <inheritdoc cref="UnitBase.Language"/>
+    /// <seealso cref="UnitBase.Language"/>
 	public SongUnitBuilder Language(string lang)
 	{
 		language = lang;
@@ -54,6 +60,8 @@ public sealed class SongUnitBuilder : IUnitBuilder<SongUnit, SongUnitBuilder>
 	}
 
 	/// <inheritdoc cref="SongUnit.Tempo"/>
+    /// <param name="tempo"><see cref="SongUnit.Tempo"/></param>
+    /// <seealso cref="SongUnit.Tempo"/>
 	public SongUnitBuilder Tempo(SortedDictionary<int, int> tempo)
 	{
 		this.tempo = tempo;
@@ -61,6 +69,8 @@ public sealed class SongUnitBuilder : IUnitBuilder<SongUnit, SongUnitBuilder>
 	}
 
     /// <inheritdoc cref="SongUnit.Beat"/>
+    /// <param name="beat"><see cref="SongUnit.Beat"/></param>
+    /// <seealso cref="SongUnit.Beat"/>
     public SongUnitBuilder Beat(SortedDictionary<int, (int Beats, int BeatType)> beat)
     {
 		this.beat = beat;
@@ -70,12 +80,30 @@ public sealed class SongUnitBuilder : IUnitBuilder<SongUnit, SongUnitBuilder>
 	/// <summary>
 	/// 最後に呼ぶ
 	/// </summary>
-	/// <param name="doAdd">生成と同時にccs/ccstに追加する</param>
+	/// <param name="canAdd">生成と同時にccs/ccstに追加する</param>
 	/// <returns>作成した<see cref="SongUnit"/></returns>
-	public SongUnit Build(bool doAdd = true)
+    /// <seealso cref="Create(CeVIOFileBase, TimeSpan, TimeSpan, string)"/>
+	public SongUnit Build(bool canAdd = true)
 	{
-		throw new NotImplementedException();
-		//return new(rawElem, ccs);
+		var rawElem = SongUnit.CreateSongUnitRaw(
+			startTime,
+			duration,
+			castId,
+			group,
+			language,
+			tempo:tempo,
+			beat:beat
+		);
+		if(canAdd){
+			ccs.AddUnits(
+				new List<XElement>(1)
+				{
+					rawElem
+				}
+			);
+		}
+
+		return new(rawElem, ccs);
 	}
 
 	#region required params
