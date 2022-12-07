@@ -42,7 +42,7 @@ public sealed class TalkUnitBuilder : IUnitBuilder<TalkUnit, TalkUnitBuilder>
 	/// <param name="StartTime"><see cref="UnitBase.StartTime"/>の値。</param>
 	/// <param name="Duration"><see cref="UnitBase.Duration"/>の値。</param>
 	/// <param name="CastId"><see cref="UnitBase.CastId"/>の値。</param>
-	/// <param name="Text"><see cref="TalkUnit.Text"/>の値。台詞。</param>
+	/// <param name="Text"><see cref="TalkUnit.Text"/>の値。台詞。日本語200文字、英語500文字まで。</param>
 	/// <seealso cref="Build"/>
 	public static TalkUnitBuilder Create(
 		CeVIOFileBase ccs,

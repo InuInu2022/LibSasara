@@ -17,6 +17,7 @@ public class TalkUnit : UnitBase
 	/// <summary>
 	/// セリフ文字列
 	/// </summary>
+    /// <remarks>日本語200文字、英語500文字まで。</remarks>
 	public string Text
 	{
 		get => GetUnitAttributeStr(nameof(Text));
@@ -278,6 +279,7 @@ public class TalkUnit : UnitBase
 	}
 
 	/// <inheritdoc/>
+    /// <seealso cref="Builder.TalkUnitBuilder"/>
 	public TalkUnit(XElement elem, CeVIOFileBase root)
 		: base(elem, root)
 	{

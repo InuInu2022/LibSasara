@@ -1,4 +1,5 @@
 using System;
+using System.ComponentModel;
 using System.Xml.Linq;
 
 namespace LibSasara.Model;
@@ -6,6 +7,15 @@ namespace LibSasara.Model;
 /// <summary>
 /// Unit管理用クラス
 /// </summary>
+/// <remarks>
+/// <para>
+/// Unit要素（<see cref="SongUnit"/>の場合はソングトラックの楽譜・調整データ全て、<see cref="TalkUnit"/>の場合はセリフ単位）を管理します。
+/// シリアライズしたクラスではありません。
+/// </para>
+/// <para><see cref="RawRoot"/>をはじめとした <c>Raw～</c> で始まるプロパティは元のxmlの<see cref="XElement"/>へのアクセスを提供します。XML要素を直接いじる際に使用します。</para>
+/// </remarks>
+/// <seealso cref="CeVIOFileBase.AddUnits(System.Collections.Generic.IEnumerable{XElement})"/>
+/// <seealso cref="CeVIOFileBase.GetUnits()"/>
 public abstract class UnitBase
 {
 	/// <summary>
@@ -28,7 +38,7 @@ public abstract class UnitBase
 	}
 
 	/// <summary>
-	/// Unitの所属するGroup（エディタ上のトラック）のGUID
+	/// Unitの所属するGroup（エディタ上のトラック）の<see cref="Guid"/>
 	/// </summary>
 	public Guid Group
 	{
@@ -59,15 +69,16 @@ public abstract class UnitBase
 	/// <summary>
 	/// Unitの終了時間
 	/// </summary>
-	/// <remarks>
-	/// see: <seealso cref="Duration"/>
-	/// </remarks>
+    /// <seealso cref="Duration"/>
 	public TimeSpan EndTime
 		=> StartTime.Add(Duration);
 
 	/// <summary>
 	/// Unitの言語
 	/// </summary>
+    /// <remarks>
+    /// <c>"Japanese"</c>, <c>"English"</c>
+    /// </remarks>
 	public string Language
 	{
 		get => GetUnitAttributeStr(nameof(Language));
@@ -77,11 +88,14 @@ public abstract class UnitBase
 	/// <summary>
 	/// 内部管理用 Unit要素
 	/// </summary>
+    [Browsable(false)]
+	[EditorBrowsable(EditorBrowsableState.Never)]
 	protected XElement rawElem;
 
 	/// <summary>
 	/// Unit category
 	/// </summary>
+    /// <seealso cref="Model.Category"/>
 	public virtual Category Category { get; }
 
 	/// <summary>
@@ -89,6 +103,7 @@ public abstract class UnitBase
 	/// </summary>
 	/// <param name="elem"></param>
 	/// <param name="root">Unit所属ファイルの管理クラス</param>
+    /// <seealso cref="Builder.IUnitBuilder{TUnit, TBuilder}"/>
 	protected UnitBase(XElement elem, CeVIOFileBase root)
 	{
 		if (elem.Name.LocalName is not "Unit")

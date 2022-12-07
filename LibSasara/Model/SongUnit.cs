@@ -8,6 +8,7 @@ namespace LibSasara.Model;
 /// <summary>
 /// ソングUnit管理用クラス
 /// </summary>
+/// <inheritdoc/>
 public class SongUnit : UnitBase
 {
 	/// <inheritdoc/>
@@ -133,7 +134,24 @@ public class SongUnit : UnitBase
 			.ToList();
 	}
 
+	/// <summary>
+	/// 生のParameter要素一覧
+	/// </summary>
+    //TODO: add test
+	public List<XElement> RawParameters
+	{
+		get => RawSong
+			.Element("Parameter")
+			.Elements()
+			.ToList();
+
+		set => RawSong
+			.Element("Parameter")
+			.SetElementValue("Parameter", value);
+	}
+
 	/// <inheritdoc/>
+    /// <seealso cref="Builder.SongUnitBuilder"/>
 	public SongUnit(XElement elem, CeVIOFileBase root)
 		: base(elem, root)
 	{
@@ -156,9 +174,9 @@ public class SongUnit : UnitBase
 	/// <param name="CastId"></param>
 	/// <param name="Group"></param>
 	/// <param name="Language"></param>
+	/// <param name="songVersion">Song要素のversion。CS7,AIは <c>1.07</c><br/>see: <seealso cref="SongVersion"/></param>
 	/// <param name="tempo"></param>
 	/// <param name="beat"></param>
-	/// <param name="songVersion"></param>
 	/// <returns>SongのUnit要素の<see cref="XElement"/></returns>
 	/// <seealso cref="Builder.TalkUnitBuilder"/>
 	//TODO: Add test
