@@ -100,6 +100,13 @@
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public abstract class UnitBase</code></pre>
   </div>
+  <h5 id="LibSasara_Model_UnitBase_remarks"><strong>Remarks</strong></h5>
+  <div class="markdown level0 remarks"><p>
+Unit要素（<a class="xref" href="LibSasara.Model.SongUnit.html">SongUnit</a>の場合はソングトラックの楽譜・調整データ全て、<a class="xref" href="LibSasara.Model.TalkUnit.html">TalkUnit</a>の場合はセリフ単位）を管理します。
+シリアライズしたクラスではありません。
+</p>
+<p><a class="xref" href="LibSasara.Model.UnitBase.html#LibSasara_Model_UnitBase_RawRoot">RawRoot</a>をはじめとした <code>Raw～</code> で始まるプロパティは元のxmlの<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement">XElement</a>へのアクセスを提供します。XML要素を直接いじる際に使用します。</p>
+</div>
   <h3 id="constructors">Constructors
   </h3>
   
@@ -136,33 +143,10 @@
       </tr>
     </tbody>
   </table>
-  <h3 id="fields">Fields
-  </h3>
-  
-  
-  <h4 id="LibSasara_Model_UnitBase_rawElem" data-uid="LibSasara.Model.UnitBase.rawElem">rawElem</h4>
-  <div class="markdown level1 summary"><p>内部管理用 Unit要素</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected XElement rawElem</code></pre>
+  <h5 id="LibSasara_Model_UnitBase__ctor_System_Xml_Linq_XElement_LibSasara_Model_CeVIOFileBase__seealso">See Also</h5>
+  <div class="seealso">
+      <div><span class="xref">LibSasara.Builder.IUnitBuilder`2</span></div>
   </div>
-  <h5 class="fieldValue">Field Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement">XElement</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
   <h3 id="properties">Properties
   </h3>
   
@@ -217,6 +201,10 @@
       </tr>
     </tbody>
   </table>
+  <h5 id="LibSasara_Model_UnitBase_Category_seealso">See Also</h5>
+  <div class="seealso">
+      <div><a class="xref" href="LibSasara.Model.Category.html">Category</a></div>
+  </div>
   
   
   <a id="LibSasara_Model_UnitBase_Duration_" data-uid="LibSasara.Model.UnitBase.Duration*"></a>
@@ -273,14 +261,15 @@
       </tr>
     </tbody>
   </table>
-  <h5 id="LibSasara_Model_UnitBase_EndTime_remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>see: <a class="xref" href="LibSasara.Model.UnitBase.html#LibSasara_Model_UnitBase_Duration">Duration</a></p>
-</div>
+  <h5 id="LibSasara_Model_UnitBase_EndTime_seealso">See Also</h5>
+  <div class="seealso">
+      <div><a class="xref" href="LibSasara.Model.UnitBase.html#LibSasara_Model_UnitBase_Duration">Duration</a></div>
+  </div>
   
   
   <a id="LibSasara_Model_UnitBase_Group_" data-uid="LibSasara.Model.UnitBase.Group*"></a>
   <h4 id="LibSasara_Model_UnitBase_Group" data-uid="LibSasara.Model.UnitBase.Group">Group</h4>
-  <div class="markdown level1 summary"><p>Unitの所属するGroup（エディタ上のトラック）のGUID</p>
+  <div class="markdown level1 summary"><p>Unitの所属するGroup（エディタ上のトラック）の<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.guid">Guid</a></p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -328,6 +317,9 @@
       </tr>
     </tbody>
   </table>
+  <h5 id="LibSasara_Model_UnitBase_Language_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p><code>&quot;Japanese&quot;</code>, <code>&quot;English&quot;</code></p>
+</div>
   
   
   <a id="LibSasara_Model_UnitBase_RawRoot_" data-uid="LibSasara.Model.UnitBase.RawRoot*"></a>
@@ -409,6 +401,11 @@
   <h5 id="LibSasara_Model_UnitBase_StartTime_seealso">See Also</h5>
   <div class="seealso">
       <div><a class="xref" href="LibSasara.Model.UnitBase.html#LibSasara_Model_UnitBase_Duration">Duration</a></div>
+  </div>
+  <h3 id="seealso">See Also</h3>
+  <div class="seealso">
+      <div><a class="xref" href="LibSasara.Model.CeVIOFileBase.html#LibSasara_Model_CeVIOFileBase_AddUnits_System_Collections_Generic_IEnumerable_System_Xml_Linq_XElement__">AddUnits</a>(<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement">XElement</a>&gt;)</div>
+      <div><a class="xref" href="LibSasara.Model.CeVIOFileBase.html#LibSasara_Model_CeVIOFileBase_GetUnits">GetUnits</a>()</div>
   </div>
 </article>
           </div>

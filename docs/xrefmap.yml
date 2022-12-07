@@ -3558,6 +3558,22 @@ references:
   isSpec: "True"
   fullName: LibSasara.Model.SongUnit.Category
   nameWithType: SongUnit.Category
+- uid: LibSasara.Model.SongUnit.CreateSongUnitRaw(System.TimeSpan,System.TimeSpan,System.String,System.Nullable{System.Guid},System.String,System.String,System.Collections.Generic.SortedDictionary{System.Int32,System.Int32},System.Collections.Generic.SortedDictionary{System.Int32,System.ValueTuple{System.Int32,System.Int32}})
+  name: CreateSongUnitRaw(TimeSpan, TimeSpan, String, Nullable<Guid>, String, String, SortedDictionary<Int32, Int32>, SortedDictionary<Int32, (Int32 Beats, Int32 BeatType)>)
+  href: api/LibSasara.Model.SongUnit.html#LibSasara_Model_SongUnit_CreateSongUnitRaw_System_TimeSpan_System_TimeSpan_System_String_System_Nullable_System_Guid__System_String_System_String_System_Collections_Generic_SortedDictionary_System_Int32_System_Int32__System_Collections_Generic_SortedDictionary_System_Int32_System_ValueTuple_System_Int32_System_Int32___
+  commentId: M:LibSasara.Model.SongUnit.CreateSongUnitRaw(System.TimeSpan,System.TimeSpan,System.String,System.Nullable{System.Guid},System.String,System.String,System.Collections.Generic.SortedDictionary{System.Int32,System.Int32},System.Collections.Generic.SortedDictionary{System.Int32,System.ValueTuple{System.Int32,System.Int32}})
+  name.vb: CreateSongUnitRaw(TimeSpan, TimeSpan, String, Nullable(Of Guid), String, String, SortedDictionary(Of Int32, Int32), SortedDictionary(Of Int32, (Beats As Int32, BeatType As Int32)(Of Int32, Int32)))
+  fullName: LibSasara.Model.SongUnit.CreateSongUnitRaw(System.TimeSpan, System.TimeSpan, System.String, System.Nullable<System.Guid>, System.String, System.String, System.Collections.Generic.SortedDictionary<System.Int32, System.Int32>, System.Collections.Generic.SortedDictionary<System.Int32, System.ValueTuple<System.Int32, System.Int32>>)
+  fullName.vb: LibSasara.Model.SongUnit.CreateSongUnitRaw(System.TimeSpan, System.TimeSpan, System.String, System.Nullable(Of System.Guid), System.String, System.String, System.Collections.Generic.SortedDictionary(Of System.Int32, System.Int32), System.Collections.Generic.SortedDictionary(Of System.Int32, System.ValueTuple(Of System.Int32, System.Int32)))
+  nameWithType: SongUnit.CreateSongUnitRaw(TimeSpan, TimeSpan, String, Nullable<Guid>, String, String, SortedDictionary<Int32, Int32>, SortedDictionary<Int32, (Int32 Beats, Int32 BeatType)>)
+  nameWithType.vb: SongUnit.CreateSongUnitRaw(TimeSpan, TimeSpan, String, Nullable(Of Guid), String, String, SortedDictionary(Of Int32, Int32), SortedDictionary(Of Int32, (Beats As Int32, BeatType As Int32)(Of Int32, Int32)))
+- uid: LibSasara.Model.SongUnit.CreateSongUnitRaw*
+  name: CreateSongUnitRaw
+  href: api/LibSasara.Model.SongUnit.html#LibSasara_Model_SongUnit_CreateSongUnitRaw_
+  commentId: Overload:LibSasara.Model.SongUnit.CreateSongUnitRaw
+  isSpec: "True"
+  fullName: LibSasara.Model.SongUnit.CreateSongUnitRaw
+  nameWithType: SongUnit.CreateSongUnitRaw
 - uid: LibSasara.Model.SongUnit.Notes
   name: Notes
   href: api/LibSasara.Model.SongUnit.html#LibSasara_Model_SongUnit_Notes
@@ -3571,6 +3587,19 @@ references:
   isSpec: "True"
   fullName: LibSasara.Model.SongUnit.Notes
   nameWithType: SongUnit.Notes
+- uid: LibSasara.Model.SongUnit.RawParameters
+  name: RawParameters
+  href: api/LibSasara.Model.SongUnit.html#LibSasara_Model_SongUnit_RawParameters
+  commentId: P:LibSasara.Model.SongUnit.RawParameters
+  fullName: LibSasara.Model.SongUnit.RawParameters
+  nameWithType: SongUnit.RawParameters
+- uid: LibSasara.Model.SongUnit.RawParameters*
+  name: RawParameters
+  href: api/LibSasara.Model.SongUnit.html#LibSasara_Model_SongUnit_RawParameters_
+  commentId: Overload:LibSasara.Model.SongUnit.RawParameters
+  isSpec: "True"
+  fullName: LibSasara.Model.SongUnit.RawParameters
+  nameWithType: SongUnit.RawParameters
 - uid: LibSasara.Model.SongUnit.RawScores
   name: RawScores
   href: api/LibSasara.Model.SongUnit.html#LibSasara_Model_SongUnit_RawScores
@@ -4058,12 +4087,6 @@ references:
   isSpec: "True"
   fullName: LibSasara.Model.UnitBase.Language
   nameWithType: UnitBase.Language
-- uid: LibSasara.Model.UnitBase.rawElem
-  name: rawElem
-  href: api/LibSasara.Model.UnitBase.html#LibSasara_Model_UnitBase_rawElem
-  commentId: F:LibSasara.Model.UnitBase.rawElem
-  fullName: LibSasara.Model.UnitBase.rawElem
-  nameWithType: UnitBase.rawElem
 - uid: LibSasara.Model.UnitBase.RawRoot
   name: RawRoot
   href: api/LibSasara.Model.UnitBase.html#LibSasara_Model_UnitBase_RawRoot

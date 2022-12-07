@@ -118,9 +118,6 @@
     <div>
       <a class="xref" href="LibSasara.Model.UnitBase.html#LibSasara_Model_UnitBase_Language">UnitBase.Language</a>
     </div>
-    <div>
-      <a class="xref" href="LibSasara.Model.UnitBase.html#LibSasara_Model_UnitBase_rawElem">UnitBase.rawElem</a>
-    </div>
   </div>
   <h6><strong>Namespace</strong>: <a class="xref" href="LibSasara.Model.html">LibSasara.Model</a></h6>
   <h6><strong>Assembly</strong>: LibSasara.dll</h6>
@@ -128,6 +125,13 @@
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public class SongUnit : UnitBase</code></pre>
   </div>
+  <h5 id="LibSasara_Model_SongUnit_remarks"><strong>Remarks</strong></h5>
+  <div class="markdown level0 remarks"><p>
+Unit要素（<a class="xref" href="LibSasara.Model.SongUnit.html">SongUnit</a>の場合はソングトラックの楽譜・調整データ全て、<a class="xref" href="LibSasara.Model.TalkUnit.html">TalkUnit</a>の場合はセリフ単位）を管理します。
+シリアライズしたクラスではありません。
+</p>
+<p><a class="xref" href="LibSasara.Model.UnitBase.html#LibSasara_Model_UnitBase_RawRoot">RawRoot</a>をはじめとした <code>Raw～</code> で始まるプロパティは元のxmlの<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement">XElement</a>へのアクセスを提供します。XML要素を直接いじる際に使用します。</p>
+</div>
   <h3 id="constructors">Constructors
   </h3>
   
@@ -164,6 +168,10 @@
       </tr>
     </tbody>
   </table>
+  <h5 id="LibSasara_Model_SongUnit__ctor_System_Xml_Linq_XElement_LibSasara_Model_CeVIOFileBase__seealso">See Also</h5>
+  <div class="seealso">
+      <div><a class="xref" href="LibSasara.Builder.SongUnitBuilder.html">SongUnitBuilder</a></div>
+  </div>
   <h3 id="properties">Properties
   </h3>
   
@@ -220,6 +228,10 @@
   </table>
   <h5 class="overrides">Overrides</h5>
   <div><a class="xref" href="LibSasara.Model.UnitBase.html#LibSasara_Model_UnitBase_Category">UnitBase.Category</a></div>
+  <h5 id="LibSasara_Model_SongUnit_Category_seealso">See Also</h5>
+  <div class="seealso">
+      <div><a class="xref" href="LibSasara.Model.Category.html">Category</a></div>
+  </div>
   
   
   <a id="LibSasara_Model_SongUnit_Notes_" data-uid="LibSasara.Model.SongUnit.Notes*"></a>
@@ -242,6 +254,32 @@
     <tbody>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="LibSasara.Model.Note.html">Note</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="LibSasara_Model_SongUnit_RawParameters_" data-uid="LibSasara.Model.SongUnit.RawParameters*"></a>
+  <h4 id="LibSasara_Model_SongUnit_RawParameters" data-uid="LibSasara.Model.SongUnit.RawParameters">RawParameters</h4>
+  <div class="markdown level1 summary"><p>生のParameter要素一覧</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public List&lt;XElement&gt; RawParameters { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement">XElement</a>&gt;</td>
         <td></td>
       </tr>
     </tbody>
@@ -360,6 +398,106 @@
 <li>Tempo : テンポ</li>
 </ul>
 </div>
+  <h3 id="methods">Methods
+  </h3>
+  
+  
+  <a id="LibSasara_Model_SongUnit_CreateSongUnitRaw_" data-uid="LibSasara.Model.SongUnit.CreateSongUnitRaw*"></a>
+  <h4 id="LibSasara_Model_SongUnit_CreateSongUnitRaw_System_TimeSpan_System_TimeSpan_System_String_System_Nullable_System_Guid__System_String_System_String_System_Collections_Generic_SortedDictionary_System_Int32_System_Int32__System_Collections_Generic_SortedDictionary_System_Int32_System_ValueTuple_System_Int32_System_Int32___" data-uid="LibSasara.Model.SongUnit.CreateSongUnitRaw(System.TimeSpan,System.TimeSpan,System.String,System.Nullable{System.Guid},System.String,System.String,System.Collections.Generic.SortedDictionary{System.Int32,System.Int32},System.Collections.Generic.SortedDictionary{System.Int32,System.ValueTuple{System.Int32,System.Int32}})">CreateSongUnitRaw(TimeSpan, TimeSpan, String, Nullable&lt;Guid&gt;, String, String, SortedDictionary&lt;Int32, Int32&gt;, SortedDictionary&lt;Int32, (Int32 Beats, Int32 BeatType)&gt;)</h4>
+  <div class="markdown level1 summary"><p>SongのUnit要素生成</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static XElement CreateSongUnitRaw(TimeSpan StartTime, TimeSpan Duration, string CastId, Guid? Group = null, string Language = &quot;Japanese&quot;, string songVersion = &quot;1.07&quot;, SortedDictionary&lt;int, int&gt; tempo = null, SortedDictionary&lt;int, (int Beats, int BeatType)&gt; beat = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a></td>
+        <td><span class="parametername">StartTime</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a></td>
+        <td><span class="parametername">Duration</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">CastId</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.guid">Guid</a>&gt;</td>
+        <td><span class="parametername">Group</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">Language</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">songVersion</span></td>
+        <td><p>Song要素のversion。CS7,AIは <code>1.07</code><br>see: <a class="xref" href="LibSasara.Model.SongUnit.html#LibSasara_Model_SongUnit_SongVersion">SongVersion</a></p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.sorteddictionary-2">SortedDictionary</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">Int32</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">Int32</a>&gt;</td>
+        <td><span class="parametername">tempo</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.sorteddictionary-2">SortedDictionary</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">Int32</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-2">(T1, T2)</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">Int32</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">Int32</a>&gt;&gt;</td>
+        <td><span class="parametername">beat</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement">XElement</a></td>
+        <td><p>SongのUnit要素の<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement">XElement</a></p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="LibSasara_Model_SongUnit_CreateSongUnitRaw_System_TimeSpan_System_TimeSpan_System_String_System_Nullable_System_Guid__System_String_System_String_System_Collections_Generic_SortedDictionary_System_Int32_System_Int32__System_Collections_Generic_SortedDictionary_System_Int32_System_ValueTuple_System_Int32_System_Int32____remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>
+SongのUnit要素の<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement">XElement</a>を生成します。
+</p>
+<p>
+生成するだけで<a class="xref" href="LibSasara.Model.CeVIOFileBase.html">CeVIOFileBase</a>には紐付けません。
+<a class="xref" href="LibSasara.Builder.SongUnitBuilder.html">SongUnitBuilder</a>も活用してください。
+</p>
+</div>
+  <h5 id="LibSasara_Model_SongUnit_CreateSongUnitRaw_System_TimeSpan_System_TimeSpan_System_String_System_Nullable_System_Guid__System_String_System_String_System_Collections_Generic_SortedDictionary_System_Int32_System_Int32__System_Collections_Generic_SortedDictionary_System_Int32_System_ValueTuple_System_Int32_System_Int32____seealso">See Also</h5>
+  <div class="seealso">
+      <div><a class="xref" href="LibSasara.Builder.TalkUnitBuilder.html">TalkUnitBuilder</a></div>
+  </div>
+  <h3 id="seealso">See Also</h3>
+  <div class="seealso">
+      <div><a class="xref" href="LibSasara.Model.CeVIOFileBase.html#LibSasara_Model_CeVIOFileBase_AddUnits_System_Collections_Generic_IEnumerable_System_Xml_Linq_XElement__">AddUnits</a>(<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement">XElement</a>&gt;)</div>
+      <div><a class="xref" href="LibSasara.Model.CeVIOFileBase.html#LibSasara_Model_CeVIOFileBase_GetUnits">GetUnits</a>()</div>
+  </div>
 </article>
           </div>
           

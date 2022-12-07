@@ -123,7 +123,8 @@
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.sorteddictionary-2">SortedDictionary</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">Int32</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-2">(T1, T2)</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">Int32</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">Int32</a>&gt;&gt;</td>
         <td><span class="parametername">beat</span></td>
-        <td></td>
+        <td><p><a class="xref" href="LibSasara.Model.SongUnit.html#LibSasara_Model_SongUnit_Beat">Beat</a></p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -142,6 +143,10 @@
       </tr>
     </tbody>
   </table>
+  <h5 id="LibSasara_Builder_SongUnitBuilder_Beat_System_Collections_Generic_SortedDictionary_System_Int32_System_ValueTuple_System_Int32_System_Int32____seealso">See Also</h5>
+  <div class="seealso">
+      <div><a class="xref" href="LibSasara.Model.SongUnit.html#LibSasara_Model_SongUnit_Beat">Beat</a></div>
+  </div>
   
   
   <a id="LibSasara_Builder_SongUnitBuilder_Build_" data-uid="LibSasara.Builder.SongUnitBuilder.Build*"></a>
@@ -151,7 +156,7 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public SongUnit Build(bool doAdd = true)</code></pre>
+    <pre><code class="lang-csharp hljs">public SongUnit Build(bool canAdd = true)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -165,7 +170,7 @@
     <tbody>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
-        <td><span class="parametername">doAdd</span></td>
+        <td><span class="parametername">canAdd</span></td>
         <td><p>生成と同時にccs/ccstに追加する</p>
 </td>
       </tr>
@@ -187,6 +192,10 @@
       </tr>
     </tbody>
   </table>
+  <h5 id="LibSasara_Builder_SongUnitBuilder_Build_System_Boolean__seealso">See Also</h5>
+  <div class="seealso">
+      <div><a class="xref" href="LibSasara.Builder.SongUnitBuilder.html#LibSasara_Builder_SongUnitBuilder_Create_LibSasara_Model_CeVIOFileBase_System_TimeSpan_System_TimeSpan_System_String_">Create(CeVIOFileBase, TimeSpan, TimeSpan, String)</a></div>
+  </div>
   
   
   <a id="LibSasara_Builder_SongUnitBuilder_Create_" data-uid="LibSasara.Builder.SongUnitBuilder.Create*"></a>
@@ -218,18 +227,19 @@
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a></td>
         <td><span class="parametername">StartTime</span></td>
-        <td><p><inheritdoc cref="P:LibSasara.Model.UnitBase.StartTime"></inheritdoc></p>
+        <td><p><a class="xref" href="LibSasara.Model.UnitBase.html#LibSasara_Model_UnitBase_StartTime">StartTime</a></p>
 </td>
       </tr>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a></td>
         <td><span class="parametername">Duration</span></td>
-        <td></td>
+        <td><p><a class="xref" href="LibSasara.Model.UnitBase.html#LibSasara_Model_UnitBase_Duration">Duration</a></p>
+</td>
       </tr>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a></td>
         <td><span class="parametername">CastId</span></td>
-        <td><p><inheritdoc cref="P:LibSasara.Model.UnitBase.CastId"></inheritdoc></p>
+        <td><p><a class="xref" href="LibSasara.Model.UnitBase.html#LibSasara_Model_UnitBase_CastId">CastId</a></p>
 </td>
       </tr>
     </tbody>
@@ -257,7 +267,7 @@
   
   <a id="LibSasara_Builder_SongUnitBuilder_Group_" data-uid="LibSasara.Builder.SongUnitBuilder.Group*"></a>
   <h4 id="LibSasara_Builder_SongUnitBuilder_Group_System_Guid_" data-uid="LibSasara.Builder.SongUnitBuilder.Group(System.Guid)">Group(Guid)</h4>
-  <div class="markdown level1 summary"><p>Unitの所属するGroup（エディタ上のトラック）のGUID</p>
+  <div class="markdown level1 summary"><p>Unitの所属するGroup（エディタ上のトラック）の<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.guid">Guid</a></p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -277,7 +287,8 @@
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.guid">Guid</a></td>
         <td><span class="parametername">guid</span></td>
-        <td></td>
+        <td><p><a class="xref" href="LibSasara.Model.UnitBase.html#LibSasara_Model_UnitBase_Group">Group</a></p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -296,6 +307,10 @@
       </tr>
     </tbody>
   </table>
+  <h5 id="LibSasara_Builder_SongUnitBuilder_Group_System_Guid__seealso">See Also</h5>
+  <div class="seealso">
+      <div><a class="xref" href="LibSasara.Model.UnitBase.html#LibSasara_Model_UnitBase_Group">Group</a></div>
+  </div>
   
   
   <a id="LibSasara_Builder_SongUnitBuilder_Language_" data-uid="LibSasara.Builder.SongUnitBuilder.Language*"></a>
@@ -339,6 +354,13 @@
       </tr>
     </tbody>
   </table>
+  <h5 id="LibSasara_Builder_SongUnitBuilder_Language_System_String__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p><code>&quot;Japanese&quot;</code>, <code>&quot;English&quot;</code></p>
+</div>
+  <h5 id="LibSasara_Builder_SongUnitBuilder_Language_System_String__seealso">See Also</h5>
+  <div class="seealso">
+      <div><a class="xref" href="LibSasara.Model.UnitBase.html#LibSasara_Model_UnitBase_Language">Language</a></div>
+  </div>
   
   
   <a id="LibSasara_Builder_SongUnitBuilder_Tempo_" data-uid="LibSasara.Builder.SongUnitBuilder.Tempo*"></a>
@@ -363,7 +385,8 @@
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.sorteddictionary-2">SortedDictionary</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">Int32</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">Int32</a>&gt;</td>
         <td><span class="parametername">tempo</span></td>
-        <td></td>
+        <td><p><a class="xref" href="LibSasara.Model.SongUnit.html#LibSasara_Model_SongUnit_Tempo">Tempo</a></p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -388,6 +411,15 @@
 <li>Tempo : テンポ</li>
 </ul>
 </div>
+  <h5 id="LibSasara_Builder_SongUnitBuilder_Tempo_System_Collections_Generic_SortedDictionary_System_Int32_System_Int32___seealso">See Also</h5>
+  <div class="seealso">
+      <div><a class="xref" href="LibSasara.Model.SongUnit.html#LibSasara_Model_SongUnit_Tempo">Tempo</a></div>
+  </div>
+  <h3 id="seealso">See Also</h3>
+  <div class="seealso">
+      <div><a class="xref" href="LibSasara.Model.SongUnit.html">SongUnit</a></div>
+      <div><a class="xref" href="LibSasara.Builder.TalkUnitBuilder.html">TalkUnitBuilder</a></div>
+  </div>
 </article>
           </div>
           

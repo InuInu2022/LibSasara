@@ -231,6 +231,10 @@
       </tr>
     </tbody>
   </table>
+  <h5 id="LibSasara_Builder_TalkUnitBuilder_Build_System_Boolean__seealso">See Also</h5>
+  <div class="seealso">
+      <div><a class="xref" href="LibSasara.Builder.TalkUnitBuilder.html#LibSasara_Builder_TalkUnitBuilder_Create_LibSasara_Model_CeVIOFileBase_System_TimeSpan_System_TimeSpan_System_String_System_String_">Create(CeVIOFileBase, TimeSpan, TimeSpan, String, String)</a></div>
+  </div>
   
   
   <a id="LibSasara_Builder_TalkUnitBuilder_Components_" data-uid="LibSasara.Builder.TalkUnitBuilder.Components*"></a>
@@ -306,30 +310,31 @@
       <tr>
         <td><a class="xref" href="LibSasara.Model.CeVIOFileBase.html">CeVIOFileBase</a></td>
         <td><span class="parametername">ccs</span></td>
-        <td><p>TalkUnitを追加する<a class="xref" href="LibSasara.Model.CcsProject.html">CcsProject</a> or <a class="xref" href="LibSasara.Model.CcstTrack.html">CcstTrack</a></p>
+        <td><p><a class="xref" href="LibSasara.Model.TalkUnit.html">TalkUnit</a>を追加する<a class="xref" href="LibSasara.Model.CcsProject.html">CcsProject</a> or <a class="xref" href="LibSasara.Model.CcstTrack.html">CcstTrack</a></p>
 </td>
       </tr>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a></td>
         <td><span class="parametername">StartTime</span></td>
-        <td><p><inheritdoc cref="P:LibSasara.Model.UnitBase.StartTime"></inheritdoc></p>
+        <td><p><a class="xref" href="LibSasara.Model.UnitBase.html#LibSasara_Model_UnitBase_StartTime">StartTime</a>の値。</p>
 </td>
       </tr>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a></td>
         <td><span class="parametername">Duration</span></td>
-        <td></td>
+        <td><p><a class="xref" href="LibSasara.Model.UnitBase.html#LibSasara_Model_UnitBase_Duration">Duration</a>の値。</p>
+</td>
       </tr>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a></td>
         <td><span class="parametername">CastId</span></td>
-        <td><p><inheritdoc cref="P:LibSasara.Model.UnitBase.CastId"></inheritdoc></p>
+        <td><p><a class="xref" href="LibSasara.Model.UnitBase.html#LibSasara_Model_UnitBase_CastId">CastId</a>の値。</p>
 </td>
       </tr>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a></td>
         <td><span class="parametername">Text</span></td>
-        <td><p><inheritdoc cref="P:LibSasara.Model.TalkUnit.Text"></inheritdoc></p>
+        <td><p><a class="xref" href="LibSasara.Model.TalkUnit.html#LibSasara_Model_TalkUnit_Text">Text</a>の値。台詞。日本語200文字、英語500文字まで。</p>
 </td>
       </tr>
     </tbody>
@@ -349,6 +354,11 @@
       </tr>
     </tbody>
   </table>
+  <h5 id="LibSasara_Builder_TalkUnitBuilder_Create_LibSasara_Model_CeVIOFileBase_System_TimeSpan_System_TimeSpan_System_String_System_String__examples">Examples</h5>
+  <pre><code>var talkUnit = TalkUnitBuilder
+	.Create(ccs, start, duration, id, &quot;serif&quot;)
+	.Build();</code></pre>
+
   <h5 id="LibSasara_Builder_TalkUnitBuilder_Create_LibSasara_Model_CeVIOFileBase_System_TimeSpan_System_TimeSpan_System_String_System_String__seealso">See Also</h5>
   <div class="seealso">
       <div><a class="xref" href="LibSasara.Builder.TalkUnitBuilder.html#LibSasara_Builder_TalkUnitBuilder_Build_System_Boolean_">Build(Boolean)</a></div>
@@ -357,7 +367,7 @@
   
   <a id="LibSasara_Builder_TalkUnitBuilder_Group_" data-uid="LibSasara.Builder.TalkUnitBuilder.Group*"></a>
   <h4 id="LibSasara_Builder_TalkUnitBuilder_Group_System_Guid_" data-uid="LibSasara.Builder.TalkUnitBuilder.Group(System.Guid)">Group(Guid)</h4>
-  <div class="markdown level1 summary"><p>Unitの所属するGroup（エディタ上のトラック）のGUID</p>
+  <div class="markdown level1 summary"><p>Unitの所属するGroup（エディタ上のトラック）の<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.guid">Guid</a></p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -439,6 +449,9 @@
       </tr>
     </tbody>
   </table>
+  <h5 id="LibSasara_Builder_TalkUnitBuilder_Language_System_String__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p><code>&quot;Japanese&quot;</code>, <code>&quot;English&quot;</code></p>
+</div>
   
   
   <a id="LibSasara_Builder_TalkUnitBuilder_LogF0Scale_" data-uid="LibSasara.Builder.TalkUnitBuilder.LogF0Scale*"></a>
@@ -483,6 +496,10 @@
       </tr>
     </tbody>
   </table>
+  <h5 id="LibSasara_Builder_TalkUnitBuilder_LogF0Scale_System_Decimal__seealso">See Also</h5>
+  <div class="seealso">
+      <div><a class="xref" href="LibSasara.Builder.TalkUnitBuilder.html#LibSasara_Builder_TalkUnitBuilder_LogF0Scale_System_Double_">LogF0Scale(Double)</a></div>
+  </div>
   
   
   <a id="LibSasara_Builder_TalkUnitBuilder_LogF0Scale_" data-uid="LibSasara.Builder.TalkUnitBuilder.LogF0Scale*"></a>
@@ -527,6 +544,10 @@
       </tr>
     </tbody>
   </table>
+  <h5 id="LibSasara_Builder_TalkUnitBuilder_LogF0Scale_System_Double__seealso">See Also</h5>
+  <div class="seealso">
+      <div><a class="xref" href="LibSasara.Builder.TalkUnitBuilder.html#LibSasara_Builder_TalkUnitBuilder_LogF0Scale_System_Decimal_">LogF0Scale(Decimal)</a></div>
+  </div>
   
   
   <a id="LibSasara_Builder_TalkUnitBuilder_Phonemes_" data-uid="LibSasara.Builder.TalkUnitBuilder.Phonemes*"></a>
@@ -551,7 +572,8 @@
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="LibSasara.Model.TalkPhoneme.html">TalkPhoneme</a>&gt;</td>
         <td><span class="parametername">phonemes</span></td>
-        <td></td>
+        <td><p><a class="xref" href="LibSasara.Model.TalkUnit.html#LibSasara_Model_TalkUnit_Phonemes">Phonemes</a>の値。<a class="xref" href="LibSasara.Model.TalkPhoneme.html">TalkPhoneme</a>のコレクション。</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -573,6 +595,12 @@
   <h5 id="LibSasara_Builder_TalkUnitBuilder_Phonemes_System_Collections_Generic_IEnumerable_LibSasara_Model_TalkPhoneme___remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p><a class="xref" href="LibSasara.SasaraLabel.html">SasaraLabel</a></p>
 </div>
+  <h5 id="LibSasara_Builder_TalkUnitBuilder_Phonemes_System_Collections_Generic_IEnumerable_LibSasara_Model_TalkPhoneme___seealso">See Also</h5>
+  <div class="seealso">
+      <div><a class="xref" href="LibSasara.Model.TalkUnit.html#LibSasara_Model_TalkUnit_Phonemes">Phonemes</a></div>
+      <div><a class="xref" href="LibSasara.Model.TalkPhoneme.html">TalkPhoneme</a></div>
+      <div><a class="xref" href="LibSasara.SasaraLabel.html">SasaraLabel</a></div>
+  </div>
   
   
   <a id="LibSasara_Builder_TalkUnitBuilder_Speed_" data-uid="LibSasara.Builder.TalkUnitBuilder.Speed*"></a>
@@ -617,6 +645,10 @@
       </tr>
     </tbody>
   </table>
+  <h5 id="LibSasara_Builder_TalkUnitBuilder_Speed_System_Decimal__seealso">See Also</h5>
+  <div class="seealso">
+      <div><a class="xref" href="LibSasara.Builder.TalkUnitBuilder.html#LibSasara_Builder_TalkUnitBuilder_Speed_System_Double_">Speed(Double)</a></div>
+  </div>
   
   
   <a id="LibSasara_Builder_TalkUnitBuilder_Speed_" data-uid="LibSasara.Builder.TalkUnitBuilder.Speed*"></a>
@@ -661,6 +693,10 @@
       </tr>
     </tbody>
   </table>
+  <h5 id="LibSasara_Builder_TalkUnitBuilder_Speed_System_Double__seealso">See Also</h5>
+  <div class="seealso">
+      <div><a class="xref" href="LibSasara.Builder.TalkUnitBuilder.html#LibSasara_Builder_TalkUnitBuilder_Speed_System_Decimal_">Speed(Decimal)</a></div>
+  </div>
   
   
   <a id="LibSasara_Builder_TalkUnitBuilder_Tone_" data-uid="LibSasara.Builder.TalkUnitBuilder.Tone*"></a>
@@ -793,6 +829,10 @@
       </tr>
     </tbody>
   </table>
+  <h5 id="LibSasara_Builder_TalkUnitBuilder_Volume_System_Decimal__seealso">See Also</h5>
+  <div class="seealso">
+      <div><a class="xref" href="LibSasara.Builder.TalkUnitBuilder.html#LibSasara_Builder_TalkUnitBuilder_Volume_System_Double_">Volume(Double)</a></div>
+  </div>
   
   
   <a id="LibSasara_Builder_TalkUnitBuilder_Volume_" data-uid="LibSasara.Builder.TalkUnitBuilder.Volume*"></a>
@@ -837,6 +877,15 @@
       </tr>
     </tbody>
   </table>
+  <h5 id="LibSasara_Builder_TalkUnitBuilder_Volume_System_Double__seealso">See Also</h5>
+  <div class="seealso">
+      <div><a class="xref" href="LibSasara.Builder.TalkUnitBuilder.html#LibSasara_Builder_TalkUnitBuilder_Volume_System_Decimal_">Volume(Decimal)</a></div>
+  </div>
+  <h3 id="seealso">See Also</h3>
+  <div class="seealso">
+      <div><a class="xref" href="LibSasara.Model.TalkUnit.html">TalkUnit</a></div>
+      <div><a class="xref" href="LibSasara.Builder.SongUnitBuilder.html">SongUnitBuilder</a></div>
+  </div>
 </article>
           </div>
           
