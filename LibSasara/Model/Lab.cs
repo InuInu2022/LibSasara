@@ -28,7 +28,7 @@ public class Lab
 	public Lab(string labData, int fps = 30)
 	{
 		lines = labData
-			.Split(new string[]{Environment.NewLine}, StringSplitOptions.RemoveEmptyEntries)
+			.Split(new string[]{"\n","\r\n","\r"}, StringSplitOptions.RemoveEmptyEntries)
 			.Where(s => !string.IsNullOrEmpty(s))    //空行無視
 			.Select((v) =>
 			{
