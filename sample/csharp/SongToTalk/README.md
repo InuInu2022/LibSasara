@@ -100,8 +100,9 @@ dotnet run -s path/to/sourcesong.ccst -d path/to/override.ccs --cast フィー�
 
 ## Limitaions
 
-- CeVIO CSトークはテストしてません！
-  - CeVIO Creative Studio Talk support (no test!)
+- ~~CeVIO CSトークはテストしてません！~~
+  - ~~CeVIO Creative Studio Talk support (no test!)~~
+  - ver. 0.1.3でサポートしました（IA/ONEは未テストです）
 - 現在、発音の開始タイミングがノートの開始タイミングに合う様になっています。母音のタイミングではないのでやや遅れて聞こえる場合があります。
   - Now the start timing of the pronunciation matches the start timing of the note. It is not vowel timing and may sound slightly delayed.
 - stretchオプションは現在機能しません。台詞の長さはノートの長さに追従しません。
