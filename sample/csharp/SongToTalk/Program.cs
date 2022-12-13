@@ -139,8 +139,8 @@ internal class CeVIOService{
 		var c = await fcw
 			.GetComponentsAsync();
 
-		//TODO: CeVIO CSの公式3人のIDはA,B,Cだったはずなので要対応
-		var castId = string.Join("-",c[0].Id.Split("-")[0..3]);
+		var castId = await fcw.GetCastIdAsync(castName);
+		//var castId = string.Join("-",c[0].Id.Split("-")[0..3]);
 
 		distCcs = await SasaraCcs.LoadAsync(dist);
 
