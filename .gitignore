@@ -458,3 +458,4 @@ sample/csharp/SongToTalk/server/*
 sample/csharp/SongToTalk/file/*
 !sample/csharp/SongToTalk/file/kaeru.ccs
 !sample/csharp/SongToTalk/file/dist.ccs
+test/file/*.wav
