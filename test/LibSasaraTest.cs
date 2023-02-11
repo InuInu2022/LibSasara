@@ -603,6 +603,26 @@ public class LibSasaraTest : IAsyncLifetime
 			;
 	}
 
+	[Theory]
+	[InlineData(CCS_FILEPATH_CS7)]
+	[InlineData(CCS_FILEPATH_AI8)]
+	public async void AddUnitsAsync(string path){
+		var result = await SasaraCcs
+			.LoadAsync(path);
+
+		var tu = TalkUnitBuilder
+			.Create(
+				result,
+				new TimeSpan(0, 0, 0),
+				new TimeSpan(0, 0, 1),
+				"A",
+				"てすと"
+			)
+			.Build();
+		//checks
+		Assert.NotNull(tu);
+	}
+
 	[Fact]
 	public void BuildTalkUnitTest(){
 		var id = Guid.NewGuid();
