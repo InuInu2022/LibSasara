@@ -18,6 +18,11 @@ public class Lab
 		get => lines;
 	}
 
+	/// <summary>
+    /// CeVIOの場合、labファイルの単位は1000万分の1秒（100 ns）
+    /// </summary>
+	private const int TenNanoSeconds = 10000000;
+
 	private IEnumerable<LabLine>? lines;
 
 	/// <summary>
@@ -54,7 +59,7 @@ public class Lab
 	/// <returns></returns>
 	public List<List<LabLine>> SplitToSentence(double threshold)
 	{
-		var t = threshold * 10000000;
+		var t = threshold * TenNanoSeconds;
 
 		var l = this.Lines!
 			.Where(v => v.Phoneme != "pau")     //無音の空白無視
@@ -127,6 +132,47 @@ public class Lab
 			lines = newLines;
 		});
 	}
+
+	/// <summary>
+    /// 指定した秒数ぶん、全体のタイミングをずらします
+    /// </summary>
+    /// <param name="seconds">秒数。マイナス指定で前にずらします。</param>
+    /// <returns></returns>
+    /// <exception cref="InvalidOperationException">最初の音素のタイミングがマイナスにずれた場合エラー。</exception>
+	public async ValueTask DisplaceSecondsAsync(double seconds){
+		if (lines is null) { return; }
+
+		double labSeconds = seconds * TenNanoSeconds;
+
+		var lineFirst = lines
+			.First(l => !PhonemeUtil.IsNoSounds(l))
+			.From
+			+ labSeconds;
+		if(lineFirst < 0){
+			throw new InvalidOperationException(
+				$"input seconds must be bigger than first line time. seconds:{labSeconds}, displaced 1st line time:{lineFirst}");
+		}
+
+		await Task.Run(() =>
+		{
+			var newLines = lines.ToList();
+			var count = Lines.Count();
+			for (int i = 0; i < count; i++)
+			{
+				var line = Lines.ElementAt(i);
+
+				var newFrom = Math.Max(line.From + labSeconds, 0.0);
+				var newTo = Math.Max(line.To + labSeconds, 0.0);
+				newLines[i] = new LabLine(
+					newFrom,
+					newTo,
+					line.Phoneme,
+					LabLine.MovieFPS);
+			}
+
+			lines = newLines;
+		});
+	}
 }
 
 /// <summary>
@@ -138,16 +184,25 @@ public class LabLine
 	/// <summary>
 	/// 開始秒数
 	/// </summary>
+	/// <remarks>
+	/// CeVIOの場合、labファイルの単位は1000万分の1秒（100 ns）
+	/// </remarks>
 	public double From { get; }
 
 	/// <summary>
 	/// 終了秒数
 	/// </summary>
+	/// <remarks>
+	/// CeVIOの場合、labファイルの単位は1000万分の1秒（100 ns）
+	/// </remarks>
 	public double To { get; }
 
 	/// <summary>
 	/// 長さ秒数
 	/// </summary>
+	/// <remarks>
+	/// CeVIOの場合、labファイルの単位は1000万分の1秒（100 ns）
+	/// </remarks>
 	public double Length => To - From;
 
 	/// <summary>
