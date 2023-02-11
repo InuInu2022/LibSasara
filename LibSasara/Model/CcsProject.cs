@@ -347,10 +347,37 @@ public abstract class CeVIOFileBase : ICeVIOFile
     /// <param name="units">追加するUnit要素リスト</param>
 	public void AddUnits(IEnumerable<XElement> units)
 	{
-		GetUnitsRaw()
+		var x = rawXml
+			.Descendants("Units");
+		var u = x.Elements("Unit");
+
+		var raw = GetUnitsRaw();
+		var parent = raw.Count switch
+		{
+			0 => rawXml.Descendants("Units").First(),
+			_ => GetUnitsRaw().Last().Parent
+		};
+		parent.Add(units);
+	}
+
+	/// <summary>
+    /// Group要素を全て削除する
+    /// </summary>
+    /// <seealso cref="AddGroup(XElement)"/>
+    /// <seealso cref="AddGroup(Guid, Category, string, string, double, double, bool, bool, string)"/>
+	public void RemoveAllGroups()
+	{
+		var groups = RawGroups
 			.Last()?
-			.Parent?
-			.Add(units);
+			.Parent;
+		if (groups?.HasElements != true)
+		{
+			return;
+		}
+
+		groups
+			.Elements()
+			.Remove();
 	}
 
 	/// <summary>
