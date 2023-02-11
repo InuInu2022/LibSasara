@@ -11,16 +11,18 @@
     <EnableCompressionInSingleFile>true</EnableCompressionInSingleFile>
     <IncludeNativeLibrariesForSelfExtract>true</IncludeNativeLibrariesForSelfExtract>
     <RuntimeIdentifier>win-x64</RuntimeIdentifier>
-    <Deterministic>true</Deterministic>
-    <DeterministicSourceRoot>/_/</DeterministicSourceRoot>
-    <RepoRoot>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\..\'))</RepoRoot>
-    <PathMap>$(RepoRoot)=$(DeterministicSourceRoot)</PathMap>
     <DebugSymbols Condition="'$(Configuration)' == 'Release'">false</DebugSymbols>
     <DebugType Condition="'$(Configuration)' == 'Release'">embedded</DebugType>
     <DebugType Condition="'$(Configuration)' == 'Debug'">embedded</DebugType>
     <!-- MinVer -->
     <MinVerTagPrefix>v</MinVerTagPrefix>
     <MinVerMinimumMajorMinor>0.1</MinVerMinimumMajorMinor>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)' == 'Release'">
+    <Deterministic>true</Deterministic>
+    <DeterministicSourceRoot>/_/</DeterministicSourceRoot>
+    <RepoRoot>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\..\'))</RepoRoot>
+    <PathMap>$(RepoRoot)=$(DeterministicSourceRoot)</PathMap>
   </PropertyGroup>
   <Target Name="RemovePublishDirBeforeBuild" BeforeTargets="BeforeBuild">
     <RemoveDir Directories="$(OutputPath)/publish/" />
@@ -65,7 +67,7 @@
 
     <PackageReference Include="ConsoleAppFramework" Version="4.2.4" />
     <PackageReference Include="DotnetWorld" Version="1.2.5" />
-    <PackageReference Include="FluentCeVIOWrapper" Version="0.1.6" />
+    <PackageReference Include="FluentCeVIOWrapper" Version="0.1.7" />
     <PackageReference Include="MathNet.Numerics" Version="5.0.0" />
     <PackageReference Include="MinVer" Version="4.2.0">
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>

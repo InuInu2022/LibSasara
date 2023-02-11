@@ -46,12 +46,16 @@ internal class Commands: ConsoleAppBase, IAsyncDisposable
 			string src,
 		[Option(
 			"d",
-			"path to override song ccs/ccst file.")]
+			"path to export talk ccs/ccst file.")]
 			string dist,
 		[Option(
 			"c",
 			"speaking cast name")]
 			string cast,
+		[Option(
+			"t",
+			"path to template talk ccs/ccst file")]
+			string template = "",
 		[Option(
 			"tts",
 			"target cevio product.")]
@@ -64,7 +68,7 @@ internal class Commands: ConsoleAppBase, IAsyncDisposable
 		try
 		{
 			await service
-				.ExecuteAsync(src, dist, cast, TTS, stretch);
+				.ExecuteAsync(src, dist, cast, template, TTS, stretch);
 		}
 		catch (Exception ex)
 		{
@@ -81,7 +85,7 @@ internal class CeVIOService{
 	private static Process? process;
 	private FluentCeVIO? fcw;
 	private CeVIOFileBase? srcCcs;
-	private CeVIOFileBase? distCcs;
+	private CeVIOFileBase? exportCcs;
 	private SongUnit? song;
 	private string? src;
 	private string? dist;
@@ -90,21 +94,27 @@ internal class CeVIOService{
 		string src,
 		string dist,
 		string castName,
+		string template,
 		string TTS,
 		bool stretch
 	)
 	{
 		if(!File.Exists(src)){
-			throw new FileNotFoundException($"{src} is not found");
+			throw new FileNotFoundException($"src:{src} is not found");
 		}
 
 		this.src = src;
 
+		/*
 		if(!File.Exists(dist)){
 			throw new FileNotFoundException($"{dist} is not found");
-		}
+		}*/
 
 		this.dist = dist;
+
+		if(!string.IsNullOrEmpty(template) && !File.Exists(template)){
+			throw new FileNotFoundException($"template:{template} is not found");
+		}
 
 		await AwakeAsync(TTS);
 
@@ -142,9 +152,15 @@ internal class CeVIOService{
 		var castId = await fcw.GetCastIdAsync(castName);
 		//var castId = string.Join("-",c[0].Id.Split("-")[0..3]);
 
-		distCcs = await SasaraCcs.LoadAsync(dist);
+		var path = string.IsNullOrEmpty(template) ?
+			dist : template;
+		exportCcs = await SasaraCcs.LoadAsync(path);
 
-		distCcs.AddGroup(
+		if(Path.GetExtension(path) == "ccst"){
+			exportCcs.RemoveAllGroups();
+		}
+
+		exportCcs.AddGroup(
 			groupId,
 			Category.TextVocal,
 			$"ボイパ_{srcCcs.GetTrackSet(song.Group).group.Attribute("Name")?.Value}"
@@ -210,7 +226,7 @@ internal class CeVIOService{
 						.Add(v.Lyric!, avgFreq);
 				}
 
-				System.Console.WriteLine($"avg:{avgFreq}, target:{tFreq}");
+				Console.WriteLine($" avg:{avgFreq}, target:{tFreq}");
 
 				var isCachedPhoneme = cachePhonemes
 					.ContainsKey(v.Lyric!);
@@ -236,10 +252,12 @@ internal class CeVIOService{
 					})
 					;
 
+				Debug.WriteLine($"phs:{phs.Count()}");
+
 				//create units
 				return TalkUnitBuilder
 					.Create(
-						distCcs,
+						exportCcs,
 						SasaraUtil
 							.ClockToTimeSpan(tempo, v.Clock),
 						TimeSpan.FromSeconds(culc),
@@ -255,7 +273,8 @@ internal class CeVIOService{
 			})
 			.ToListAsync()
 			;
-		await distCcs.SaveAsync($"{this.dist}.added.ccs");
+		await exportCcs
+			.SaveAsync($"{this.dist}");
 	}
 
 	/// <summary>
