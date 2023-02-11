@@ -14,12 +14,12 @@ public static class PhonemeUtil
 	public const string CL = "cl";
 
 	/// <summary>
-	/// 無音・休符音素。pause
+	/// 休符音素。pause
 	/// </summary>
 	public const string PAU = "pau";
 
 	/// <summary>
-	/// 無音・休符音素。silent
+	/// 休符音素。silent
 	/// </summary>
 	public const string SIL = "sil";
 
@@ -129,7 +129,7 @@ public static class PhonemeUtil
 		label is not null && IsCL(label.Phoneme);
 
 	/// <summary>
-	/// ラベルの音素が[sil]かどうか
+	/// ラベルの音素が[pau]かどうか
 	/// </summary>
 	/// <param name="label"></param>
 	/// <seealso cref="IsSil(LabLine)"/>
@@ -139,7 +139,7 @@ public static class PhonemeUtil
 		label?.Phoneme == PAU;
 
 	/// <summary>
-	/// ラベルの音素が[pau]かどうか
+	/// ラベルの音素が[sil]かどうか
 	/// </summary>
 	/// <param name="label"></param>
 	/// <seealso cref="IsPau(LabLine)"/>
@@ -149,7 +149,7 @@ public static class PhonemeUtil
 		label?.Phoneme == SIL;
 
 	/// <summary>
-	/// ラベル音素が無音・休符音素かどうか
+	/// ラベル音素が休符音素かどうか
 	/// </summary>
 	/// <param name="label"></param>
 	/// <seealso cref="IsPau(LabLine)"/>
