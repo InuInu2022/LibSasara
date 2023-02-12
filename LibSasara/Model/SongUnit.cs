@@ -15,6 +15,27 @@ public class SongUnit : UnitBase
 	public override Category Category { get; } = Category.SingerSong;
 
 	/// <summary>
+	/// キャスト（ボイス）の内部ID
+	/// </summary>
+	public string CastId
+	{
+		get => GetUnitAttributeStr(nameof(CastId));
+		set => SetUnitAttribureStr(nameof(CastId), value);
+	}
+
+	/// <summary>
+	/// Unitの言語
+	/// </summary>
+    /// <remarks>
+    /// <c>"Japanese"</c>, <c>"English"</c>
+    /// </remarks>
+	public string Language
+	{
+		get => GetUnitAttributeStr(nameof(Language));
+		set => SetUnitAttribureStr(nameof(Language), value);
+	}
+
+	/// <summary>
 	/// Songの生要素
 	/// </summary>
 	public XElement RawSong

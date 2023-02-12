@@ -32,7 +32,7 @@ public sealed class SongUnitBuilder : IUnitBuilder<SongUnit, SongUnitBuilder>
 	/// <param name="ccs">TalkUnitを追加する<see cref="CcsProject"/> or <see cref="CcstTrack"/></param>
 	/// <param name="StartTime"><see cref="UnitBase.StartTime"/></param>
 	/// <param name="Duration"><see cref="UnitBase.Duration"/></param>
-	/// <param name="CastId"><see cref="UnitBase.CastId"/></param>
+	/// <param name="CastId"><see cref="SongUnit.CastId"/></param>
 	/// <seealso cref="Build"/>
 	public static SongUnitBuilder Create(
 		CeVIOFileBase ccs,
@@ -43,16 +43,16 @@ public sealed class SongUnitBuilder : IUnitBuilder<SongUnit, SongUnitBuilder>
 		=> new(ccs, StartTime, Duration, CastId);
 
 	/// <inheritdoc cref="UnitBase.Group"/>
-    /// <param name="guid"><see cref="UnitBase.Group"/></param>
-    /// <seealso cref="UnitBase.Group"/>
+	/// <param name="guid"><see cref="UnitBase.Group"/></param>
+	/// <seealso cref="UnitBase.Group"/>
 	public SongUnitBuilder Group(Guid guid)
 	{
 		group = guid;
 		return this;
 	}
 
-	/// <inheritdoc cref="UnitBase.Language"/>
-    /// <seealso cref="UnitBase.Language"/>
+	/// <inheritdoc cref="SongUnit.Language"/>
+	/// <seealso cref="SongUnit.Language"/>
 	public SongUnitBuilder Language(string lang)
 	{
 		language = lang;
@@ -60,19 +60,19 @@ public sealed class SongUnitBuilder : IUnitBuilder<SongUnit, SongUnitBuilder>
 	}
 
 	/// <inheritdoc cref="SongUnit.Tempo"/>
-    /// <param name="tempo"><see cref="SongUnit.Tempo"/></param>
-    /// <seealso cref="SongUnit.Tempo"/>
+	/// <param name="tempo"><see cref="SongUnit.Tempo"/></param>
+	/// <seealso cref="SongUnit.Tempo"/>
 	public SongUnitBuilder Tempo(SortedDictionary<int, int> tempo)
 	{
 		this.tempo = tempo;
 		return this;
 	}
 
-    /// <inheritdoc cref="SongUnit.Beat"/>
-    /// <param name="beat"><see cref="SongUnit.Beat"/></param>
-    /// <seealso cref="SongUnit.Beat"/>
-    public SongUnitBuilder Beat(SortedDictionary<int, (int Beats, int BeatType)> beat)
-    {
+	/// <inheritdoc cref="SongUnit.Beat"/>
+	/// <param name="beat"><see cref="SongUnit.Beat"/></param>
+	/// <seealso cref="SongUnit.Beat"/>
+	public SongUnitBuilder Beat(SortedDictionary<int, (int Beats, int BeatType)> beat)
+	{
 		this.beat = beat;
 		return this;
 	}
@@ -82,7 +82,7 @@ public sealed class SongUnitBuilder : IUnitBuilder<SongUnit, SongUnitBuilder>
 	/// </summary>
 	/// <param name="canAdd">生成と同時にccs/ccstに追加する</param>
 	/// <returns>作成した<see cref="SongUnit"/></returns>
-    /// <seealso cref="Create(CeVIOFileBase, TimeSpan, TimeSpan, string)"/>
+	/// <seealso cref="Create(CeVIOFileBase, TimeSpan, TimeSpan, string)"/>
 	public SongUnit Build(bool canAdd = true)
 	{
 		var rawElem = SongUnit.CreateSongUnitRaw(
@@ -120,8 +120,7 @@ public sealed class SongUnitBuilder : IUnitBuilder<SongUnit, SongUnitBuilder>
 	private Guid? group;
 	private string? language;
 	private SortedDictionary<int, int>? tempo;
-
-    private SortedDictionary<int, (int Beats, int BeatType)>? beat;
+	private SortedDictionary<int, (int Beats, int BeatType)>? beat;
 
 	#endregion optional params
 }

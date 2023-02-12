@@ -15,6 +15,27 @@ public class TalkUnit : UnitBase
 	public override Category Category { get; } = Category.TextVocal;
 
 	/// <summary>
+	/// キャスト（ボイス）の内部ID
+	/// </summary>
+	public string CastId
+	{
+		get => GetUnitAttributeStr(nameof(CastId));
+		set => SetUnitAttribureStr(nameof(CastId), value);
+	}
+
+	/// <summary>
+	/// Unitの言語
+	/// </summary>
+    /// <remarks>
+    /// <c>"Japanese"</c>, <c>"English"</c>
+    /// </remarks>
+	public string Language
+	{
+		get => GetUnitAttributeStr(nameof(Language));
+		set => SetUnitAttribureStr(nameof(Language), value);
+	}
+
+	/// <summary>
 	/// セリフ文字列
 	/// </summary>
     /// <remarks>日本語200文字、英語500文字まで。</remarks>

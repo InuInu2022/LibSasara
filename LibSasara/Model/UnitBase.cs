@@ -29,15 +29,6 @@ public abstract class UnitBase
 	public CeVIOFileBase Root { get; }
 
 	/// <summary>
-	/// キャスト（ボイス）の内部ID
-	/// </summary>
-	public string CastId
-	{
-		get => GetUnitAttributeStr(nameof(CastId));
-		set => SetUnitAttribureStr(nameof(CastId), value);
-	}
-
-	/// <summary>
 	/// Unitの所属するGroup（エディタ上のトラック）の<see cref="Guid"/>
 	/// </summary>
 	public Guid Group
@@ -72,18 +63,6 @@ public abstract class UnitBase
     /// <seealso cref="Duration"/>
 	public TimeSpan EndTime
 		=> StartTime.Add(Duration);
-
-	/// <summary>
-	/// Unitの言語
-	/// </summary>
-    /// <remarks>
-    /// <c>"Japanese"</c>, <c>"English"</c>
-    /// </remarks>
-	public string Language
-	{
-		get => GetUnitAttributeStr(nameof(Language));
-		set => SetUnitAttribureStr(nameof(Language), value);
-	}
 
 	/// <summary>
 	/// 内部管理用 Unit要素

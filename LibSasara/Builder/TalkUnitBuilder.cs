@@ -41,7 +41,7 @@ public sealed class TalkUnitBuilder : IUnitBuilder<TalkUnit, TalkUnitBuilder>
 	/// <param name="ccs"><see cref="TalkUnit"/>を追加する<see cref="CcsProject"/> or <see cref="CcstTrack"/></param>
 	/// <param name="StartTime"><see cref="UnitBase.StartTime"/>の値。</param>
 	/// <param name="Duration"><see cref="UnitBase.Duration"/>の値。</param>
-	/// <param name="CastId"><see cref="UnitBase.CastId"/>の値。</param>
+	/// <param name="CastId"><see cref="TalkUnit.CastId"/>の値。</param>
 	/// <param name="Text"><see cref="TalkUnit.Text"/>の値。台詞。日本語200文字、英語500文字まで。</param>
 	/// <seealso cref="Build"/>
 	public static TalkUnitBuilder Create(
@@ -60,7 +60,7 @@ public sealed class TalkUnitBuilder : IUnitBuilder<TalkUnit, TalkUnitBuilder>
 		return this;
 	}
 
-	/// <inheritdoc cref="UnitBase.Language"/>
+	/// <inheritdoc cref="TalkUnit.Language"/>
 	public TalkUnitBuilder Language(string lang)
 	{
 		language = lang;
