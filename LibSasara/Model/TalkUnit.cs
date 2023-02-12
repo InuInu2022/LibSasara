@@ -331,7 +331,7 @@ public class TalkUnit : UnitBase
 	/// <param name="LogF0Scale"></param>
 	/// <param name="components"></param>
 	/// <param name="phonemes"><inheritdoc cref="Phonemes"/></param>
-	/// <returns>alkのUnit要素の<see cref="XElement"/></returns>
+	/// <returns>TalkのUnit要素の<see cref="XElement"/></returns>
     /// <seealso cref="Builder.TalkUnitBuilder"/>
 	public static XElement CreateTalkUnitRaw
 	(
