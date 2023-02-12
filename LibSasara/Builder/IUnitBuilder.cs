@@ -16,10 +16,6 @@ internal interface IUnitBuilder<TUnit,TBuilder>
     /// <seealso cref="UnitBase.Group"/>
 	TBuilder Group(Guid guid);
 
-	/// <inheritdoc cref="UnitBase.Language" path="/summary"/>
-    /// <seealso cref="UnitBase.Language"/>
-	TBuilder Language(string lang);
-
 	/// <summary>
 	/// <see cref="UnitBase"/>を作成
 	/// </summary>
