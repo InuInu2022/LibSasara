@@ -13,6 +13,51 @@ references:
   commentId: N:LibSasara.Builder
   fullName: LibSasara.Builder
   nameWithType: LibSasara.Builder
+- uid: LibSasara.Builder.AudioUnitBuilder
+  name: AudioUnitBuilder
+  href: api/LibSasara.Builder.AudioUnitBuilder.html
+  commentId: T:LibSasara.Builder.AudioUnitBuilder
+  fullName: LibSasara.Builder.AudioUnitBuilder
+  nameWithType: AudioUnitBuilder
+- uid: LibSasara.Builder.AudioUnitBuilder.Build(System.Boolean)
+  name: Build(Boolean)
+  href: api/LibSasara.Builder.AudioUnitBuilder.html#LibSasara_Builder_AudioUnitBuilder_Build_System_Boolean_
+  commentId: M:LibSasara.Builder.AudioUnitBuilder.Build(System.Boolean)
+  fullName: LibSasara.Builder.AudioUnitBuilder.Build(System.Boolean)
+  nameWithType: AudioUnitBuilder.Build(Boolean)
+- uid: LibSasara.Builder.AudioUnitBuilder.Build*
+  name: Build
+  href: api/LibSasara.Builder.AudioUnitBuilder.html#LibSasara_Builder_AudioUnitBuilder_Build_
+  commentId: Overload:LibSasara.Builder.AudioUnitBuilder.Build
+  isSpec: "True"
+  fullName: LibSasara.Builder.AudioUnitBuilder.Build
+  nameWithType: AudioUnitBuilder.Build
+- uid: LibSasara.Builder.AudioUnitBuilder.Create(LibSasara.Model.CeVIOFileBase,System.TimeSpan,System.TimeSpan,System.String)
+  name: Create(CeVIOFileBase, TimeSpan, TimeSpan, String)
+  href: api/LibSasara.Builder.AudioUnitBuilder.html#LibSasara_Builder_AudioUnitBuilder_Create_LibSasara_Model_CeVIOFileBase_System_TimeSpan_System_TimeSpan_System_String_
+  commentId: M:LibSasara.Builder.AudioUnitBuilder.Create(LibSasara.Model.CeVIOFileBase,System.TimeSpan,System.TimeSpan,System.String)
+  fullName: LibSasara.Builder.AudioUnitBuilder.Create(LibSasara.Model.CeVIOFileBase, System.TimeSpan, System.TimeSpan, System.String)
+  nameWithType: AudioUnitBuilder.Create(CeVIOFileBase, TimeSpan, TimeSpan, String)
+- uid: LibSasara.Builder.AudioUnitBuilder.Create*
+  name: Create
+  href: api/LibSasara.Builder.AudioUnitBuilder.html#LibSasara_Builder_AudioUnitBuilder_Create_
+  commentId: Overload:LibSasara.Builder.AudioUnitBuilder.Create
+  isSpec: "True"
+  fullName: LibSasara.Builder.AudioUnitBuilder.Create
+  nameWithType: AudioUnitBuilder.Create
+- uid: LibSasara.Builder.AudioUnitBuilder.Group(System.Guid)
+  name: Group(Guid)
+  href: api/LibSasara.Builder.AudioUnitBuilder.html#LibSasara_Builder_AudioUnitBuilder_Group_System_Guid_
+  commentId: M:LibSasara.Builder.AudioUnitBuilder.Group(System.Guid)
+  fullName: LibSasara.Builder.AudioUnitBuilder.Group(System.Guid)
+  nameWithType: AudioUnitBuilder.Group(Guid)
+- uid: LibSasara.Builder.AudioUnitBuilder.Group*
+  name: Group
+  href: api/LibSasara.Builder.AudioUnitBuilder.html#LibSasara_Builder_AudioUnitBuilder_Group_
+  commentId: Overload:LibSasara.Builder.AudioUnitBuilder.Group
+  isSpec: "True"
+  fullName: LibSasara.Builder.AudioUnitBuilder.Group
+  nameWithType: AudioUnitBuilder.Group
 - uid: LibSasara.Builder.SongUnitBuilder
   name: SongUnitBuilder
   href: api/LibSasara.Builder.SongUnitBuilder.html
@@ -326,6 +371,35 @@ references:
   isSpec: "True"
   fullName: LibSasara.Model.AudioUnit.Category
   nameWithType: AudioUnit.Category
+- uid: LibSasara.Model.AudioUnit.CreateAudioUnitRaw(System.TimeSpan,System.TimeSpan,System.String,System.Nullable{System.Guid})
+  name: CreateAudioUnitRaw(TimeSpan, TimeSpan, String, Nullable<Guid>)
+  href: api/LibSasara.Model.AudioUnit.html#LibSasara_Model_AudioUnit_CreateAudioUnitRaw_System_TimeSpan_System_TimeSpan_System_String_System_Nullable_System_Guid__
+  commentId: M:LibSasara.Model.AudioUnit.CreateAudioUnitRaw(System.TimeSpan,System.TimeSpan,System.String,System.Nullable{System.Guid})
+  name.vb: CreateAudioUnitRaw(TimeSpan, TimeSpan, String, Nullable(Of Guid))
+  fullName: LibSasara.Model.AudioUnit.CreateAudioUnitRaw(System.TimeSpan, System.TimeSpan, System.String, System.Nullable<System.Guid>)
+  fullName.vb: LibSasara.Model.AudioUnit.CreateAudioUnitRaw(System.TimeSpan, System.TimeSpan, System.String, System.Nullable(Of System.Guid))
+  nameWithType: AudioUnit.CreateAudioUnitRaw(TimeSpan, TimeSpan, String, Nullable<Guid>)
+  nameWithType.vb: AudioUnit.CreateAudioUnitRaw(TimeSpan, TimeSpan, String, Nullable(Of Guid))
+- uid: LibSasara.Model.AudioUnit.CreateAudioUnitRaw*
+  name: CreateAudioUnitRaw
+  href: api/LibSasara.Model.AudioUnit.html#LibSasara_Model_AudioUnit_CreateAudioUnitRaw_
+  commentId: Overload:LibSasara.Model.AudioUnit.CreateAudioUnitRaw
+  isSpec: "True"
+  fullName: LibSasara.Model.AudioUnit.CreateAudioUnitRaw
+  nameWithType: AudioUnit.CreateAudioUnitRaw
+- uid: LibSasara.Model.AudioUnit.FilePath
+  name: FilePath
+  href: api/LibSasara.Model.AudioUnit.html#LibSasara_Model_AudioUnit_FilePath
+  commentId: P:LibSasara.Model.AudioUnit.FilePath
+  fullName: LibSasara.Model.AudioUnit.FilePath
+  nameWithType: AudioUnit.FilePath
+- uid: LibSasara.Model.AudioUnit.FilePath*
+  name: FilePath
+  href: api/LibSasara.Model.AudioUnit.html#LibSasara_Model_AudioUnit_FilePath_
+  commentId: Overload:LibSasara.Model.AudioUnit.FilePath
+  isSpec: "True"
+  fullName: LibSasara.Model.AudioUnit.FilePath
+  nameWithType: AudioUnit.FilePath
 - uid: LibSasara.Model.Category
   name: Category
   href: api/LibSasara.Model.Category.html
@@ -583,6 +657,19 @@ references:
   commentId: F:LibSasara.Model.CeVIOFileBase.rawXml
   fullName: LibSasara.Model.CeVIOFileBase.rawXml
   nameWithType: CeVIOFileBase.rawXml
+- uid: LibSasara.Model.CeVIOFileBase.RemoveAllGroups
+  name: RemoveAllGroups()
+  href: api/LibSasara.Model.CeVIOFileBase.html#LibSasara_Model_CeVIOFileBase_RemoveAllGroups
+  commentId: M:LibSasara.Model.CeVIOFileBase.RemoveAllGroups
+  fullName: LibSasara.Model.CeVIOFileBase.RemoveAllGroups()
+  nameWithType: CeVIOFileBase.RemoveAllGroups()
+- uid: LibSasara.Model.CeVIOFileBase.RemoveAllGroups*
+  name: RemoveAllGroups
+  href: api/LibSasara.Model.CeVIOFileBase.html#LibSasara_Model_CeVIOFileBase_RemoveAllGroups_
+  commentId: Overload:LibSasara.Model.CeVIOFileBase.RemoveAllGroups
+  isSpec: "True"
+  fullName: LibSasara.Model.CeVIOFileBase.RemoveAllGroups
+  nameWithType: CeVIOFileBase.RemoveAllGroups
 - uid: LibSasara.Model.CeVIOFileBase.SaveAsync(System.String)
   name: SaveAsync(String)
   href: api/LibSasara.Model.CeVIOFileBase.html#LibSasara_Model_CeVIOFileBase_SaveAsync_System_String_
@@ -846,6 +933,19 @@ references:
   isSpec: "True"
   fullName: LibSasara.Model.Lab.ChangeLengthByRateAsync
   nameWithType: Lab.ChangeLengthByRateAsync
+- uid: LibSasara.Model.Lab.DisplaceSecondsAsync(System.Double)
+  name: DisplaceSecondsAsync(Double)
+  href: api/LibSasara.Model.Lab.html#LibSasara_Model_Lab_DisplaceSecondsAsync_System_Double_
+  commentId: M:LibSasara.Model.Lab.DisplaceSecondsAsync(System.Double)
+  fullName: LibSasara.Model.Lab.DisplaceSecondsAsync(System.Double)
+  nameWithType: Lab.DisplaceSecondsAsync(Double)
+- uid: LibSasara.Model.Lab.DisplaceSecondsAsync*
+  name: DisplaceSecondsAsync
+  href: api/LibSasara.Model.Lab.html#LibSasara_Model_Lab_DisplaceSecondsAsync_
+  commentId: Overload:LibSasara.Model.Lab.DisplaceSecondsAsync
+  isSpec: "True"
+  fullName: LibSasara.Model.Lab.DisplaceSecondsAsync
+  nameWithType: Lab.DisplaceSecondsAsync
 - uid: LibSasara.Model.Lab.Lines
   name: Lines
   href: api/LibSasara.Model.Lab.html#LibSasara_Model_Lab_Lines
@@ -1157,6 +1257,188 @@ references:
   isSpec: "True"
   fullName: LibSasara.Model.Note.Syllabic
   nameWithType: Note.Syllabic
+- uid: LibSasara.Model.PhonemeUtil
+  name: PhonemeUtil
+  href: api/LibSasara.Model.PhonemeUtil.html
+  commentId: T:LibSasara.Model.PhonemeUtil
+  fullName: LibSasara.Model.PhonemeUtil
+  nameWithType: PhonemeUtil
+- uid: LibSasara.Model.PhonemeUtil.CL
+  name: CL
+  href: api/LibSasara.Model.PhonemeUtil.html#LibSasara_Model_PhonemeUtil_CL
+  commentId: F:LibSasara.Model.PhonemeUtil.CL
+  fullName: LibSasara.Model.PhonemeUtil.CL
+  nameWithType: PhonemeUtil.CL
+- uid: LibSasara.Model.PhonemeUtil.INVALID_PH
+  name: INVALID_PH
+  href: api/LibSasara.Model.PhonemeUtil.html#LibSasara_Model_PhonemeUtil_INVALID_PH
+  commentId: F:LibSasara.Model.PhonemeUtil.INVALID_PH
+  fullName: LibSasara.Model.PhonemeUtil.INVALID_PH
+  nameWithType: PhonemeUtil.INVALID_PH
+- uid: LibSasara.Model.PhonemeUtil.IsCL(LibSasara.Model.LabLine)
+  name: IsCL(LabLine)
+  href: api/LibSasara.Model.PhonemeUtil.html#LibSasara_Model_PhonemeUtil_IsCL_LibSasara_Model_LabLine_
+  commentId: M:LibSasara.Model.PhonemeUtil.IsCL(LibSasara.Model.LabLine)
+  fullName: LibSasara.Model.PhonemeUtil.IsCL(LibSasara.Model.LabLine)
+  nameWithType: PhonemeUtil.IsCL(LabLine)
+- uid: LibSasara.Model.PhonemeUtil.IsCL(System.String)
+  name: IsCL(String)
+  href: api/LibSasara.Model.PhonemeUtil.html#LibSasara_Model_PhonemeUtil_IsCL_System_String_
+  commentId: M:LibSasara.Model.PhonemeUtil.IsCL(System.String)
+  fullName: LibSasara.Model.PhonemeUtil.IsCL(System.String)
+  nameWithType: PhonemeUtil.IsCL(String)
+- uid: LibSasara.Model.PhonemeUtil.IsCL*
+  name: IsCL
+  href: api/LibSasara.Model.PhonemeUtil.html#LibSasara_Model_PhonemeUtil_IsCL_
+  commentId: Overload:LibSasara.Model.PhonemeUtil.IsCL
+  isSpec: "True"
+  fullName: LibSasara.Model.PhonemeUtil.IsCL
+  nameWithType: PhonemeUtil.IsCL
+- uid: LibSasara.Model.PhonemeUtil.IsConsonant(LibSasara.Model.LabLine)
+  name: IsConsonant(LabLine)
+  href: api/LibSasara.Model.PhonemeUtil.html#LibSasara_Model_PhonemeUtil_IsConsonant_LibSasara_Model_LabLine_
+  commentId: M:LibSasara.Model.PhonemeUtil.IsConsonant(LibSasara.Model.LabLine)
+  fullName: LibSasara.Model.PhonemeUtil.IsConsonant(LibSasara.Model.LabLine)
+  nameWithType: PhonemeUtil.IsConsonant(LabLine)
+- uid: LibSasara.Model.PhonemeUtil.IsConsonant(System.String)
+  name: IsConsonant(String)
+  href: api/LibSasara.Model.PhonemeUtil.html#LibSasara_Model_PhonemeUtil_IsConsonant_System_String_
+  commentId: M:LibSasara.Model.PhonemeUtil.IsConsonant(System.String)
+  fullName: LibSasara.Model.PhonemeUtil.IsConsonant(System.String)
+  nameWithType: PhonemeUtil.IsConsonant(String)
+- uid: LibSasara.Model.PhonemeUtil.IsConsonant*
+  name: IsConsonant
+  href: api/LibSasara.Model.PhonemeUtil.html#LibSasara_Model_PhonemeUtil_IsConsonant_
+  commentId: Overload:LibSasara.Model.PhonemeUtil.IsConsonant
+  isSpec: "True"
+  fullName: LibSasara.Model.PhonemeUtil.IsConsonant
+  nameWithType: PhonemeUtil.IsConsonant
+- uid: LibSasara.Model.PhonemeUtil.IsNasal(LibSasara.Model.LabLine)
+  name: IsNasal(LabLine)
+  href: api/LibSasara.Model.PhonemeUtil.html#LibSasara_Model_PhonemeUtil_IsNasal_LibSasara_Model_LabLine_
+  commentId: M:LibSasara.Model.PhonemeUtil.IsNasal(LibSasara.Model.LabLine)
+  fullName: LibSasara.Model.PhonemeUtil.IsNasal(LibSasara.Model.LabLine)
+  nameWithType: PhonemeUtil.IsNasal(LabLine)
+- uid: LibSasara.Model.PhonemeUtil.IsNasal(System.String)
+  name: IsNasal(String)
+  href: api/LibSasara.Model.PhonemeUtil.html#LibSasara_Model_PhonemeUtil_IsNasal_System_String_
+  commentId: M:LibSasara.Model.PhonemeUtil.IsNasal(System.String)
+  fullName: LibSasara.Model.PhonemeUtil.IsNasal(System.String)
+  nameWithType: PhonemeUtil.IsNasal(String)
+- uid: LibSasara.Model.PhonemeUtil.IsNasal*
+  name: IsNasal
+  href: api/LibSasara.Model.PhonemeUtil.html#LibSasara_Model_PhonemeUtil_IsNasal_
+  commentId: Overload:LibSasara.Model.PhonemeUtil.IsNasal
+  isSpec: "True"
+  fullName: LibSasara.Model.PhonemeUtil.IsNasal
+  nameWithType: PhonemeUtil.IsNasal
+- uid: LibSasara.Model.PhonemeUtil.IsNoSounds(LibSasara.Model.LabLine)
+  name: IsNoSounds(LabLine)
+  href: api/LibSasara.Model.PhonemeUtil.html#LibSasara_Model_PhonemeUtil_IsNoSounds_LibSasara_Model_LabLine_
+  commentId: M:LibSasara.Model.PhonemeUtil.IsNoSounds(LibSasara.Model.LabLine)
+  fullName: LibSasara.Model.PhonemeUtil.IsNoSounds(LibSasara.Model.LabLine)
+  nameWithType: PhonemeUtil.IsNoSounds(LabLine)
+- uid: LibSasara.Model.PhonemeUtil.IsNoSounds*
+  name: IsNoSounds
+  href: api/LibSasara.Model.PhonemeUtil.html#LibSasara_Model_PhonemeUtil_IsNoSounds_
+  commentId: Overload:LibSasara.Model.PhonemeUtil.IsNoSounds
+  isSpec: "True"
+  fullName: LibSasara.Model.PhonemeUtil.IsNoSounds
+  nameWithType: PhonemeUtil.IsNoSounds
+- uid: LibSasara.Model.PhonemeUtil.IsNoSoundVowel(System.String)
+  name: IsNoSoundVowel(String)
+  href: api/LibSasara.Model.PhonemeUtil.html#LibSasara_Model_PhonemeUtil_IsNoSoundVowel_System_String_
+  commentId: M:LibSasara.Model.PhonemeUtil.IsNoSoundVowel(System.String)
+  fullName: LibSasara.Model.PhonemeUtil.IsNoSoundVowel(System.String)
+  nameWithType: PhonemeUtil.IsNoSoundVowel(String)
+- uid: LibSasara.Model.PhonemeUtil.IsNoSoundVowel*
+  name: IsNoSoundVowel
+  href: api/LibSasara.Model.PhonemeUtil.html#LibSasara_Model_PhonemeUtil_IsNoSoundVowel_
+  commentId: Overload:LibSasara.Model.PhonemeUtil.IsNoSoundVowel
+  isSpec: "True"
+  fullName: LibSasara.Model.PhonemeUtil.IsNoSoundVowel
+  nameWithType: PhonemeUtil.IsNoSoundVowel
+- uid: LibSasara.Model.PhonemeUtil.IsPau(LibSasara.Model.LabLine)
+  name: IsPau(LabLine)
+  href: api/LibSasara.Model.PhonemeUtil.html#LibSasara_Model_PhonemeUtil_IsPau_LibSasara_Model_LabLine_
+  commentId: M:LibSasara.Model.PhonemeUtil.IsPau(LibSasara.Model.LabLine)
+  fullName: LibSasara.Model.PhonemeUtil.IsPau(LibSasara.Model.LabLine)
+  nameWithType: PhonemeUtil.IsPau(LabLine)
+- uid: LibSasara.Model.PhonemeUtil.IsPau*
+  name: IsPau
+  href: api/LibSasara.Model.PhonemeUtil.html#LibSasara_Model_PhonemeUtil_IsPau_
+  commentId: Overload:LibSasara.Model.PhonemeUtil.IsPau
+  isSpec: "True"
+  fullName: LibSasara.Model.PhonemeUtil.IsPau
+  nameWithType: PhonemeUtil.IsPau
+- uid: LibSasara.Model.PhonemeUtil.IsSil(LibSasara.Model.LabLine)
+  name: IsSil(LabLine)
+  href: api/LibSasara.Model.PhonemeUtil.html#LibSasara_Model_PhonemeUtil_IsSil_LibSasara_Model_LabLine_
+  commentId: M:LibSasara.Model.PhonemeUtil.IsSil(LibSasara.Model.LabLine)
+  fullName: LibSasara.Model.PhonemeUtil.IsSil(LibSasara.Model.LabLine)
+  nameWithType: PhonemeUtil.IsSil(LabLine)
+- uid: LibSasara.Model.PhonemeUtil.IsSil*
+  name: IsSil
+  href: api/LibSasara.Model.PhonemeUtil.html#LibSasara_Model_PhonemeUtil_IsSil_
+  commentId: Overload:LibSasara.Model.PhonemeUtil.IsSil
+  isSpec: "True"
+  fullName: LibSasara.Model.PhonemeUtil.IsSil
+  nameWithType: PhonemeUtil.IsSil
+- uid: LibSasara.Model.PhonemeUtil.IsVowel(LibSasara.Model.LabLine)
+  name: IsVowel(LabLine)
+  href: api/LibSasara.Model.PhonemeUtil.html#LibSasara_Model_PhonemeUtil_IsVowel_LibSasara_Model_LabLine_
+  commentId: M:LibSasara.Model.PhonemeUtil.IsVowel(LibSasara.Model.LabLine)
+  fullName: LibSasara.Model.PhonemeUtil.IsVowel(LibSasara.Model.LabLine)
+  nameWithType: PhonemeUtil.IsVowel(LabLine)
+- uid: LibSasara.Model.PhonemeUtil.IsVowel(System.String)
+  name: IsVowel(String)
+  href: api/LibSasara.Model.PhonemeUtil.html#LibSasara_Model_PhonemeUtil_IsVowel_System_String_
+  commentId: M:LibSasara.Model.PhonemeUtil.IsVowel(System.String)
+  fullName: LibSasara.Model.PhonemeUtil.IsVowel(System.String)
+  nameWithType: PhonemeUtil.IsVowel(String)
+- uid: LibSasara.Model.PhonemeUtil.IsVowel*
+  name: IsVowel
+  href: api/LibSasara.Model.PhonemeUtil.html#LibSasara_Model_PhonemeUtil_IsVowel_
+  commentId: Overload:LibSasara.Model.PhonemeUtil.IsVowel
+  isSpec: "True"
+  fullName: LibSasara.Model.PhonemeUtil.IsVowel
+  nameWithType: PhonemeUtil.IsVowel
+- uid: LibSasara.Model.PhonemeUtil.NASAL_JA
+  name: NASAL_JA
+  href: api/LibSasara.Model.PhonemeUtil.html#LibSasara_Model_PhonemeUtil_NASAL_JA
+  commentId: F:LibSasara.Model.PhonemeUtil.NASAL_JA
+  fullName: LibSasara.Model.PhonemeUtil.NASAL_JA
+  nameWithType: PhonemeUtil.NASAL_JA
+- uid: LibSasara.Model.PhonemeUtil.NO_CONSONANT
+  name: NO_CONSONANT
+  href: api/LibSasara.Model.PhonemeUtil.html#LibSasara_Model_PhonemeUtil_NO_CONSONANT
+  commentId: F:LibSasara.Model.PhonemeUtil.NO_CONSONANT
+  fullName: LibSasara.Model.PhonemeUtil.NO_CONSONANT
+  nameWithType: PhonemeUtil.NO_CONSONANT
+- uid: LibSasara.Model.PhonemeUtil.NOSOUND_VOWELS
+  name: NOSOUND_VOWELS
+  href: api/LibSasara.Model.PhonemeUtil.html#LibSasara_Model_PhonemeUtil_NOSOUND_VOWELS
+  commentId: F:LibSasara.Model.PhonemeUtil.NOSOUND_VOWELS
+  fullName: LibSasara.Model.PhonemeUtil.NOSOUND_VOWELS
+  nameWithType: PhonemeUtil.NOSOUND_VOWELS
+- uid: LibSasara.Model.PhonemeUtil.PAU
+  name: PAU
+  href: api/LibSasara.Model.PhonemeUtil.html#LibSasara_Model_PhonemeUtil_PAU
+  commentId: F:LibSasara.Model.PhonemeUtil.PAU
+  fullName: LibSasara.Model.PhonemeUtil.PAU
+  nameWithType: PhonemeUtil.PAU
+- uid: LibSasara.Model.PhonemeUtil.SIL
+  name: SIL
+  href: api/LibSasara.Model.PhonemeUtil.html#LibSasara_Model_PhonemeUtil_SIL
+  commentId: F:LibSasara.Model.PhonemeUtil.SIL
+  fullName: LibSasara.Model.PhonemeUtil.SIL
+  nameWithType: PhonemeUtil.SIL
+- uid: LibSasara.Model.PhonemeUtil.VOWELS_JA
+  name: VOWELS_JA
+  href: api/LibSasara.Model.PhonemeUtil.html#LibSasara_Model_PhonemeUtil_VOWELS_JA
+  commentId: F:LibSasara.Model.PhonemeUtil.VOWELS_JA
+  fullName: LibSasara.Model.PhonemeUtil.VOWELS_JA
+  nameWithType: PhonemeUtil.VOWELS_JA
 - uid: LibSasara.Model.Serialize
   name: LibSasara.Model.Serialize
   href: api/LibSasara.Model.Serialize.html
@@ -3545,6 +3827,19 @@ references:
   isSpec: "True"
   fullName: LibSasara.Model.SongUnit.Beat
   nameWithType: SongUnit.Beat
+- uid: LibSasara.Model.SongUnit.CastId
+  name: CastId
+  href: api/LibSasara.Model.SongUnit.html#LibSasara_Model_SongUnit_CastId
+  commentId: P:LibSasara.Model.SongUnit.CastId
+  fullName: LibSasara.Model.SongUnit.CastId
+  nameWithType: SongUnit.CastId
+- uid: LibSasara.Model.SongUnit.CastId*
+  name: CastId
+  href: api/LibSasara.Model.SongUnit.html#LibSasara_Model_SongUnit_CastId_
+  commentId: Overload:LibSasara.Model.SongUnit.CastId
+  isSpec: "True"
+  fullName: LibSasara.Model.SongUnit.CastId
+  nameWithType: SongUnit.CastId
 - uid: LibSasara.Model.SongUnit.Category
   name: Category
   href: api/LibSasara.Model.SongUnit.html#LibSasara_Model_SongUnit_Category
@@ -3574,6 +3869,19 @@ references:
   isSpec: "True"
   fullName: LibSasara.Model.SongUnit.CreateSongUnitRaw
   nameWithType: SongUnit.CreateSongUnitRaw
+- uid: LibSasara.Model.SongUnit.Language
+  name: Language
+  href: api/LibSasara.Model.SongUnit.html#LibSasara_Model_SongUnit_Language
+  commentId: P:LibSasara.Model.SongUnit.Language
+  fullName: LibSasara.Model.SongUnit.Language
+  nameWithType: SongUnit.Language
+- uid: LibSasara.Model.SongUnit.Language*
+  name: Language
+  href: api/LibSasara.Model.SongUnit.html#LibSasara_Model_SongUnit_Language_
+  commentId: Overload:LibSasara.Model.SongUnit.Language
+  isSpec: "True"
+  fullName: LibSasara.Model.SongUnit.Language
+  nameWithType: SongUnit.Language
 - uid: LibSasara.Model.SongUnit.Notes
   name: Notes
   href: api/LibSasara.Model.SongUnit.html#LibSasara_Model_SongUnit_Notes
@@ -3792,6 +4100,19 @@ references:
   isSpec: "True"
   fullName: LibSasara.Model.TalkUnit.Alpha
   nameWithType: TalkUnit.Alpha
+- uid: LibSasara.Model.TalkUnit.CastId
+  name: CastId
+  href: api/LibSasara.Model.TalkUnit.html#LibSasara_Model_TalkUnit_CastId
+  commentId: P:LibSasara.Model.TalkUnit.CastId
+  fullName: LibSasara.Model.TalkUnit.CastId
+  nameWithType: TalkUnit.CastId
+- uid: LibSasara.Model.TalkUnit.CastId*
+  name: CastId
+  href: api/LibSasara.Model.TalkUnit.html#LibSasara_Model_TalkUnit_CastId_
+  commentId: Overload:LibSasara.Model.TalkUnit.CastId
+  isSpec: "True"
+  fullName: LibSasara.Model.TalkUnit.CastId
+  nameWithType: TalkUnit.CastId
 - uid: LibSasara.Model.TalkUnit.Category
   name: Category
   href: api/LibSasara.Model.TalkUnit.html#LibSasara_Model_TalkUnit_Category
@@ -3847,6 +4168,19 @@ references:
   isSpec: "True"
   fullName: LibSasara.Model.TalkUnit.Directions
   nameWithType: TalkUnit.Directions
+- uid: LibSasara.Model.TalkUnit.Language
+  name: Language
+  href: api/LibSasara.Model.TalkUnit.html#LibSasara_Model_TalkUnit_Language
+  commentId: P:LibSasara.Model.TalkUnit.Language
+  fullName: LibSasara.Model.TalkUnit.Language
+  nameWithType: TalkUnit.Language
+- uid: LibSasara.Model.TalkUnit.Language*
+  name: Language
+  href: api/LibSasara.Model.TalkUnit.html#LibSasara_Model_TalkUnit_Language_
+  commentId: Overload:LibSasara.Model.TalkUnit.Language
+  isSpec: "True"
+  fullName: LibSasara.Model.TalkUnit.Language
+  nameWithType: TalkUnit.Language
 - uid: LibSasara.Model.TalkUnit.LogF0Scale
   name: LogF0Scale
   href: api/LibSasara.Model.TalkUnit.html#LibSasara_Model_TalkUnit_LogF0Scale
@@ -4009,19 +4343,6 @@ references:
   isSpec: "True"
   fullName: LibSasara.Model.UnitBase.UnitBase
   nameWithType: UnitBase.UnitBase
-- uid: LibSasara.Model.UnitBase.CastId
-  name: CastId
-  href: api/LibSasara.Model.UnitBase.html#LibSasara_Model_UnitBase_CastId
-  commentId: P:LibSasara.Model.UnitBase.CastId
-  fullName: LibSasara.Model.UnitBase.CastId
-  nameWithType: UnitBase.CastId
-- uid: LibSasara.Model.UnitBase.CastId*
-  name: CastId
-  href: api/LibSasara.Model.UnitBase.html#LibSasara_Model_UnitBase_CastId_
-  commentId: Overload:LibSasara.Model.UnitBase.CastId
-  isSpec: "True"
-  fullName: LibSasara.Model.UnitBase.CastId
-  nameWithType: UnitBase.CastId
 - uid: LibSasara.Model.UnitBase.Category
   name: Category
   href: api/LibSasara.Model.UnitBase.html#LibSasara_Model_UnitBase_Category
@@ -4074,19 +4395,6 @@ references:
   isSpec: "True"
   fullName: LibSasara.Model.UnitBase.Group
   nameWithType: UnitBase.Group
-- uid: LibSasara.Model.UnitBase.Language
-  name: Language
-  href: api/LibSasara.Model.UnitBase.html#LibSasara_Model_UnitBase_Language
-  commentId: P:LibSasara.Model.UnitBase.Language
-  fullName: LibSasara.Model.UnitBase.Language
-  nameWithType: UnitBase.Language
-- uid: LibSasara.Model.UnitBase.Language*
-  name: Language
-  href: api/LibSasara.Model.UnitBase.html#LibSasara_Model_UnitBase_Language_
-  commentId: Overload:LibSasara.Model.UnitBase.Language
-  isSpec: "True"
-  fullName: LibSasara.Model.UnitBase.Language
-  nameWithType: UnitBase.Language
 - uid: LibSasara.Model.UnitBase.RawRoot
   name: RawRoot
   href: api/LibSasara.Model.UnitBase.html#LibSasara_Model_UnitBase_RawRoot

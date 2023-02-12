@@ -101,9 +101,6 @@
       <a class="xref" href="LibSasara.Model.UnitBase.html#LibSasara_Model_UnitBase_Root">UnitBase.Root</a>
     </div>
     <div>
-      <a class="xref" href="LibSasara.Model.UnitBase.html#LibSasara_Model_UnitBase_CastId">UnitBase.CastId</a>
-    </div>
-    <div>
       <a class="xref" href="LibSasara.Model.UnitBase.html#LibSasara_Model_UnitBase_Group">UnitBase.Group</a>
     </div>
     <div>
@@ -114,9 +111,6 @@
     </div>
     <div>
       <a class="xref" href="LibSasara.Model.UnitBase.html#LibSasara_Model_UnitBase_EndTime">UnitBase.EndTime</a>
-    </div>
-    <div>
-      <a class="xref" href="LibSasara.Model.UnitBase.html#LibSasara_Model_UnitBase_Language">UnitBase.Language</a>
     </div>
   </div>
   <h6><strong>Namespace</strong>: <a class="xref" href="LibSasara.Model.html">LibSasara.Model</a></h6>
@@ -199,6 +193,102 @@
   <div class="seealso">
       <div><a class="xref" href="LibSasara.Model.Category.html">Category</a></div>
   </div>
+  
+  
+  <a id="LibSasara_Model_AudioUnit_FilePath_" data-uid="LibSasara.Model.AudioUnit.FilePath*"></a>
+  <h4 id="LibSasara_Model_AudioUnit_FilePath" data-uid="LibSasara.Model.AudioUnit.FilePath">FilePath</h4>
+  <div class="markdown level1 summary"><p>オーディオファイルへのpath</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string FilePath { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+  </h3>
+  
+  
+  <a id="LibSasara_Model_AudioUnit_CreateAudioUnitRaw_" data-uid="LibSasara.Model.AudioUnit.CreateAudioUnitRaw*"></a>
+  <h4 id="LibSasara_Model_AudioUnit_CreateAudioUnitRaw_System_TimeSpan_System_TimeSpan_System_String_System_Nullable_System_Guid__" data-uid="LibSasara.Model.AudioUnit.CreateAudioUnitRaw(System.TimeSpan,System.TimeSpan,System.String,System.Nullable{System.Guid})">CreateAudioUnitRaw(TimeSpan, TimeSpan, String, Nullable&lt;Guid&gt;)</h4>
+  <div class="markdown level1 summary"><p>AudioのUnit要素生成</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static XElement CreateAudioUnitRaw(TimeSpan StartTime, TimeSpan Duration, string FilePath, Guid? Group = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a></td>
+        <td><span class="parametername">StartTime</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a></td>
+        <td><span class="parametername">Duration</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">FilePath</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.guid">Guid</a>&gt;</td>
+        <td><span class="parametername">Group</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement">XElement</a></td>
+        <td><p>AudioのUnit要素の<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement">XElement</a></p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="LibSasara_Model_AudioUnit_CreateAudioUnitRaw_System_TimeSpan_System_TimeSpan_System_String_System_Nullable_System_Guid___remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>
+AudioのUnit要素の<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement">XElement</a>を生成します。
+</p>
+<p>
+生成するだけで<a class="xref" href="LibSasara.Model.CeVIOFileBase.html">CeVIOFileBase</a>には紐付けません。
+<a class="xref" href="LibSasara.Builder.AudioUnitBuilder.html">AudioUnitBuilder</a>も活用してください。
+</p>
+</div>
 </article>
           </div>
           
