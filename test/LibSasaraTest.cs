@@ -606,7 +606,7 @@ public class LibSasaraTest : IAsyncLifetime
 	[Theory]
 	[InlineData(CCS_FILEPATH_CS7)]
 	[InlineData(CCS_FILEPATH_AI8)]
-	public async void AddUnitsAsync(string path){
+	public async void AddTalkUnitsAsync(string path){
 		var result = await SasaraCcs
 			.LoadAsync(path);
 
@@ -854,5 +854,42 @@ public class LibSasaraTest : IAsyncLifetime
 			.NoteNumToFreq(num);
 
 		Assert.Equal(freq, rFreq);
+	}
+
+	[Theory]
+	[InlineData(CCS_FILEPATH_CS7)]
+	[InlineData(CCS_FILEPATH_AI8)]
+	public async void AddAudioUnitsAsync(string path){
+		var result = await SasaraCcs
+			.LoadAsync(path);
+
+		var tu = AudioUnitBuilder
+			.Create(
+				result,
+				new TimeSpan(0, 0, 0),
+				new TimeSpan(0, 0, 1),
+				Path.GetTempFileName()
+			)
+			.Build();
+		//checks
+		Assert.NotNull(tu);
+	}
+
+	[Fact]
+	public void BuildAudioUnitTest(){
+		var id = Guid.NewGuid();
+		var result = AudioUnitBuilder
+			.Create(
+				sampleCcsCS7!,
+				new TimeSpan(0, 0, 0),
+				new TimeSpan(0, 0, 1),
+				Path.GetTempFileName()
+			)
+			.Group(id)
+			.Build();
+		Assert.NotNull(result);
+		Assert.Equal(id, result.Group);
+		Assert.NotNull(result.FilePath);
+		Assert.True(File.Exists(result.FilePath));
 	}
 }
