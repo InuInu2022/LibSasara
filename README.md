@@ -53,6 +53,16 @@ The .NET library for convenient handling of project files (`.ccs`), track files 
 
 https://InuInu2022.github.io/LibSasara/
 
+## Show cases
+
+## [NodoAme](https://inuinu2022.github.io/NodoAme.Home/)
+
+**NodoAme** is a tool to make a song software (vocal synthesizer) TALK by imitating talk voices of a talk software (TTS). This is compatible with CeVIO songs and VoiSona. It is a tool for so-called "Talkloid".
+
+LibSasara was developed by porting the know-how of NodoAme.
+Since NodoAme ver. 0.4, LibSasara has been used directly.
+
+
 ## Projects
 
 - [LibSasara](./LibSasara/)
@@ -115,11 +125,11 @@ https://InuInu2022.github.io/LibSasara/
 - documents
   - [docfx](https://dotnet.github.io/docfx/)
 
-## KuchiPaku license
+## LibSasara license
 
 > The MIT License
 >
-> Copyright (c) 2022 InuInu
+> Copyright (c) 2022 - 2023 InuInu
 
 - [LICENSE.txt](LICENSE.txt)
 
