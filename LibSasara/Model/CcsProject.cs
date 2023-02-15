@@ -513,6 +513,28 @@ public static class CeVIOFileExt
 				.Value
 		);
 	}
+
+	/// <summary>
+    /// GroupのIDをまとめて設定
+    /// </summary>
+    /// <param name="groupAndUnits"></param>
+    /// <param name="guid">新しい<see cref="Guid"/></param>
+    /// <returns></returns>
+	public static (XElement, List<XElement>)
+		SetGroupId(
+			this (XElement, List<XElement>) groupAndUnits,
+			Guid guid
+	)
+	{
+		groupAndUnits.Item1.SetAttributeValue("Id", guid);
+		groupAndUnits.Item2
+			.Select(v =>
+			{
+				v.SetAttributeValue("Group", guid);
+				return v;
+			});
+		return groupAndUnits;
+	}
 }
 
 /// <summary>
