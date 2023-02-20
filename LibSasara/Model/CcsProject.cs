@@ -570,11 +570,12 @@ public static class CeVIOFileExt
 	{
 		groupAndUnits.Item1.SetAttributeValue("Id", guid);
 		groupAndUnits.Item2
-			.Select(v =>
+			.ConvertAll(v =>
 			{
 				v.SetAttributeValue("Group", guid);
 				return v;
-			});
+			})
+			;
 		return groupAndUnits;
 	}
 }
