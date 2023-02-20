@@ -1166,7 +1166,7 @@
           "can_incremental": true,
           "incrementalPhase": "build",
           "total_file_count": 80,
-          "skipped_file_count": 21
+          "skipped_file_count": 80
         },
         "ResourceDocumentProcessor": {
           "can_incremental": false,
