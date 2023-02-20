@@ -19,6 +19,10 @@ public interface ICeVIOFile
 	/// <param name="id">指定ID</param>
 	(XElement group, List<XElement> units) GetTrackSet(Guid id);
 
+	/// <inheritdoc cref="GetTrackSet(Guid)"/>
+	TrackSet<T> GetTrackSet<T>(Guid id)
+		where T : UnitBase;
+
 	/// <summary>
 	/// 指定したIDのトラックデータセット（GroupとUnit）を複製 <br/>
 	/// see also：<seealso cref="DuplicateAndAddTrackSetAsync(Guid, Guid?)"/>
@@ -109,8 +113,8 @@ public abstract class CeVIOFileBase : ICeVIOFile
 	}
 
 	/// <summary>
-    /// 生のGroup要素
-    /// </summary>
+	/// 生のGroup要素
+	/// </summary>
 	public List<XElement> RawGroups
 	{
 		get => rawXml
@@ -129,6 +133,7 @@ public abstract class CeVIOFileBase : ICeVIOFile
 	}
 
 	/// <inheritdoc/>
+	/// <seealso cref="GetTrackSet{T}(Guid)"/>
 	public (XElement group, List<XElement> units) GetTrackSet(Guid id)
 	{
 		var g = rawXml
@@ -145,14 +150,49 @@ public abstract class CeVIOFileBase : ICeVIOFile
 	}
 
 	/// <inheritdoc/>
+	/// <seealso cref="GetTrackSets{T}()"/>
+	public TrackSet<T> GetTrackSet<T>(Guid id)
+		where T: UnitBase
+	{
+		return new TrackSet<T>(this, id);
+	}
+
+	/// <inheritdoc/>
+	/// <seealso cref="GetTrackSets{T}()"/>
 	public List<(XElement group, List<XElement> units)>
 		GetTrackSets()
 	{
-		return rawXml
-			.Descendants("Groups")
-			.Elements("Group")
+		return RawGroups
 			.Select(v => v.Attribute("Id").Value)
 			.Select(v => GetTrackSet(new(v)))
+			.ToList();
+	}
+
+	/// <inheritdoc/>
+	public List<TrackSet<T>> GetTrackSets<T>()
+		where T: UnitBase
+	{
+		return RawGroups
+			.Select(v => v.Attribute("Id").Value)
+			.Select(v => new TrackSet<T>(this, new(v)))
+			.Where(v => {
+				Category cat;
+				if(typeof(T) == typeof(SongUnit)){
+					cat = Category.SingerSong;
+				}
+				else if(typeof(T)==typeof(TalkUnit)){
+					cat = Category.TextVocal;
+				}
+				else if(typeof(T)==typeof(AudioUnit)){
+					cat = Category.OuterAudio;
+				}
+				else{
+					//UnitBase
+					return true;
+				}
+
+				return v.Category == cat;
+			})
 			.ToList();
 	}
 
@@ -280,10 +320,11 @@ public abstract class CeVIOFileBase : ICeVIOFile
 			.ToList();
 
 	/// <summary>
-    /// CeVIOのトラックを定義するGroup要素を追加する
-    /// </summary>
-    /// <param name="group">追加するGroup要素</param>
-    /// <seealso cref="AddGroup(Guid, Category, string, string, double, double, bool, bool, string)"/>
+	/// CeVIOのトラックを定義するGroup要素を追加する
+	/// </summary>
+	/// <param name="group">追加するGroup要素</param>
+	/// <seealso cref="AddGroup(Guid, Category, string, string, double, double, bool, bool, string)"/>
+	/// <seealso cref="TrackSet{TUnit}"/>
 	public void AddGroup(XElement group)
 	{
 		RawGroups
@@ -292,18 +333,19 @@ public abstract class CeVIOFileBase : ICeVIOFile
 	}
 
 	/// <summary>
-    /// <inheritdoc cref="AddGroup(XElement)"/>
-    /// </summary>
-    /// <param name="groupId">トラックGroupのGuid</param>
-    /// <param name="category">トラックの種類</param>
-    /// <param name="name">トラック名</param>
-    /// <param name="castId">トラックのキャストID。複数キャストやキャストが居ない場合は<value>Mixed</value></param>
-    /// <param name="volume">トラックの音量</param>
-    /// <param name="pan">トラックのパン</param>
-    /// <param name="isSolo">ソロ再生</param>
-    /// <param name="isMuted">再生ミュート</param>
-    /// <param name="language">トラックの言語</param>
-    /// <seealso cref="AddGroup(XElement)"/>
+	/// <inheritdoc cref="AddGroup(XElement)"/>
+	/// </summary>
+	/// <param name="groupId">トラックGroupのGuid</param>
+	/// <param name="category">トラックの種類</param>
+	/// <param name="name">トラック名</param>
+	/// <param name="castId">トラックのキャストID。複数キャストやキャストが居ない場合は<value>Mixed</value></param>
+	/// <param name="volume">トラックの音量</param>
+	/// <param name="pan">トラックのパン</param>
+	/// <param name="isSolo">ソロ再生</param>
+	/// <param name="isMuted">再生ミュート</param>
+	/// <param name="language">トラックの言語</param>
+	/// <seealso cref="AddGroup(XElement)"/>
+	/// <seealso cref="TrackSet{TUnit}"/>
 	public void AddGroup(
 		Guid groupId,
 		Category category,
@@ -342,9 +384,9 @@ public abstract class CeVIOFileBase : ICeVIOFile
 	}
 
 	/// <summary>
-    /// Unit要素リストを追加する
-    /// </summary>
-    /// <param name="units">追加するUnit要素リスト</param>
+	/// Unit要素リストを追加する
+	/// </summary>
+	/// <param name="units">追加するUnit要素リスト</param>
 	public void AddUnits(IEnumerable<XElement> units)
 	{
 		var x = rawXml
@@ -361,10 +403,10 @@ public abstract class CeVIOFileBase : ICeVIOFile
 	}
 
 	/// <summary>
-    /// Group要素を全て削除する
-    /// </summary>
-    /// <seealso cref="AddGroup(XElement)"/>
-    /// <seealso cref="AddGroup(Guid, Category, string, string, double, double, bool, bool, string)"/>
+	/// Group要素を全て削除する
+	/// </summary>
+	/// <seealso cref="AddGroup(XElement)"/>
+	/// <seealso cref="AddGroup(Guid, Category, string, string, double, double, bool, bool, string)"/>
 	public void RemoveAllGroups()
 	{
 		var groups = RawGroups
@@ -515,11 +557,11 @@ public static class CeVIOFileExt
 	}
 
 	/// <summary>
-    /// GroupのIDをまとめて設定
-    /// </summary>
-    /// <param name="groupAndUnits"></param>
-    /// <param name="guid">新しい<see cref="Guid"/></param>
-    /// <returns></returns>
+	/// GroupのIDをまとめて設定
+	/// </summary>
+	/// <param name="groupAndUnits"></param>
+	/// <param name="guid">新しい<see cref="Guid"/></param>
+	/// <returns></returns>
 	public static (XElement, List<XElement>)
 		SetGroupId(
 			this (XElement, List<XElement>) groupAndUnits,

@@ -241,6 +241,66 @@ see also：<a class="xref" href="LibSasara.Model.ICeVIOFile.html#LibSasara_Model
   </table>
   
   
+  <a id="LibSasara_Model_ICeVIOFile_GetTrackSet_" data-uid="LibSasara.Model.ICeVIOFile.GetTrackSet*"></a>
+  <h4 id="LibSasara_Model_ICeVIOFile_GetTrackSet__1_System_Guid_" data-uid="LibSasara.Model.ICeVIOFile.GetTrackSet``1(System.Guid)">GetTrackSet&lt;T&gt;(Guid)</h4>
+  <div class="markdown level1 summary"><p>指定したIDのトラックデータセット（GroupとUnit）を取得</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">TrackSet&lt;T&gt; GetTrackSet&lt;T&gt;(Guid id)
+    where T : UnitBase</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.guid">Guid</a></td>
+        <td><span class="parametername">id</span></td>
+        <td><p>指定ID</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="LibSasara.Model.TrackSet-1.html">TrackSet</a>&lt;T&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
   <a id="LibSasara_Model_ICeVIOFile_GetTrackSets_" data-uid="LibSasara.Model.ICeVIOFile.GetTrackSets*"></a>
   <h4 id="LibSasara_Model_ICeVIOFile_GetTrackSets" data-uid="LibSasara.Model.ICeVIOFile.GetTrackSets">GetTrackSets()</h4>
   <div class="markdown level1 summary"><p>トラックデータ（GroupとUnit）のリストを返す</p>

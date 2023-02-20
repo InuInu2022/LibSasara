@@ -892,4 +892,69 @@ public class LibSasaraTest : IAsyncLifetime
 		Assert.NotNull(result.FilePath);
 		Assert.True(File.Exists(result.FilePath));
 	}
+
+	[Theory]
+	[InlineData(CCS_FILEPATH_CS7, 3, 1, 2, 0)]
+	[InlineData(CCS_FILEPATH_AI8, 6, 3, 2, 1)]
+	[InlineData(CCS_FILEPATH_VOISONA, 1, 1)]
+	public async void GetTrackSetsTestAsync(
+		string path,
+		int trackCount,
+		int songCount = 0,
+		int talkCount = 0,
+		int audioCount = 0
+	){
+		var ccs = await SasaraCcs
+			.LoadAsync(path);
+
+		var result = ccs
+			.GetTrackSets<UnitBase>();
+
+		Assert.NotNull(result);
+		Assert.Equal(result.Count, trackCount);
+
+		var songs = ccs.GetTrackSets<SongUnit>();
+		Assert.Equal(songs.Count, songCount);
+		if(songCount>0){
+			var f = songs[0];
+			var a = ccs.GetTrackSet<SongUnit>(f.GroupId);
+			Assert.Equal(f, a);
+
+			var s = SongUnitBuilder
+				.Create(ccs, new TimeSpan(), new TimeSpan(), "XXX")
+				.Build();
+			f.AddUnit(s);
+			Assert.Equal(s.Group, f.GroupId);
+		}
+
+		var talks = ccs.GetTrackSets<TalkUnit>();
+		Assert.Equal(talks.Count, talkCount);
+		if(talkCount>0){
+			var f = talks[0];
+			var a = ccs.GetTrackSet<TalkUnit>(f.GroupId);
+			Assert.Equal(f, a);
+
+			var s = TalkUnitBuilder
+				.Create(ccs, new TimeSpan(), new TimeSpan(), "XXX", "test")
+				.Build();
+			f.AddUnit(s);
+			Assert.Equal(s.Group, f.GroupId);
+
+		}
+
+		var audios = ccs.GetTrackSets<AudioUnit>();
+		Assert.Equal(audios.Count, audioCount);
+		if(audioCount>0){
+			var f = audios[0];
+			var a = ccs.GetTrackSet<AudioUnit>(f.GroupId);
+			Assert.Equal(f, a);
+
+			var s = AudioUnitBuilder
+				.Create(ccs, new TimeSpan(), new TimeSpan(), "path/to")
+				.Build();
+			f.AddUnit(s);
+			Assert.Equal(s.Group, f.GroupId);
+
+		}
+	}
 }

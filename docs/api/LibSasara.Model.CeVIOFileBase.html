@@ -297,6 +297,7 @@
   <h5 id="LibSasara_Model_CeVIOFileBase_AddGroup_System_Guid_LibSasara_Model_Category_System_String_System_String_System_Double_System_Double_System_Boolean_System_Boolean_System_String__seealso">See Also</h5>
   <div class="seealso">
       <div><a class="xref" href="LibSasara.Model.CeVIOFileBase.html#LibSasara_Model_CeVIOFileBase_AddGroup_System_Xml_Linq_XElement_">AddGroup(XElement)</a></div>
+      <div><a class="xref" href="LibSasara.Model.TrackSet-1.html">TrackSet</a>&lt;TUnit&gt;</div>
   </div>
   
   
@@ -330,6 +331,7 @@
   <h5 id="LibSasara_Model_CeVIOFileBase_AddGroup_System_Xml_Linq_XElement__seealso">See Also</h5>
   <div class="seealso">
       <div><a class="xref" href="LibSasara.Model.CeVIOFileBase.html#LibSasara_Model_CeVIOFileBase_AddGroup_System_Guid_LibSasara_Model_Category_System_String_System_String_System_Double_System_Double_System_Boolean_System_Boolean_System_String_">AddGroup(Guid, Category, String, String, Double, Double, Boolean, Boolean, String)</a></div>
+      <div><a class="xref" href="LibSasara.Model.TrackSet-1.html">TrackSet</a>&lt;TUnit&gt;</div>
   </div>
   
   
@@ -364,7 +366,8 @@
   
   <a id="LibSasara_Model_CeVIOFileBase_DuplicateAndAddTrackSetAsync_" data-uid="LibSasara.Model.CeVIOFileBase.DuplicateAndAddTrackSetAsync*"></a>
   <h4 id="LibSasara_Model_CeVIOFileBase_DuplicateAndAddTrackSetAsync_System_Guid_System_Nullable_System_Guid__" data-uid="LibSasara.Model.CeVIOFileBase.DuplicateAndAddTrackSetAsync(System.Guid,System.Nullable{System.Guid})">DuplicateAndAddTrackSetAsync(Guid, Nullable&lt;Guid&gt;)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>指定したIDのトラックデータセット（GroupとUnit）を複製・追加</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -383,12 +386,14 @@
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.guid">Guid</a></td>
         <td><span class="parametername">targetId</span></td>
-        <td></td>
+        <td><p>指定GroupのGUID</p>
+</td>
       </tr>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.guid">Guid</a>&gt;</td>
         <td><span class="parametername">newId</span></td>
-        <td></td>
+        <td><p>新規GUID</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -411,7 +416,9 @@
   
   <a id="LibSasara_Model_CeVIOFileBase_DuplicateTrackSetAsync_" data-uid="LibSasara.Model.CeVIOFileBase.DuplicateTrackSetAsync*"></a>
   <h4 id="LibSasara_Model_CeVIOFileBase_DuplicateTrackSetAsync_System_Guid_System_Nullable_System_Guid__" data-uid="LibSasara.Model.CeVIOFileBase.DuplicateTrackSetAsync(System.Guid,System.Nullable{System.Guid})">DuplicateTrackSetAsync(Guid, Nullable&lt;Guid&gt;)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>指定したIDのトラックデータセット（GroupとUnit）を複製 <br>
+see also：<a class="xref" href="LibSasara.Model.ICeVIOFile.html#LibSasara_Model_ICeVIOFile_DuplicateAndAddTrackSetAsync_System_Guid_System_Nullable_System_Guid__">DuplicateAndAddTrackSetAsync(Guid, Nullable&lt;Guid&gt;)</a></p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -430,12 +437,14 @@
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.guid">Guid</a></td>
         <td><span class="parametername">targetId</span></td>
-        <td></td>
+        <td><p>指定GroupのGUID</p>
+</td>
       </tr>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.guid">Guid</a>&gt;</td>
         <td><span class="parametername">newId</span></td>
-        <td></td>
+        <td><p>新規GUID</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -483,7 +492,8 @@
   
   <a id="LibSasara_Model_CeVIOFileBase_GetTrackSet_" data-uid="LibSasara.Model.CeVIOFileBase.GetTrackSet*"></a>
   <h4 id="LibSasara_Model_CeVIOFileBase_GetTrackSet_System_Guid_" data-uid="LibSasara.Model.CeVIOFileBase.GetTrackSet(System.Guid)">GetTrackSet(Guid)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>指定したIDのトラックデータセット（GroupとUnit）を取得</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -502,7 +512,8 @@
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.guid">Guid</a></td>
         <td><span class="parametername">id</span></td>
-        <td></td>
+        <td><p>指定ID</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -521,11 +532,80 @@
       </tr>
     </tbody>
   </table>
+  <h5 id="LibSasara_Model_CeVIOFileBase_GetTrackSet_System_Guid__seealso">See Also</h5>
+  <div class="seealso">
+      <div><a class="xref" href="LibSasara.Model.CeVIOFileBase.html#LibSasara_Model_CeVIOFileBase_GetTrackSet__1_System_Guid_">GetTrackSet&lt;T&gt;(Guid)</a></div>
+  </div>
+  
+  
+  <a id="LibSasara_Model_CeVIOFileBase_GetTrackSet_" data-uid="LibSasara.Model.CeVIOFileBase.GetTrackSet*"></a>
+  <h4 id="LibSasara_Model_CeVIOFileBase_GetTrackSet__1_System_Guid_" data-uid="LibSasara.Model.CeVIOFileBase.GetTrackSet``1(System.Guid)">GetTrackSet&lt;T&gt;(Guid)</h4>
+  <div class="markdown level1 summary"><p>指定したIDのトラックデータセット（GroupとUnit）を取得</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TrackSet&lt;T&gt; GetTrackSet&lt;T&gt;(Guid id)
+    where T : UnitBase</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.guid">Guid</a></td>
+        <td><span class="parametername">id</span></td>
+        <td><p>指定ID</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="LibSasara.Model.TrackSet-1.html">TrackSet</a>&lt;T&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="LibSasara_Model_CeVIOFileBase_GetTrackSet__1_System_Guid__seealso">See Also</h5>
+  <div class="seealso">
+      <div><a class="xref" href="LibSasara.Model.CeVIOFileBase.html#LibSasara_Model_CeVIOFileBase_GetTrackSets__1">GetTrackSets&lt;T&gt;()</a></div>
+  </div>
   
   
   <a id="LibSasara_Model_CeVIOFileBase_GetTrackSets_" data-uid="LibSasara.Model.CeVIOFileBase.GetTrackSets*"></a>
   <h4 id="LibSasara_Model_CeVIOFileBase_GetTrackSets" data-uid="LibSasara.Model.CeVIOFileBase.GetTrackSets">GetTrackSets()</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>トラックデータ（GroupとUnit）のリストを返す</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -542,6 +622,51 @@
     <tbody>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-2">(T1, T2)</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement">XElement</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement">XElement</a>&gt;&gt;&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="LibSasara_Model_CeVIOFileBase_GetTrackSets_seealso">See Also</h5>
+  <div class="seealso">
+      <div><a class="xref" href="LibSasara.Model.CeVIOFileBase.html#LibSasara_Model_CeVIOFileBase_GetTrackSets__1">GetTrackSets&lt;T&gt;()</a></div>
+  </div>
+  
+  
+  <a id="LibSasara_Model_CeVIOFileBase_GetTrackSets_" data-uid="LibSasara.Model.CeVIOFileBase.GetTrackSets*"></a>
+  <h4 id="LibSasara_Model_CeVIOFileBase_GetTrackSets__1" data-uid="LibSasara.Model.CeVIOFileBase.GetTrackSets``1">GetTrackSets&lt;T&gt;()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public List&lt;TrackSet&lt;T&gt;&gt; GetTrackSets&lt;T&gt;()
+    where T : UnitBase</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="LibSasara.Model.TrackSet-1.html">TrackSet</a>&lt;T&gt;&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
         <td></td>
       </tr>
     </tbody>
@@ -576,7 +701,8 @@
   
   <a id="LibSasara_Model_CeVIOFileBase_GetUnits_" data-uid="LibSasara.Model.CeVIOFileBase.GetUnits*"></a>
   <h4 id="LibSasara_Model_CeVIOFileBase_GetUnits_LibSasara_Model_Category_" data-uid="LibSasara.Model.CeVIOFileBase.GetUnits(LibSasara.Model.Category)">GetUnits(Category)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Unit管理オブジェクトで返す</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -618,7 +744,8 @@
   
   <a id="LibSasara_Model_CeVIOFileBase_GetUnitsRaw_" data-uid="LibSasara.Model.CeVIOFileBase.GetUnitsRaw*"></a>
   <h4 id="LibSasara_Model_CeVIOFileBase_GetUnitsRaw" data-uid="LibSasara.Model.CeVIOFileBase.GetUnitsRaw">GetUnitsRaw()</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>ボイスアイテム一覧を返す</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -643,7 +770,8 @@
   
   <a id="LibSasara_Model_CeVIOFileBase_GetUnitsRaw_" data-uid="LibSasara.Model.CeVIOFileBase.GetUnitsRaw*"></a>
   <h4 id="LibSasara_Model_CeVIOFileBase_GetUnitsRaw_LibSasara_Model_Category_" data-uid="LibSasara.Model.CeVIOFileBase.GetUnitsRaw(LibSasara.Model.Category)">GetUnitsRaw(Category)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p><inheritdoc cref="M:LibSasara.Model.ICeVIOFile.GetUnitsRaw"></inheritdoc></p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -662,7 +790,8 @@
       <tr>
         <td><a class="xref" href="LibSasara.Model.Category.html">Category</a></td>
         <td><span class="parametername">category</span></td>
-        <td></td>
+        <td><p>フィルタする分類</p>
+</td>
       </tr>
     </tbody>
   </table>

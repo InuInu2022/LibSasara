@@ -587,6 +587,15 @@ references:
   isSpec: "True"
   fullName: LibSasara.Model.CeVIOFileBase.GetTrackSet
   nameWithType: CeVIOFileBase.GetTrackSet
+- uid: LibSasara.Model.CeVIOFileBase.GetTrackSet``1(System.Guid)
+  name: GetTrackSet<T>(Guid)
+  href: api/LibSasara.Model.CeVIOFileBase.html#LibSasara_Model_CeVIOFileBase_GetTrackSet__1_System_Guid_
+  commentId: M:LibSasara.Model.CeVIOFileBase.GetTrackSet``1(System.Guid)
+  name.vb: GetTrackSet(Of T)(Guid)
+  fullName: LibSasara.Model.CeVIOFileBase.GetTrackSet<T>(System.Guid)
+  fullName.vb: LibSasara.Model.CeVIOFileBase.GetTrackSet(Of T)(System.Guid)
+  nameWithType: CeVIOFileBase.GetTrackSet<T>(Guid)
+  nameWithType.vb: CeVIOFileBase.GetTrackSet(Of T)(Guid)
 - uid: LibSasara.Model.CeVIOFileBase.GetTrackSets
   name: GetTrackSets()
   href: api/LibSasara.Model.CeVIOFileBase.html#LibSasara_Model_CeVIOFileBase_GetTrackSets
@@ -600,6 +609,15 @@ references:
   isSpec: "True"
   fullName: LibSasara.Model.CeVIOFileBase.GetTrackSets
   nameWithType: CeVIOFileBase.GetTrackSets
+- uid: LibSasara.Model.CeVIOFileBase.GetTrackSets``1
+  name: GetTrackSets<T>()
+  href: api/LibSasara.Model.CeVIOFileBase.html#LibSasara_Model_CeVIOFileBase_GetTrackSets__1
+  commentId: M:LibSasara.Model.CeVIOFileBase.GetTrackSets``1
+  name.vb: GetTrackSets(Of T)()
+  fullName: LibSasara.Model.CeVIOFileBase.GetTrackSets<T>()
+  fullName.vb: LibSasara.Model.CeVIOFileBase.GetTrackSets(Of T)()
+  nameWithType: CeVIOFileBase.GetTrackSets<T>()
+  nameWithType.vb: CeVIOFileBase.GetTrackSets(Of T)()
 - uid: LibSasara.Model.CeVIOFileBase.GetUnits
   name: GetUnits()
   href: api/LibSasara.Model.CeVIOFileBase.html#LibSasara_Model_CeVIOFileBase_GetUnits
@@ -737,6 +755,22 @@ references:
   isSpec: "True"
   fullName: LibSasara.Model.CeVIOFileExt.ReplaceCastId
   nameWithType: CeVIOFileExt.ReplaceCastId
+- uid: LibSasara.Model.CeVIOFileExt.SetGroupId(System.ValueTuple{System.Xml.Linq.XElement,System.Collections.Generic.List{System.Xml.Linq.XElement}},System.Guid)
+  name: SetGroupId((XElement, List<XElement>), Guid)
+  href: api/LibSasara.Model.CeVIOFileExt.html#LibSasara_Model_CeVIOFileExt_SetGroupId_System_ValueTuple_System_Xml_Linq_XElement_System_Collections_Generic_List_System_Xml_Linq_XElement___System_Guid_
+  commentId: M:LibSasara.Model.CeVIOFileExt.SetGroupId(System.ValueTuple{System.Xml.Linq.XElement,System.Collections.Generic.List{System.Xml.Linq.XElement}},System.Guid)
+  name.vb: SetGroupId((XElement, List(Of XElement))(Of XElement, List(Of XElement)), Guid)
+  fullName: LibSasara.Model.CeVIOFileExt.SetGroupId(System.ValueTuple<System.Xml.Linq.XElement, System.Collections.Generic.List<System.Xml.Linq.XElement>>, System.Guid)
+  fullName.vb: LibSasara.Model.CeVIOFileExt.SetGroupId(System.ValueTuple(Of System.Xml.Linq.XElement, System.Collections.Generic.List(Of System.Xml.Linq.XElement)), System.Guid)
+  nameWithType: CeVIOFileExt.SetGroupId((XElement, List<XElement>), Guid)
+  nameWithType.vb: CeVIOFileExt.SetGroupId((XElement, List(Of XElement))(Of XElement, List(Of XElement)), Guid)
+- uid: LibSasara.Model.CeVIOFileExt.SetGroupId*
+  name: SetGroupId
+  href: api/LibSasara.Model.CeVIOFileExt.html#LibSasara_Model_CeVIOFileExt_SetGroupId_
+  commentId: Overload:LibSasara.Model.CeVIOFileExt.SetGroupId
+  isSpec: "True"
+  fullName: LibSasara.Model.CeVIOFileExt.SetGroupId
+  nameWithType: CeVIOFileExt.SetGroupId
 - uid: LibSasara.Model.Dynamics
   name: Dynamics
   href: api/LibSasara.Model.Dynamics.html
@@ -860,6 +894,15 @@ references:
   isSpec: "True"
   fullName: LibSasara.Model.ICeVIOFile.GetTrackSet
   nameWithType: ICeVIOFile.GetTrackSet
+- uid: LibSasara.Model.ICeVIOFile.GetTrackSet``1(System.Guid)
+  name: GetTrackSet<T>(Guid)
+  href: api/LibSasara.Model.ICeVIOFile.html#LibSasara_Model_ICeVIOFile_GetTrackSet__1_System_Guid_
+  commentId: M:LibSasara.Model.ICeVIOFile.GetTrackSet``1(System.Guid)
+  name.vb: GetTrackSet(Of T)(Guid)
+  fullName: LibSasara.Model.ICeVIOFile.GetTrackSet<T>(System.Guid)
+  fullName.vb: LibSasara.Model.ICeVIOFile.GetTrackSet(Of T)(System.Guid)
+  nameWithType: ICeVIOFile.GetTrackSet<T>(Guid)
+  nameWithType.vb: ICeVIOFile.GetTrackSet(Of T)(Guid)
 - uid: LibSasara.Model.ICeVIOFile.GetTrackSets
   name: GetTrackSets()
   href: api/LibSasara.Model.ICeVIOFile.html#LibSasara_Model_ICeVIOFile_GetTrackSets
@@ -4324,6 +4367,364 @@ references:
   isSpec: "True"
   fullName: LibSasara.Model.TalkUnit.Volume
   nameWithType: TalkUnit.Volume
+- uid: LibSasara.Model.TrackSet`1
+  name: TrackSet<TUnit>
+  href: api/LibSasara.Model.TrackSet-1.html
+  commentId: T:LibSasara.Model.TrackSet`1
+  name.vb: TrackSet(Of TUnit)
+  fullName: LibSasara.Model.TrackSet<TUnit>
+  fullName.vb: LibSasara.Model.TrackSet(Of TUnit)
+  nameWithType: TrackSet<TUnit>
+  nameWithType.vb: TrackSet(Of TUnit)
+- uid: LibSasara.Model.TrackSet`1.#ctor(LibSasara.Model.CeVIOFileBase,System.Guid)
+  name: TrackSet(CeVIOFileBase, Guid)
+  href: api/LibSasara.Model.TrackSet-1.html#LibSasara_Model_TrackSet_1__ctor_LibSasara_Model_CeVIOFileBase_System_Guid_
+  commentId: M:LibSasara.Model.TrackSet`1.#ctor(LibSasara.Model.CeVIOFileBase,System.Guid)
+  fullName: LibSasara.Model.TrackSet<TUnit>.TrackSet(LibSasara.Model.CeVIOFileBase, System.Guid)
+  fullName.vb: LibSasara.Model.TrackSet(Of TUnit).TrackSet(LibSasara.Model.CeVIOFileBase, System.Guid)
+  nameWithType: TrackSet<TUnit>.TrackSet(CeVIOFileBase, Guid)
+  nameWithType.vb: TrackSet(Of TUnit).TrackSet(CeVIOFileBase, Guid)
+- uid: LibSasara.Model.TrackSet`1.#ctor*
+  name: TrackSet
+  href: api/LibSasara.Model.TrackSet-1.html#LibSasara_Model_TrackSet_1__ctor_
+  commentId: Overload:LibSasara.Model.TrackSet`1.#ctor
+  isSpec: "True"
+  fullName: LibSasara.Model.TrackSet<TUnit>.TrackSet
+  fullName.vb: LibSasara.Model.TrackSet(Of TUnit).TrackSet
+  nameWithType: TrackSet<TUnit>.TrackSet
+  nameWithType.vb: TrackSet(Of TUnit).TrackSet
+- uid: LibSasara.Model.TrackSet`1.AddUnit(`0)
+  name: AddUnit(TUnit)
+  href: api/LibSasara.Model.TrackSet-1.html#LibSasara_Model_TrackSet_1_AddUnit__0_
+  commentId: M:LibSasara.Model.TrackSet`1.AddUnit(`0)
+  fullName: LibSasara.Model.TrackSet<TUnit>.AddUnit(TUnit)
+  fullName.vb: LibSasara.Model.TrackSet(Of TUnit).AddUnit(TUnit)
+  nameWithType: TrackSet<TUnit>.AddUnit(TUnit)
+  nameWithType.vb: TrackSet(Of TUnit).AddUnit(TUnit)
+- uid: LibSasara.Model.TrackSet`1.AddUnit(System.TimeSpan,System.TimeSpan,System.String)
+  name: AddUnit(TimeSpan, TimeSpan, String)
+  href: api/LibSasara.Model.TrackSet-1.html#LibSasara_Model_TrackSet_1_AddUnit_System_TimeSpan_System_TimeSpan_System_String_
+  commentId: M:LibSasara.Model.TrackSet`1.AddUnit(System.TimeSpan,System.TimeSpan,System.String)
+  fullName: LibSasara.Model.TrackSet<TUnit>.AddUnit(System.TimeSpan, System.TimeSpan, System.String)
+  fullName.vb: LibSasara.Model.TrackSet(Of TUnit).AddUnit(System.TimeSpan, System.TimeSpan, System.String)
+  nameWithType: TrackSet<TUnit>.AddUnit(TimeSpan, TimeSpan, String)
+  nameWithType.vb: TrackSet(Of TUnit).AddUnit(TimeSpan, TimeSpan, String)
+- uid: LibSasara.Model.TrackSet`1.AddUnit*
+  name: AddUnit
+  href: api/LibSasara.Model.TrackSet-1.html#LibSasara_Model_TrackSet_1_AddUnit_
+  commentId: Overload:LibSasara.Model.TrackSet`1.AddUnit
+  isSpec: "True"
+  fullName: LibSasara.Model.TrackSet<TUnit>.AddUnit
+  fullName.vb: LibSasara.Model.TrackSet(Of TUnit).AddUnit
+  nameWithType: TrackSet<TUnit>.AddUnit
+  nameWithType.vb: TrackSet(Of TUnit).AddUnit
+- uid: LibSasara.Model.TrackSet`1.CastId
+  name: CastId
+  href: api/LibSasara.Model.TrackSet-1.html#LibSasara_Model_TrackSet_1_CastId
+  commentId: P:LibSasara.Model.TrackSet`1.CastId
+  fullName: LibSasara.Model.TrackSet<TUnit>.CastId
+  fullName.vb: LibSasara.Model.TrackSet(Of TUnit).CastId
+  nameWithType: TrackSet<TUnit>.CastId
+  nameWithType.vb: TrackSet(Of TUnit).CastId
+- uid: LibSasara.Model.TrackSet`1.CastId*
+  name: CastId
+  href: api/LibSasara.Model.TrackSet-1.html#LibSasara_Model_TrackSet_1_CastId_
+  commentId: Overload:LibSasara.Model.TrackSet`1.CastId
+  isSpec: "True"
+  fullName: LibSasara.Model.TrackSet<TUnit>.CastId
+  fullName.vb: LibSasara.Model.TrackSet(Of TUnit).CastId
+  nameWithType: TrackSet<TUnit>.CastId
+  nameWithType.vb: TrackSet(Of TUnit).CastId
+- uid: LibSasara.Model.TrackSet`1.Category
+  name: Category
+  href: api/LibSasara.Model.TrackSet-1.html#LibSasara_Model_TrackSet_1_Category
+  commentId: P:LibSasara.Model.TrackSet`1.Category
+  fullName: LibSasara.Model.TrackSet<TUnit>.Category
+  fullName.vb: LibSasara.Model.TrackSet(Of TUnit).Category
+  nameWithType: TrackSet<TUnit>.Category
+  nameWithType.vb: TrackSet(Of TUnit).Category
+- uid: LibSasara.Model.TrackSet`1.Category*
+  name: Category
+  href: api/LibSasara.Model.TrackSet-1.html#LibSasara_Model_TrackSet_1_Category_
+  commentId: Overload:LibSasara.Model.TrackSet`1.Category
+  isSpec: "True"
+  fullName: LibSasara.Model.TrackSet<TUnit>.Category
+  fullName.vb: LibSasara.Model.TrackSet(Of TUnit).Category
+  nameWithType: TrackSet<TUnit>.Category
+  nameWithType.vb: TrackSet(Of TUnit).Category
+- uid: LibSasara.Model.TrackSet`1.Color
+  name: Color
+  href: api/LibSasara.Model.TrackSet-1.html#LibSasara_Model_TrackSet_1_Color
+  commentId: P:LibSasara.Model.TrackSet`1.Color
+  fullName: LibSasara.Model.TrackSet<TUnit>.Color
+  fullName.vb: LibSasara.Model.TrackSet(Of TUnit).Color
+  nameWithType: TrackSet<TUnit>.Color
+  nameWithType.vb: TrackSet(Of TUnit).Color
+- uid: LibSasara.Model.TrackSet`1.Color*
+  name: Color
+  href: api/LibSasara.Model.TrackSet-1.html#LibSasara_Model_TrackSet_1_Color_
+  commentId: Overload:LibSasara.Model.TrackSet`1.Color
+  isSpec: "True"
+  fullName: LibSasara.Model.TrackSet<TUnit>.Color
+  fullName.vb: LibSasara.Model.TrackSet(Of TUnit).Color
+  nameWithType: TrackSet<TUnit>.Color
+  nameWithType.vb: TrackSet(Of TUnit).Color
+- uid: LibSasara.Model.TrackSet`1.Equals(LibSasara.Model.TrackSet{`0})
+  name: Equals(TrackSet<TUnit>)
+  href: api/LibSasara.Model.TrackSet-1.html#LibSasara_Model_TrackSet_1_Equals_LibSasara_Model_TrackSet__0__
+  commentId: M:LibSasara.Model.TrackSet`1.Equals(LibSasara.Model.TrackSet{`0})
+  name.vb: Equals(TrackSet(Of TUnit))
+  fullName: LibSasara.Model.TrackSet<TUnit>.Equals(LibSasara.Model.TrackSet<TUnit>)
+  fullName.vb: LibSasara.Model.TrackSet(Of TUnit).Equals(LibSasara.Model.TrackSet(Of TUnit))
+  nameWithType: TrackSet<TUnit>.Equals(TrackSet<TUnit>)
+  nameWithType.vb: TrackSet(Of TUnit).Equals(TrackSet(Of TUnit))
+- uid: LibSasara.Model.TrackSet`1.Equals*
+  name: Equals
+  href: api/LibSasara.Model.TrackSet-1.html#LibSasara_Model_TrackSet_1_Equals_
+  commentId: Overload:LibSasara.Model.TrackSet`1.Equals
+  isSpec: "True"
+  fullName: LibSasara.Model.TrackSet<TUnit>.Equals
+  fullName.vb: LibSasara.Model.TrackSet(Of TUnit).Equals
+  nameWithType: TrackSet<TUnit>.Equals
+  nameWithType.vb: TrackSet(Of TUnit).Equals
+- uid: LibSasara.Model.TrackSet`1.GetBackgroundColor(LibSasara.Model.Category)
+  name: GetBackgroundColor(Category)
+  href: api/LibSasara.Model.TrackSet-1.html#LibSasara_Model_TrackSet_1_GetBackgroundColor_LibSasara_Model_Category_
+  commentId: M:LibSasara.Model.TrackSet`1.GetBackgroundColor(LibSasara.Model.Category)
+  fullName: LibSasara.Model.TrackSet<TUnit>.GetBackgroundColor(LibSasara.Model.Category)
+  fullName.vb: LibSasara.Model.TrackSet(Of TUnit).GetBackgroundColor(LibSasara.Model.Category)
+  nameWithType: TrackSet<TUnit>.GetBackgroundColor(Category)
+  nameWithType.vb: TrackSet(Of TUnit).GetBackgroundColor(Category)
+- uid: LibSasara.Model.TrackSet`1.GetBackgroundColor*
+  name: GetBackgroundColor
+  href: api/LibSasara.Model.TrackSet-1.html#LibSasara_Model_TrackSet_1_GetBackgroundColor_
+  commentId: Overload:LibSasara.Model.TrackSet`1.GetBackgroundColor
+  isSpec: "True"
+  fullName: LibSasara.Model.TrackSet<TUnit>.GetBackgroundColor
+  fullName.vb: LibSasara.Model.TrackSet(Of TUnit).GetBackgroundColor
+  nameWithType: TrackSet<TUnit>.GetBackgroundColor
+  nameWithType.vb: TrackSet(Of TUnit).GetBackgroundColor
+- uid: LibSasara.Model.TrackSet`1.GroupId
+  name: GroupId
+  href: api/LibSasara.Model.TrackSet-1.html#LibSasara_Model_TrackSet_1_GroupId
+  commentId: P:LibSasara.Model.TrackSet`1.GroupId
+  fullName: LibSasara.Model.TrackSet<TUnit>.GroupId
+  fullName.vb: LibSasara.Model.TrackSet(Of TUnit).GroupId
+  nameWithType: TrackSet<TUnit>.GroupId
+  nameWithType.vb: TrackSet(Of TUnit).GroupId
+- uid: LibSasara.Model.TrackSet`1.GroupId*
+  name: GroupId
+  href: api/LibSasara.Model.TrackSet-1.html#LibSasara_Model_TrackSet_1_GroupId_
+  commentId: Overload:LibSasara.Model.TrackSet`1.GroupId
+  isSpec: "True"
+  fullName: LibSasara.Model.TrackSet<TUnit>.GroupId
+  fullName.vb: LibSasara.Model.TrackSet(Of TUnit).GroupId
+  nameWithType: TrackSet<TUnit>.GroupId
+  nameWithType.vb: TrackSet(Of TUnit).GroupId
+- uid: LibSasara.Model.TrackSet`1.GroupVersion
+  name: GroupVersion
+  href: api/LibSasara.Model.TrackSet-1.html#LibSasara_Model_TrackSet_1_GroupVersion
+  commentId: P:LibSasara.Model.TrackSet`1.GroupVersion
+  fullName: LibSasara.Model.TrackSet<TUnit>.GroupVersion
+  fullName.vb: LibSasara.Model.TrackSet(Of TUnit).GroupVersion
+  nameWithType: TrackSet<TUnit>.GroupVersion
+  nameWithType.vb: TrackSet(Of TUnit).GroupVersion
+- uid: LibSasara.Model.TrackSet`1.GroupVersion*
+  name: GroupVersion
+  href: api/LibSasara.Model.TrackSet-1.html#LibSasara_Model_TrackSet_1_GroupVersion_
+  commentId: Overload:LibSasara.Model.TrackSet`1.GroupVersion
+  isSpec: "True"
+  fullName: LibSasara.Model.TrackSet<TUnit>.GroupVersion
+  fullName.vb: LibSasara.Model.TrackSet(Of TUnit).GroupVersion
+  nameWithType: TrackSet<TUnit>.GroupVersion
+  nameWithType.vb: TrackSet(Of TUnit).GroupVersion
+- uid: LibSasara.Model.TrackSet`1.IsMuted
+  name: IsMuted
+  href: api/LibSasara.Model.TrackSet-1.html#LibSasara_Model_TrackSet_1_IsMuted
+  commentId: P:LibSasara.Model.TrackSet`1.IsMuted
+  fullName: LibSasara.Model.TrackSet<TUnit>.IsMuted
+  fullName.vb: LibSasara.Model.TrackSet(Of TUnit).IsMuted
+  nameWithType: TrackSet<TUnit>.IsMuted
+  nameWithType.vb: TrackSet(Of TUnit).IsMuted
+- uid: LibSasara.Model.TrackSet`1.IsMuted*
+  name: IsMuted
+  href: api/LibSasara.Model.TrackSet-1.html#LibSasara_Model_TrackSet_1_IsMuted_
+  commentId: Overload:LibSasara.Model.TrackSet`1.IsMuted
+  isSpec: "True"
+  fullName: LibSasara.Model.TrackSet<TUnit>.IsMuted
+  fullName.vb: LibSasara.Model.TrackSet(Of TUnit).IsMuted
+  nameWithType: TrackSet<TUnit>.IsMuted
+  nameWithType.vb: TrackSet(Of TUnit).IsMuted
+- uid: LibSasara.Model.TrackSet`1.IsSolo
+  name: IsSolo
+  href: api/LibSasara.Model.TrackSet-1.html#LibSasara_Model_TrackSet_1_IsSolo
+  commentId: P:LibSasara.Model.TrackSet`1.IsSolo
+  fullName: LibSasara.Model.TrackSet<TUnit>.IsSolo
+  fullName.vb: LibSasara.Model.TrackSet(Of TUnit).IsSolo
+  nameWithType: TrackSet<TUnit>.IsSolo
+  nameWithType.vb: TrackSet(Of TUnit).IsSolo
+- uid: LibSasara.Model.TrackSet`1.IsSolo*
+  name: IsSolo
+  href: api/LibSasara.Model.TrackSet-1.html#LibSasara_Model_TrackSet_1_IsSolo_
+  commentId: Overload:LibSasara.Model.TrackSet`1.IsSolo
+  isSpec: "True"
+  fullName: LibSasara.Model.TrackSet<TUnit>.IsSolo
+  fullName.vb: LibSasara.Model.TrackSet(Of TUnit).IsSolo
+  nameWithType: TrackSet<TUnit>.IsSolo
+  nameWithType.vb: TrackSet(Of TUnit).IsSolo
+- uid: LibSasara.Model.TrackSet`1.Language
+  name: Language
+  href: api/LibSasara.Model.TrackSet-1.html#LibSasara_Model_TrackSet_1_Language
+  commentId: P:LibSasara.Model.TrackSet`1.Language
+  fullName: LibSasara.Model.TrackSet<TUnit>.Language
+  fullName.vb: LibSasara.Model.TrackSet(Of TUnit).Language
+  nameWithType: TrackSet<TUnit>.Language
+  nameWithType.vb: TrackSet(Of TUnit).Language
+- uid: LibSasara.Model.TrackSet`1.Language*
+  name: Language
+  href: api/LibSasara.Model.TrackSet-1.html#LibSasara_Model_TrackSet_1_Language_
+  commentId: Overload:LibSasara.Model.TrackSet`1.Language
+  isSpec: "True"
+  fullName: LibSasara.Model.TrackSet<TUnit>.Language
+  fullName.vb: LibSasara.Model.TrackSet(Of TUnit).Language
+  nameWithType: TrackSet<TUnit>.Language
+  nameWithType.vb: TrackSet(Of TUnit).Language
+- uid: LibSasara.Model.TrackSet`1.Name
+  name: Name
+  href: api/LibSasara.Model.TrackSet-1.html#LibSasara_Model_TrackSet_1_Name
+  commentId: P:LibSasara.Model.TrackSet`1.Name
+  fullName: LibSasara.Model.TrackSet<TUnit>.Name
+  fullName.vb: LibSasara.Model.TrackSet(Of TUnit).Name
+  nameWithType: TrackSet<TUnit>.Name
+  nameWithType.vb: TrackSet(Of TUnit).Name
+- uid: LibSasara.Model.TrackSet`1.Name*
+  name: Name
+  href: api/LibSasara.Model.TrackSet-1.html#LibSasara_Model_TrackSet_1_Name_
+  commentId: Overload:LibSasara.Model.TrackSet`1.Name
+  isSpec: "True"
+  fullName: LibSasara.Model.TrackSet<TUnit>.Name
+  fullName.vb: LibSasara.Model.TrackSet(Of TUnit).Name
+  nameWithType: TrackSet<TUnit>.Name
+  nameWithType.vb: TrackSet(Of TUnit).Name
+- uid: LibSasara.Model.TrackSet`1.Pan
+  name: Pan
+  href: api/LibSasara.Model.TrackSet-1.html#LibSasara_Model_TrackSet_1_Pan
+  commentId: P:LibSasara.Model.TrackSet`1.Pan
+  fullName: LibSasara.Model.TrackSet<TUnit>.Pan
+  fullName.vb: LibSasara.Model.TrackSet(Of TUnit).Pan
+  nameWithType: TrackSet<TUnit>.Pan
+  nameWithType.vb: TrackSet(Of TUnit).Pan
+- uid: LibSasara.Model.TrackSet`1.Pan*
+  name: Pan
+  href: api/LibSasara.Model.TrackSet-1.html#LibSasara_Model_TrackSet_1_Pan_
+  commentId: Overload:LibSasara.Model.TrackSet`1.Pan
+  isSpec: "True"
+  fullName: LibSasara.Model.TrackSet<TUnit>.Pan
+  fullName.vb: LibSasara.Model.TrackSet(Of TUnit).Pan
+  nameWithType: TrackSet<TUnit>.Pan
+  nameWithType.vb: TrackSet(Of TUnit).Pan
+- uid: LibSasara.Model.TrackSet`1.RawGroup
+  name: RawGroup
+  href: api/LibSasara.Model.TrackSet-1.html#LibSasara_Model_TrackSet_1_RawGroup
+  commentId: P:LibSasara.Model.TrackSet`1.RawGroup
+  fullName: LibSasara.Model.TrackSet<TUnit>.RawGroup
+  fullName.vb: LibSasara.Model.TrackSet(Of TUnit).RawGroup
+  nameWithType: TrackSet<TUnit>.RawGroup
+  nameWithType.vb: TrackSet(Of TUnit).RawGroup
+- uid: LibSasara.Model.TrackSet`1.RawGroup*
+  name: RawGroup
+  href: api/LibSasara.Model.TrackSet-1.html#LibSasara_Model_TrackSet_1_RawGroup_
+  commentId: Overload:LibSasara.Model.TrackSet`1.RawGroup
+  isSpec: "True"
+  fullName: LibSasara.Model.TrackSet<TUnit>.RawGroup
+  fullName.vb: LibSasara.Model.TrackSet(Of TUnit).RawGroup
+  nameWithType: TrackSet<TUnit>.RawGroup
+  nameWithType.vb: TrackSet(Of TUnit).RawGroup
+- uid: LibSasara.Model.TrackSet`1.RawTrackSets
+  name: RawTrackSets
+  href: api/LibSasara.Model.TrackSet-1.html#LibSasara_Model_TrackSet_1_RawTrackSets
+  commentId: P:LibSasara.Model.TrackSet`1.RawTrackSets
+  fullName: LibSasara.Model.TrackSet<TUnit>.RawTrackSets
+  fullName.vb: LibSasara.Model.TrackSet(Of TUnit).RawTrackSets
+  nameWithType: TrackSet<TUnit>.RawTrackSets
+  nameWithType.vb: TrackSet(Of TUnit).RawTrackSets
+- uid: LibSasara.Model.TrackSet`1.RawTrackSets*
+  name: RawTrackSets
+  href: api/LibSasara.Model.TrackSet-1.html#LibSasara_Model_TrackSet_1_RawTrackSets_
+  commentId: Overload:LibSasara.Model.TrackSet`1.RawTrackSets
+  isSpec: "True"
+  fullName: LibSasara.Model.TrackSet<TUnit>.RawTrackSets
+  fullName.vb: LibSasara.Model.TrackSet(Of TUnit).RawTrackSets
+  nameWithType: TrackSet<TUnit>.RawTrackSets
+  nameWithType.vb: TrackSet(Of TUnit).RawTrackSets
+- uid: LibSasara.Model.TrackSet`1.RawUnits
+  name: RawUnits
+  href: api/LibSasara.Model.TrackSet-1.html#LibSasara_Model_TrackSet_1_RawUnits
+  commentId: P:LibSasara.Model.TrackSet`1.RawUnits
+  fullName: LibSasara.Model.TrackSet<TUnit>.RawUnits
+  fullName.vb: LibSasara.Model.TrackSet(Of TUnit).RawUnits
+  nameWithType: TrackSet<TUnit>.RawUnits
+  nameWithType.vb: TrackSet(Of TUnit).RawUnits
+- uid: LibSasara.Model.TrackSet`1.RawUnits*
+  name: RawUnits
+  href: api/LibSasara.Model.TrackSet-1.html#LibSasara_Model_TrackSet_1_RawUnits_
+  commentId: Overload:LibSasara.Model.TrackSet`1.RawUnits
+  isSpec: "True"
+  fullName: LibSasara.Model.TrackSet<TUnit>.RawUnits
+  fullName.vb: LibSasara.Model.TrackSet(Of TUnit).RawUnits
+  nameWithType: TrackSet<TUnit>.RawUnits
+  nameWithType.vb: TrackSet(Of TUnit).RawUnits
+- uid: LibSasara.Model.TrackSet`1.RemoveAllUnits
+  name: RemoveAllUnits()
+  href: api/LibSasara.Model.TrackSet-1.html#LibSasara_Model_TrackSet_1_RemoveAllUnits
+  commentId: M:LibSasara.Model.TrackSet`1.RemoveAllUnits
+  fullName: LibSasara.Model.TrackSet<TUnit>.RemoveAllUnits()
+  fullName.vb: LibSasara.Model.TrackSet(Of TUnit).RemoveAllUnits()
+  nameWithType: TrackSet<TUnit>.RemoveAllUnits()
+  nameWithType.vb: TrackSet(Of TUnit).RemoveAllUnits()
+- uid: LibSasara.Model.TrackSet`1.RemoveAllUnits*
+  name: RemoveAllUnits
+  href: api/LibSasara.Model.TrackSet-1.html#LibSasara_Model_TrackSet_1_RemoveAllUnits_
+  commentId: Overload:LibSasara.Model.TrackSet`1.RemoveAllUnits
+  isSpec: "True"
+  fullName: LibSasara.Model.TrackSet<TUnit>.RemoveAllUnits
+  fullName.vb: LibSasara.Model.TrackSet(Of TUnit).RemoveAllUnits
+  nameWithType: TrackSet<TUnit>.RemoveAllUnits
+  nameWithType.vb: TrackSet(Of TUnit).RemoveAllUnits
+- uid: LibSasara.Model.TrackSet`1.Units
+  name: Units
+  href: api/LibSasara.Model.TrackSet-1.html#LibSasara_Model_TrackSet_1_Units
+  commentId: P:LibSasara.Model.TrackSet`1.Units
+  fullName: LibSasara.Model.TrackSet<TUnit>.Units
+  fullName.vb: LibSasara.Model.TrackSet(Of TUnit).Units
+  nameWithType: TrackSet<TUnit>.Units
+  nameWithType.vb: TrackSet(Of TUnit).Units
+- uid: LibSasara.Model.TrackSet`1.Units*
+  name: Units
+  href: api/LibSasara.Model.TrackSet-1.html#LibSasara_Model_TrackSet_1_Units_
+  commentId: Overload:LibSasara.Model.TrackSet`1.Units
+  isSpec: "True"
+  fullName: LibSasara.Model.TrackSet<TUnit>.Units
+  fullName.vb: LibSasara.Model.TrackSet(Of TUnit).Units
+  nameWithType: TrackSet<TUnit>.Units
+  nameWithType.vb: TrackSet(Of TUnit).Units
+- uid: LibSasara.Model.TrackSet`1.Volume
+  name: Volume
+  href: api/LibSasara.Model.TrackSet-1.html#LibSasara_Model_TrackSet_1_Volume
+  commentId: P:LibSasara.Model.TrackSet`1.Volume
+  fullName: LibSasara.Model.TrackSet<TUnit>.Volume
+  fullName.vb: LibSasara.Model.TrackSet(Of TUnit).Volume
+  nameWithType: TrackSet<TUnit>.Volume
+  nameWithType.vb: TrackSet(Of TUnit).Volume
+- uid: LibSasara.Model.TrackSet`1.Volume*
+  name: Volume
+  href: api/LibSasara.Model.TrackSet-1.html#LibSasara_Model_TrackSet_1_Volume_
+  commentId: Overload:LibSasara.Model.TrackSet`1.Volume
+  isSpec: "True"
+  fullName: LibSasara.Model.TrackSet<TUnit>.Volume
+  fullName.vb: LibSasara.Model.TrackSet(Of TUnit).Volume
+  nameWithType: TrackSet<TUnit>.Volume
+  nameWithType.vb: TrackSet(Of TUnit).Volume
 - uid: LibSasara.Model.UnitBase
   name: UnitBase
   href: api/LibSasara.Model.UnitBase.html

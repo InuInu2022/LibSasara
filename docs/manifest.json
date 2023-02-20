@@ -30,7 +30,7 @@
       "output": {
         ".html": {
           "relative_path": "api/LibSasara.Builder.SongUnitBuilder.html",
-          "hash": "dm5PdyrZAR9Z1yITesL/ufPrnarZHKVDwGpiRpKqYxQ="
+          "hash": "zC2x9kQhXOk2bXjQUb6bhAEwnWbyJqSCOd1eKtssYjU="
         }
       },
       "is_incremental": false,
@@ -42,7 +42,7 @@
       "output": {
         ".html": {
           "relative_path": "api/LibSasara.Builder.TalkUnitBuilder.html",
-          "hash": "GzxgSqi4DYE/6QzjOs288dnWHAJmIAZRFXbjAIppsyA="
+          "hash": "BxZIB7IUMvLUuMpJbgWEoeOSzRTZl5jFJEGKq+q9JAc="
         }
       },
       "is_incremental": false,
@@ -66,7 +66,7 @@
       "output": {
         ".html": {
           "relative_path": "api/LibSasara.Model.AudioUnit.html",
-          "hash": "fRiCMXXk+SStYKrM+EU0mtPv46gEo607sQ0MLuM6ka4="
+          "hash": "i1LuJI9TQ6VdZpnt/Zi6oYhGUa+gnElBgom1YTl+3As="
         }
       },
       "is_incremental": false,
@@ -90,7 +90,7 @@
       "output": {
         ".html": {
           "relative_path": "api/LibSasara.Model.CcsProject.html",
-          "hash": "hLnjo3qAcWp4ubRP6804p5jT2yNdiyohl7+A/6BOcMQ="
+          "hash": "WKqTmJHgxmnvyqMh2vc3HVPpc1lz/VRehq8Ov+Ojlt0="
         }
       },
       "is_incremental": false,
@@ -102,7 +102,7 @@
       "output": {
         ".html": {
           "relative_path": "api/LibSasara.Model.CcstTrack.html",
-          "hash": "qeMmqy61tP1ecDi8qc+ort2AYc2r43y0Dt5H1TQeqvQ="
+          "hash": "JrBVShegu0Lhx6VvCDQAEcgZOG1gzGQ5pNu8yKuyltI="
         }
       },
       "is_incremental": false,
@@ -114,7 +114,7 @@
       "output": {
         ".html": {
           "relative_path": "api/LibSasara.Model.CeVIOFileBase.html",
-          "hash": "fbgZAfnFTcpUG4RFsBb6jp2lJtfwhycS50STdBdX/NM="
+          "hash": "J92ir7shr8bsFcWuAQOKSY4SuSI3AB/+kkPH7suv2eQ="
         }
       },
       "is_incremental": false,
@@ -126,7 +126,7 @@
       "output": {
         ".html": {
           "relative_path": "api/LibSasara.Model.CeVIOFileExt.html",
-          "hash": "CvcxRawG5DEm7yA3eRmWTa2hI0oQT8K6u8wEbRdphG8="
+          "hash": "AEsgHr3RFAx+T+RommeoP6fIy5s5qJ4G62Qh3L2z410="
         }
       },
       "is_incremental": false,
@@ -150,7 +150,7 @@
       "output": {
         ".html": {
           "relative_path": "api/LibSasara.Model.ICeVIOFile.html",
-          "hash": "LDBdktKvJrg9w5xvK/tF2pHP/nMG2ppXeM2EKJorvO4="
+          "hash": "4y6RtnH2sn739KJM/klIR7gu//Z0gU78il0khjnnXdc="
         }
       },
       "is_incremental": false,
@@ -198,7 +198,7 @@
       "output": {
         ".html": {
           "relative_path": "api/LibSasara.Model.PhonemeUtil.html",
-          "hash": "Q5M2WQ4cfgOTXS1Z04qNCUxDGbDSZV0RLktcqtC/85s="
+          "hash": "8NpdO/6tHtD4439cNE8IpG4+EF/NQPR4lcN0JEjCehc="
         }
       },
       "is_incremental": false,
@@ -222,7 +222,7 @@
       "output": {
         ".html": {
           "relative_path": "api/LibSasara.Model.Serialize.Author.html",
-          "hash": "A5IEvw7X9Uq6/Vbz4vG6Ay04LOCdUXPvSH3R4tlhxgs="
+          "hash": "QjXZ2lh5mHVD1eYvecw42JZBqaGddxV8lI0UyZTkuA8="
         }
       },
       "is_incremental": false,
@@ -270,7 +270,7 @@
       "output": {
         ".html": {
           "relative_path": "api/LibSasara.Model.Serialize.DictionaryInfo.html",
-          "hash": "VfUqJK5zrF2jsW/XyjbPWX7SzxY+vqkLxoJp1ffNczc="
+          "hash": "TYIT0rdHZfuWbUPLMZc6Sb3W3iGfmg3VhH1vQZHrXCk="
         }
       },
       "is_incremental": false,
@@ -306,7 +306,7 @@
       "output": {
         ".html": {
           "relative_path": "api/LibSasara.Model.Serialize.ExtensionInfo.html",
-          "hash": "dWb6wUBl/78BFFabKhD3BTzn+4t81N9JkMx9r2Og38Q="
+          "hash": "6YrzzVhb0FddRfwpAEOQQLO5E/cByg6fO7zezkA33WI="
         }
       },
       "is_incremental": false,
@@ -330,7 +330,7 @@
       "output": {
         ".html": {
           "relative_path": "api/LibSasara.Model.Serialize.Group.html",
-          "hash": "kUjSgtEPqB1jTOz9fjayGj5R4G3mHZ5Y2QYbz9tLR3k="
+          "hash": "4OWzffFOMzd9WMfW885KMmOuqqvfbaedljPXiEtLxf8="
         }
       },
       "is_incremental": false,
@@ -498,7 +498,7 @@
       "output": {
         ".html": {
           "relative_path": "api/LibSasara.Model.Serialize.Parameter.html",
-          "hash": "cUz7dggSCfaDruo2z4DeQ+s3OWjEYpEeqnv8tJ00CtQ="
+          "hash": "3PYMye76tj6NuV4gpq+3fA6sWqXCplT1LEODVRc7g1I="
         }
       },
       "is_incremental": false,
@@ -570,7 +570,7 @@
       "output": {
         ".html": {
           "relative_path": "api/LibSasara.Model.Serialize.RootBase.html",
-          "hash": "y4Vcl2O0Klsv8LuZfqyIaALY7sMJYhkEyyggkD9HDeQ="
+          "hash": "ucYPXEPLMDDZJ73nWvxuYOwGhMKphnc0IQit7YOBUpM="
         }
       },
       "is_incremental": false,
@@ -606,7 +606,7 @@
       "output": {
         ".html": {
           "relative_path": "api/LibSasara.Model.Serialize.SceneBase.html",
-          "hash": "8UJ9e1RJhljleSHgP7z/iCRlBv+LyuxC481h84qlEig="
+          "hash": "OKztarwb8xlR50WsoBlmyofQgl2EVxhom9v4zgziR2s="
         }
       },
       "is_incremental": false,
@@ -630,7 +630,7 @@
       "output": {
         ".html": {
           "relative_path": "api/LibSasara.Model.Serialize.Sequence.html",
-          "hash": "qub3/HjMt8xGcBm0gOjIQzlUTddqTCzdrUXoFu+3Lx8="
+          "hash": "9y1SLvtuqZPRLahrfN16k5iCklUYniCcUf1TahOg5rw="
         }
       },
       "is_incremental": false,
@@ -642,7 +642,7 @@
       "output": {
         ".html": {
           "relative_path": "api/LibSasara.Model.Serialize.Song.html",
-          "hash": "DSOOKML/9ZrtPlt7VbUnF13Bhv9i0H6udlQDVC10Vxg="
+          "hash": "s4q3BVca42usDaAgbuWeVDAXs5VYp0fxULEINRkLUgQ="
         }
       },
       "is_incremental": false,
@@ -654,7 +654,7 @@
       "output": {
         ".html": {
           "relative_path": "api/LibSasara.Model.Serialize.SongEditor.html",
-          "hash": "v4qlkf5ryIw4If+wnhyHpyEhStfM4wmYjBGZep1761k="
+          "hash": "+eu4cBAKC21gPt+jNrN/BA2m4KELpV8Pwj2AjMCUiuU="
         }
       },
       "is_incremental": false,
@@ -666,7 +666,7 @@
       "output": {
         ".html": {
           "relative_path": "api/LibSasara.Model.Serialize.SongEngine.html",
-          "hash": "ZZH5cLnt1CeihTXOEDTuplN3BBJMxOGmGZwgfp+18Cs="
+          "hash": "EK48jcYNLg4x7/EQC4t7J3z/Bt+44AB+tY/3f2KC+K4="
         }
       },
       "is_incremental": false,
@@ -702,7 +702,7 @@
       "output": {
         ".html": {
           "relative_path": "api/LibSasara.Model.Serialize.SoundSource.html",
-          "hash": "x5ckAJg7ZQ1kyanOqm5d5h39GHRENjZUH48fLrYmOnE="
+          "hash": "tkIIlMlRyBD4e0qC/rMtyIFJnG5h+9eEu9iGX1TCtVU="
         }
       },
       "is_incremental": false,
@@ -714,7 +714,7 @@
       "output": {
         ".html": {
           "relative_path": "api/LibSasara.Model.Serialize.TalkEditor.html",
-          "hash": "YWA2lf1Z4t4w4qiY2ywYbhhK3cm7MnGy2jS7814dY+E="
+          "hash": "amVSJtro9LPZB802hFH23VUJN/f6twh+Tsy3Zg5++s8="
         }
       },
       "is_incremental": false,
@@ -738,7 +738,7 @@
       "output": {
         ".html": {
           "relative_path": "api/LibSasara.Model.Serialize.TalkEngine.html",
-          "hash": "aMTf9fcq225Pv0z9+7/nWQmIOKNVBGBf7WX0tVcaYgI="
+          "hash": "IzFhsRT3cGaVTbroHgXQAWGQwfc9Rkso4aeEzlVsXmI="
         }
       },
       "is_incremental": false,
@@ -786,7 +786,7 @@
       "output": {
         ".html": {
           "relative_path": "api/LibSasara.Model.Serialize.TuneData.html",
-          "hash": "rZaU6Ii7vM09cUObvqhPZkwHugS7NjqWlTcr6/8uQ/o="
+          "hash": "Eaz1VKDC9uKO0mEOnxPq8Nl/mdSPKaElluomUG9/DWM="
         }
       },
       "is_incremental": false,
@@ -798,7 +798,7 @@
       "output": {
         ".html": {
           "relative_path": "api/LibSasara.Model.Serialize.Unit.html",
-          "hash": "8gb7yrWtmHSNAi7+kSeq6IhtDjjkvFXDUqHq78+BjKQ="
+          "hash": "maq6ubbJ7GNIcScoTNYNQ7ANTWOxszu914g0uWHFLPI="
         }
       },
       "is_incremental": false,
@@ -834,7 +834,7 @@
       "output": {
         ".html": {
           "relative_path": "api/LibSasara.Model.Serialize.html",
-          "hash": "91pcLZO1Kp8vHmxKkVVuHD790rOcOFpOltxthdmHVVA="
+          "hash": "/dpC31eBLyCM83OznJCCGj9a5XdwmlbVW/TBkM/Jf6w="
         }
       },
       "is_incremental": false,
@@ -846,7 +846,7 @@
       "output": {
         ".html": {
           "relative_path": "api/LibSasara.Model.SongUnit.html",
-          "hash": "idn0NZJ5EIgLUiyyjzZSLmp3v7pnXSfyqC0GkotAXbA="
+          "hash": "DCCXkOEbQcuvBpS4ZsCU/xuw3/9mVGObEbS0F8PDO8U="
         }
       },
       "is_incremental": false,
@@ -882,7 +882,19 @@
       "output": {
         ".html": {
           "relative_path": "api/LibSasara.Model.TalkUnit.html",
-          "hash": "JVix7HLYjZqdCXtxIMGPRlVXqT3D1PXi++kadmC8L4Q="
+          "hash": "7nbRcx00BqftpqNvgusTYcmIj9zTjd07DkZIF3Cfc1Y="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibSasara.Model.TrackSet-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibSasara.Model.TrackSet-1.html",
+          "hash": "iFpZDQeeBDPAJnfdpG/YiHjx+KCm4GAg+IVYeG5C4ZM="
         }
       },
       "is_incremental": false,
@@ -906,7 +918,7 @@
       "output": {
         ".html": {
           "relative_path": "api/LibSasara.Model.html",
-          "hash": "Tr3wiE4ipBxpg8zAtzokpBCg/N6ZoufYDpC9PxNAz8Q="
+          "hash": "1CxhbvyO8uXFl8WeGNJqqp2NyWM/dxjFk5NoHwtahY0="
         }
       },
       "is_incremental": false,
@@ -918,7 +930,7 @@
       "output": {
         ".html": {
           "relative_path": "api/LibSasara.SasaraCcs.html",
-          "hash": "wyvKmvcYt1kTfPlGaHqkMjOngRP3N+acYIcM9xHAIiY="
+          "hash": "Uyh6VneERoEd6rrx4qpQCkaeDE/oreovB+XIdSyWwxU="
         }
       },
       "is_incremental": false,
@@ -978,7 +990,7 @@
       "output": {
         ".html": {
           "relative_path": "api/toc.html",
-          "hash": "7OvmUtz7THOmfKUrosQvZauFQSroPmgjWnfWIO1T5uk="
+          "hash": "dWB0165MsjqFRY76G72nTl/Jkimodl8OzCtMMVJAVrQ="
         }
       },
       "is_incremental": false,
@@ -1153,8 +1165,8 @@
         "ManagedReferenceDocumentProcessor": {
           "can_incremental": true,
           "incrementalPhase": "build",
-          "total_file_count": 79,
-          "skipped_file_count": 24
+          "total_file_count": 80,
+          "skipped_file_count": 21
         },
         "ResourceDocumentProcessor": {
           "can_incremental": false,
