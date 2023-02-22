@@ -15,7 +15,7 @@ namespace LibSasara.Model;
 /// </summary>
 /// <typeparam name="TUnit">トラック内のUnitの型。</typeparam>
 /// <remarks>
-/// 「トラック」は一つの<see cref="Group"/>と <see cref="TalkUnit"/>または<see cref="SongUnit"/>,<see cref="AudioUnit"/>の組み合わせ。
+/// 「トラック」は一つの <c>Group</c>要素 と <see cref="TalkUnit"/>または<see cref="SongUnit"/>,<see cref="AudioUnit"/>の組み合わせ。
 /// トークトラックの場合は複数の<see cref="TalkUnit"/>を含みます。
 /// </remarks>
 public class TrackSet<TUnit> : IEquatable<TrackSet<TUnit>>
