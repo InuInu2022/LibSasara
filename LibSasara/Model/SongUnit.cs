@@ -171,6 +171,76 @@ public class SongUnit : UnitBase
 			.SetElementValue("Parameter", value);
 	}
 
+	/// <summary>
+    /// 生のTiming(TMG)要素
+    /// </summary>
+	public XElement RawTiming
+	{
+		get => GetRawParameterNodes("Timing");
+
+		set => SetRawParameterNodes("Timing", value);
+	}
+
+	/// <summary>
+    /// 生のPitch(PIT)要素（LogF0)
+    /// </summary>
+	public XElement RawPitch
+	{
+		get => GetRawParameterNodes("LogF0");
+
+		set => SetRawParameterNodes("LogF0", value);
+	}
+
+	/// <summary>
+    /// 生のVolume(VOL)要素（C0）
+    /// </summary>
+	public XElement RawVolume
+	{
+		get => GetRawParameterNodes("C0");
+
+		set => SetRawParameterNodes("C0", value);
+	}
+
+	/// <summary>
+    ///生のVIA要素（VibAmp）
+    /// </summary>
+	public XElement RawVibratoAmp
+	{
+		get => GetRawParameterNodes("VibAmp");
+
+		set => SetRawParameterNodes("VibAmp", value);
+	}
+
+	/// <summary>
+    /// 生のVIF要素（VibFrq）
+    /// </summary>
+	public XElement RawVibratoFrq
+	{
+		get => GetRawParameterNodes("VibFrq");
+
+		set => SetRawParameterNodes("VibFrq", value);
+	}
+
+	/// <summary>
+    /// 生のAlpha(ALP)要素
+    /// </summary>
+	public XElement RawAlpha
+	{
+		get => GetRawParameterNodes("Alpha");
+
+		set => SetRawParameterNodes("Alpha", value);
+	}
+
+	/// <summary>
+    /// 生のHuskiness(HUS)要素（Husky)
+    /// </summary>
+	public XElement RawHuskiness
+	{
+		get => GetRawParameterNodes("Husky");
+
+		set => SetRawParameterNodes("Husky", value);
+	}
+
 	/// <inheritdoc/>
     /// <seealso cref="Builder.SongUnitBuilder"/>
 	public SongUnit(XElement elem, CeVIOFileBase root)
@@ -271,6 +341,18 @@ public class SongUnit : UnitBase
 		}
 
 		return elem;
+	}
+
+	XElement GetRawParameterNodes(string nodeName){
+		return RawParameters
+			.Elements(nodeName)
+			.FirstOrDefault();
+	}
+
+	//TODO:test
+	void SetRawParameterNodes(string nodeName, XElement value){
+		GetRawParameterNodes(nodeName)
+			.SetElementValue("nodeName", value);
 	}
 
 	int GetAttrInt(XElement v, string attr)
