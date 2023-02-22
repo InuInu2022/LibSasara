@@ -202,8 +202,21 @@ public class SongUnit : UnitBase
 	}
 
 	/// <summary>
-    ///生のVIA要素（VibAmp）
+    /// VOLの調声パラメータ
     /// </summary>
+	/// <remarks>
+	/// - Length : パラメータ総数（0.005間隔）
+	/// </remarks>
+    /// <seealso cref="Serialize.Data"/>
+    /// <seealso cref="Serialize.NoData"/>
+	public Serialize.Parameters Volume
+	{
+		get => GetParams(RawVolume, "Volume");
+	}
+
+	/// <summary>
+	///生のVIA要素（VibAmp）
+	/// </summary>
 	public XElement RawVibratoAmp
 	{
 		get => GetRawParameterNodes("VibAmp");
@@ -349,15 +362,50 @@ public class SongUnit : UnitBase
 			.FirstOrDefault();
 	}
 
+	Serialize.Parameters GetParams(XElement raw, string paramName)
+	{
+		var len = GetAttrInt(raw, "Length");
+		var data = raw.Elements()
+			.Select(e =>
+			{
+				Serialize.TuneData n = (e.Name == "NoData") ?
+					new Serialize.NoData() :
+					new Serialize.Data();
+
+				if (n is Serialize.Data d)
+				{
+					d.Value = SasaraUtil.ConvertDecimal(e.Value);
+				}
+
+				if (e.HasAttributes)
+				{
+					n.Index = GetAttrInt(e, "Index", -1);
+				}
+
+				if (e.Attribute("Repeat") is not null)
+				{
+					n.Repeat = GetAttrInt(e, "Repeat");
+				}
+
+				return n;
+			});
+		return new Serialize.Parameters(paramName)
+		{
+			Length = len,
+			Data = data.ToList(),
+		};
+	}
+
 	//TODO:test
 	void SetRawParameterNodes(string nodeName, XElement value){
 		GetRawParameterNodes(nodeName)
 			.SetElementValue("nodeName", value);
 	}
 
-	int GetAttrInt(XElement v, string attr)
+	int GetAttrInt(XElement v, string attr, int defVal = 0)
 		=> SasaraUtil.ConvertInt(
-			v.Attribute(attr)?.Value
+			v.Attribute(attr)?.Value,
+			defVal
 		);
 
 	bool GetAttrBool(XElement v, string attr)
