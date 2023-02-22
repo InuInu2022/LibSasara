@@ -8,6 +8,17 @@ namespace LibSasara.Model.Serialize;
 /// 調声データリスト
 /// </summary>
 public record Parameters{
+	/// <inheritdoc cref="Parameters"/>
+    /// <param name="name">調声データの名前<seealso cref="Name"/></param>
+	public Parameters(string name)
+	{
+		Name = name;
+	}
+
+	/// <summary>
+	/// 調声データの名前
+	/// </summary>
+	public string Name { get; }
 	/// <summary>
 	/// 調声データの総数
 	/// </summary>
