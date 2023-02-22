@@ -1,3 +1,5 @@
+using System.Xml;
+using System.Xml.Serialization;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -212,6 +214,38 @@ public class SongUnit : UnitBase
 	public Serialize.Parameters Volume
 	{
 		get => GetParams(RawVolume, "Volume");
+
+		set {
+			RawVolume.Elements().Remove();
+			RawVolume
+				.SetAttributeValue("Length", value.Length);
+
+			value
+				.Data?
+				.ConvertAll(d =>
+				{
+					var isData = d is not Serialize.NoData;
+					var n = isData ? "Data" : "NoData";
+
+					var e = new XElement(n);
+					if(d is Serialize.Data d2){
+						e.SetValue(d2.Value);
+					}
+
+					if(d.Index >= 0){
+						e.SetAttributeValue("Index", d.Index);
+					}
+
+					if(d.Repeat > 0)
+					{
+						e.SetAttributeValue("Repeat", d.Repeat);
+					}
+
+					return e;
+				})
+				.ForEach(e => RawVolume.Add(e))
+				;
+		}
 	}
 
 	/// <summary>
