@@ -404,9 +404,21 @@ public class SongUnit : UnitBase
 	}
 
 	XElement GetRawParameterNodes(string nodeName){
-		return RawParameters
-			.Elements(nodeName)
-			.FirstOrDefault();
+		var elm = RawParameters
+			.Elements(nodeName)?
+			.FirstOrDefault()
+			;
+		if(elm is null)
+		{
+			//パラメータが無い場合は空の要素を生成
+			elm = new XElement(
+				nodeName,
+				new XAttribute("Index", 0)
+			);
+			RawParameters.Add(elm);
+		}
+
+		return elm;
 	}
 
 	Serialize.Parameters GetParams(XElement raw, string paramName)
