@@ -36,14 +36,15 @@ public record Parameters{
 	/// <summary>
 	/// 省略無しの調声データリストを取得
 	/// </summary>
+	/// <param name="length">調声データ数</param>
 	/// <remarks>
-	/// 省略なし、<see cref="Length"/>数に展開された<see cref="Data"/>が返ります。データの無い場合で<see cref="NoData"/>ではない場合は<see cref="TuneData.Repeat"/>の無い<see cref="TuneData"/>になります。
+    /// 元の調声データが無い、または少ない場合に上書き生成する場合はこちらを使用してください。
+	/// 省略なし、<paramref name="length"/> 数に展開された<see cref="Data"/>が返ります。データの無い場合で<see cref="NoData"/>ではない場合は<see cref="TuneData.Repeat"/>の無い<see cref="TuneData"/>になります。
 	/// </remarks>
-	/// <returns>省略なし、<see cref="Length"/>数に展開された<see cref="Data"/></returns>
-	public List<ITuneData> GetFullData()
-	{
+	/// <returns>省略なし、<paramref name="length"/> 数に展開された<see cref="Data"/></returns>
+	public List<ITuneData> GetFullData(int length){
 		var fullA = Enumerable
-			.Range(0, Length)
+			.Range(0, length)
 			.Select((_, i) => new TuneData() { Index = i })
 			.ToList<TuneData>()
 			;
@@ -52,7 +53,7 @@ public record Parameters{
 		if(Data is null || Data.Count == 0){
 			//調声データが記録されていない場合は埋める
 			fullB = Enumerable
-				.Range(0, Length)
+				.Range(0, length)
 				.Select((_, i) => new TuneData() { Index = i })
 				.ToList<ITuneData>();
 		}
@@ -117,5 +118,17 @@ public record Parameters{
 				}
 			)
 			.ToList();
+	}
+
+	/// <summary>
+	/// 省略無しの調声データリストを取得
+	/// </summary>
+	/// <remarks>
+	/// 省略なし、<see cref="Length"/>数に展開された<see cref="Data"/>が返ります。データの無い場合で<see cref="NoData"/>ではない場合は<see cref="TuneData.Repeat"/>の無い<see cref="TuneData"/>になります。
+	/// </remarks>
+	/// <returns>省略なし、<see cref="Length"/>数に展開された<see cref="Data"/></returns>
+	public List<ITuneData> GetFullData()
+	{
+		return GetFullData(Length);
 	}
 }
