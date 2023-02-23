@@ -158,21 +158,30 @@ public class SongUnit : UnitBase
 	private const string ElemNameParameter = "Parameter";
 
 	/// <summary>
-	/// 生のParameter要素一覧
+	/// 生のParameter要素の子要素一覧
 	/// </summary>
-	//TODO: add test
+    /// <seealso cref="RawParameterChildren"/>
+	[Obsolete($"Use {nameof(RawParameterChildren)}")]
 	public List<XElement> RawParameters
 	{
-		get => RawSong
-			.Element(ElemNameParameter)?
+		get => RawParameterChildren;
+		set => RawParameterChildren = value;
+	}
+
+	/// <summary>
+	/// 生のParameter要素の子要素一覧
+	/// </summary>
+    /// <seealso cref="RawParameter"/>
+	public List<XElement> RawParameterChildren
+	{
+		get => RawParameter?
 			.Elements()?
 			.ToList() ??
 			new List<XElement>();
 
 		set
 		{
-			var paramElem = RawSong?
-				.Element(ElemNameParameter);
+			var paramElem = RawParameter;
 
 			if(paramElem is null){
 				RawSong?
@@ -184,6 +193,18 @@ public class SongUnit : UnitBase
 			paramElem?
 				.SetElementValue(ElemNameParameter, value);
 		}
+	}
+
+	/// <summary>
+    /// 生のParameter要素
+    /// </summary>
+	public XElement? RawParameter
+	{
+		get => RawSong?
+			.Element(ElemNameParameter);
+
+		set => RawSong?
+			.SetElementValue(ElemNameParameter, value);
 	}
 
 	/// <summary>
@@ -229,9 +250,14 @@ public class SongUnit : UnitBase
 		get => GetParams(RawVolume, "Volume");
 
 		set {
-			RawVolume.Elements().Remove();
+			if(RawVolume.HasElements){
+				RawVolume.Elements().Remove();
+			}
+
 			RawVolume
-				.SetAttributeValue("Length", value.Length);
+				.SetAttributeValue("Length", value.Data?.Count ?? value.Length);
+
+			var len = RawVolume.Attribute("Length").Value;
 
 			value
 				.Data?
@@ -258,6 +284,8 @@ public class SongUnit : UnitBase
 				})
 				.ForEach(e => RawVolume.Add(e))
 				;
+
+			var r = RawVolume;
 		}
 	}
 
@@ -404,18 +432,20 @@ public class SongUnit : UnitBase
 	}
 
 	XElement GetRawParameterNodes(string nodeName){
-		var elm = RawParameters
+		var elm = RawParameterChildren
 			.Elements(nodeName)?
 			.FirstOrDefault()
 			;
-		if(elm is null)
-		{
-			//パラメータが無い場合は空の要素を生成
-			elm = new XElement(
-				nodeName,
-				new XAttribute("Index", 0)
-			);
-			RawParameters.Add(elm);
+		if(elm is null){
+			RawParameter?
+				.Add(new XElement(
+					nodeName,
+					new XAttribute("Length", 0)
+				));
+
+			elm = RawParameter!
+				.Elements(nodeName)
+				.First();
 		}
 
 		return elm;
