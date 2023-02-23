@@ -1,5 +1,3 @@
-using System.Xml;
-using System.Xml.Serialization;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -157,25 +155,40 @@ public class SongUnit : UnitBase
 			.ToList();
 	}
 
+	private const string ElemNameParameter = "Parameter";
+
 	/// <summary>
 	/// 生のParameter要素一覧
 	/// </summary>
-    //TODO: add test
+	//TODO: add test
 	public List<XElement> RawParameters
 	{
 		get => RawSong
-			.Element("Parameter")
-			.Elements()
-			.ToList();
+			.Element(ElemNameParameter)?
+			.Elements()?
+			.ToList() ??
+			new List<XElement>();
 
-		set => RawSong
-			.Element("Parameter")
-			.SetElementValue("Parameter", value);
+		set
+		{
+			var paramElem = RawSong?
+				.Element(ElemNameParameter);
+
+			if(paramElem is null){
+				RawSong?
+					.Add(new XElement(ElemNameParameter));
+				paramElem = RawSong?
+					.Element(ElemNameParameter);
+			}
+
+			paramElem?
+				.SetElementValue(ElemNameParameter, value);
+		}
 	}
 
 	/// <summary>
-    /// 生のTiming(TMG)要素
-    /// </summary>
+	/// 生のTiming(TMG)要素
+	/// </summary>
 	public XElement RawTiming
 	{
 		get => GetRawParameterNodes("Timing");
