@@ -972,7 +972,7 @@ public class LibSasaraTest : IAsyncLifetime
 			.First();
 		Assert.NotNull(su);
 
-		var rParams = su.RawParameters;
+		var rParams = su.RawParameterChildren;
 		Assert.NotNull(rParams);
 
 		var rVol = su.RawVolume;
@@ -994,6 +994,7 @@ public class LibSasaraTest : IAsyncLifetime
 		Assert.Equal(count, full2.Count);
 
 		vol.Data = full2.Cast<TuneData>().ToList();
+		vol.Length = count;
 		Assert.Equal(count, vol.Length);
 
 		su.Volume = vol;
