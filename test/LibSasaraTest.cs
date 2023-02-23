@@ -61,8 +61,8 @@ public class LibSasaraTest : IAsyncLifetime
 	{
 		_output = output;
 
-		_sampleProj_AI8 = SasaraCcs.LoadDeserializedAsync<Project>(CCS_FILEPATH_AI8).Result;
-		_sampleProj_CS7 = SasaraCcs.LoadDeserializedAsync<Project>(CCS_FILEPATH_CS7).Result;
+		//_sampleProj_AI8 = SasaraCcs.LoadDeserializedAsync<Project>(CCS_FILEPATH_AI8).Result;
+		//_sampleProj_CS7 = SasaraCcs.LoadDeserializedAsync<Project>(CCS_FILEPATH_CS7).Result;
 		//_sampleTrack = SasaraCcs.LoadAsync<Track>(CCST_FILEPATH_CS7_TALK1).Result;
 	}
 
@@ -956,5 +956,48 @@ public class LibSasaraTest : IAsyncLifetime
 			Assert.Equal(s.Group, f.GroupId);
 
 		}
+	}
+
+	[Theory]
+	[InlineData(CCS_FILEPATH_CS7)]
+	[InlineData(CCS_FILEPATH_AI8)]
+	public async ValueTask GetVolumeAsync(string path)
+	{
+		var ccs = await SasaraCcs
+			.LoadAsync(path);
+		Assert.NotNull(ccs);
+
+		var su = ccs.GetUnits(Category.SingerSong)
+			.Cast<SongUnit>()
+			.First();
+		Assert.NotNull(su);
+
+		var rParams = su.RawParameters;
+		Assert.NotNull(rParams);
+
+		var rVol = su.RawVolume;
+		Assert.NotNull(rVol);
+
+		var vol = su.Volume;
+		Assert.NotNull(vol);
+
+		var data = vol.Data;
+		Assert.NotNull(data);
+
+		var full = vol.GetFullData();
+		if(su.Duration > TimeSpan.Zero){
+			//Assert.True(full.Count > 0);
+		}
+
+		const int count = 100000;
+		var full2 = vol.GetFullData(count);
+		Assert.Equal(count, full2.Count);
+
+		vol.Data = full2.Cast<TuneData>().ToList();
+		Assert.Equal(count, vol.Length);
+
+		su.Volume = vol;
+		var vol2 = su.Volume;
+		Assert.NotEqual(count, vol2.Length);
 	}
 }
