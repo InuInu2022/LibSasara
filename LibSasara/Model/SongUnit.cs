@@ -437,11 +437,19 @@ public class SongUnit : UnitBase
 			.FirstOrDefault()
 			;
 		if(elm is null){
+			if(RawParameter is null){
+				RawSong?
+					.Add(new XElement(ElemNameParameter));
+			}
+
 			RawParameter?
-				.Add(new XElement(
+				.SetElementValue(
 					nodeName,
-					new XAttribute("Length", 0)
-				));
+					new XElement(
+						nodeName,
+						new XAttribute("Length", 0)
+					)
+				);
 
 			elm = RawParameter!
 				.Elements(nodeName)
