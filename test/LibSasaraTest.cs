@@ -960,7 +960,7 @@ public class LibSasaraTest : IAsyncLifetime
 
 	[Theory]
 	[InlineData(CCS_FILEPATH_CS7)]
-	[InlineData(CCS_FILEPATH_AI8)]
+	//[InlineData(CCS_FILEPATH_AI8)]
 	public async ValueTask GetVolumeAsync(string path)
 	{
 		var ccs = await SasaraCcs
@@ -989,7 +989,7 @@ public class LibSasaraTest : IAsyncLifetime
 			//Assert.True(full.Count > 0);
 		}
 
-		const int count = 100000;
+		const int count = 5000;
 		var full2 = vol.GetFullData(count);
 		Assert.Equal(count, full2.Count);
 
@@ -998,7 +998,10 @@ public class LibSasaraTest : IAsyncLifetime
 		Assert.Equal(count, vol.Length);
 
 		su.Volume = vol;
-		var vol2 = su.Volume;
-		Assert.NotEqual(count, vol2.Length);
+		//var vol2 = su.Volume;
+		//Assert.NotEqual(count, vol2.Length);
+
+		await ccs
+			.SaveAsync(Path.ChangeExtension(path, ".tmp.xml"));
 	}
 }

@@ -251,7 +251,8 @@ public class SongUnit : UnitBase
 
 		set {
 			if(RawVolume.HasElements){
-				RawVolume.Elements().Remove();
+				//子要素削除
+				RawVolume.RemoveNodes();
 			}
 
 			RawVolume
@@ -282,10 +283,10 @@ public class SongUnit : UnitBase
 
 					return e;
 				})
+				.Where(e => e.Value != "")
+				.ToList()
 				.ForEach(e => RawVolume.Add(e))
 				;
-
-			var r = RawVolume;
 		}
 	}
 
@@ -432,26 +433,26 @@ public class SongUnit : UnitBase
 	}
 
 	XElement GetRawParameterNodes(string nodeName){
-		var elm = RawParameterChildren
-			.Elements(nodeName)?
-			.FirstOrDefault()
+		if(RawParameter is null){
+			RawSong?
+				.Add(new XElement(ElemNameParameter));
+		}
+
+		var elm = RawParameterChildren?
+			.First(e => e.Name.ToString() == nodeName)
 			;
 		if(elm is null){
-			if(RawParameter is null){
-				RawSong?
-					.Add(new XElement(ElemNameParameter));
-			}
-
-			RawParameter?
-				.SetElementValue(
-					nodeName,
-					new XElement(
+			var hasNode = RawParameter?
+				.Element(nodeName) is not null;
+			if(!hasNode){
+				RawParameter?
+					.Add(new XElement(
 						nodeName,
 						new XAttribute("Length", 0)
-					)
-				);
+					));
+			}
 
-			elm = RawParameter!
+			elm = RawParameterChildren
 				.Elements(nodeName)
 				.First();
 		}
