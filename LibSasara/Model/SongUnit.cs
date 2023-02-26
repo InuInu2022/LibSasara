@@ -256,7 +256,7 @@ public class SongUnit : UnitBase
 			}
 
 			RawVolume
-				.SetAttributeValue("Length", value.Data?.Count ?? value.Length);
+				.SetAttributeValue("Length", value.Length);
 
 			var len = RawVolume.Attribute("Length").Value;
 
@@ -439,22 +439,24 @@ public class SongUnit : UnitBase
 		}
 
 		var elm = RawParameterChildren?
-			.First(e => e.Name.ToString() == nodeName)
+			.FirstOrDefault(e => e.Name.ToString() == nodeName)
 			;
 		if(elm is null){
 			var hasNode = RawParameter?
 				.Element(nodeName) is not null;
 			if(!hasNode){
+				var x = new XElement(
+					nodeName,
+					new XAttribute("Length", 0)
+				);
 				RawParameter?
-					.Add(new XElement(
-						nodeName,
-						new XAttribute("Length", 0)
-					));
+					.Add(x);
+				elm = x;
+			}else{
+				elm = RawParameterChildren
+					.Elements(nodeName)
+					.FirstOrDefault();
 			}
-
-			elm = RawParameterChildren
-				.Elements(nodeName)
-				.First();
 		}
 
 		return elm;
@@ -462,6 +464,11 @@ public class SongUnit : UnitBase
 
 	Serialize.Parameters GetParams(XElement raw, string paramName)
 	{
+		if(!raw.HasElements){
+			return new Serialize
+				.Parameters(paramName);
+		}
+
 		var len = GetAttrInt(raw, "Length");
 		var data = raw.Elements()
 			.Select(e =>
