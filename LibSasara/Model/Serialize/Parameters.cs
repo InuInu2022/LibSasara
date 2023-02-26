@@ -50,12 +50,13 @@ public record Parameters{
 			.ToList()
 			;
 
-		var fullB = new List<TuneData>();
 		if (Data is null || Data.Count == 0)
 		{
 			//調声データが記録されていない場合は埋める
 			return fullA.Cast<ITuneData>().ToList();
 		}
+
+		var fullB = new List<TuneData>();
 
 		//展開する
 		var firstData = Data[0];
@@ -64,11 +65,10 @@ public record Parameters{
 
 		foreach (var item in Data)
 		{
-			counter++;
 			int nIndex = item.Index switch
 			{
 				//Indexがデフォルト値・未指定ならカウンター
-				int x when x <= 0 => counter,
+				int x when x < 0 => counter,
 				//それ以外ならIndexの値を使う
 				_ => item.Index
 			};
@@ -88,10 +88,14 @@ public record Parameters{
 			fullB = fullB
 				.Concat(append)
 				.ToList();
-			counter += item.Repeat;
+			//counter = nIndex;
+			counter = item.Repeat == 0 ?
+					nIndex : nIndex + item.Repeat;
 		}
 
-		return MergeData(fullA, fullB);
+		return MergeData(fullA, fullB)
+			//.Where(v => v is not TuneData)
+			.ToList();
 	}
 
 	/// <summary>
@@ -140,5 +144,58 @@ public record Parameters{
 	public List<ITuneData> GetFullData()
 	{
 		return GetFullData(Length);
+	}
+
+	/// <summary>
+    /// 圧縮する
+    /// </summary>
+    /// <param name="data"></param>
+	public static List<ITuneData> ShrinkData(
+		List<ITuneData> data
+	)
+	{
+		var shrinked = new List<ITuneData>();
+		var valid = data
+			.Where(v => v is Data || v is NoData);
+
+		ITuneData? prev = null;
+		foreach(var i in valid){
+			//最初
+			if(prev is null){
+				shrinked.Add(i);
+				prev = i;
+				continue;
+			}
+
+			//以降
+			if(i is Data d){
+				if(prev is Data pd){
+					if (prev.Index + prev.Repeat >= i.Index && pd.Value == d.Value)
+					{
+						//同じValueならRepeat++
+						pd.Repeat++;
+						continue;
+					}
+				}
+
+				//違うなら新しく追加
+				shrinked.Add(i);
+				prev = i;
+				continue;
+			}else{
+				if(prev is NoData){
+					//同じNoDataならRepeat++
+					prev.Repeat++;
+					continue;
+				}
+
+				//違うなら新しく追加
+				shrinked.Add(i);
+				prev = i;
+				continue;
+			}
+		}
+
+		return shrinked;
 	}
 }

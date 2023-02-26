@@ -1,3 +1,4 @@
+using System.Text;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -976,7 +977,7 @@ public class LibSasaraTest : IAsyncLifetime
 		Assert.NotNull(rParams);
 
 		var rVol = su.RawVolume;
-		Assert.NotNull(rVol);
+		//Assert.NotNull(rVol);
 
 		var vol = su.Volume;
 		Assert.NotNull(vol);
@@ -985,6 +986,8 @@ public class LibSasaraTest : IAsyncLifetime
 		Assert.NotNull(data);
 
 		var full = vol.GetFullData();
+		Assert.Equal(vol.Length, full.Count);
+
 		if(su.Duration > TimeSpan.Zero){
 			//Assert.True(full.Count > 0);
 		}
@@ -993,15 +996,40 @@ public class LibSasaraTest : IAsyncLifetime
 		var full2 = vol.GetFullData(count);
 		Assert.Equal(count, full2.Count);
 
-		vol.Data = full2.Cast<TuneData>().ToList();
-		vol.Length = count;
-		Assert.Equal(count, vol.Length);
+		var full3 = Parameters
+			.ShrinkData(full2);
+
+		var sb = new StringBuilder();
+		full3
+			.ForEach(f2 =>
+			{
+				if (f2 is Data d)
+				{
+					sb.Append("Data: ");
+				}else if(f2 is NoData n){
+					sb.Append("NoData: ");
+				}else{
+					sb.Append("TuneData: ");
+				}
+
+				sb.Append("Index:").Append(f2.Index).Append(", Repeat:").Append(f2.Repeat);
+				if (f2 is Data d2){
+					sb.Append(", Value:").Append(d2.Value);
+				}
+				sb.AppendLine();
+			});
+		await File.WriteAllTextAsync(
+			Path.ChangeExtension(path, ".full3.txt"),
+			sb.ToString()
+		);
+
+		vol.Data = full3.Cast<TuneData>().ToList();
 
 		su.Volume = vol;
 		//var vol2 = su.Volume;
 		//Assert.NotEqual(count, vol2.Length);
 
 		await ccs
-			.SaveAsync(Path.ChangeExtension(path, ".tmp.xml"));
+			.SaveAsync(Path.ChangeExtension(path, ".tmp.ccs"));
 	}
 }

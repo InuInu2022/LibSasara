@@ -19,7 +19,7 @@ public record TuneData : ITuneData
 
 	/// <inheritdoc/>
 	[XmlAttribute]
-	public int Repeat { get; set; }
+	public int Repeat { get; set; } = 1;
 
 	/// <inheritdoc/>
 	[Browsable(false)]
