@@ -21,6 +21,7 @@ public class LibSasaraTest : IAsyncLifetime
 
 	private const string CCS_FILEPATH_CS7 = "../../../file/test_cs7_project.ccs";
 	private const string CCS_FILEPATH_VOISONA = "../../../file/test_voisona_project.ccs";
+	private const string CCS_FILEPATH_AI8_5 = "../../../file/test_ai8_5_project.ccs";
 	private const string CCST_FILEPATH_AI8_TALK1 = "../../../file/test_ai8_track_トーク.ccst";
 	private const string CCST_FILEPATH_AI8_TALK2 = "../../../file/test_ai8_track_トーク2.ccst";
 	private const string CCST_FILEPATH_AI8_SONG = "../../../file/test_ai8_track_ソング.ccst";
@@ -1036,6 +1037,7 @@ public class LibSasaraTest : IAsyncLifetime
 	[Theory]
 	[InlineData(CCS_FILEPATH_CS7)]
 	[InlineData(CCST_FILEPATH_AI8_SONG)]
+	[InlineData(CCS_FILEPATH_AI8_5)]
 	[InlineData(CCS_FILEPATH_VOISONA)]
 	public async void SongElementTestAsync(string path)
 	{
