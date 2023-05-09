@@ -73,12 +73,30 @@ public class SongUnit : UnitBase
 	}
 
 	/// <summary>
+    /// 調号を全トラック共通で処理するかどうか
+    /// </summary>
+    /// <remarks>
+    /// CeVIO AI ver. 8.5以降のみ。
+    /// <see cref="SongVersion"/>が <c>1.08</c> 以上で存在。
+    /// </remarks>
+    /// <seealso href="https://cevio.jp/guide/cevio_ai/"/>
+	public bool CommonKeys
+	{
+		get => GetAttrBool(RawScore, nameof(CommonKeys));
+
+		set =>
+			SetAttr(RawScore, nameof(CommonKeys), value);
+	}
+
+	/// <summary>
 	/// 曲のテンポ変更リスト
 	/// </summary>
 	/// <remarks>
 	/// - Clock: テンポ変更開始時のtick
 	/// - Tempo : テンポ
 	/// </remarks>
+    /// <seealso cref="Tempos"/>
+    [Obsolete($"Use {nameof(Tempos)}")]
 	public SortedDictionary<int, int> Tempo
 	{
 		get => new(
@@ -89,7 +107,27 @@ public class SongUnit : UnitBase
 					v => GetAttrInt(v, "Clock"),
 					v => GetAttrInt(v, "Tempo")
 				)
-		);
+			);
+	}
+
+	/// <summary>
+	/// 曲のテンポ変更リスト
+	/// </summary>
+	/// <remarks>
+	/// - Clock : テンポ変更開始時のtick
+	/// - Tempo : テンポ
+	/// </remarks>
+	public SortedDictionary<int, decimal> Tempos
+	{
+		get => new(
+			RawSong
+				.Element("Tempo")
+				.Elements("Sound")
+				.ToDictionary(
+					v => GetAttrInt(v, "Clock"),
+					v => GetAttrDecimal(v, "Tempo")
+				)
+			);
 	}
 
 	/// <summary>
@@ -112,8 +150,85 @@ public class SongUnit : UnitBase
 	}
 
 	/// <summary>
-	/// 生のScore要素一覧
+	/// 生のScore要素
 	/// </summary>
+    /// <seealso cref="RawScores"/>
+	public XElement RawScore
+	{
+		get => RawSong.Element("Score");
+		set => RawSong.SetElementValue("Score", value);
+	}
+
+	/// <summary>
+	/// トラック全体の声質バー / Global Alpha(ALP)
+	/// </summary>
+    /// <remarks>
+    /// エディタ上で設定する数値と異なる内部的な数値で管理される。
+    /// </remarks>
+    /// TODO:中央値・MAX/MINの実態調査
+	public decimal Alpha
+	{
+		get => GetAttrDecimal(RawScore, nameof(Alpha));
+		set => SetAttr(RawScore, nameof(Alpha), value);
+	}
+
+	/// <summary>
+	/// トラック全体の基準ピッチ / Tuning pitch
+	/// </summary>
+	/// <remarks>
+    /// トラック全体の基準となるピッチの周波数の値。
+    /// 指定がない場合は 440.0 が返ります。
+	/// VoiSona v1.0、CeVIO AI v8.5以降
+    /// <see cref="SongVersion"/> >= 1.8
+	/// </remarks>
+    /// <value>Hz. default: 440.0, max: 450.0, min: 430.0</value>
+	public decimal PitchShift
+	{
+		get => GetAttrDecimal(RawScore, nameof(PitchShift), 440.0m);
+
+		set => SetAttr(RawScore, nameof(PitchShift), value);
+	}
+
+	/// <summary>
+	/// トラック全体のTUNEパラメータ / Global TUNE
+	/// </summary>
+	/// <remarks>
+	/// ピッチの音符の音程への忠実度合いを調整する。
+	/// VoiSona v1.2、CeVIO AI v8.5以降
+	/// <see cref="SongVersion"/> >= 1.8
+	/// </remarks>
+	/// <value>default: 0.0, max: 1.0, min: -1.0</value>
+	public decimal PitchTune
+	{
+		get => GetAttrDecimal(RawScore, nameof(PitchTune));
+		set => SetAttr(RawScore, nameof(PitchTune), value);
+	}
+
+	/// <summary>
+	/// トラック全体のハスキーパラメータ / Global Huskiness(HUS)
+	/// </summary>
+	/// <remarks>
+	/// トラック全体のかすれ具合のパラメータ。
+    /// VoiSona v1.0、CeVIO AI v8.5以降
+    /// <see cref="SongVersion"/> >= 1.8
+	/// </remarks>
+    /// <value>
+    /// - VoiSona: max: 10.0, min: -10.0, default: 0.0<br/>
+    /// - CeVIO AI: max: 1.0, min: -1.0, default: 0.0
+    /// </value>
+	public decimal Husky
+	{
+		get => GetAttrDecimal(RawScore, nameof(Husky));
+		set => SetAttr(RawScore, nameof(Husky), value);
+	}
+
+	/// <summary>
+	/// 生のScore要素の子要素一覧
+	/// </summary>
+    /// <remarks>
+    /// Score要素の子要素のみのリスト(<see cref="List{XElement}"/>)です。Score要素そのものは <see cref="RawScore"/> を使用して下さい。
+    /// </remarks>
+    /// <seealso cref="RawScore"/>
 	public List<XElement> RawScores
 	{
 		get => RawSong
@@ -354,7 +469,7 @@ public class SongUnit : UnitBase
 	/// <param name="CastId"></param>
 	/// <param name="Group"></param>
 	/// <param name="Language"></param>
-	/// <param name="songVersion">Song要素のversion。CS7,AIは <c>1.07</c><br/>see: <seealso cref="SongVersion"/></param>
+	/// <param name="songVersion">Song要素のversion。CS7,AI 8.4までは <c>1.07</c>。AI 8.5以降は <c>1.08</c><br/>see: <seealso cref="SongVersion"/></param>
 	/// <param name="tempo"></param>
 	/// <param name="beat"></param>
 	/// <returns>SongのUnit要素の<see cref="XElement"/></returns>
@@ -506,15 +621,4 @@ public class SongUnit : UnitBase
 		GetRawParameterNodes(nodeName)
 			.SetElementValue("nodeName", value);
 	}
-
-	int GetAttrInt(XElement v, string attr, int defVal = 0)
-		=> SasaraUtil.ConvertInt(
-			v.Attribute(attr)?.Value,
-			defVal
-		);
-
-	bool GetAttrBool(XElement v, string attr)
-		=> SasaraUtil.ConvertBool(
-			v.Attribute(attr)?.Value
-		);
 }
