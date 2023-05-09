@@ -19,7 +19,7 @@ public static class SasaraUtil
 	/// <param name="defaultValue">失敗時に返す値</param>
 	/// <returns></returns>
 	public static decimal ConvertDecimal(
-		string value,
+		string? value,
 		decimal defaultValue = 0.00m
 	)
 	{
