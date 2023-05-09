@@ -103,4 +103,55 @@ public abstract class UnitBase
 	{
 		rawElem.Attribute(attr).SetValue(value);
 	}
+
+	/// <summary>
+    /// <see cref="int"/>のXML属性を取得
+    /// </summary>
+    /// <param name="v">属性があるXML属性</param>
+    /// <param name="attr">属性の名前</param>
+    /// <param name="defVal">属性値がないときに受けとる初期値</param>
+    /// <returns>属性の値</returns>
+	protected internal int GetAttrInt(XElement v, string attr, int defVal = 0)
+		=> SasaraUtil.ConvertInt(
+			v.Attribute(attr)?.Value,
+			defVal
+		);
+
+	/// <summary>
+    /// <see cref="bool"/>のXML属性を取得
+    /// </summary>
+    /// <param name="v">属性があるXML属性</param>
+    /// <param name="attr">属性の名前</param>
+    /// <returns>属性の値</returns>
+	protected internal bool GetAttrBool(XElement v, string attr)
+		=> SasaraUtil.ConvertBool(
+			v.Attribute(attr)?.Value
+		);
+
+	/// <summary>
+	/// <see cref="decimal"/>のXML属性を取得
+	/// </summary>
+	/// <param name="v">属性があるXML属性</param>
+	/// <param name="attr">属性の名前</param>
+	/// <param name="defVal">属性値がないときに受けとる初期値</param>
+	/// <returns>属性の値</returns>
+	protected internal decimal GetAttrDecimal(
+		XElement v, string attr, decimal defVal = 0.00m)
+		=> SasaraUtil.ConvertDecimal(
+			v.Attribute(attr)?.Value,
+			defVal
+		);
+
+	/// <summary>
+    /// <typeparamref name="T"/> 型のXML属性を設定
+    /// </summary>
+    /// <typeparam name="T">属性値の型</typeparam>
+    /// <param name="v"></param>
+    /// <param name="attr"></param>
+    /// <param name="value"></param>
+	protected internal void SetAttr<T>(
+		XElement v,
+		string attr,
+		T value
+	) => v.SetAttributeValue(attr, value);
 }
