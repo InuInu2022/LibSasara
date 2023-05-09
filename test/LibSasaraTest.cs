@@ -1032,4 +1032,60 @@ public class LibSasaraTest : IAsyncLifetime
 		await ccs
 			.SaveAsync(Path.ChangeExtension(path, ".tmp.ccs"));
 	}
+
+	[Theory]
+	[InlineData(CCS_FILEPATH_CS7)]
+	[InlineData(CCST_FILEPATH_AI8_SONG)]
+	[InlineData(CCS_FILEPATH_VOISONA)]
+	public async void SongElementTestAsync(string path)
+	{
+		var ccs = await SasaraCcs
+			.LoadAsync(path);
+		Assert.NotNull(ccs);
+
+		var su = ccs.GetUnits(Category.SingerSong)
+			.Cast<SongUnit>()
+			.First();
+		Assert.NotNull(su);
+
+		_output.WriteLine($"- song version: {su.SongVersion}");
+
+		if (su.Alpha is not 0)
+		{
+			_output.WriteLine($"- Alpha: {su.Alpha}");
+		}
+
+		_output.WriteLine($"- CommonKeys: {su.CommonKeys}");
+		_output.WriteLine($"- HUS: {su.Husky}");
+		_output.WriteLine($"- PitchShift: {su.PitchShift}");
+		_output.WriteLine($"- PitchTune: {su.PitchTune}");
+
+		//default expect <= 1.7
+		if (
+			su.SongVersion > new Version(0, 0)
+				&& su.SongVersion <= new Version(1, 7)
+		)
+		{
+			Assert.Equal(0.0m, su.Husky);
+			Assert.Equal(440.0m, su.PitchShift);
+			Assert.Equal(0.0m, su.PitchTune);
+			Assert.False(su.CommonKeys);
+		}
+
+		const decimal valAlp = 0.68m;
+		const decimal valHus = 0.51m;
+		const decimal valPitS = 440.0m;
+		const decimal valTune = 0.12m;
+
+		su.Alpha = valAlp;
+		Assert.Equal(valAlp, su.Alpha);
+		su.CommonKeys = true;
+		Assert.True(su.CommonKeys);
+		su.Husky = valHus;
+		Assert.Equal(valHus, su.Husky);
+		su.PitchShift = valPitS;
+		Assert.Equal(valPitS, su.PitchShift);
+		su.PitchTune = valTune;
+		Assert.Equal(valTune, su.PitchTune);
+	}
 }
