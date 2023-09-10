@@ -18,6 +18,7 @@
     <RepositoryUrl>https://github.com/InuInu2022/LibSasara</RepositoryUrl>
     <GeneratePackageOnBuild Condition="'$(Configuration)' == 'Release'">true</GeneratePackageOnBuild>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <InvariantGlobalization>true</InvariantGlobalization>
     <!-- info -->
     <Product>LibSasara</Product>
     <Description>The utility library for CeVIO project file (.ccs / .ccst) and timing label file (.lab).</Description>
