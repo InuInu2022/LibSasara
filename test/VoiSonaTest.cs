@@ -24,6 +24,7 @@ using System.Diagnostics;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 using System.Xml;
 using System.Xml.Linq;
+using System.Globalization;
 
 namespace test;
 
@@ -277,5 +278,49 @@ public class VoiSonaTest : IAsyncLifetime
 				});
 			});
 		}
+	}
+
+	[Theory]
+	[InlineData("0.1,0.1,0.1", "", true)]
+	[InlineData("0.1,0.2,0.3", "1:0.4,2:0.3", false)]
+	public void UtteranceDurations(
+		string original,
+		string tuned,
+		bool isNotTuned,
+		string tsml = "<word phoneme=\"a|a|a\" />"
+	)
+	{
+		var u = new Utterance("test", tsml, "0.00")
+		{
+			PhonemeOriginalDuration = original,
+			PhonemeDuration = tuned
+		};
+
+		u.Should().NotBeNull();
+		//set and get test
+		u.PhonemeOriginalDuration.Should().Be(original);
+		u.PhonemeDuration.Should().Be(tuned);
+
+		//lab
+		var oLab = u.DefaultLabel;
+		var tLab = u.Label;
+
+		oLab?.Lines.Should().NotBeNullOrEmpty();
+		tLab?.Lines.Should().NotBeNullOrEmpty();
+
+		//lab phonemes
+		var oPh = string.Join("", oLab?.Lines?.Select(l => l.Phoneme) ?? Array.Empty<string>());
+		var tPh = string.Join("", tLab?.Lines?.Select(l => l.Phoneme) ?? Array.Empty<string>());
+		(oPh == tPh).Should().BeTrue();
+
+		//lab timings
+		var oLen = oLab?.Lines?.Count();
+		var tLen = tLab?.Lines?.Count();
+		oLen.Should().Be(tLen);
+		Debug.WriteLine(string.Join(",",oLab?.Lines?.Select(v => v.Length.ToString(CultureInfo.InvariantCulture)!)!));
+		Debug.WriteLine(string.Join(",",tLab?.Lines?.Select(v => v.Length.ToString(CultureInfo.InvariantCulture)!)!));
+		oLab?.Lines?.Select(v=>v.Length)!
+			.SequenceEqual(tLab?.Lines!.Select(v=>v.Length)!)
+			.Should().Be(isNotTuned);
 	}
 }
