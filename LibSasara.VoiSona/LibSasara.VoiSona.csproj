@@ -1,0 +1,47 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <ImplicitUsings>disable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <LangVersion>10</LangVersion>
+
+    <DebugType>portable</DebugType>
+    <DebugSymbols Condition="'$(Configuration)' == 'Release'">false</DebugSymbols>
+    <DebugType Condition="'$(Configuration)' == 'Release'">embedded</DebugType>
+    <DebugType Condition="'$(Configuration)' == 'Debug'">embedded</DebugType>
+
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <InvariantGlobalization>true</InvariantGlobalization>
+
+    <!-- info -->
+    <Product>LibSasara.VoiSona</Product>
+    <Description>The utility library for VoiSona project files (tssprj / tstprj).</Description>
+    <Copyright>InuInu</Copyright>
+    <NeutralLanguage>ja-JP</NeutralLanguage>
+    <Version>0.1.0.0</Version>
+
+    <!-- AssemblyInfo プロパティ -->
+    <AssemblyTitle>LibSasara.VoiSona</AssemblyTitle>
+    <SupportedCultures>en-US;ja</SupportedCultures>
+    <!-- MinVer -->
+    <MinVerTagPrefix>v</MinVerTagPrefix>
+    <MinVerMinimumMajorMinor>0.1</MinVerMinimumMajorMinor>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
+    <PackageReference Include="MinVer" Version="4.2.0">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="System.Dynamic.Runtime" Version="4.3.0" />
+    <PackageReference Include="System.Memory" Version="4.5.5" />
+    <PackageReference Include="System.Threading.Tasks.Extensions" Version="4.5.4" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\LibSasara\LibSasara.csproj" />
+  </ItemGroup>
+
+</Project>
