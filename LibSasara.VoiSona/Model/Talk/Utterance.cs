@@ -72,43 +72,14 @@ public class Utterance : Tree
 			return TreeUtil
 				.GetValuesOnlyChildrenValue<string>(
 					this,
-					"PhonemeOriginalDuration")
+					nameof(PhonemeOriginalDuration))
 				?? "";
-			/*
-			var hasChild = Children
-				.Exists(v => v.Name == "PhonemeOriginalDuration");
-			return hasChild ?
-				Children
-					.FirstOrDefault(c => c.Name == "PhonemeOriginalDuration")
-					.Attributes
-					.FirstOrDefault(a => a.Key == "values")
-					.Value
-					.ToString()
-					?? ""
-				: ""
-				;
-			*/
 		}
 
-		set
-		{
-			var hasChild = Children
-				.Exists(v => v.Name == "PhonemeOriginalDuration");
-			if (hasChild)
-			{
-				Children
-					.FirstOrDefault(c => c.Name == "PhonemeOriginalDuration")
-					.Attributes
-					.FirstOrDefault(a => a.Key == "values")
-					.Value = value;
-			}
-			else
-			{
-				var tree = new Tree("PhonemeOriginalDuration");
-				tree.AddAttribute("values", value, VoiSonaValueType.String);
-				Children.Add(tree);
-			}
-		}
+		set => TreeUtil.SetValuesOnlyChildrenValue(
+			this,
+			nameof(PhonemeOriginalDuration),
+			value);
 	}
 
 	/// <summary>
@@ -121,6 +92,10 @@ public class Utterance : Tree
 				this,
 				nameof(PhonemeDuration))
 			?? "";
+		set => TreeUtil.SetValuesOnlyChildrenValue(
+			this,
+			nameof(PhonemeDuration),
+			value);
 	}
 
 	/// <summary>
