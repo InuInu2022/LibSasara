@@ -14,6 +14,15 @@
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <InvariantGlobalization>true</InvariantGlobalization>
 
+    <!-- nupkg -->
+    <PackageId>LibSasara.VoiSona</PackageId>
+    <Version>0.0.1</Version>
+    <Authors>InuInu</Authors>
+    <Company>InuInu</Company>
+    <PackageDescription>The utility library for VoiSona project files (tssprj / tstprj).</PackageDescription>
+    <RepositoryUrl>https://github.com/InuInu2022/LibSasara</RepositoryUrl>
+    <GeneratePackageOnBuild Condition="'$(Configuration)' == 'Release'">true</GeneratePackageOnBuild>
+
     <!-- info -->
     <Product>LibSasara.VoiSona</Product>
     <Description>The utility library for VoiSona project files (tssprj / tstprj).</Description>
