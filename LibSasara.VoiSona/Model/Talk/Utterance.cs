@@ -166,7 +166,7 @@ public class Utterance : Tree
 		var cap = 30 * pd.Length;
 		var sb = new StringBuilder(cap);
 		decimal time = 0m;
-		const decimal x = 1000000m;
+		const decimal x = 100000m;
 		for (var i = 0; i < pd.Length; i++)
 		{
 			var s = time;
