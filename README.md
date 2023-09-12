@@ -23,6 +23,7 @@ The .NET library for convenient handling of project files (`.ccs`), track files 
   - CeVIO project file (`.ccs`)
   - CeVIO track file (`.ccst`)
   - timing label file (`.lab`)
+  - [WIP] VoiSona Talk project file (`.tstprj`)
 
 ## Supported softwares
 
@@ -40,6 +41,8 @@ The .NET library for convenient handling of project files (`.ccs`), track files 
     - `TUNE`: not supported yet
   - import / export ccst
   - export lab
+- [WIP] VoiSona Talk
+  - import / export tstprj
 
 ## How to use
 
@@ -62,10 +65,18 @@ https://InuInu2022.github.io/LibSasara/
 LibSasara was developed by porting the know-how of NodoAme.
 Since NodoAme ver. 0.4, LibSasara has been used directly.
 
+### [SasaraUtil](https://inuinu2022.github.io/SasaraUtil/)
+
+![sasarautil](https://github.com/InuInu2022/SasaraUtil/blob/main/documents/screenshots/sasarautil.png?raw=true)
+
+**SasaraUtil** is an auxiliary tool that makes it easier to use the CeVIO Editor.
 
 ## Projects
 
 - [LibSasara](./LibSasara/)
+  - .NET Starndard 2.0 class lib.
+- [LibSasara.VoiSona](./LibSasara.VoiSona/)
+  - [WIP] VoiSona extension
   - .NET Starndard 2.0 class lib.
 - [test](./test/)
   - xunit tests
@@ -107,6 +118,9 @@ Since NodoAme ver. 0.4, LibSasara has been used directly.
 
 - LibSasara
   - [System.Threading.Tasks.Extensions](https://www.nuget.org/packages/System.Threading.Tasks.Extensions/)
+  - [System.Memory](https://www.nuget.org/packages/System.Memory)
+  - [MinVer](https://github.com/adamralph/minver)
+- LibSasara.VoiSona
   - [System.Memory](https://www.nuget.org/packages/System.Memory)
   - [MinVer](https://github.com/adamralph/minver)
 - test
