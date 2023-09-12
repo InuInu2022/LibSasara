@@ -5,10 +5,10 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Class TalkEngine
+    <title>Class TreeUtil
    | Documentation - LibSasara </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Class TalkEngine
+    <meta name="title" content="Class TreeUtil
    | Documentation - LibSasara ">
     <meta name="generator" content="docfx 2.59.4.0">
     
@@ -78,142 +78,154 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="LibSasara.Model.Serialize.TalkEngine">
+            <article class="content wrap" id="_content" data-uid="LibSasara.VoiSona.Util.TreeUtil">
   
   
-  <h1 id="LibSasara_Model_Serialize_TalkEngine" data-uid="LibSasara.Model.Serialize.TalkEngine" class="text-break">Class TalkEngine
+  <h1 id="LibSasara_VoiSona_Util_TreeUtil" data-uid="LibSasara.VoiSona.Util.TreeUtil" class="text-break">Class TreeUtil
   </h1>
-  <div class="markdown level0 summary"><p>生成時のトークエンジン。</p>
+  <div class="markdown level0 summary"><p><a class="xref" href="LibSasara.VoiSona.Model.Tree.html">Tree</a>に対するユーティリティクラス</p>
 </div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
     <h5>Inheritance</h5>
     <div class="level0"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">Object</a></div>
-    <div class="level1"><span class="xref">TalkEngine</span></div>
+    <div class="level1"><span class="xref">TreeUtil</span></div>
   </div>
-  <div class="implements">
-    <h5>Implements</h5>
-    <div><a class="xref" href="LibSasara.Model.Serialize.IEngine.html">IEngine</a></div>
-    <div><a class="xref" href="LibSasara.Model.Serialize.IHasVersion.html">IHasVersion</a></div>
-    <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">IEquatable</a>&lt;<a class="xref" href="LibSasara.Model.Serialize.TalkEngine.html">TalkEngine</a>&gt;</div>
-  </div>
-  <h6><strong>Namespace</strong>: <a class="xref" href="LibSasara.Model.Serialize.html">LibSasara.Model.Serialize</a></h6>
-  <h6><strong>Assembly</strong>: LibSasara.dll</h6>
-  <h5 id="LibSasara_Model_Serialize_TalkEngine_syntax">Syntax</h5>
+  <h6><strong>Namespace</strong>: <a class="xref" href="LibSasara.VoiSona.Util.html">LibSasara.VoiSona.Util</a></h6>
+  <h6><strong>Assembly</strong>: LibSasara.VoiSona.dll</h6>
+  <h5 id="LibSasara_VoiSona_Util_TreeUtil_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class TalkEngine : IEngine, IHasVersion, IEquatable&lt;TalkEngine&gt;</code></pre>
+    <pre><code class="lang-csharp hljs">public static class TreeUtil</code></pre>
   </div>
-  <h3 id="properties">Properties
+  <h3 id="methods">Methods
   </h3>
   
   
-  <a id="LibSasara_Model_Serialize_TalkEngine_Dictionary_" data-uid="LibSasara.Model.Serialize.TalkEngine.Dictionary*"></a>
-  <h4 id="LibSasara_Model_Serialize_TalkEngine_Dictionary" data-uid="LibSasara.Model.Serialize.TalkEngine.Dictionary">Dictionary</h4>
-  <div class="markdown level1 summary"></div>
+  <a id="LibSasara_VoiSona_Util_TreeUtil_GetValuesOnlyChildrenValue_" data-uid="LibSasara.VoiSona.Util.TreeUtil.GetValuesOnlyChildrenValue*"></a>
+  <h4 id="LibSasara_VoiSona_Util_TreeUtil_GetValuesOnlyChildrenValue__1_LibSasara_VoiSona_Model_Tree_System_String_" data-uid="LibSasara.VoiSona.Util.TreeUtil.GetValuesOnlyChildrenValue``1(LibSasara.VoiSona.Model.Tree,System.String)">GetValuesOnlyChildrenValue&lt;T&gt;(Tree, String)</h4>
+  <div class="markdown level1 summary"><p>属性がvaluesのみ持ち、Tree中に一つしかない<a class="xref" href="LibSasara.VoiSona.Model.Tree.html#LibSasara_VoiSona_Model_Tree_Children">Children</a>の値を返す</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public DictionaryInfo Dictionary { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">public static T GetValuesOnlyChildrenValue&lt;T&gt;(Tree tree, string childName)</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
+  <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
     <thead>
       <tr>
         <th>Type</th>
+        <th>Name</th>
         <th>Description</th>
       </tr>
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="LibSasara.Model.Serialize.DictionaryInfo.html">DictionaryInfo</a></td>
+        <td><a class="xref" href="LibSasara.VoiSona.Model.Tree.html">Tree</a></td>
+        <td><span class="parametername">tree</span></td>
         <td></td>
       </tr>
-    </tbody>
-  </table>
-  
-  
-  <a id="LibSasara_Model_Serialize_TalkEngine_SoundSources_" data-uid="LibSasara.Model.Serialize.TalkEngine.SoundSources*"></a>
-  <h4 id="LibSasara_Model_Serialize_TalkEngine_SoundSources" data-uid="LibSasara.Model.Serialize.TalkEngine.SoundSources">SoundSources</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public List&lt;SoundSource&gt; SoundSources { get; set; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="LibSasara.Model.Serialize.SoundSource.html">SoundSource</a>&gt;</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  
-  
-  <a id="LibSasara_Model_Serialize_TalkEngine_Version_" data-uid="LibSasara.Model.Serialize.TalkEngine.Version*"></a>
-  <h4 id="LibSasara_Model_Serialize_TalkEngine_Version" data-uid="LibSasara.Model.Serialize.TalkEngine.Version">Version</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Version Version { get; set; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.version">Version</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  
-  
-  <a id="LibSasara_Model_Serialize_TalkEngine_VersionString_" data-uid="LibSasara.Model.Serialize.TalkEngine.VersionString*"></a>
-  <h4 id="LibSasara_Model_Serialize_TalkEngine_VersionString" data-uid="LibSasara.Model.Serialize.TalkEngine.VersionString">VersionString</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public string VersionString { get; set; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">childName</span></td>
         <td></td>
       </tr>
     </tbody>
   </table>
-  <h3 id="implements">Implements</h3>
-  <div>
-      <a class="xref" href="LibSasara.Model.Serialize.IEngine.html">IEngine</a>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">T</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="LibSasara_VoiSona_Util_TreeUtil_GetValuesOnlyChildrenValue__1_LibSasara_VoiSona_Model_Tree_System_String__seealso">See Also</h5>
+  <div class="seealso">
+      <div><a class="xref" href="LibSasara.VoiSona.Util.TreeUtil.html#LibSasara_VoiSona_Util_TreeUtil_SetValuesOnlyChildrenValue__1_LibSasara_VoiSona_Model_Tree_System_String___0_">SetValuesOnlyChildrenValue&lt;T&gt;(Tree, String, T)</a></div>
   </div>
-  <div>
-      <a class="xref" href="LibSasara.Model.Serialize.IHasVersion.html">IHasVersion</a>
+  
+  
+  <a id="LibSasara_VoiSona_Util_TreeUtil_SetValuesOnlyChildrenValue_" data-uid="LibSasara.VoiSona.Util.TreeUtil.SetValuesOnlyChildrenValue*"></a>
+  <h4 id="LibSasara_VoiSona_Util_TreeUtil_SetValuesOnlyChildrenValue__1_LibSasara_VoiSona_Model_Tree_System_String___0_" data-uid="LibSasara.VoiSona.Util.TreeUtil.SetValuesOnlyChildrenValue``1(LibSasara.VoiSona.Model.Tree,System.String,``0)">SetValuesOnlyChildrenValue&lt;T&gt;(Tree, String, T)</h4>
+  <div class="markdown level1 summary"><p>属性がvaluesのみ持ち、Tree中に一つしかない<a class="xref" href="LibSasara.VoiSona.Model.Tree.html#LibSasara_VoiSona_Model_Tree_Children">Children</a>の値をセットする</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void SetValuesOnlyChildrenValue&lt;T&gt;(Tree tree, string childName, T value)</code></pre>
   </div>
-  <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">System.IEquatable&lt;T&gt;</a>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="LibSasara.VoiSona.Model.Tree.html">Tree</a></td>
+        <td><span class="parametername">tree</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">childName</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">T</span></td>
+        <td><span class="parametername">value</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="LibSasara_VoiSona_Util_TreeUtil_SetValuesOnlyChildrenValue__1_LibSasara_VoiSona_Model_Tree_System_String___0__seealso">See Also</h5>
+  <div class="seealso">
+      <div><a class="xref" href="LibSasara.VoiSona.Util.TreeUtil.html#LibSasara_VoiSona_Util_TreeUtil_GetValuesOnlyChildrenValue__1_LibSasara_VoiSona_Model_Tree_System_String_">GetValuesOnlyChildrenValue&lt;T&gt;(Tree, String)</a></div>
+  </div>
+  <h3 id="seealso">See Also</h3>
+  <div class="seealso">
+      <div><a class="xref" href="LibSasara.VoiSona.Model.Tree.html">Tree</a></div>
   </div>
 </article>
           </div>

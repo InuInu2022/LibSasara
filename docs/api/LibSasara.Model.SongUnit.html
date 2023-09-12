@@ -112,6 +112,18 @@
     <div>
       <a class="xref" href="LibSasara.Model.UnitBase.html#LibSasara_Model_UnitBase_EndTime">UnitBase.EndTime</a>
     </div>
+    <div>
+      <a class="xref" href="LibSasara.Model.UnitBase.html#LibSasara_Model_UnitBase_GetAttrInt_System_Xml_Linq_XElement_System_String_System_Int32_">UnitBase.GetAttrInt(XElement, String, Int32)</a>
+    </div>
+    <div>
+      <a class="xref" href="LibSasara.Model.UnitBase.html#LibSasara_Model_UnitBase_GetAttrBool_System_Xml_Linq_XElement_System_String_">UnitBase.GetAttrBool(XElement, String)</a>
+    </div>
+    <div>
+      <a class="xref" href="LibSasara.Model.UnitBase.html#LibSasara_Model_UnitBase_GetAttrDecimal_System_Xml_Linq_XElement_System_String_System_Decimal_">UnitBase.GetAttrDecimal(XElement, String, Decimal)</a>
+    </div>
+    <div>
+      <a class="xref" href="LibSasara.Model.UnitBase.html#LibSasara_Model_UnitBase_SetAttr__1_System_Xml_Linq_XElement_System_String___0_">UnitBase.SetAttr&lt;T&gt;(XElement, String, T)</a>
+    </div>
   </div>
   <h6><strong>Namespace</strong>: <a class="xref" href="LibSasara.Model.html">LibSasara.Model</a></h6>
   <h6><strong>Assembly</strong>: LibSasara.dll</h6>
@@ -119,21 +131,13 @@
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public class SongUnit : UnitBase</code></pre>
   </div>
-  <h5 id="LibSasara_Model_SongUnit_remarks"><strong>Remarks</strong></h5>
-  <div class="markdown level0 remarks"><p>
-Unit要素（<a class="xref" href="LibSasara.Model.SongUnit.html">SongUnit</a>の場合はソングトラックの楽譜・調整データ全て、<a class="xref" href="LibSasara.Model.TalkUnit.html">TalkUnit</a>の場合はセリフ単位）を管理します。
-シリアライズしたクラスではありません。
-</p>
-<p><a class="xref" href="LibSasara.Model.UnitBase.html#LibSasara_Model_UnitBase_RawRoot">RawRoot</a>をはじめとした <code>Raw～</code> で始まるプロパティは元のxmlの<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement">XElement</a>へのアクセスを提供します。XML要素を直接いじる際に使用します。</p>
-</div>
   <h3 id="constructors">Constructors
   </h3>
   
   
   <a id="LibSasara_Model_SongUnit__ctor_" data-uid="LibSasara.Model.SongUnit.#ctor*"></a>
   <h4 id="LibSasara_Model_SongUnit__ctor_System_Xml_Linq_XElement_LibSasara_Model_CeVIOFileBase_" data-uid="LibSasara.Model.SongUnit.#ctor(System.Xml.Linq.XElement,LibSasara.Model.CeVIOFileBase)">SongUnit(XElement, CeVIOFileBase)</h4>
-  <div class="markdown level1 summary"><p>Unit管理用クラス コンストラクタ</p>
-</div>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -157,8 +161,7 @@ Unit要素（<a class="xref" href="LibSasara.Model.SongUnit.html">SongUnit</a>�
       <tr>
         <td><a class="xref" href="LibSasara.Model.CeVIOFileBase.html">CeVIOFileBase</a></td>
         <td><span class="parametername">root</span></td>
-        <td><p>Unit所属ファイルの管理クラス</p>
-</td>
+        <td></td>
       </tr>
     </tbody>
   </table>
@@ -168,6 +171,35 @@ Unit要素（<a class="xref" href="LibSasara.Model.SongUnit.html">SongUnit</a>�
   </div>
   <h3 id="properties">Properties
   </h3>
+  
+  
+  <a id="LibSasara_Model_SongUnit_Alpha_" data-uid="LibSasara.Model.SongUnit.Alpha*"></a>
+  <h4 id="LibSasara_Model_SongUnit_Alpha" data-uid="LibSasara.Model.SongUnit.Alpha">Alpha</h4>
+  <div class="markdown level1 summary"><p>トラック全体の声質バー / Global Alpha(ALP)</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public decimal Alpha { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.decimal">Decimal</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="LibSasara_Model_SongUnit_Alpha_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>エディタ上で設定する数値と異なる内部的な数値で管理される。</p>
+</div>
   
   
   <a id="LibSasara_Model_SongUnit_Beat_" data-uid="LibSasara.Model.SongUnit.Beat*"></a>
@@ -224,8 +256,7 @@ Unit要素（<a class="xref" href="LibSasara.Model.SongUnit.html">SongUnit</a>�
   
   <a id="LibSasara_Model_SongUnit_Category_" data-uid="LibSasara.Model.SongUnit.Category*"></a>
   <h4 id="LibSasara_Model_SongUnit_Category" data-uid="LibSasara.Model.SongUnit.Category">Category</h4>
-  <div class="markdown level1 summary"><p>Unit category</p>
-</div>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -248,10 +279,75 @@ Unit要素（<a class="xref" href="LibSasara.Model.SongUnit.html">SongUnit</a>�
   </table>
   <h5 class="overrides">Overrides</h5>
   <div><a class="xref" href="LibSasara.Model.UnitBase.html#LibSasara_Model_UnitBase_Category">UnitBase.Category</a></div>
-  <h5 id="LibSasara_Model_SongUnit_Category_seealso">See Also</h5>
-  <div class="seealso">
-      <div><a class="xref" href="LibSasara.Model.Category.html">Category</a></div>
+  
+  
+  <a id="LibSasara_Model_SongUnit_CommonKeys_" data-uid="LibSasara.Model.SongUnit.CommonKeys*"></a>
+  <h4 id="LibSasara_Model_SongUnit_CommonKeys" data-uid="LibSasara.Model.SongUnit.CommonKeys">CommonKeys</h4>
+  <div class="markdown level1 summary"><p>調号を全トラック共通で処理するかどうか</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool CommonKeys { get; set; }</code></pre>
   </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="LibSasara_Model_SongUnit_CommonKeys_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>CeVIO AI ver. 8.5以降のみ。
+<a class="xref" href="LibSasara.Model.SongUnit.html#LibSasara_Model_SongUnit_SongVersion">SongVersion</a>が <code>1.08</code> 以上で存在。</p>
+</div>
+  <h5 id="LibSasara_Model_SongUnit_CommonKeys_seealso">See Also</h5>
+  <div class="seealso">
+      <div><span><a href="https://cevio.jp/guide/cevio_ai/">https://cevio.jp/guide/cevio_ai/</a></span></div>
+  </div>
+  
+  
+  <a id="LibSasara_Model_SongUnit_Husky_" data-uid="LibSasara.Model.SongUnit.Husky*"></a>
+  <h4 id="LibSasara_Model_SongUnit_Husky" data-uid="LibSasara.Model.SongUnit.Husky">Husky</h4>
+  <div class="markdown level1 summary"><p>トラック全体のハスキーパラメータ / Global Huskiness(HUS)</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public decimal Husky { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.decimal">Decimal</a></td>
+        <td><ul>
+<li>VoiSona: max: 10.0, min: -10.0, default: 0.0<br></li>
+<li>CeVIO AI: max: 1.0, min: -1.0, default: 0.0</li>
+</ul>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="LibSasara_Model_SongUnit_Husky_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>トラック全体のかすれ具合のパラメータ。
+VoiSona v1.0、CeVIO AI v8.5以降
+<a class="xref" href="LibSasara.Model.SongUnit.html#LibSasara_Model_SongUnit_SongVersion">SongVersion</a> &gt;= 1.8</p>
+</div>
   
   
   <a id="LibSasara_Model_SongUnit_Language_" data-uid="LibSasara.Model.SongUnit.Language*"></a>
@@ -309,14 +405,157 @@ Unit要素（<a class="xref" href="LibSasara.Model.SongUnit.html">SongUnit</a>�
   </table>
   
   
-  <a id="LibSasara_Model_SongUnit_RawParameters_" data-uid="LibSasara.Model.SongUnit.RawParameters*"></a>
-  <h4 id="LibSasara_Model_SongUnit_RawParameters" data-uid="LibSasara.Model.SongUnit.RawParameters">RawParameters</h4>
-  <div class="markdown level1 summary"><p>生のParameter要素一覧</p>
+  <a id="LibSasara_Model_SongUnit_PitchShift_" data-uid="LibSasara.Model.SongUnit.PitchShift*"></a>
+  <h4 id="LibSasara_Model_SongUnit_PitchShift" data-uid="LibSasara.Model.SongUnit.PitchShift">PitchShift</h4>
+  <div class="markdown level1 summary"><p>トラック全体の基準ピッチ / Tuning pitch</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public List&lt;XElement&gt; RawParameters { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">public decimal PitchShift { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.decimal">Decimal</a></td>
+        <td><p>Hz. default: 440.0, max: 450.0, min: 430.0</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="LibSasara_Model_SongUnit_PitchShift_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>トラック全体の基準となるピッチの周波数の値。
+指定がない場合は 440.0 が返ります。
+VoiSona v1.0、CeVIO AI v8.5以降
+<a class="xref" href="LibSasara.Model.SongUnit.html#LibSasara_Model_SongUnit_SongVersion">SongVersion</a> &gt;= 1.8</p>
+</div>
+  
+  
+  <a id="LibSasara_Model_SongUnit_PitchTune_" data-uid="LibSasara.Model.SongUnit.PitchTune*"></a>
+  <h4 id="LibSasara_Model_SongUnit_PitchTune" data-uid="LibSasara.Model.SongUnit.PitchTune">PitchTune</h4>
+  <div class="markdown level1 summary"><p>トラック全体のTUNEパラメータ / Global TUNE</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public decimal PitchTune { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.decimal">Decimal</a></td>
+        <td><p>default: 0.0, max: 1.0, min: -1.0</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="LibSasara_Model_SongUnit_PitchTune_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>ピッチの音符の音程への忠実度合いを調整する。
+VoiSona v1.2、CeVIO AI v8.5以降
+<a class="xref" href="LibSasara.Model.SongUnit.html#LibSasara_Model_SongUnit_SongVersion">SongVersion</a> &gt;= 1.8</p>
+</div>
+  
+  
+  <a id="LibSasara_Model_SongUnit_RawAlpha_" data-uid="LibSasara.Model.SongUnit.RawAlpha*"></a>
+  <h4 id="LibSasara_Model_SongUnit_RawAlpha" data-uid="LibSasara.Model.SongUnit.RawAlpha">RawAlpha</h4>
+  <div class="markdown level1 summary"><p>生のAlpha(ALP)要素</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public XElement RawAlpha { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement">XElement</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="LibSasara_Model_SongUnit_RawHuskiness_" data-uid="LibSasara.Model.SongUnit.RawHuskiness*"></a>
+  <h4 id="LibSasara_Model_SongUnit_RawHuskiness" data-uid="LibSasara.Model.SongUnit.RawHuskiness">RawHuskiness</h4>
+  <div class="markdown level1 summary"><p>生のHuskiness(HUS)要素（Husky)</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public XElement RawHuskiness { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement">XElement</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="LibSasara_Model_SongUnit_RawParameter_" data-uid="LibSasara.Model.SongUnit.RawParameter*"></a>
+  <h4 id="LibSasara_Model_SongUnit_RawParameter" data-uid="LibSasara.Model.SongUnit.RawParameter">RawParameter</h4>
+  <div class="markdown level1 summary"><p>生のParameter要素</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public XElement RawParameter { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement">XElement</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="LibSasara_Model_SongUnit_RawParameterChildren_" data-uid="LibSasara.Model.SongUnit.RawParameterChildren*"></a>
+  <h4 id="LibSasara_Model_SongUnit_RawParameterChildren" data-uid="LibSasara.Model.SongUnit.RawParameterChildren">RawParameterChildren</h4>
+  <div class="markdown level1 summary"><p>生のParameter要素の子要素一覧</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public List&lt;XElement&gt; RawParameterChildren { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -333,11 +572,102 @@ Unit要素（<a class="xref" href="LibSasara.Model.SongUnit.html">SongUnit</a>�
       </tr>
     </tbody>
   </table>
+  <h5 id="LibSasara_Model_SongUnit_RawParameterChildren_seealso">See Also</h5>
+  <div class="seealso">
+      <div><a class="xref" href="LibSasara.Model.SongUnit.html#LibSasara_Model_SongUnit_RawParameter">RawParameter</a></div>
+  </div>
+  
+  
+  <a id="LibSasara_Model_SongUnit_RawParameters_" data-uid="LibSasara.Model.SongUnit.RawParameters*"></a>
+  <h4 id="LibSasara_Model_SongUnit_RawParameters" data-uid="LibSasara.Model.SongUnit.RawParameters">RawParameters</h4>
+  <div class="markdown level1 summary"><p>生のParameter要素の子要素一覧</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;Use RawParameterChildren&quot;)]
+public List&lt;XElement&gt; RawParameters { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement">XElement</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="LibSasara_Model_SongUnit_RawParameters_seealso">See Also</h5>
+  <div class="seealso">
+      <div><a class="xref" href="LibSasara.Model.SongUnit.html#LibSasara_Model_SongUnit_RawParameterChildren">RawParameterChildren</a></div>
+  </div>
+  
+  
+  <a id="LibSasara_Model_SongUnit_RawPitch_" data-uid="LibSasara.Model.SongUnit.RawPitch*"></a>
+  <h4 id="LibSasara_Model_SongUnit_RawPitch" data-uid="LibSasara.Model.SongUnit.RawPitch">RawPitch</h4>
+  <div class="markdown level1 summary"><p>生のPitch(PIT)要素（LogF0)</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public XElement RawPitch { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement">XElement</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="LibSasara_Model_SongUnit_RawScore_" data-uid="LibSasara.Model.SongUnit.RawScore*"></a>
+  <h4 id="LibSasara_Model_SongUnit_RawScore" data-uid="LibSasara.Model.SongUnit.RawScore">RawScore</h4>
+  <div class="markdown level1 summary"><p>生のScore要素</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public XElement RawScore { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement">XElement</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="LibSasara_Model_SongUnit_RawScore_seealso">See Also</h5>
+  <div class="seealso">
+      <div><a class="xref" href="LibSasara.Model.SongUnit.html#LibSasara_Model_SongUnit_RawScores">RawScores</a></div>
+  </div>
   
   
   <a id="LibSasara_Model_SongUnit_RawScores_" data-uid="LibSasara.Model.SongUnit.RawScores*"></a>
   <h4 id="LibSasara_Model_SongUnit_RawScores" data-uid="LibSasara.Model.SongUnit.RawScores">RawScores</h4>
-  <div class="markdown level1 summary"><p>生のScore要素一覧</p>
+  <div class="markdown level1 summary"><p>生のScore要素の子要素一覧</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -359,6 +689,13 @@ Unit要素（<a class="xref" href="LibSasara.Model.SongUnit.html">SongUnit</a>�
       </tr>
     </tbody>
   </table>
+  <h5 id="LibSasara_Model_SongUnit_RawScores_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Score要素の子要素のみのリスト(<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List&lt;T&gt;</a>)です。Score要素そのものは <a class="xref" href="LibSasara.Model.SongUnit.html#LibSasara_Model_SongUnit_RawScore">RawScore</a> を使用して下さい。</p>
+</div>
+  <h5 id="LibSasara_Model_SongUnit_RawScores_seealso">See Also</h5>
+  <div class="seealso">
+      <div><a class="xref" href="LibSasara.Model.SongUnit.html#LibSasara_Model_SongUnit_RawScore">RawScore</a></div>
+  </div>
   
   
   <a id="LibSasara_Model_SongUnit_RawSong_" data-uid="LibSasara.Model.SongUnit.RawSong*"></a>
@@ -369,6 +706,110 @@ Unit要素（<a class="xref" href="LibSasara.Model.SongUnit.html">SongUnit</a>�
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public XElement RawSong { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement">XElement</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="LibSasara_Model_SongUnit_RawTiming_" data-uid="LibSasara.Model.SongUnit.RawTiming*"></a>
+  <h4 id="LibSasara_Model_SongUnit_RawTiming" data-uid="LibSasara.Model.SongUnit.RawTiming">RawTiming</h4>
+  <div class="markdown level1 summary"><p>生のTiming(TMG)要素</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public XElement RawTiming { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement">XElement</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="LibSasara_Model_SongUnit_RawVibratoAmp_" data-uid="LibSasara.Model.SongUnit.RawVibratoAmp*"></a>
+  <h4 id="LibSasara_Model_SongUnit_RawVibratoAmp" data-uid="LibSasara.Model.SongUnit.RawVibratoAmp">RawVibratoAmp</h4>
+  <div class="markdown level1 summary"><p>生のVIA要素（VibAmp）</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public XElement RawVibratoAmp { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement">XElement</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="LibSasara_Model_SongUnit_RawVibratoFrq_" data-uid="LibSasara.Model.SongUnit.RawVibratoFrq*"></a>
+  <h4 id="LibSasara_Model_SongUnit_RawVibratoFrq" data-uid="LibSasara.Model.SongUnit.RawVibratoFrq">RawVibratoFrq</h4>
+  <div class="markdown level1 summary"><p>生のVIF要素（VibFrq）</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public XElement RawVibratoFrq { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement">XElement</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="LibSasara_Model_SongUnit_RawVolume_" data-uid="LibSasara.Model.SongUnit.RawVolume*"></a>
+  <h4 id="LibSasara_Model_SongUnit_RawVolume" data-uid="LibSasara.Model.SongUnit.RawVolume">RawVolume</h4>
+  <div class="markdown level1 summary"><p>生のVolume(VOL)要素（C0）</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public XElement RawVolume { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -424,7 +865,8 @@ Unit要素（<a class="xref" href="LibSasara.Model.SongUnit.html">SongUnit</a>�
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public SortedDictionary&lt;int, int&gt; Tempo { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;Use Tempos&quot;)]
+public SortedDictionary&lt;int, int&gt; Tempo { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -447,6 +889,78 @@ Unit要素（<a class="xref" href="LibSasara.Model.SongUnit.html">SongUnit</a>�
 <li>Tempo : テンポ</li>
 </ul>
 </div>
+  <h5 id="LibSasara_Model_SongUnit_Tempo_seealso">See Also</h5>
+  <div class="seealso">
+      <div><a class="xref" href="LibSasara.Model.SongUnit.html#LibSasara_Model_SongUnit_Tempos">Tempos</a></div>
+  </div>
+  
+  
+  <a id="LibSasara_Model_SongUnit_Tempos_" data-uid="LibSasara.Model.SongUnit.Tempos*"></a>
+  <h4 id="LibSasara_Model_SongUnit_Tempos" data-uid="LibSasara.Model.SongUnit.Tempos">Tempos</h4>
+  <div class="markdown level1 summary"><p>曲のテンポ変更リスト</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public SortedDictionary&lt;int, decimal&gt; Tempos { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.sorteddictionary-2">SortedDictionary</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">Int32</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.decimal">Decimal</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="LibSasara_Model_SongUnit_Tempos_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><ul>
+<li>Clock : テンポ変更開始時のtick</li>
+<li>Tempo : テンポ</li>
+</ul>
+</div>
+  
+  
+  <a id="LibSasara_Model_SongUnit_Volume_" data-uid="LibSasara.Model.SongUnit.Volume*"></a>
+  <h4 id="LibSasara_Model_SongUnit_Volume" data-uid="LibSasara.Model.SongUnit.Volume">Volume</h4>
+  <div class="markdown level1 summary"><p>VOLの調声パラメータ</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Parameters Volume { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="LibSasara.Model.Serialize.Parameters.html">Parameters</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="LibSasara_Model_SongUnit_Volume_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><ul>
+<li>Length : パラメータ総数（0.005間隔）</li>
+</ul>
+</div>
+  <h5 id="LibSasara_Model_SongUnit_Volume_seealso">See Also</h5>
+  <div class="seealso">
+      <div><a class="xref" href="LibSasara.Model.Serialize.Data.html">Data</a></div>
+      <div><a class="xref" href="LibSasara.Model.Serialize.NoData.html">NoData</a></div>
+  </div>
   <h3 id="methods">Methods
   </h3>
   
@@ -498,7 +1012,7 @@ Unit要素（<a class="xref" href="LibSasara.Model.SongUnit.html">SongUnit</a>�
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a></td>
         <td><span class="parametername">songVersion</span></td>
-        <td><p>Song要素のversion。CS7,AIは <code>1.07</code><br>see: <a class="xref" href="LibSasara.Model.SongUnit.html#LibSasara_Model_SongUnit_SongVersion">SongVersion</a></p>
+        <td><p>Song要素のversion。CS7,AI 8.4までは <code>1.07</code>。AI 8.5以降は <code>1.08</code><br>see: <a class="xref" href="LibSasara.Model.SongUnit.html#LibSasara_Model_SongUnit_SongVersion">SongVersion</a></p>
 </td>
       </tr>
       <tr>
@@ -541,11 +1055,6 @@ SongのUnit要素の<a class="xref" href="https://learn.microsoft.com/dotnet/api
   <h5 id="LibSasara_Model_SongUnit_CreateSongUnitRaw_System_TimeSpan_System_TimeSpan_System_String_System_Nullable_System_Guid__System_String_System_String_System_Collections_Generic_SortedDictionary_System_Int32_System_Int32__System_Collections_Generic_SortedDictionary_System_Int32_System_ValueTuple_System_Int32_System_Int32____seealso">See Also</h5>
   <div class="seealso">
       <div><a class="xref" href="LibSasara.Builder.TalkUnitBuilder.html">TalkUnitBuilder</a></div>
-  </div>
-  <h3 id="seealso">See Also</h3>
-  <div class="seealso">
-      <div><a class="xref" href="LibSasara.Model.CeVIOFileBase.html#LibSasara_Model_CeVIOFileBase_AddUnits_System_Collections_Generic_IEnumerable_System_Xml_Linq_XElement__">AddUnits</a>(<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement">XElement</a>&gt;)</div>
-      <div><a class="xref" href="LibSasara.Model.CeVIOFileBase.html#LibSasara_Model_CeVIOFileBase_GetUnits">GetUnits</a>()</div>
   </div>
 </article>
           </div>

@@ -1015,6 +1015,19 @@ references:
   isSpec: "True"
   fullName: LibSasara.Model.Lab.SplitToSentence
   nameWithType: Lab.SplitToSentence
+- uid: LibSasara.Model.Lab.ToString
+  name: ToString()
+  href: api/LibSasara.Model.Lab.html#LibSasara_Model_Lab_ToString
+  commentId: M:LibSasara.Model.Lab.ToString
+  fullName: LibSasara.Model.Lab.ToString()
+  nameWithType: Lab.ToString()
+- uid: LibSasara.Model.Lab.ToString*
+  name: ToString
+  href: api/LibSasara.Model.Lab.html#LibSasara_Model_Lab_ToString_
+  commentId: Overload:LibSasara.Model.Lab.ToString
+  isSpec: "True"
+  fullName: LibSasara.Model.Lab.ToString
+  nameWithType: Lab.ToString
 - uid: LibSasara.Model.LabLine
   name: LabLine
   href: api/LibSasara.Model.LabLine.html
@@ -2597,6 +2610,19 @@ references:
   commentId: T:LibSasara.Model.Serialize.Parameters
   fullName: LibSasara.Model.Serialize.Parameters
   nameWithType: Parameters
+- uid: LibSasara.Model.Serialize.Parameters.#ctor(System.String)
+  name: Parameters(String)
+  href: api/LibSasara.Model.Serialize.Parameters.html#LibSasara_Model_Serialize_Parameters__ctor_System_String_
+  commentId: M:LibSasara.Model.Serialize.Parameters.#ctor(System.String)
+  fullName: LibSasara.Model.Serialize.Parameters.Parameters(System.String)
+  nameWithType: Parameters.Parameters(String)
+- uid: LibSasara.Model.Serialize.Parameters.#ctor*
+  name: Parameters
+  href: api/LibSasara.Model.Serialize.Parameters.html#LibSasara_Model_Serialize_Parameters__ctor_
+  commentId: Overload:LibSasara.Model.Serialize.Parameters.#ctor
+  isSpec: "True"
+  fullName: LibSasara.Model.Serialize.Parameters.Parameters
+  nameWithType: Parameters.Parameters
 - uid: LibSasara.Model.Serialize.Parameters.Data
   name: Data
   href: api/LibSasara.Model.Serialize.Parameters.html#LibSasara_Model_Serialize_Parameters_Data
@@ -2616,6 +2642,12 @@ references:
   commentId: M:LibSasara.Model.Serialize.Parameters.GetFullData
   fullName: LibSasara.Model.Serialize.Parameters.GetFullData()
   nameWithType: Parameters.GetFullData()
+- uid: LibSasara.Model.Serialize.Parameters.GetFullData(System.Int32)
+  name: GetFullData(Int32)
+  href: api/LibSasara.Model.Serialize.Parameters.html#LibSasara_Model_Serialize_Parameters_GetFullData_System_Int32_
+  commentId: M:LibSasara.Model.Serialize.Parameters.GetFullData(System.Int32)
+  fullName: LibSasara.Model.Serialize.Parameters.GetFullData(System.Int32)
+  nameWithType: Parameters.GetFullData(Int32)
 - uid: LibSasara.Model.Serialize.Parameters.GetFullData*
   name: GetFullData
   href: api/LibSasara.Model.Serialize.Parameters.html#LibSasara_Model_Serialize_Parameters_GetFullData_
@@ -2636,6 +2668,51 @@ references:
   isSpec: "True"
   fullName: LibSasara.Model.Serialize.Parameters.Length
   nameWithType: Parameters.Length
+- uid: LibSasara.Model.Serialize.Parameters.MergeData(System.Collections.Generic.List{LibSasara.Model.Serialize.TuneData},System.Collections.Generic.List{LibSasara.Model.Serialize.TuneData})
+  name: MergeData(List<TuneData>, List<TuneData>)
+  href: api/LibSasara.Model.Serialize.Parameters.html#LibSasara_Model_Serialize_Parameters_MergeData_System_Collections_Generic_List_LibSasara_Model_Serialize_TuneData__System_Collections_Generic_List_LibSasara_Model_Serialize_TuneData__
+  commentId: M:LibSasara.Model.Serialize.Parameters.MergeData(System.Collections.Generic.List{LibSasara.Model.Serialize.TuneData},System.Collections.Generic.List{LibSasara.Model.Serialize.TuneData})
+  name.vb: MergeData(List(Of TuneData), List(Of TuneData))
+  fullName: LibSasara.Model.Serialize.Parameters.MergeData(System.Collections.Generic.List<LibSasara.Model.Serialize.TuneData>, System.Collections.Generic.List<LibSasara.Model.Serialize.TuneData>)
+  fullName.vb: LibSasara.Model.Serialize.Parameters.MergeData(System.Collections.Generic.List(Of LibSasara.Model.Serialize.TuneData), System.Collections.Generic.List(Of LibSasara.Model.Serialize.TuneData))
+  nameWithType: Parameters.MergeData(List<TuneData>, List<TuneData>)
+  nameWithType.vb: Parameters.MergeData(List(Of TuneData), List(Of TuneData))
+- uid: LibSasara.Model.Serialize.Parameters.MergeData*
+  name: MergeData
+  href: api/LibSasara.Model.Serialize.Parameters.html#LibSasara_Model_Serialize_Parameters_MergeData_
+  commentId: Overload:LibSasara.Model.Serialize.Parameters.MergeData
+  isSpec: "True"
+  fullName: LibSasara.Model.Serialize.Parameters.MergeData
+  nameWithType: Parameters.MergeData
+- uid: LibSasara.Model.Serialize.Parameters.Name
+  name: Name
+  href: api/LibSasara.Model.Serialize.Parameters.html#LibSasara_Model_Serialize_Parameters_Name
+  commentId: P:LibSasara.Model.Serialize.Parameters.Name
+  fullName: LibSasara.Model.Serialize.Parameters.Name
+  nameWithType: Parameters.Name
+- uid: LibSasara.Model.Serialize.Parameters.Name*
+  name: Name
+  href: api/LibSasara.Model.Serialize.Parameters.html#LibSasara_Model_Serialize_Parameters_Name_
+  commentId: Overload:LibSasara.Model.Serialize.Parameters.Name
+  isSpec: "True"
+  fullName: LibSasara.Model.Serialize.Parameters.Name
+  nameWithType: Parameters.Name
+- uid: LibSasara.Model.Serialize.Parameters.ShrinkData(System.Collections.Generic.List{LibSasara.Model.Serialize.ITuneData})
+  name: ShrinkData(List<ITuneData>)
+  href: api/LibSasara.Model.Serialize.Parameters.html#LibSasara_Model_Serialize_Parameters_ShrinkData_System_Collections_Generic_List_LibSasara_Model_Serialize_ITuneData__
+  commentId: M:LibSasara.Model.Serialize.Parameters.ShrinkData(System.Collections.Generic.List{LibSasara.Model.Serialize.ITuneData})
+  name.vb: ShrinkData(List(Of ITuneData))
+  fullName: LibSasara.Model.Serialize.Parameters.ShrinkData(System.Collections.Generic.List<LibSasara.Model.Serialize.ITuneData>)
+  fullName.vb: LibSasara.Model.Serialize.Parameters.ShrinkData(System.Collections.Generic.List(Of LibSasara.Model.Serialize.ITuneData))
+  nameWithType: Parameters.ShrinkData(List<ITuneData>)
+  nameWithType.vb: Parameters.ShrinkData(List(Of ITuneData))
+- uid: LibSasara.Model.Serialize.Parameters.ShrinkData*
+  name: ShrinkData
+  href: api/LibSasara.Model.Serialize.Parameters.html#LibSasara_Model_Serialize_Parameters_ShrinkData_
+  commentId: Overload:LibSasara.Model.Serialize.Parameters.ShrinkData
+  isSpec: "True"
+  fullName: LibSasara.Model.Serialize.Parameters.ShrinkData
+  nameWithType: Parameters.ShrinkData
 - uid: LibSasara.Model.Serialize.Phoneme
   name: Phoneme
   href: api/LibSasara.Model.Serialize.Phoneme.html
@@ -3857,6 +3934,19 @@ references:
   isSpec: "True"
   fullName: LibSasara.Model.SongUnit.SongUnit
   nameWithType: SongUnit.SongUnit
+- uid: LibSasara.Model.SongUnit.Alpha
+  name: Alpha
+  href: api/LibSasara.Model.SongUnit.html#LibSasara_Model_SongUnit_Alpha
+  commentId: P:LibSasara.Model.SongUnit.Alpha
+  fullName: LibSasara.Model.SongUnit.Alpha
+  nameWithType: SongUnit.Alpha
+- uid: LibSasara.Model.SongUnit.Alpha*
+  name: Alpha
+  href: api/LibSasara.Model.SongUnit.html#LibSasara_Model_SongUnit_Alpha_
+  commentId: Overload:LibSasara.Model.SongUnit.Alpha
+  isSpec: "True"
+  fullName: LibSasara.Model.SongUnit.Alpha
+  nameWithType: SongUnit.Alpha
 - uid: LibSasara.Model.SongUnit.Beat
   name: Beat
   href: api/LibSasara.Model.SongUnit.html#LibSasara_Model_SongUnit_Beat
@@ -3896,6 +3986,19 @@ references:
   isSpec: "True"
   fullName: LibSasara.Model.SongUnit.Category
   nameWithType: SongUnit.Category
+- uid: LibSasara.Model.SongUnit.CommonKeys
+  name: CommonKeys
+  href: api/LibSasara.Model.SongUnit.html#LibSasara_Model_SongUnit_CommonKeys
+  commentId: P:LibSasara.Model.SongUnit.CommonKeys
+  fullName: LibSasara.Model.SongUnit.CommonKeys
+  nameWithType: SongUnit.CommonKeys
+- uid: LibSasara.Model.SongUnit.CommonKeys*
+  name: CommonKeys
+  href: api/LibSasara.Model.SongUnit.html#LibSasara_Model_SongUnit_CommonKeys_
+  commentId: Overload:LibSasara.Model.SongUnit.CommonKeys
+  isSpec: "True"
+  fullName: LibSasara.Model.SongUnit.CommonKeys
+  nameWithType: SongUnit.CommonKeys
 - uid: LibSasara.Model.SongUnit.CreateSongUnitRaw(System.TimeSpan,System.TimeSpan,System.String,System.Nullable{System.Guid},System.String,System.String,System.Collections.Generic.SortedDictionary{System.Int32,System.Int32},System.Collections.Generic.SortedDictionary{System.Int32,System.ValueTuple{System.Int32,System.Int32}})
   name: CreateSongUnitRaw(TimeSpan, TimeSpan, String, Nullable<Guid>, String, String, SortedDictionary<Int32, Int32>, SortedDictionary<Int32, (Int32 Beats, Int32 BeatType)>)
   href: api/LibSasara.Model.SongUnit.html#LibSasara_Model_SongUnit_CreateSongUnitRaw_System_TimeSpan_System_TimeSpan_System_String_System_Nullable_System_Guid__System_String_System_String_System_Collections_Generic_SortedDictionary_System_Int32_System_Int32__System_Collections_Generic_SortedDictionary_System_Int32_System_ValueTuple_System_Int32_System_Int32___
@@ -3912,6 +4015,19 @@ references:
   isSpec: "True"
   fullName: LibSasara.Model.SongUnit.CreateSongUnitRaw
   nameWithType: SongUnit.CreateSongUnitRaw
+- uid: LibSasara.Model.SongUnit.Husky
+  name: Husky
+  href: api/LibSasara.Model.SongUnit.html#LibSasara_Model_SongUnit_Husky
+  commentId: P:LibSasara.Model.SongUnit.Husky
+  fullName: LibSasara.Model.SongUnit.Husky
+  nameWithType: SongUnit.Husky
+- uid: LibSasara.Model.SongUnit.Husky*
+  name: Husky
+  href: api/LibSasara.Model.SongUnit.html#LibSasara_Model_SongUnit_Husky_
+  commentId: Overload:LibSasara.Model.SongUnit.Husky
+  isSpec: "True"
+  fullName: LibSasara.Model.SongUnit.Husky
+  nameWithType: SongUnit.Husky
 - uid: LibSasara.Model.SongUnit.Language
   name: Language
   href: api/LibSasara.Model.SongUnit.html#LibSasara_Model_SongUnit_Language
@@ -3938,6 +4054,84 @@ references:
   isSpec: "True"
   fullName: LibSasara.Model.SongUnit.Notes
   nameWithType: SongUnit.Notes
+- uid: LibSasara.Model.SongUnit.PitchShift
+  name: PitchShift
+  href: api/LibSasara.Model.SongUnit.html#LibSasara_Model_SongUnit_PitchShift
+  commentId: P:LibSasara.Model.SongUnit.PitchShift
+  fullName: LibSasara.Model.SongUnit.PitchShift
+  nameWithType: SongUnit.PitchShift
+- uid: LibSasara.Model.SongUnit.PitchShift*
+  name: PitchShift
+  href: api/LibSasara.Model.SongUnit.html#LibSasara_Model_SongUnit_PitchShift_
+  commentId: Overload:LibSasara.Model.SongUnit.PitchShift
+  isSpec: "True"
+  fullName: LibSasara.Model.SongUnit.PitchShift
+  nameWithType: SongUnit.PitchShift
+- uid: LibSasara.Model.SongUnit.PitchTune
+  name: PitchTune
+  href: api/LibSasara.Model.SongUnit.html#LibSasara_Model_SongUnit_PitchTune
+  commentId: P:LibSasara.Model.SongUnit.PitchTune
+  fullName: LibSasara.Model.SongUnit.PitchTune
+  nameWithType: SongUnit.PitchTune
+- uid: LibSasara.Model.SongUnit.PitchTune*
+  name: PitchTune
+  href: api/LibSasara.Model.SongUnit.html#LibSasara_Model_SongUnit_PitchTune_
+  commentId: Overload:LibSasara.Model.SongUnit.PitchTune
+  isSpec: "True"
+  fullName: LibSasara.Model.SongUnit.PitchTune
+  nameWithType: SongUnit.PitchTune
+- uid: LibSasara.Model.SongUnit.RawAlpha
+  name: RawAlpha
+  href: api/LibSasara.Model.SongUnit.html#LibSasara_Model_SongUnit_RawAlpha
+  commentId: P:LibSasara.Model.SongUnit.RawAlpha
+  fullName: LibSasara.Model.SongUnit.RawAlpha
+  nameWithType: SongUnit.RawAlpha
+- uid: LibSasara.Model.SongUnit.RawAlpha*
+  name: RawAlpha
+  href: api/LibSasara.Model.SongUnit.html#LibSasara_Model_SongUnit_RawAlpha_
+  commentId: Overload:LibSasara.Model.SongUnit.RawAlpha
+  isSpec: "True"
+  fullName: LibSasara.Model.SongUnit.RawAlpha
+  nameWithType: SongUnit.RawAlpha
+- uid: LibSasara.Model.SongUnit.RawHuskiness
+  name: RawHuskiness
+  href: api/LibSasara.Model.SongUnit.html#LibSasara_Model_SongUnit_RawHuskiness
+  commentId: P:LibSasara.Model.SongUnit.RawHuskiness
+  fullName: LibSasara.Model.SongUnit.RawHuskiness
+  nameWithType: SongUnit.RawHuskiness
+- uid: LibSasara.Model.SongUnit.RawHuskiness*
+  name: RawHuskiness
+  href: api/LibSasara.Model.SongUnit.html#LibSasara_Model_SongUnit_RawHuskiness_
+  commentId: Overload:LibSasara.Model.SongUnit.RawHuskiness
+  isSpec: "True"
+  fullName: LibSasara.Model.SongUnit.RawHuskiness
+  nameWithType: SongUnit.RawHuskiness
+- uid: LibSasara.Model.SongUnit.RawParameter
+  name: RawParameter
+  href: api/LibSasara.Model.SongUnit.html#LibSasara_Model_SongUnit_RawParameter
+  commentId: P:LibSasara.Model.SongUnit.RawParameter
+  fullName: LibSasara.Model.SongUnit.RawParameter
+  nameWithType: SongUnit.RawParameter
+- uid: LibSasara.Model.SongUnit.RawParameter*
+  name: RawParameter
+  href: api/LibSasara.Model.SongUnit.html#LibSasara_Model_SongUnit_RawParameter_
+  commentId: Overload:LibSasara.Model.SongUnit.RawParameter
+  isSpec: "True"
+  fullName: LibSasara.Model.SongUnit.RawParameter
+  nameWithType: SongUnit.RawParameter
+- uid: LibSasara.Model.SongUnit.RawParameterChildren
+  name: RawParameterChildren
+  href: api/LibSasara.Model.SongUnit.html#LibSasara_Model_SongUnit_RawParameterChildren
+  commentId: P:LibSasara.Model.SongUnit.RawParameterChildren
+  fullName: LibSasara.Model.SongUnit.RawParameterChildren
+  nameWithType: SongUnit.RawParameterChildren
+- uid: LibSasara.Model.SongUnit.RawParameterChildren*
+  name: RawParameterChildren
+  href: api/LibSasara.Model.SongUnit.html#LibSasara_Model_SongUnit_RawParameterChildren_
+  commentId: Overload:LibSasara.Model.SongUnit.RawParameterChildren
+  isSpec: "True"
+  fullName: LibSasara.Model.SongUnit.RawParameterChildren
+  nameWithType: SongUnit.RawParameterChildren
 - uid: LibSasara.Model.SongUnit.RawParameters
   name: RawParameters
   href: api/LibSasara.Model.SongUnit.html#LibSasara_Model_SongUnit_RawParameters
@@ -3951,6 +4145,32 @@ references:
   isSpec: "True"
   fullName: LibSasara.Model.SongUnit.RawParameters
   nameWithType: SongUnit.RawParameters
+- uid: LibSasara.Model.SongUnit.RawPitch
+  name: RawPitch
+  href: api/LibSasara.Model.SongUnit.html#LibSasara_Model_SongUnit_RawPitch
+  commentId: P:LibSasara.Model.SongUnit.RawPitch
+  fullName: LibSasara.Model.SongUnit.RawPitch
+  nameWithType: SongUnit.RawPitch
+- uid: LibSasara.Model.SongUnit.RawPitch*
+  name: RawPitch
+  href: api/LibSasara.Model.SongUnit.html#LibSasara_Model_SongUnit_RawPitch_
+  commentId: Overload:LibSasara.Model.SongUnit.RawPitch
+  isSpec: "True"
+  fullName: LibSasara.Model.SongUnit.RawPitch
+  nameWithType: SongUnit.RawPitch
+- uid: LibSasara.Model.SongUnit.RawScore
+  name: RawScore
+  href: api/LibSasara.Model.SongUnit.html#LibSasara_Model_SongUnit_RawScore
+  commentId: P:LibSasara.Model.SongUnit.RawScore
+  fullName: LibSasara.Model.SongUnit.RawScore
+  nameWithType: SongUnit.RawScore
+- uid: LibSasara.Model.SongUnit.RawScore*
+  name: RawScore
+  href: api/LibSasara.Model.SongUnit.html#LibSasara_Model_SongUnit_RawScore_
+  commentId: Overload:LibSasara.Model.SongUnit.RawScore
+  isSpec: "True"
+  fullName: LibSasara.Model.SongUnit.RawScore
+  nameWithType: SongUnit.RawScore
 - uid: LibSasara.Model.SongUnit.RawScores
   name: RawScores
   href: api/LibSasara.Model.SongUnit.html#LibSasara_Model_SongUnit_RawScores
@@ -3977,6 +4197,58 @@ references:
   isSpec: "True"
   fullName: LibSasara.Model.SongUnit.RawSong
   nameWithType: SongUnit.RawSong
+- uid: LibSasara.Model.SongUnit.RawTiming
+  name: RawTiming
+  href: api/LibSasara.Model.SongUnit.html#LibSasara_Model_SongUnit_RawTiming
+  commentId: P:LibSasara.Model.SongUnit.RawTiming
+  fullName: LibSasara.Model.SongUnit.RawTiming
+  nameWithType: SongUnit.RawTiming
+- uid: LibSasara.Model.SongUnit.RawTiming*
+  name: RawTiming
+  href: api/LibSasara.Model.SongUnit.html#LibSasara_Model_SongUnit_RawTiming_
+  commentId: Overload:LibSasara.Model.SongUnit.RawTiming
+  isSpec: "True"
+  fullName: LibSasara.Model.SongUnit.RawTiming
+  nameWithType: SongUnit.RawTiming
+- uid: LibSasara.Model.SongUnit.RawVibratoAmp
+  name: RawVibratoAmp
+  href: api/LibSasara.Model.SongUnit.html#LibSasara_Model_SongUnit_RawVibratoAmp
+  commentId: P:LibSasara.Model.SongUnit.RawVibratoAmp
+  fullName: LibSasara.Model.SongUnit.RawVibratoAmp
+  nameWithType: SongUnit.RawVibratoAmp
+- uid: LibSasara.Model.SongUnit.RawVibratoAmp*
+  name: RawVibratoAmp
+  href: api/LibSasara.Model.SongUnit.html#LibSasara_Model_SongUnit_RawVibratoAmp_
+  commentId: Overload:LibSasara.Model.SongUnit.RawVibratoAmp
+  isSpec: "True"
+  fullName: LibSasara.Model.SongUnit.RawVibratoAmp
+  nameWithType: SongUnit.RawVibratoAmp
+- uid: LibSasara.Model.SongUnit.RawVibratoFrq
+  name: RawVibratoFrq
+  href: api/LibSasara.Model.SongUnit.html#LibSasara_Model_SongUnit_RawVibratoFrq
+  commentId: P:LibSasara.Model.SongUnit.RawVibratoFrq
+  fullName: LibSasara.Model.SongUnit.RawVibratoFrq
+  nameWithType: SongUnit.RawVibratoFrq
+- uid: LibSasara.Model.SongUnit.RawVibratoFrq*
+  name: RawVibratoFrq
+  href: api/LibSasara.Model.SongUnit.html#LibSasara_Model_SongUnit_RawVibratoFrq_
+  commentId: Overload:LibSasara.Model.SongUnit.RawVibratoFrq
+  isSpec: "True"
+  fullName: LibSasara.Model.SongUnit.RawVibratoFrq
+  nameWithType: SongUnit.RawVibratoFrq
+- uid: LibSasara.Model.SongUnit.RawVolume
+  name: RawVolume
+  href: api/LibSasara.Model.SongUnit.html#LibSasara_Model_SongUnit_RawVolume
+  commentId: P:LibSasara.Model.SongUnit.RawVolume
+  fullName: LibSasara.Model.SongUnit.RawVolume
+  nameWithType: SongUnit.RawVolume
+- uid: LibSasara.Model.SongUnit.RawVolume*
+  name: RawVolume
+  href: api/LibSasara.Model.SongUnit.html#LibSasara_Model_SongUnit_RawVolume_
+  commentId: Overload:LibSasara.Model.SongUnit.RawVolume
+  isSpec: "True"
+  fullName: LibSasara.Model.SongUnit.RawVolume
+  nameWithType: SongUnit.RawVolume
 - uid: LibSasara.Model.SongUnit.SongVersion
   name: SongVersion
   href: api/LibSasara.Model.SongUnit.html#LibSasara_Model_SongUnit_SongVersion
@@ -4003,6 +4275,32 @@ references:
   isSpec: "True"
   fullName: LibSasara.Model.SongUnit.Tempo
   nameWithType: SongUnit.Tempo
+- uid: LibSasara.Model.SongUnit.Tempos
+  name: Tempos
+  href: api/LibSasara.Model.SongUnit.html#LibSasara_Model_SongUnit_Tempos
+  commentId: P:LibSasara.Model.SongUnit.Tempos
+  fullName: LibSasara.Model.SongUnit.Tempos
+  nameWithType: SongUnit.Tempos
+- uid: LibSasara.Model.SongUnit.Tempos*
+  name: Tempos
+  href: api/LibSasara.Model.SongUnit.html#LibSasara_Model_SongUnit_Tempos_
+  commentId: Overload:LibSasara.Model.SongUnit.Tempos
+  isSpec: "True"
+  fullName: LibSasara.Model.SongUnit.Tempos
+  nameWithType: SongUnit.Tempos
+- uid: LibSasara.Model.SongUnit.Volume
+  name: Volume
+  href: api/LibSasara.Model.SongUnit.html#LibSasara_Model_SongUnit_Volume
+  commentId: P:LibSasara.Model.SongUnit.Volume
+  fullName: LibSasara.Model.SongUnit.Volume
+  nameWithType: SongUnit.Volume
+- uid: LibSasara.Model.SongUnit.Volume*
+  name: Volume
+  href: api/LibSasara.Model.SongUnit.html#LibSasara_Model_SongUnit_Volume_
+  commentId: Overload:LibSasara.Model.SongUnit.Volume
+  isSpec: "True"
+  fullName: LibSasara.Model.SongUnit.Volume
+  nameWithType: SongUnit.Volume
 - uid: LibSasara.Model.Syllabic
   name: Syllabic
   href: api/LibSasara.Model.Syllabic.html
@@ -4783,6 +5081,45 @@ references:
   isSpec: "True"
   fullName: LibSasara.Model.UnitBase.EndTime
   nameWithType: UnitBase.EndTime
+- uid: LibSasara.Model.UnitBase.GetAttrBool(System.Xml.Linq.XElement,System.String)
+  name: GetAttrBool(XElement, String)
+  href: api/LibSasara.Model.UnitBase.html#LibSasara_Model_UnitBase_GetAttrBool_System_Xml_Linq_XElement_System_String_
+  commentId: M:LibSasara.Model.UnitBase.GetAttrBool(System.Xml.Linq.XElement,System.String)
+  fullName: LibSasara.Model.UnitBase.GetAttrBool(System.Xml.Linq.XElement, System.String)
+  nameWithType: UnitBase.GetAttrBool(XElement, String)
+- uid: LibSasara.Model.UnitBase.GetAttrBool*
+  name: GetAttrBool
+  href: api/LibSasara.Model.UnitBase.html#LibSasara_Model_UnitBase_GetAttrBool_
+  commentId: Overload:LibSasara.Model.UnitBase.GetAttrBool
+  isSpec: "True"
+  fullName: LibSasara.Model.UnitBase.GetAttrBool
+  nameWithType: UnitBase.GetAttrBool
+- uid: LibSasara.Model.UnitBase.GetAttrDecimal(System.Xml.Linq.XElement,System.String,System.Decimal)
+  name: GetAttrDecimal(XElement, String, Decimal)
+  href: api/LibSasara.Model.UnitBase.html#LibSasara_Model_UnitBase_GetAttrDecimal_System_Xml_Linq_XElement_System_String_System_Decimal_
+  commentId: M:LibSasara.Model.UnitBase.GetAttrDecimal(System.Xml.Linq.XElement,System.String,System.Decimal)
+  fullName: LibSasara.Model.UnitBase.GetAttrDecimal(System.Xml.Linq.XElement, System.String, System.Decimal)
+  nameWithType: UnitBase.GetAttrDecimal(XElement, String, Decimal)
+- uid: LibSasara.Model.UnitBase.GetAttrDecimal*
+  name: GetAttrDecimal
+  href: api/LibSasara.Model.UnitBase.html#LibSasara_Model_UnitBase_GetAttrDecimal_
+  commentId: Overload:LibSasara.Model.UnitBase.GetAttrDecimal
+  isSpec: "True"
+  fullName: LibSasara.Model.UnitBase.GetAttrDecimal
+  nameWithType: UnitBase.GetAttrDecimal
+- uid: LibSasara.Model.UnitBase.GetAttrInt(System.Xml.Linq.XElement,System.String,System.Int32)
+  name: GetAttrInt(XElement, String, Int32)
+  href: api/LibSasara.Model.UnitBase.html#LibSasara_Model_UnitBase_GetAttrInt_System_Xml_Linq_XElement_System_String_System_Int32_
+  commentId: M:LibSasara.Model.UnitBase.GetAttrInt(System.Xml.Linq.XElement,System.String,System.Int32)
+  fullName: LibSasara.Model.UnitBase.GetAttrInt(System.Xml.Linq.XElement, System.String, System.Int32)
+  nameWithType: UnitBase.GetAttrInt(XElement, String, Int32)
+- uid: LibSasara.Model.UnitBase.GetAttrInt*
+  name: GetAttrInt
+  href: api/LibSasara.Model.UnitBase.html#LibSasara_Model_UnitBase_GetAttrInt_
+  commentId: Overload:LibSasara.Model.UnitBase.GetAttrInt
+  isSpec: "True"
+  fullName: LibSasara.Model.UnitBase.GetAttrInt
+  nameWithType: UnitBase.GetAttrInt
 - uid: LibSasara.Model.UnitBase.Group
   name: Group
   href: api/LibSasara.Model.UnitBase.html#LibSasara_Model_UnitBase_Group
@@ -4822,6 +5159,22 @@ references:
   isSpec: "True"
   fullName: LibSasara.Model.UnitBase.Root
   nameWithType: UnitBase.Root
+- uid: LibSasara.Model.UnitBase.SetAttr*
+  name: SetAttr
+  href: api/LibSasara.Model.UnitBase.html#LibSasara_Model_UnitBase_SetAttr_
+  commentId: Overload:LibSasara.Model.UnitBase.SetAttr
+  isSpec: "True"
+  fullName: LibSasara.Model.UnitBase.SetAttr
+  nameWithType: UnitBase.SetAttr
+- uid: LibSasara.Model.UnitBase.SetAttr``1(System.Xml.Linq.XElement,System.String,``0)
+  name: SetAttr<T>(XElement, String, T)
+  href: api/LibSasara.Model.UnitBase.html#LibSasara_Model_UnitBase_SetAttr__1_System_Xml_Linq_XElement_System_String___0_
+  commentId: M:LibSasara.Model.UnitBase.SetAttr``1(System.Xml.Linq.XElement,System.String,``0)
+  name.vb: SetAttr(Of T)(XElement, String, T)
+  fullName: LibSasara.Model.UnitBase.SetAttr<T>(System.Xml.Linq.XElement, System.String, T)
+  fullName.vb: LibSasara.Model.UnitBase.SetAttr(Of T)(System.Xml.Linq.XElement, System.String, T)
+  nameWithType: UnitBase.SetAttr<T>(XElement, String, T)
+  nameWithType.vb: UnitBase.SetAttr(Of T)(XElement, String, T)
 - uid: LibSasara.Model.UnitBase.StartTime
   name: StartTime
   href: api/LibSasara.Model.UnitBase.html#LibSasara_Model_UnitBase_StartTime
@@ -5082,3 +5435,979 @@ references:
   isSpec: "True"
   fullName: LibSasara.SasaraUtil.OctaveStepToNoteNum
   nameWithType: SasaraUtil.OctaveStepToNoteNum
+- uid: LibSasara.VoiSona
+  name: LibSasara.VoiSona
+  href: api/LibSasara.VoiSona.html
+  commentId: N:LibSasara.VoiSona
+  fullName: LibSasara.VoiSona
+  nameWithType: LibSasara.VoiSona
+- uid: LibSasara.VoiSona.LibVoiSona
+  name: LibVoiSona
+  href: api/LibSasara.VoiSona.LibVoiSona.html
+  commentId: T:LibSasara.VoiSona.LibVoiSona
+  fullName: LibSasara.VoiSona.LibVoiSona
+  nameWithType: LibVoiSona
+- uid: LibSasara.VoiSona.LibVoiSona.LoadAsync*
+  name: LoadAsync
+  href: api/LibSasara.VoiSona.LibVoiSona.html#LibSasara_VoiSona_LibVoiSona_LoadAsync_
+  commentId: Overload:LibSasara.VoiSona.LibVoiSona.LoadAsync
+  isSpec: "True"
+  fullName: LibSasara.VoiSona.LibVoiSona.LoadAsync
+  nameWithType: LibVoiSona.LoadAsync
+- uid: LibSasara.VoiSona.LibVoiSona.LoadAsync``1(System.String,System.Threading.CancellationToken)
+  name: LoadAsync<T>(String, CancellationToken)
+  href: api/LibSasara.VoiSona.LibVoiSona.html#LibSasara_VoiSona_LibVoiSona_LoadAsync__1_System_String_System_Threading_CancellationToken_
+  commentId: M:LibSasara.VoiSona.LibVoiSona.LoadAsync``1(System.String,System.Threading.CancellationToken)
+  name.vb: LoadAsync(Of T)(String, CancellationToken)
+  fullName: LibSasara.VoiSona.LibVoiSona.LoadAsync<T>(System.String, System.Threading.CancellationToken)
+  fullName.vb: LibSasara.VoiSona.LibVoiSona.LoadAsync(Of T)(System.String, System.Threading.CancellationToken)
+  nameWithType: LibVoiSona.LoadAsync<T>(String, CancellationToken)
+  nameWithType.vb: LibVoiSona.LoadAsync(Of T)(String, CancellationToken)
+- uid: LibSasara.VoiSona.LibVoiSona.SaveAsync(System.String,System.Collections.Generic.IReadOnlyList{System.Byte},System.Threading.CancellationToken)
+  name: SaveAsync(String, IReadOnlyList<Byte>, CancellationToken)
+  href: api/LibSasara.VoiSona.LibVoiSona.html#LibSasara_VoiSona_LibVoiSona_SaveAsync_System_String_System_Collections_Generic_IReadOnlyList_System_Byte__System_Threading_CancellationToken_
+  commentId: M:LibSasara.VoiSona.LibVoiSona.SaveAsync(System.String,System.Collections.Generic.IReadOnlyList{System.Byte},System.Threading.CancellationToken)
+  name.vb: SaveAsync(String, IReadOnlyList(Of Byte), CancellationToken)
+  fullName: LibSasara.VoiSona.LibVoiSona.SaveAsync(System.String, System.Collections.Generic.IReadOnlyList<System.Byte>, System.Threading.CancellationToken)
+  fullName.vb: LibSasara.VoiSona.LibVoiSona.SaveAsync(System.String, System.Collections.Generic.IReadOnlyList(Of System.Byte), System.Threading.CancellationToken)
+  nameWithType: LibVoiSona.SaveAsync(String, IReadOnlyList<Byte>, CancellationToken)
+  nameWithType.vb: LibVoiSona.SaveAsync(String, IReadOnlyList(Of Byte), CancellationToken)
+- uid: LibSasara.VoiSona.LibVoiSona.SaveAsync*
+  name: SaveAsync
+  href: api/LibSasara.VoiSona.LibVoiSona.html#LibSasara_VoiSona_LibVoiSona_SaveAsync_
+  commentId: Overload:LibSasara.VoiSona.LibVoiSona.SaveAsync
+  isSpec: "True"
+  fullName: LibSasara.VoiSona.LibVoiSona.SaveAsync
+  nameWithType: LibVoiSona.SaveAsync
+- uid: LibSasara.VoiSona.Model
+  name: LibSasara.VoiSona.Model
+  href: api/LibSasara.VoiSona.Model.html
+  commentId: N:LibSasara.VoiSona.Model
+  fullName: LibSasara.VoiSona.Model
+  nameWithType: LibSasara.VoiSona.Model
+- uid: LibSasara.VoiSona.Model.Common
+  name: Common
+  href: api/LibSasara.VoiSona.Model.Common.html
+  commentId: T:LibSasara.VoiSona.Model.Common
+  fullName: LibSasara.VoiSona.Model.Common
+  nameWithType: Common
+- uid: LibSasara.VoiSona.Model.Common.NULL_END
+  name: NULL_END
+  href: api/LibSasara.VoiSona.Model.Common.html#LibSasara_VoiSona_Model_Common_NULL_END
+  commentId: F:LibSasara.VoiSona.Model.Common.NULL_END
+  fullName: LibSasara.VoiSona.Model.Common.NULL_END
+  nameWithType: Common.NULL_END
+- uid: LibSasara.VoiSona.Model.KeyValue`1
+  name: KeyValue<T>
+  href: api/LibSasara.VoiSona.Model.KeyValue-1.html
+  commentId: T:LibSasara.VoiSona.Model.KeyValue`1
+  name.vb: KeyValue(Of T)
+  fullName: LibSasara.VoiSona.Model.KeyValue<T>
+  fullName.vb: LibSasara.VoiSona.Model.KeyValue(Of T)
+  nameWithType: KeyValue<T>
+  nameWithType.vb: KeyValue(Of T)
+- uid: LibSasara.VoiSona.Model.KeyValue`1.#ctor(System.String,`0,System.Nullable{LibSasara.VoiSona.Model.VoiSonaValueType})
+  name: KeyValue(String, T, Nullable<VoiSonaValueType>)
+  href: api/LibSasara.VoiSona.Model.KeyValue-1.html#LibSasara_VoiSona_Model_KeyValue_1__ctor_System_String__0_System_Nullable_LibSasara_VoiSona_Model_VoiSonaValueType__
+  commentId: M:LibSasara.VoiSona.Model.KeyValue`1.#ctor(System.String,`0,System.Nullable{LibSasara.VoiSona.Model.VoiSonaValueType})
+  name.vb: KeyValue(String, T, Nullable(Of VoiSonaValueType))
+  fullName: LibSasara.VoiSona.Model.KeyValue<T>.KeyValue(System.String, T, System.Nullable<LibSasara.VoiSona.Model.VoiSonaValueType>)
+  fullName.vb: LibSasara.VoiSona.Model.KeyValue(Of T).KeyValue(System.String, T, System.Nullable(Of LibSasara.VoiSona.Model.VoiSonaValueType))
+  nameWithType: KeyValue<T>.KeyValue(String, T, Nullable<VoiSonaValueType>)
+  nameWithType.vb: KeyValue(Of T).KeyValue(String, T, Nullable(Of VoiSonaValueType))
+- uid: LibSasara.VoiSona.Model.KeyValue`1.#ctor*
+  name: KeyValue
+  href: api/LibSasara.VoiSona.Model.KeyValue-1.html#LibSasara_VoiSona_Model_KeyValue_1__ctor_
+  commentId: Overload:LibSasara.VoiSona.Model.KeyValue`1.#ctor
+  isSpec: "True"
+  fullName: LibSasara.VoiSona.Model.KeyValue<T>.KeyValue
+  fullName.vb: LibSasara.VoiSona.Model.KeyValue(Of T).KeyValue
+  nameWithType: KeyValue<T>.KeyValue
+  nameWithType.vb: KeyValue(Of T).KeyValue
+- uid: LibSasara.VoiSona.Model.KeyValue`1.GetHeaderBytes(System.Boolean,System.Boolean)
+  name: GetHeaderBytes(Boolean, Boolean)
+  href: api/LibSasara.VoiSona.Model.KeyValue-1.html#LibSasara_VoiSona_Model_KeyValue_1_GetHeaderBytes_System_Boolean_System_Boolean_
+  commentId: M:LibSasara.VoiSona.Model.KeyValue`1.GetHeaderBytes(System.Boolean,System.Boolean)
+  fullName: LibSasara.VoiSona.Model.KeyValue<T>.GetHeaderBytes(System.Boolean, System.Boolean)
+  fullName.vb: LibSasara.VoiSona.Model.KeyValue(Of T).GetHeaderBytes(System.Boolean, System.Boolean)
+  nameWithType: KeyValue<T>.GetHeaderBytes(Boolean, Boolean)
+  nameWithType.vb: KeyValue(Of T).GetHeaderBytes(Boolean, Boolean)
+- uid: LibSasara.VoiSona.Model.KeyValue`1.GetHeaderBytes*
+  name: GetHeaderBytes
+  href: api/LibSasara.VoiSona.Model.KeyValue-1.html#LibSasara_VoiSona_Model_KeyValue_1_GetHeaderBytes_
+  commentId: Overload:LibSasara.VoiSona.Model.KeyValue`1.GetHeaderBytes
+  isSpec: "True"
+  fullName: LibSasara.VoiSona.Model.KeyValue<T>.GetHeaderBytes
+  fullName.vb: LibSasara.VoiSona.Model.KeyValue(Of T).GetHeaderBytes
+  nameWithType: KeyValue<T>.GetHeaderBytes
+  nameWithType.vb: KeyValue(Of T).GetHeaderBytes
+- uid: LibSasara.VoiSona.Model.KeyValue`1.Key
+  name: Key
+  href: api/LibSasara.VoiSona.Model.KeyValue-1.html#LibSasara_VoiSona_Model_KeyValue_1_Key
+  commentId: P:LibSasara.VoiSona.Model.KeyValue`1.Key
+  fullName: LibSasara.VoiSona.Model.KeyValue<T>.Key
+  fullName.vb: LibSasara.VoiSona.Model.KeyValue(Of T).Key
+  nameWithType: KeyValue<T>.Key
+  nameWithType.vb: KeyValue(Of T).Key
+- uid: LibSasara.VoiSona.Model.KeyValue`1.Key*
+  name: Key
+  href: api/LibSasara.VoiSona.Model.KeyValue-1.html#LibSasara_VoiSona_Model_KeyValue_1_Key_
+  commentId: Overload:LibSasara.VoiSona.Model.KeyValue`1.Key
+  isSpec: "True"
+  fullName: LibSasara.VoiSona.Model.KeyValue<T>.Key
+  fullName.vb: LibSasara.VoiSona.Model.KeyValue(Of T).Key
+  nameWithType: KeyValue<T>.Key
+  nameWithType.vb: KeyValue(Of T).Key
+- uid: LibSasara.VoiSona.Model.KeyValue`1.Type
+  name: Type
+  href: api/LibSasara.VoiSona.Model.KeyValue-1.html#LibSasara_VoiSona_Model_KeyValue_1_Type
+  commentId: P:LibSasara.VoiSona.Model.KeyValue`1.Type
+  fullName: LibSasara.VoiSona.Model.KeyValue<T>.Type
+  fullName.vb: LibSasara.VoiSona.Model.KeyValue(Of T).Type
+  nameWithType: KeyValue<T>.Type
+  nameWithType.vb: KeyValue(Of T).Type
+- uid: LibSasara.VoiSona.Model.KeyValue`1.Type*
+  name: Type
+  href: api/LibSasara.VoiSona.Model.KeyValue-1.html#LibSasara_VoiSona_Model_KeyValue_1_Type_
+  commentId: Overload:LibSasara.VoiSona.Model.KeyValue`1.Type
+  isSpec: "True"
+  fullName: LibSasara.VoiSona.Model.KeyValue<T>.Type
+  fullName.vb: LibSasara.VoiSona.Model.KeyValue(Of T).Type
+  nameWithType: KeyValue<T>.Type
+  nameWithType.vb: KeyValue(Of T).Type
+- uid: LibSasara.VoiSona.Model.KeyValue`1.Value
+  name: Value
+  href: api/LibSasara.VoiSona.Model.KeyValue-1.html#LibSasara_VoiSona_Model_KeyValue_1_Value
+  commentId: P:LibSasara.VoiSona.Model.KeyValue`1.Value
+  fullName: LibSasara.VoiSona.Model.KeyValue<T>.Value
+  fullName.vb: LibSasara.VoiSona.Model.KeyValue(Of T).Value
+  nameWithType: KeyValue<T>.Value
+  nameWithType.vb: KeyValue(Of T).Value
+- uid: LibSasara.VoiSona.Model.KeyValue`1.Value*
+  name: Value
+  href: api/LibSasara.VoiSona.Model.KeyValue-1.html#LibSasara_VoiSona_Model_KeyValue_1_Value_
+  commentId: Overload:LibSasara.VoiSona.Model.KeyValue`1.Value
+  isSpec: "True"
+  fullName: LibSasara.VoiSona.Model.KeyValue<T>.Value
+  fullName.vb: LibSasara.VoiSona.Model.KeyValue(Of T).Value
+  nameWithType: KeyValue<T>.Value
+  nameWithType.vb: KeyValue(Of T).Value
+- uid: LibSasara.VoiSona.Model.Talk
+  name: LibSasara.VoiSona.Model.Talk
+  href: api/LibSasara.VoiSona.Model.Talk.html
+  commentId: N:LibSasara.VoiSona.Model.Talk
+  fullName: LibSasara.VoiSona.Model.Talk
+  nameWithType: LibSasara.VoiSona.Model.Talk
+- uid: LibSasara.VoiSona.Model.Talk.TalkTrack
+  name: TalkTrack
+  href: api/LibSasara.VoiSona.Model.Talk.TalkTrack.html
+  commentId: T:LibSasara.VoiSona.Model.Talk.TalkTrack
+  fullName: LibSasara.VoiSona.Model.Talk.TalkTrack
+  nameWithType: TalkTrack
+- uid: LibSasara.VoiSona.Model.Talk.TalkTrack.#ctor
+  name: TalkTrack()
+  href: api/LibSasara.VoiSona.Model.Talk.TalkTrack.html#LibSasara_VoiSona_Model_Talk_TalkTrack__ctor
+  commentId: M:LibSasara.VoiSona.Model.Talk.TalkTrack.#ctor
+  fullName: LibSasara.VoiSona.Model.Talk.TalkTrack.TalkTrack()
+  nameWithType: TalkTrack.TalkTrack()
+- uid: LibSasara.VoiSona.Model.Talk.TalkTrack.#ctor*
+  name: TalkTrack
+  href: api/LibSasara.VoiSona.Model.Talk.TalkTrack.html#LibSasara_VoiSona_Model_Talk_TalkTrack__ctor_
+  commentId: Overload:LibSasara.VoiSona.Model.Talk.TalkTrack.#ctor
+  isSpec: "True"
+  fullName: LibSasara.VoiSona.Model.Talk.TalkTrack.TalkTrack
+  nameWithType: TalkTrack.TalkTrack
+- uid: LibSasara.VoiSona.Model.Talk.TalkTrack.TrackName
+  name: TrackName
+  href: api/LibSasara.VoiSona.Model.Talk.TalkTrack.html#LibSasara_VoiSona_Model_Talk_TalkTrack_TrackName
+  commentId: P:LibSasara.VoiSona.Model.Talk.TalkTrack.TrackName
+  fullName: LibSasara.VoiSona.Model.Talk.TalkTrack.TrackName
+  nameWithType: TalkTrack.TrackName
+- uid: LibSasara.VoiSona.Model.Talk.TalkTrack.TrackName*
+  name: TrackName
+  href: api/LibSasara.VoiSona.Model.Talk.TalkTrack.html#LibSasara_VoiSona_Model_Talk_TalkTrack_TrackName_
+  commentId: Overload:LibSasara.VoiSona.Model.Talk.TalkTrack.TrackName
+  isSpec: "True"
+  fullName: LibSasara.VoiSona.Model.Talk.TalkTrack.TrackName
+  nameWithType: TalkTrack.TrackName
+- uid: LibSasara.VoiSona.Model.Talk.TalkTrack.Utterances
+  name: Utterances
+  href: api/LibSasara.VoiSona.Model.Talk.TalkTrack.html#LibSasara_VoiSona_Model_Talk_TalkTrack_Utterances
+  commentId: P:LibSasara.VoiSona.Model.Talk.TalkTrack.Utterances
+  fullName: LibSasara.VoiSona.Model.Talk.TalkTrack.Utterances
+  nameWithType: TalkTrack.Utterances
+- uid: LibSasara.VoiSona.Model.Talk.TalkTrack.Utterances*
+  name: Utterances
+  href: api/LibSasara.VoiSona.Model.Talk.TalkTrack.html#LibSasara_VoiSona_Model_Talk_TalkTrack_Utterances_
+  commentId: Overload:LibSasara.VoiSona.Model.Talk.TalkTrack.Utterances
+  isSpec: "True"
+  fullName: LibSasara.VoiSona.Model.Talk.TalkTrack.Utterances
+  nameWithType: TalkTrack.Utterances
+- uid: LibSasara.VoiSona.Model.Talk.TalkTrack.Voice
+  name: Voice
+  href: api/LibSasara.VoiSona.Model.Talk.TalkTrack.html#LibSasara_VoiSona_Model_Talk_TalkTrack_Voice
+  commentId: P:LibSasara.VoiSona.Model.Talk.TalkTrack.Voice
+  fullName: LibSasara.VoiSona.Model.Talk.TalkTrack.Voice
+  nameWithType: TalkTrack.Voice
+- uid: LibSasara.VoiSona.Model.Talk.TalkTrack.Voice*
+  name: Voice
+  href: api/LibSasara.VoiSona.Model.Talk.TalkTrack.html#LibSasara_VoiSona_Model_Talk_TalkTrack_Voice_
+  commentId: Overload:LibSasara.VoiSona.Model.Talk.TalkTrack.Voice
+  isSpec: "True"
+  fullName: LibSasara.VoiSona.Model.Talk.TalkTrack.Voice
+  nameWithType: TalkTrack.Voice
+- uid: LibSasara.VoiSona.Model.Talk.TstPrj
+  name: TstPrj
+  href: api/LibSasara.VoiSona.Model.Talk.TstPrj.html
+  commentId: T:LibSasara.VoiSona.Model.Talk.TstPrj
+  fullName: LibSasara.VoiSona.Model.Talk.TstPrj
+  nameWithType: TstPrj
+- uid: LibSasara.VoiSona.Model.Talk.TstPrj.#ctor(System.Collections.Generic.IReadOnlyList{System.Byte})
+  name: TstPrj(IReadOnlyList<Byte>)
+  href: api/LibSasara.VoiSona.Model.Talk.TstPrj.html#LibSasara_VoiSona_Model_Talk_TstPrj__ctor_System_Collections_Generic_IReadOnlyList_System_Byte__
+  commentId: M:LibSasara.VoiSona.Model.Talk.TstPrj.#ctor(System.Collections.Generic.IReadOnlyList{System.Byte})
+  name.vb: TstPrj(IReadOnlyList(Of Byte))
+  fullName: LibSasara.VoiSona.Model.Talk.TstPrj.TstPrj(System.Collections.Generic.IReadOnlyList<System.Byte>)
+  fullName.vb: LibSasara.VoiSona.Model.Talk.TstPrj.TstPrj(System.Collections.Generic.IReadOnlyList(Of System.Byte))
+  nameWithType: TstPrj.TstPrj(IReadOnlyList<Byte>)
+  nameWithType.vb: TstPrj.TstPrj(IReadOnlyList(Of Byte))
+- uid: LibSasara.VoiSona.Model.Talk.TstPrj.#ctor*
+  name: TstPrj
+  href: api/LibSasara.VoiSona.Model.Talk.TstPrj.html#LibSasara_VoiSona_Model_Talk_TstPrj__ctor_
+  commentId: Overload:LibSasara.VoiSona.Model.Talk.TstPrj.#ctor
+  isSpec: "True"
+  fullName: LibSasara.VoiSona.Model.Talk.TstPrj.TstPrj
+  nameWithType: TstPrj.TstPrj
+- uid: LibSasara.VoiSona.Model.Talk.TstPrj.Category
+  name: Category
+  href: api/LibSasara.VoiSona.Model.Talk.TstPrj.html#LibSasara_VoiSona_Model_Talk_TstPrj_Category
+  commentId: P:LibSasara.VoiSona.Model.Talk.TstPrj.Category
+  fullName: LibSasara.VoiSona.Model.Talk.TstPrj.Category
+  nameWithType: TstPrj.Category
+- uid: LibSasara.VoiSona.Model.Talk.TstPrj.Category*
+  name: Category
+  href: api/LibSasara.VoiSona.Model.Talk.TstPrj.html#LibSasara_VoiSona_Model_Talk_TstPrj_Category_
+  commentId: Overload:LibSasara.VoiSona.Model.Talk.TstPrj.Category
+  isSpec: "True"
+  fullName: LibSasara.VoiSona.Model.Talk.TstPrj.Category
+  nameWithType: TstPrj.Category
+- uid: LibSasara.VoiSona.Model.Talk.TstPrj.GetAllTracks
+  name: GetAllTracks()
+  href: api/LibSasara.VoiSona.Model.Talk.TstPrj.html#LibSasara_VoiSona_Model_Talk_TstPrj_GetAllTracks
+  commentId: M:LibSasara.VoiSona.Model.Talk.TstPrj.GetAllTracks
+  fullName: LibSasara.VoiSona.Model.Talk.TstPrj.GetAllTracks()
+  nameWithType: TstPrj.GetAllTracks()
+- uid: LibSasara.VoiSona.Model.Talk.TstPrj.GetAllTracks*
+  name: GetAllTracks
+  href: api/LibSasara.VoiSona.Model.Talk.TstPrj.html#LibSasara_VoiSona_Model_Talk_TstPrj_GetAllTracks_
+  commentId: Overload:LibSasara.VoiSona.Model.Talk.TstPrj.GetAllTracks
+  isSpec: "True"
+  fullName: LibSasara.VoiSona.Model.Talk.TstPrj.GetAllTracks
+  nameWithType: TstPrj.GetAllTracks
+- uid: LibSasara.VoiSona.Model.Talk.TstPrj.GetAllTracksBin
+  name: GetAllTracksBin()
+  href: api/LibSasara.VoiSona.Model.Talk.TstPrj.html#LibSasara_VoiSona_Model_Talk_TstPrj_GetAllTracksBin
+  commentId: M:LibSasara.VoiSona.Model.Talk.TstPrj.GetAllTracksBin
+  fullName: LibSasara.VoiSona.Model.Talk.TstPrj.GetAllTracksBin()
+  nameWithType: TstPrj.GetAllTracksBin()
+- uid: LibSasara.VoiSona.Model.Talk.TstPrj.GetAllTracksBin*
+  name: GetAllTracksBin
+  href: api/LibSasara.VoiSona.Model.Talk.TstPrj.html#LibSasara_VoiSona_Model_Talk_TstPrj_GetAllTracksBin_
+  commentId: Overload:LibSasara.VoiSona.Model.Talk.TstPrj.GetAllTracksBin
+  isSpec: "True"
+  fullName: LibSasara.VoiSona.Model.Talk.TstPrj.GetAllTracksBin
+  nameWithType: TstPrj.GetAllTracksBin
+- uid: LibSasara.VoiSona.Model.Talk.TstPrj.GetTrack(System.Int32)
+  name: GetTrack(Int32)
+  href: api/LibSasara.VoiSona.Model.Talk.TstPrj.html#LibSasara_VoiSona_Model_Talk_TstPrj_GetTrack_System_Int32_
+  commentId: M:LibSasara.VoiSona.Model.Talk.TstPrj.GetTrack(System.Int32)
+  fullName: LibSasara.VoiSona.Model.Talk.TstPrj.GetTrack(System.Int32)
+  nameWithType: TstPrj.GetTrack(Int32)
+- uid: LibSasara.VoiSona.Model.Talk.TstPrj.GetTrack*
+  name: GetTrack
+  href: api/LibSasara.VoiSona.Model.Talk.TstPrj.html#LibSasara_VoiSona_Model_Talk_TstPrj_GetTrack_
+  commentId: Overload:LibSasara.VoiSona.Model.Talk.TstPrj.GetTrack
+  isSpec: "True"
+  fullName: LibSasara.VoiSona.Model.Talk.TstPrj.GetTrack
+  nameWithType: TstPrj.GetTrack
+- uid: LibSasara.VoiSona.Model.Talk.Utterance
+  name: Utterance
+  href: api/LibSasara.VoiSona.Model.Talk.Utterance.html
+  commentId: T:LibSasara.VoiSona.Model.Talk.Utterance
+  fullName: LibSasara.VoiSona.Model.Talk.Utterance
+  nameWithType: Utterance
+- uid: LibSasara.VoiSona.Model.Talk.Utterance.#ctor(System.String,System.String,System.String,System.Boolean)
+  name: Utterance(String, String, String, Boolean)
+  href: api/LibSasara.VoiSona.Model.Talk.Utterance.html#LibSasara_VoiSona_Model_Talk_Utterance__ctor_System_String_System_String_System_String_System_Boolean_
+  commentId: M:LibSasara.VoiSona.Model.Talk.Utterance.#ctor(System.String,System.String,System.String,System.Boolean)
+  fullName: LibSasara.VoiSona.Model.Talk.Utterance.Utterance(System.String, System.String, System.String, System.Boolean)
+  nameWithType: Utterance.Utterance(String, String, String, Boolean)
+- uid: LibSasara.VoiSona.Model.Talk.Utterance.#ctor*
+  name: Utterance
+  href: api/LibSasara.VoiSona.Model.Talk.Utterance.html#LibSasara_VoiSona_Model_Talk_Utterance__ctor_
+  commentId: Overload:LibSasara.VoiSona.Model.Talk.Utterance.#ctor
+  isSpec: "True"
+  fullName: LibSasara.VoiSona.Model.Talk.Utterance.Utterance
+  nameWithType: Utterance.Utterance
+- uid: LibSasara.VoiSona.Model.Talk.Utterance.DefaultLabel
+  name: DefaultLabel
+  href: api/LibSasara.VoiSona.Model.Talk.Utterance.html#LibSasara_VoiSona_Model_Talk_Utterance_DefaultLabel
+  commentId: P:LibSasara.VoiSona.Model.Talk.Utterance.DefaultLabel
+  fullName: LibSasara.VoiSona.Model.Talk.Utterance.DefaultLabel
+  nameWithType: Utterance.DefaultLabel
+- uid: LibSasara.VoiSona.Model.Talk.Utterance.DefaultLabel*
+  name: DefaultLabel
+  href: api/LibSasara.VoiSona.Model.Talk.Utterance.html#LibSasara_VoiSona_Model_Talk_Utterance_DefaultLabel_
+  commentId: Overload:LibSasara.VoiSona.Model.Talk.Utterance.DefaultLabel
+  isSpec: "True"
+  fullName: LibSasara.VoiSona.Model.Talk.Utterance.DefaultLabel
+  nameWithType: Utterance.DefaultLabel
+- uid: LibSasara.VoiSona.Model.Talk.Utterance.Disable
+  name: Disable
+  href: api/LibSasara.VoiSona.Model.Talk.Utterance.html#LibSasara_VoiSona_Model_Talk_Utterance_Disable
+  commentId: P:LibSasara.VoiSona.Model.Talk.Utterance.Disable
+  fullName: LibSasara.VoiSona.Model.Talk.Utterance.Disable
+  nameWithType: Utterance.Disable
+- uid: LibSasara.VoiSona.Model.Talk.Utterance.Disable*
+  name: Disable
+  href: api/LibSasara.VoiSona.Model.Talk.Utterance.html#LibSasara_VoiSona_Model_Talk_Utterance_Disable_
+  commentId: Overload:LibSasara.VoiSona.Model.Talk.Utterance.Disable
+  isSpec: "True"
+  fullName: LibSasara.VoiSona.Model.Talk.Utterance.Disable
+  nameWithType: Utterance.Disable
+- uid: LibSasara.VoiSona.Model.Talk.Utterance.Label
+  name: Label
+  href: api/LibSasara.VoiSona.Model.Talk.Utterance.html#LibSasara_VoiSona_Model_Talk_Utterance_Label
+  commentId: P:LibSasara.VoiSona.Model.Talk.Utterance.Label
+  fullName: LibSasara.VoiSona.Model.Talk.Utterance.Label
+  nameWithType: Utterance.Label
+- uid: LibSasara.VoiSona.Model.Talk.Utterance.Label*
+  name: Label
+  href: api/LibSasara.VoiSona.Model.Talk.Utterance.html#LibSasara_VoiSona_Model_Talk_Utterance_Label_
+  commentId: Overload:LibSasara.VoiSona.Model.Talk.Utterance.Label
+  isSpec: "True"
+  fullName: LibSasara.VoiSona.Model.Talk.Utterance.Label
+  nameWithType: Utterance.Label
+- uid: LibSasara.VoiSona.Model.Talk.Utterance.PhonemeDuration
+  name: PhonemeDuration
+  href: api/LibSasara.VoiSona.Model.Talk.Utterance.html#LibSasara_VoiSona_Model_Talk_Utterance_PhonemeDuration
+  commentId: P:LibSasara.VoiSona.Model.Talk.Utterance.PhonemeDuration
+  fullName: LibSasara.VoiSona.Model.Talk.Utterance.PhonemeDuration
+  nameWithType: Utterance.PhonemeDuration
+- uid: LibSasara.VoiSona.Model.Talk.Utterance.PhonemeDuration*
+  name: PhonemeDuration
+  href: api/LibSasara.VoiSona.Model.Talk.Utterance.html#LibSasara_VoiSona_Model_Talk_Utterance_PhonemeDuration_
+  commentId: Overload:LibSasara.VoiSona.Model.Talk.Utterance.PhonemeDuration
+  isSpec: "True"
+  fullName: LibSasara.VoiSona.Model.Talk.Utterance.PhonemeDuration
+  nameWithType: Utterance.PhonemeDuration
+- uid: LibSasara.VoiSona.Model.Talk.Utterance.PhonemeOriginalDuration
+  name: PhonemeOriginalDuration
+  href: api/LibSasara.VoiSona.Model.Talk.Utterance.html#LibSasara_VoiSona_Model_Talk_Utterance_PhonemeOriginalDuration
+  commentId: P:LibSasara.VoiSona.Model.Talk.Utterance.PhonemeOriginalDuration
+  fullName: LibSasara.VoiSona.Model.Talk.Utterance.PhonemeOriginalDuration
+  nameWithType: Utterance.PhonemeOriginalDuration
+- uid: LibSasara.VoiSona.Model.Talk.Utterance.PhonemeOriginalDuration*
+  name: PhonemeOriginalDuration
+  href: api/LibSasara.VoiSona.Model.Talk.Utterance.html#LibSasara_VoiSona_Model_Talk_Utterance_PhonemeOriginalDuration_
+  commentId: Overload:LibSasara.VoiSona.Model.Talk.Utterance.PhonemeOriginalDuration
+  isSpec: "True"
+  fullName: LibSasara.VoiSona.Model.Talk.Utterance.PhonemeOriginalDuration
+  nameWithType: Utterance.PhonemeOriginalDuration
+- uid: LibSasara.VoiSona.Model.Talk.Utterance.Start
+  name: Start
+  href: api/LibSasara.VoiSona.Model.Talk.Utterance.html#LibSasara_VoiSona_Model_Talk_Utterance_Start
+  commentId: P:LibSasara.VoiSona.Model.Talk.Utterance.Start
+  fullName: LibSasara.VoiSona.Model.Talk.Utterance.Start
+  nameWithType: Utterance.Start
+- uid: LibSasara.VoiSona.Model.Talk.Utterance.Start*
+  name: Start
+  href: api/LibSasara.VoiSona.Model.Talk.Utterance.html#LibSasara_VoiSona_Model_Talk_Utterance_Start_
+  commentId: Overload:LibSasara.VoiSona.Model.Talk.Utterance.Start
+  isSpec: "True"
+  fullName: LibSasara.VoiSona.Model.Talk.Utterance.Start
+  nameWithType: Utterance.Start
+- uid: LibSasara.VoiSona.Model.Talk.Utterance.Text
+  name: Text
+  href: api/LibSasara.VoiSona.Model.Talk.Utterance.html#LibSasara_VoiSona_Model_Talk_Utterance_Text
+  commentId: P:LibSasara.VoiSona.Model.Talk.Utterance.Text
+  fullName: LibSasara.VoiSona.Model.Talk.Utterance.Text
+  nameWithType: Utterance.Text
+- uid: LibSasara.VoiSona.Model.Talk.Utterance.Text*
+  name: Text
+  href: api/LibSasara.VoiSona.Model.Talk.Utterance.html#LibSasara_VoiSona_Model_Talk_Utterance_Text_
+  commentId: Overload:LibSasara.VoiSona.Model.Talk.Utterance.Text
+  isSpec: "True"
+  fullName: LibSasara.VoiSona.Model.Talk.Utterance.Text
+  nameWithType: Utterance.Text
+- uid: LibSasara.VoiSona.Model.Talk.Utterance.Tsml
+  name: Tsml
+  href: api/LibSasara.VoiSona.Model.Talk.Utterance.html#LibSasara_VoiSona_Model_Talk_Utterance_Tsml
+  commentId: P:LibSasara.VoiSona.Model.Talk.Utterance.Tsml
+  fullName: LibSasara.VoiSona.Model.Talk.Utterance.Tsml
+  nameWithType: Utterance.Tsml
+- uid: LibSasara.VoiSona.Model.Talk.Utterance.Tsml*
+  name: Tsml
+  href: api/LibSasara.VoiSona.Model.Talk.Utterance.html#LibSasara_VoiSona_Model_Talk_Utterance_Tsml_
+  commentId: Overload:LibSasara.VoiSona.Model.Talk.Utterance.Tsml
+  isSpec: "True"
+  fullName: LibSasara.VoiSona.Model.Talk.Utterance.Tsml
+  nameWithType: Utterance.Tsml
+- uid: LibSasara.VoiSona.Model.Talk.Utterance.TsmlString
+  name: TsmlString
+  href: api/LibSasara.VoiSona.Model.Talk.Utterance.html#LibSasara_VoiSona_Model_Talk_Utterance_TsmlString
+  commentId: P:LibSasara.VoiSona.Model.Talk.Utterance.TsmlString
+  fullName: LibSasara.VoiSona.Model.Talk.Utterance.TsmlString
+  nameWithType: Utterance.TsmlString
+- uid: LibSasara.VoiSona.Model.Talk.Utterance.TsmlString*
+  name: TsmlString
+  href: api/LibSasara.VoiSona.Model.Talk.Utterance.html#LibSasara_VoiSona_Model_Talk_Utterance_TsmlString_
+  commentId: Overload:LibSasara.VoiSona.Model.Talk.Utterance.TsmlString
+  isSpec: "True"
+  fullName: LibSasara.VoiSona.Model.Talk.Utterance.TsmlString
+  nameWithType: Utterance.TsmlString
+- uid: LibSasara.VoiSona.Model.Talk.Voice
+  name: Voice
+  href: api/LibSasara.VoiSona.Model.Talk.Voice.html
+  commentId: T:LibSasara.VoiSona.Model.Talk.Voice
+  fullName: LibSasara.VoiSona.Model.Talk.Voice
+  nameWithType: Voice
+- uid: LibSasara.VoiSona.Model.Talk.Voice.#ctor(System.String,System.String,System.String)
+  name: Voice(String, String, String)
+  href: api/LibSasara.VoiSona.Model.Talk.Voice.html#LibSasara_VoiSona_Model_Talk_Voice__ctor_System_String_System_String_System_String_
+  commentId: M:LibSasara.VoiSona.Model.Talk.Voice.#ctor(System.String,System.String,System.String)
+  fullName: LibSasara.VoiSona.Model.Talk.Voice.Voice(System.String, System.String, System.String)
+  nameWithType: Voice.Voice(String, String, String)
+- uid: LibSasara.VoiSona.Model.Talk.Voice.#ctor*
+  name: Voice
+  href: api/LibSasara.VoiSona.Model.Talk.Voice.html#LibSasara_VoiSona_Model_Talk_Voice__ctor_
+  commentId: Overload:LibSasara.VoiSona.Model.Talk.Voice.#ctor
+  isSpec: "True"
+  fullName: LibSasara.VoiSona.Model.Talk.Voice.Voice
+  nameWithType: Voice.Voice
+- uid: LibSasara.VoiSona.Model.Talk.Voice.Count
+  name: Count
+  href: api/LibSasara.VoiSona.Model.Talk.Voice.html#LibSasara_VoiSona_Model_Talk_Voice_Count
+  commentId: P:LibSasara.VoiSona.Model.Talk.Voice.Count
+  fullName: LibSasara.VoiSona.Model.Talk.Voice.Count
+  nameWithType: Voice.Count
+- uid: LibSasara.VoiSona.Model.Talk.Voice.Count*
+  name: Count
+  href: api/LibSasara.VoiSona.Model.Talk.Voice.html#LibSasara_VoiSona_Model_Talk_Voice_Count_
+  commentId: Overload:LibSasara.VoiSona.Model.Talk.Voice.Count
+  isSpec: "True"
+  fullName: LibSasara.VoiSona.Model.Talk.Voice.Count
+  nameWithType: Voice.Count
+- uid: LibSasara.VoiSona.Model.Talk.Voice.Id
+  name: Id
+  href: api/LibSasara.VoiSona.Model.Talk.Voice.html#LibSasara_VoiSona_Model_Talk_Voice_Id
+  commentId: P:LibSasara.VoiSona.Model.Talk.Voice.Id
+  fullName: LibSasara.VoiSona.Model.Talk.Voice.Id
+  nameWithType: Voice.Id
+- uid: LibSasara.VoiSona.Model.Talk.Voice.Id*
+  name: Id
+  href: api/LibSasara.VoiSona.Model.Talk.Voice.html#LibSasara_VoiSona_Model_Talk_Voice_Id_
+  commentId: Overload:LibSasara.VoiSona.Model.Talk.Voice.Id
+  isSpec: "True"
+  fullName: LibSasara.VoiSona.Model.Talk.Voice.Id
+  nameWithType: Voice.Id
+- uid: LibSasara.VoiSona.Model.Talk.Voice.Speaker
+  name: Speaker
+  href: api/LibSasara.VoiSona.Model.Talk.Voice.html#LibSasara_VoiSona_Model_Talk_Voice_Speaker
+  commentId: P:LibSasara.VoiSona.Model.Talk.Voice.Speaker
+  fullName: LibSasara.VoiSona.Model.Talk.Voice.Speaker
+  nameWithType: Voice.Speaker
+- uid: LibSasara.VoiSona.Model.Talk.Voice.Speaker*
+  name: Speaker
+  href: api/LibSasara.VoiSona.Model.Talk.Voice.html#LibSasara_VoiSona_Model_Talk_Voice_Speaker_
+  commentId: Overload:LibSasara.VoiSona.Model.Talk.Voice.Speaker
+  isSpec: "True"
+  fullName: LibSasara.VoiSona.Model.Talk.Voice.Speaker
+  nameWithType: Voice.Speaker
+- uid: LibSasara.VoiSona.Model.Talk.Voice.Version
+  name: Version
+  href: api/LibSasara.VoiSona.Model.Talk.Voice.html#LibSasara_VoiSona_Model_Talk_Voice_Version
+  commentId: P:LibSasara.VoiSona.Model.Talk.Voice.Version
+  fullName: LibSasara.VoiSona.Model.Talk.Voice.Version
+  nameWithType: Voice.Version
+- uid: LibSasara.VoiSona.Model.Talk.Voice.Version*
+  name: Version
+  href: api/LibSasara.VoiSona.Model.Talk.Voice.html#LibSasara_VoiSona_Model_Talk_Voice_Version_
+  commentId: Overload:LibSasara.VoiSona.Model.Talk.Voice.Version
+  isSpec: "True"
+  fullName: LibSasara.VoiSona.Model.Talk.Voice.Version
+  nameWithType: Voice.Version
+- uid: LibSasara.VoiSona.Model.Tree
+  name: Tree
+  href: api/LibSasara.VoiSona.Model.Tree.html
+  commentId: T:LibSasara.VoiSona.Model.Tree
+  fullName: LibSasara.VoiSona.Model.Tree
+  nameWithType: Tree
+- uid: LibSasara.VoiSona.Model.Tree.#ctor(System.String)
+  name: Tree(String)
+  href: api/LibSasara.VoiSona.Model.Tree.html#LibSasara_VoiSona_Model_Tree__ctor_System_String_
+  commentId: M:LibSasara.VoiSona.Model.Tree.#ctor(System.String)
+  fullName: LibSasara.VoiSona.Model.Tree.Tree(System.String)
+  nameWithType: Tree.Tree(String)
+- uid: LibSasara.VoiSona.Model.Tree.#ctor*
+  name: Tree
+  href: api/LibSasara.VoiSona.Model.Tree.html#LibSasara_VoiSona_Model_Tree__ctor_
+  commentId: Overload:LibSasara.VoiSona.Model.Tree.#ctor
+  isSpec: "True"
+  fullName: LibSasara.VoiSona.Model.Tree.Tree
+  nameWithType: Tree.Tree
+- uid: LibSasara.VoiSona.Model.Tree.AddAttribute(System.String,System.Object,System.Nullable{LibSasara.VoiSona.Model.VoiSonaValueType})
+  name: AddAttribute(String, Object, Nullable<VoiSonaValueType>)
+  href: api/LibSasara.VoiSona.Model.Tree.html#LibSasara_VoiSona_Model_Tree_AddAttribute_System_String_System_Object_System_Nullable_LibSasara_VoiSona_Model_VoiSonaValueType__
+  commentId: M:LibSasara.VoiSona.Model.Tree.AddAttribute(System.String,System.Object,System.Nullable{LibSasara.VoiSona.Model.VoiSonaValueType})
+  name.vb: AddAttribute(String, Object, Nullable(Of VoiSonaValueType))
+  fullName: LibSasara.VoiSona.Model.Tree.AddAttribute(System.String, System.Object, System.Nullable<LibSasara.VoiSona.Model.VoiSonaValueType>)
+  fullName.vb: LibSasara.VoiSona.Model.Tree.AddAttribute(System.String, System.Object, System.Nullable(Of LibSasara.VoiSona.Model.VoiSonaValueType))
+  nameWithType: Tree.AddAttribute(String, Object, Nullable<VoiSonaValueType>)
+  nameWithType.vb: Tree.AddAttribute(String, Object, Nullable(Of VoiSonaValueType))
+- uid: LibSasara.VoiSona.Model.Tree.AddAttribute*
+  name: AddAttribute
+  href: api/LibSasara.VoiSona.Model.Tree.html#LibSasara_VoiSona_Model_Tree_AddAttribute_
+  commentId: Overload:LibSasara.VoiSona.Model.Tree.AddAttribute
+  isSpec: "True"
+  fullName: LibSasara.VoiSona.Model.Tree.AddAttribute
+  nameWithType: Tree.AddAttribute
+- uid: LibSasara.VoiSona.Model.Tree.AttributeCount
+  name: AttributeCount
+  href: api/LibSasara.VoiSona.Model.Tree.html#LibSasara_VoiSona_Model_Tree_AttributeCount
+  commentId: P:LibSasara.VoiSona.Model.Tree.AttributeCount
+  fullName: LibSasara.VoiSona.Model.Tree.AttributeCount
+  nameWithType: Tree.AttributeCount
+- uid: LibSasara.VoiSona.Model.Tree.AttributeCount*
+  name: AttributeCount
+  href: api/LibSasara.VoiSona.Model.Tree.html#LibSasara_VoiSona_Model_Tree_AttributeCount_
+  commentId: Overload:LibSasara.VoiSona.Model.Tree.AttributeCount
+  isSpec: "True"
+  fullName: LibSasara.VoiSona.Model.Tree.AttributeCount
+  nameWithType: Tree.AttributeCount
+- uid: LibSasara.VoiSona.Model.Tree.Attributes
+  name: Attributes
+  href: api/LibSasara.VoiSona.Model.Tree.html#LibSasara_VoiSona_Model_Tree_Attributes
+  commentId: P:LibSasara.VoiSona.Model.Tree.Attributes
+  fullName: LibSasara.VoiSona.Model.Tree.Attributes
+  nameWithType: Tree.Attributes
+- uid: LibSasara.VoiSona.Model.Tree.Attributes*
+  name: Attributes
+  href: api/LibSasara.VoiSona.Model.Tree.html#LibSasara_VoiSona_Model_Tree_Attributes_
+  commentId: Overload:LibSasara.VoiSona.Model.Tree.Attributes
+  isSpec: "True"
+  fullName: LibSasara.VoiSona.Model.Tree.Attributes
+  nameWithType: Tree.Attributes
+- uid: LibSasara.VoiSona.Model.Tree.Children
+  name: Children
+  href: api/LibSasara.VoiSona.Model.Tree.html#LibSasara_VoiSona_Model_Tree_Children
+  commentId: P:LibSasara.VoiSona.Model.Tree.Children
+  fullName: LibSasara.VoiSona.Model.Tree.Children
+  nameWithType: Tree.Children
+- uid: LibSasara.VoiSona.Model.Tree.Children*
+  name: Children
+  href: api/LibSasara.VoiSona.Model.Tree.html#LibSasara_VoiSona_Model_Tree_Children_
+  commentId: Overload:LibSasara.VoiSona.Model.Tree.Children
+  isSpec: "True"
+  fullName: LibSasara.VoiSona.Model.Tree.Children
+  nameWithType: Tree.Children
+- uid: LibSasara.VoiSona.Model.Tree.Count
+  name: Count
+  href: api/LibSasara.VoiSona.Model.Tree.html#LibSasara_VoiSona_Model_Tree_Count
+  commentId: P:LibSasara.VoiSona.Model.Tree.Count
+  fullName: LibSasara.VoiSona.Model.Tree.Count
+  nameWithType: Tree.Count
+- uid: LibSasara.VoiSona.Model.Tree.Count*
+  name: Count
+  href: api/LibSasara.VoiSona.Model.Tree.html#LibSasara_VoiSona_Model_Tree_Count_
+  commentId: Overload:LibSasara.VoiSona.Model.Tree.Count
+  isSpec: "True"
+  fullName: LibSasara.VoiSona.Model.Tree.Count
+  nameWithType: Tree.Count
+- uid: LibSasara.VoiSona.Model.Tree.GetAttributeHeader
+  name: GetAttributeHeader()
+  href: api/LibSasara.VoiSona.Model.Tree.html#LibSasara_VoiSona_Model_Tree_GetAttributeHeader
+  commentId: M:LibSasara.VoiSona.Model.Tree.GetAttributeHeader
+  fullName: LibSasara.VoiSona.Model.Tree.GetAttributeHeader()
+  nameWithType: Tree.GetAttributeHeader()
+- uid: LibSasara.VoiSona.Model.Tree.GetAttributeHeader*
+  name: GetAttributeHeader
+  href: api/LibSasara.VoiSona.Model.Tree.html#LibSasara_VoiSona_Model_Tree_GetAttributeHeader_
+  commentId: Overload:LibSasara.VoiSona.Model.Tree.GetAttributeHeader
+  isSpec: "True"
+  fullName: LibSasara.VoiSona.Model.Tree.GetAttributeHeader
+  nameWithType: Tree.GetAttributeHeader
+- uid: LibSasara.VoiSona.Model.Tree.GetChildHeader(System.Boolean)
+  name: GetChildHeader(Boolean)
+  href: api/LibSasara.VoiSona.Model.Tree.html#LibSasara_VoiSona_Model_Tree_GetChildHeader_System_Boolean_
+  commentId: M:LibSasara.VoiSona.Model.Tree.GetChildHeader(System.Boolean)
+  fullName: LibSasara.VoiSona.Model.Tree.GetChildHeader(System.Boolean)
+  nameWithType: Tree.GetChildHeader(Boolean)
+- uid: LibSasara.VoiSona.Model.Tree.GetChildHeader*
+  name: GetChildHeader
+  href: api/LibSasara.VoiSona.Model.Tree.html#LibSasara_VoiSona_Model_Tree_GetChildHeader_
+  commentId: Overload:LibSasara.VoiSona.Model.Tree.GetChildHeader
+  isSpec: "True"
+  fullName: LibSasara.VoiSona.Model.Tree.GetChildHeader
+  nameWithType: Tree.GetChildHeader
+- uid: LibSasara.VoiSona.Model.Tree.Name
+  name: Name
+  href: api/LibSasara.VoiSona.Model.Tree.html#LibSasara_VoiSona_Model_Tree_Name
+  commentId: P:LibSasara.VoiSona.Model.Tree.Name
+  fullName: LibSasara.VoiSona.Model.Tree.Name
+  nameWithType: Tree.Name
+- uid: LibSasara.VoiSona.Model.Tree.Name*
+  name: Name
+  href: api/LibSasara.VoiSona.Model.Tree.html#LibSasara_VoiSona_Model_Tree_Name_
+  commentId: Overload:LibSasara.VoiSona.Model.Tree.Name
+  isSpec: "True"
+  fullName: LibSasara.VoiSona.Model.Tree.Name
+  nameWithType: Tree.Name
+- uid: LibSasara.VoiSona.Model.VoiSonaFileBase
+  name: VoiSonaFileBase
+  href: api/LibSasara.VoiSona.Model.VoiSonaFileBase.html
+  commentId: T:LibSasara.VoiSona.Model.VoiSonaFileBase
+  fullName: LibSasara.VoiSona.Model.VoiSonaFileBase
+  nameWithType: VoiSonaFileBase
+- uid: LibSasara.VoiSona.Model.VoiSonaFileBase.#ctor(System.Collections.Generic.IReadOnlyList{System.Byte})
+  name: VoiSonaFileBase(IReadOnlyList<Byte>)
+  href: api/LibSasara.VoiSona.Model.VoiSonaFileBase.html#LibSasara_VoiSona_Model_VoiSonaFileBase__ctor_System_Collections_Generic_IReadOnlyList_System_Byte__
+  commentId: M:LibSasara.VoiSona.Model.VoiSonaFileBase.#ctor(System.Collections.Generic.IReadOnlyList{System.Byte})
+  name.vb: VoiSonaFileBase(IReadOnlyList(Of Byte))
+  fullName: LibSasara.VoiSona.Model.VoiSonaFileBase.VoiSonaFileBase(System.Collections.Generic.IReadOnlyList<System.Byte>)
+  fullName.vb: LibSasara.VoiSona.Model.VoiSonaFileBase.VoiSonaFileBase(System.Collections.Generic.IReadOnlyList(Of System.Byte))
+  nameWithType: VoiSonaFileBase.VoiSonaFileBase(IReadOnlyList<Byte>)
+  nameWithType.vb: VoiSonaFileBase.VoiSonaFileBase(IReadOnlyList(Of Byte))
+- uid: LibSasara.VoiSona.Model.VoiSonaFileBase.#ctor*
+  name: VoiSonaFileBase
+  href: api/LibSasara.VoiSona.Model.VoiSonaFileBase.html#LibSasara_VoiSona_Model_VoiSonaFileBase__ctor_
+  commentId: Overload:LibSasara.VoiSona.Model.VoiSonaFileBase.#ctor
+  isSpec: "True"
+  fullName: LibSasara.VoiSona.Model.VoiSonaFileBase.VoiSonaFileBase
+  nameWithType: VoiSonaFileBase.VoiSonaFileBase
+- uid: LibSasara.VoiSona.Model.VoiSonaFileBase.Category
+  name: Category
+  href: api/LibSasara.VoiSona.Model.VoiSonaFileBase.html#LibSasara_VoiSona_Model_VoiSonaFileBase_Category
+  commentId: P:LibSasara.VoiSona.Model.VoiSonaFileBase.Category
+  fullName: LibSasara.VoiSona.Model.VoiSonaFileBase.Category
+  nameWithType: VoiSonaFileBase.Category
+- uid: LibSasara.VoiSona.Model.VoiSonaFileBase.Category*
+  name: Category
+  href: api/LibSasara.VoiSona.Model.VoiSonaFileBase.html#LibSasara_VoiSona_Model_VoiSonaFileBase_Category_
+  commentId: Overload:LibSasara.VoiSona.Model.VoiSonaFileBase.Category
+  isSpec: "True"
+  fullName: LibSasara.VoiSona.Model.VoiSonaFileBase.Category
+  nameWithType: VoiSonaFileBase.Category
+- uid: LibSasara.VoiSona.Model.VoiSonaFileBase.Data
+  name: Data
+  href: api/LibSasara.VoiSona.Model.VoiSonaFileBase.html#LibSasara_VoiSona_Model_VoiSonaFileBase_Data
+  commentId: P:LibSasara.VoiSona.Model.VoiSonaFileBase.Data
+  fullName: LibSasara.VoiSona.Model.VoiSonaFileBase.Data
+  nameWithType: VoiSonaFileBase.Data
+- uid: LibSasara.VoiSona.Model.VoiSonaFileBase.Data*
+  name: Data
+  href: api/LibSasara.VoiSona.Model.VoiSonaFileBase.html#LibSasara_VoiSona_Model_VoiSonaFileBase_Data_
+  commentId: Overload:LibSasara.VoiSona.Model.VoiSonaFileBase.Data
+  isSpec: "True"
+  fullName: LibSasara.VoiSona.Model.VoiSonaFileBase.Data
+  nameWithType: VoiSonaFileBase.Data
+- uid: LibSasara.VoiSona.Model.VoiSonaFileBase.Format
+  name: Format
+  href: api/LibSasara.VoiSona.Model.VoiSonaFileBase.html#LibSasara_VoiSona_Model_VoiSonaFileBase_Format
+  commentId: P:LibSasara.VoiSona.Model.VoiSonaFileBase.Format
+  fullName: LibSasara.VoiSona.Model.VoiSonaFileBase.Format
+  nameWithType: VoiSonaFileBase.Format
+- uid: LibSasara.VoiSona.Model.VoiSonaFileBase.Format*
+  name: Format
+  href: api/LibSasara.VoiSona.Model.VoiSonaFileBase.html#LibSasara_VoiSona_Model_VoiSonaFileBase_Format_
+  commentId: Overload:LibSasara.VoiSona.Model.VoiSonaFileBase.Format
+  isSpec: "True"
+  fullName: LibSasara.VoiSona.Model.VoiSonaFileBase.Format
+  nameWithType: VoiSonaFileBase.Format
+- uid: LibSasara.VoiSona.Model.VoiSonaValueType
+  name: VoiSonaValueType
+  href: api/LibSasara.VoiSona.Model.VoiSonaValueType.html
+  commentId: T:LibSasara.VoiSona.Model.VoiSonaValueType
+  fullName: LibSasara.VoiSona.Model.VoiSonaValueType
+  nameWithType: VoiSonaValueType
+- uid: LibSasara.VoiSona.Model.VoiSonaValueType.Bool
+  name: Bool
+  href: api/LibSasara.VoiSona.Model.VoiSonaValueType.html#LibSasara_VoiSona_Model_VoiSonaValueType_Bool
+  commentId: F:LibSasara.VoiSona.Model.VoiSonaValueType.Bool
+  fullName: LibSasara.VoiSona.Model.VoiSonaValueType.Bool
+  nameWithType: VoiSonaValueType.Bool
+- uid: LibSasara.VoiSona.Model.VoiSonaValueType.Double
+  name: Double
+  href: api/LibSasara.VoiSona.Model.VoiSonaValueType.html#LibSasara_VoiSona_Model_VoiSonaValueType_Double
+  commentId: F:LibSasara.VoiSona.Model.VoiSonaValueType.Double
+  fullName: LibSasara.VoiSona.Model.VoiSonaValueType.Double
+  nameWithType: VoiSonaValueType.Double
+- uid: LibSasara.VoiSona.Model.VoiSonaValueType.Int32
+  name: Int32
+  href: api/LibSasara.VoiSona.Model.VoiSonaValueType.html#LibSasara_VoiSona_Model_VoiSonaValueType_Int32
+  commentId: F:LibSasara.VoiSona.Model.VoiSonaValueType.Int32
+  fullName: LibSasara.VoiSona.Model.VoiSonaValueType.Int32
+  nameWithType: VoiSonaValueType.Int32
+- uid: LibSasara.VoiSona.Model.VoiSonaValueType.String
+  name: String
+  href: api/LibSasara.VoiSona.Model.VoiSonaValueType.html#LibSasara_VoiSona_Model_VoiSonaValueType_String
+  commentId: F:LibSasara.VoiSona.Model.VoiSonaValueType.String
+  fullName: LibSasara.VoiSona.Model.VoiSonaValueType.String
+  nameWithType: VoiSonaValueType.String
+- uid: LibSasara.VoiSona.Model.VoiSonaValueType.Unknown
+  name: Unknown
+  href: api/LibSasara.VoiSona.Model.VoiSonaValueType.html#LibSasara_VoiSona_Model_VoiSonaValueType_Unknown
+  commentId: F:LibSasara.VoiSona.Model.VoiSonaValueType.Unknown
+  fullName: LibSasara.VoiSona.Model.VoiSonaValueType.Unknown
+  nameWithType: VoiSonaValueType.Unknown
+- uid: LibSasara.VoiSona.Util
+  name: LibSasara.VoiSona.Util
+  href: api/LibSasara.VoiSona.Util.html
+  commentId: N:LibSasara.VoiSona.Util
+  fullName: LibSasara.VoiSona.Util
+  nameWithType: LibSasara.VoiSona.Util
+- uid: LibSasara.VoiSona.Util.BinaryUtil
+  name: BinaryUtil
+  href: api/LibSasara.VoiSona.Util.BinaryUtil.html
+  commentId: T:LibSasara.VoiSona.Util.BinaryUtil
+  fullName: LibSasara.VoiSona.Util.BinaryUtil
+  nameWithType: BinaryUtil
+- uid: LibSasara.VoiSona.Util.BinaryUtil.Split(System.ReadOnlySpan{System.Byte},System.ReadOnlySpan{System.Byte})
+  name: Split(ReadOnlySpan<Byte>, ReadOnlySpan<Byte>)
+  href: api/LibSasara.VoiSona.Util.BinaryUtil.html#LibSasara_VoiSona_Util_BinaryUtil_Split_System_ReadOnlySpan_System_Byte__System_ReadOnlySpan_System_Byte__
+  commentId: M:LibSasara.VoiSona.Util.BinaryUtil.Split(System.ReadOnlySpan{System.Byte},System.ReadOnlySpan{System.Byte})
+  name.vb: Split(ReadOnlySpan(Of Byte), ReadOnlySpan(Of Byte))
+  fullName: LibSasara.VoiSona.Util.BinaryUtil.Split(System.ReadOnlySpan<System.Byte>, System.ReadOnlySpan<System.Byte>)
+  fullName.vb: LibSasara.VoiSona.Util.BinaryUtil.Split(System.ReadOnlySpan(Of System.Byte), System.ReadOnlySpan(Of System.Byte))
+  nameWithType: BinaryUtil.Split(ReadOnlySpan<Byte>, ReadOnlySpan<Byte>)
+  nameWithType.vb: BinaryUtil.Split(ReadOnlySpan(Of Byte), ReadOnlySpan(Of Byte))
+- uid: LibSasara.VoiSona.Util.BinaryUtil.Split(System.Span{System.Byte},System.ReadOnlySpan{System.Byte})
+  name: Split(Span<Byte>, ReadOnlySpan<Byte>)
+  href: api/LibSasara.VoiSona.Util.BinaryUtil.html#LibSasara_VoiSona_Util_BinaryUtil_Split_System_Span_System_Byte__System_ReadOnlySpan_System_Byte__
+  commentId: M:LibSasara.VoiSona.Util.BinaryUtil.Split(System.Span{System.Byte},System.ReadOnlySpan{System.Byte})
+  name.vb: Split(Span(Of Byte), ReadOnlySpan(Of Byte))
+  fullName: LibSasara.VoiSona.Util.BinaryUtil.Split(System.Span<System.Byte>, System.ReadOnlySpan<System.Byte>)
+  fullName.vb: LibSasara.VoiSona.Util.BinaryUtil.Split(System.Span(Of System.Byte), System.ReadOnlySpan(Of System.Byte))
+  nameWithType: BinaryUtil.Split(Span<Byte>, ReadOnlySpan<Byte>)
+  nameWithType.vb: BinaryUtil.Split(Span(Of Byte), ReadOnlySpan(Of Byte))
+- uid: LibSasara.VoiSona.Util.BinaryUtil.Split*
+  name: Split
+  href: api/LibSasara.VoiSona.Util.BinaryUtil.html#LibSasara_VoiSona_Util_BinaryUtil_Split_
+  commentId: Overload:LibSasara.VoiSona.Util.BinaryUtil.Split
+  isSpec: "True"
+  fullName: LibSasara.VoiSona.Util.BinaryUtil.Split
+  nameWithType: BinaryUtil.Split
+- uid: LibSasara.VoiSona.Util.BinaryUtil.TryFindAttribute(System.ReadOnlySpan{System.Byte},System.String,LibSasara.VoiSona.Util.Header@)
+  name: TryFindAttribute(ReadOnlySpan<Byte>, String, out Header)
+  href: api/LibSasara.VoiSona.Util.BinaryUtil.html#LibSasara_VoiSona_Util_BinaryUtil_TryFindAttribute_System_ReadOnlySpan_System_Byte__System_String_LibSasara_VoiSona_Util_Header__
+  commentId: M:LibSasara.VoiSona.Util.BinaryUtil.TryFindAttribute(System.ReadOnlySpan{System.Byte},System.String,LibSasara.VoiSona.Util.Header@)
+  name.vb: TryFindAttribute(ReadOnlySpan(Of Byte), String, ByRef Header)
+  fullName: LibSasara.VoiSona.Util.BinaryUtil.TryFindAttribute(System.ReadOnlySpan<System.Byte>, System.String, out LibSasara.VoiSona.Util.Header)
+  fullName.vb: LibSasara.VoiSona.Util.BinaryUtil.TryFindAttribute(System.ReadOnlySpan(Of System.Byte), System.String, ByRef LibSasara.VoiSona.Util.Header)
+  nameWithType: BinaryUtil.TryFindAttribute(ReadOnlySpan<Byte>, String, out Header)
+  nameWithType.vb: BinaryUtil.TryFindAttribute(ReadOnlySpan(Of Byte), String, ByRef Header)
+- uid: LibSasara.VoiSona.Util.BinaryUtil.TryFindAttribute*
+  name: TryFindAttribute
+  href: api/LibSasara.VoiSona.Util.BinaryUtil.html#LibSasara_VoiSona_Util_BinaryUtil_TryFindAttribute_
+  commentId: Overload:LibSasara.VoiSona.Util.BinaryUtil.TryFindAttribute
+  isSpec: "True"
+  fullName: LibSasara.VoiSona.Util.BinaryUtil.TryFindAttribute
+  nameWithType: BinaryUtil.TryFindAttribute
+- uid: LibSasara.VoiSona.Util.BinaryUtil.TryFindChild(System.ReadOnlySpan{System.Byte},System.String,System.ReadOnlySpan{System.Byte}@)
+  name: TryFindChild(ReadOnlySpan<Byte>, String, out ReadOnlySpan<Byte>)
+  href: api/LibSasara.VoiSona.Util.BinaryUtil.html#LibSasara_VoiSona_Util_BinaryUtil_TryFindChild_System_ReadOnlySpan_System_Byte__System_String_System_ReadOnlySpan_System_Byte___
+  commentId: M:LibSasara.VoiSona.Util.BinaryUtil.TryFindChild(System.ReadOnlySpan{System.Byte},System.String,System.ReadOnlySpan{System.Byte}@)
+  name.vb: TryFindChild(ReadOnlySpan(Of Byte), String, ByRef ReadOnlySpan(Of Byte))
+  fullName: LibSasara.VoiSona.Util.BinaryUtil.TryFindChild(System.ReadOnlySpan<System.Byte>, System.String, out System.ReadOnlySpan<System.Byte>)
+  fullName.vb: LibSasara.VoiSona.Util.BinaryUtil.TryFindChild(System.ReadOnlySpan(Of System.Byte), System.String, ByRef System.ReadOnlySpan(Of System.Byte))
+  nameWithType: BinaryUtil.TryFindChild(ReadOnlySpan<Byte>, String, out ReadOnlySpan<Byte>)
+  nameWithType.vb: BinaryUtil.TryFindChild(ReadOnlySpan(Of Byte), String, ByRef ReadOnlySpan(Of Byte))
+- uid: LibSasara.VoiSona.Util.BinaryUtil.TryFindChild*
+  name: TryFindChild
+  href: api/LibSasara.VoiSona.Util.BinaryUtil.html#LibSasara_VoiSona_Util_BinaryUtil_TryFindChild_
+  commentId: Overload:LibSasara.VoiSona.Util.BinaryUtil.TryFindChild
+  isSpec: "True"
+  fullName: LibSasara.VoiSona.Util.BinaryUtil.TryFindChild
+  nameWithType: BinaryUtil.TryFindChild
+- uid: LibSasara.VoiSona.Util.BinaryUtil.TryFindCollection(System.ReadOnlySpan{System.Byte},System.String,System.String,System.Collections.ObjectModel.ReadOnlyCollection{System.ReadOnlyMemory{System.Byte}}@)
+  name: TryFindCollection(ReadOnlySpan<Byte>, String, String, out ReadOnlyCollection<ReadOnlyMemory<Byte>>)
+  href: api/LibSasara.VoiSona.Util.BinaryUtil.html#LibSasara_VoiSona_Util_BinaryUtil_TryFindCollection_System_ReadOnlySpan_System_Byte__System_String_System_String_System_Collections_ObjectModel_ReadOnlyCollection_System_ReadOnlyMemory_System_Byte____
+  commentId: M:LibSasara.VoiSona.Util.BinaryUtil.TryFindCollection(System.ReadOnlySpan{System.Byte},System.String,System.String,System.Collections.ObjectModel.ReadOnlyCollection{System.ReadOnlyMemory{System.Byte}}@)
+  name.vb: TryFindCollection(ReadOnlySpan(Of Byte), String, String, ByRef ReadOnlyCollection(Of ReadOnlyMemory(Of Byte)))
+  fullName: LibSasara.VoiSona.Util.BinaryUtil.TryFindCollection(System.ReadOnlySpan<System.Byte>, System.String, System.String, out System.Collections.ObjectModel.ReadOnlyCollection<System.ReadOnlyMemory<System.Byte>>)
+  fullName.vb: LibSasara.VoiSona.Util.BinaryUtil.TryFindCollection(System.ReadOnlySpan(Of System.Byte), System.String, System.String, ByRef System.Collections.ObjectModel.ReadOnlyCollection(Of System.ReadOnlyMemory(Of System.Byte)))
+  nameWithType: BinaryUtil.TryFindCollection(ReadOnlySpan<Byte>, String, String, out ReadOnlyCollection<ReadOnlyMemory<Byte>>)
+  nameWithType.vb: BinaryUtil.TryFindCollection(ReadOnlySpan(Of Byte), String, String, ByRef ReadOnlyCollection(Of ReadOnlyMemory(Of Byte)))
+- uid: LibSasara.VoiSona.Util.BinaryUtil.TryFindCollection*
+  name: TryFindCollection
+  href: api/LibSasara.VoiSona.Util.BinaryUtil.html#LibSasara_VoiSona_Util_BinaryUtil_TryFindCollection_
+  commentId: Overload:LibSasara.VoiSona.Util.BinaryUtil.TryFindCollection
+  isSpec: "True"
+  fullName: LibSasara.VoiSona.Util.BinaryUtil.TryFindCollection
+  nameWithType: BinaryUtil.TryFindCollection
+- uid: LibSasara.VoiSona.Util.FileUtil
+  name: FileUtil
+  href: api/LibSasara.VoiSona.Util.FileUtil.html
+  commentId: T:LibSasara.VoiSona.Util.FileUtil
+  fullName: LibSasara.VoiSona.Util.FileUtil
+  nameWithType: FileUtil
+- uid: LibSasara.VoiSona.Util.FileUtil.LoadAsync(System.String,System.Threading.CancellationToken)
+  name: LoadAsync(String, CancellationToken)
+  href: api/LibSasara.VoiSona.Util.FileUtil.html#LibSasara_VoiSona_Util_FileUtil_LoadAsync_System_String_System_Threading_CancellationToken_
+  commentId: M:LibSasara.VoiSona.Util.FileUtil.LoadAsync(System.String,System.Threading.CancellationToken)
+  fullName: LibSasara.VoiSona.Util.FileUtil.LoadAsync(System.String, System.Threading.CancellationToken)
+  nameWithType: FileUtil.LoadAsync(String, CancellationToken)
+- uid: LibSasara.VoiSona.Util.FileUtil.LoadAsync*
+  name: LoadAsync
+  href: api/LibSasara.VoiSona.Util.FileUtil.html#LibSasara_VoiSona_Util_FileUtil_LoadAsync_
+  commentId: Overload:LibSasara.VoiSona.Util.FileUtil.LoadAsync
+  isSpec: "True"
+  fullName: LibSasara.VoiSona.Util.FileUtil.LoadAsync
+  nameWithType: FileUtil.LoadAsync
+- uid: LibSasara.VoiSona.Util.FileUtil.SaveAsync(System.String,System.Collections.Generic.IReadOnlyList{System.Byte},System.Threading.CancellationToken)
+  name: SaveAsync(String, IReadOnlyList<Byte>, CancellationToken)
+  href: api/LibSasara.VoiSona.Util.FileUtil.html#LibSasara_VoiSona_Util_FileUtil_SaveAsync_System_String_System_Collections_Generic_IReadOnlyList_System_Byte__System_Threading_CancellationToken_
+  commentId: M:LibSasara.VoiSona.Util.FileUtil.SaveAsync(System.String,System.Collections.Generic.IReadOnlyList{System.Byte},System.Threading.CancellationToken)
+  name.vb: SaveAsync(String, IReadOnlyList(Of Byte), CancellationToken)
+  fullName: LibSasara.VoiSona.Util.FileUtil.SaveAsync(System.String, System.Collections.Generic.IReadOnlyList<System.Byte>, System.Threading.CancellationToken)
+  fullName.vb: LibSasara.VoiSona.Util.FileUtil.SaveAsync(System.String, System.Collections.Generic.IReadOnlyList(Of System.Byte), System.Threading.CancellationToken)
+  nameWithType: FileUtil.SaveAsync(String, IReadOnlyList<Byte>, CancellationToken)
+  nameWithType.vb: FileUtil.SaveAsync(String, IReadOnlyList(Of Byte), CancellationToken)
+- uid: LibSasara.VoiSona.Util.FileUtil.SaveAsync*
+  name: SaveAsync
+  href: api/LibSasara.VoiSona.Util.FileUtil.html#LibSasara_VoiSona_Util_FileUtil_SaveAsync_
+  commentId: Overload:LibSasara.VoiSona.Util.FileUtil.SaveAsync
+  isSpec: "True"
+  fullName: LibSasara.VoiSona.Util.FileUtil.SaveAsync
+  nameWithType: FileUtil.SaveAsync
+- uid: LibSasara.VoiSona.Util.Header
+  name: Header
+  href: api/LibSasara.VoiSona.Util.Header.html
+  commentId: T:LibSasara.VoiSona.Util.Header
+  fullName: LibSasara.VoiSona.Util.Header
+  nameWithType: Header
+- uid: LibSasara.VoiSona.Util.Header.#ctor(System.Int32,LibSasara.VoiSona.Model.VoiSonaValueType,System.Collections.Generic.IReadOnlyCollection{System.Byte})
+  name: Header(Int32, VoiSonaValueType, IReadOnlyCollection<Byte>)
+  href: api/LibSasara.VoiSona.Util.Header.html#LibSasara_VoiSona_Util_Header__ctor_System_Int32_LibSasara_VoiSona_Model_VoiSonaValueType_System_Collections_Generic_IReadOnlyCollection_System_Byte__
+  commentId: M:LibSasara.VoiSona.Util.Header.#ctor(System.Int32,LibSasara.VoiSona.Model.VoiSonaValueType,System.Collections.Generic.IReadOnlyCollection{System.Byte})
+  name.vb: Header(Int32, VoiSonaValueType, IReadOnlyCollection(Of Byte))
+  fullName: LibSasara.VoiSona.Util.Header.Header(System.Int32, LibSasara.VoiSona.Model.VoiSonaValueType, System.Collections.Generic.IReadOnlyCollection<System.Byte>)
+  fullName.vb: LibSasara.VoiSona.Util.Header.Header(System.Int32, LibSasara.VoiSona.Model.VoiSonaValueType, System.Collections.Generic.IReadOnlyCollection(Of System.Byte))
+  nameWithType: Header.Header(Int32, VoiSonaValueType, IReadOnlyCollection<Byte>)
+  nameWithType.vb: Header.Header(Int32, VoiSonaValueType, IReadOnlyCollection(Of Byte))
+- uid: LibSasara.VoiSona.Util.Header.#ctor*
+  name: Header
+  href: api/LibSasara.VoiSona.Util.Header.html#LibSasara_VoiSona_Util_Header__ctor_
+  commentId: Overload:LibSasara.VoiSona.Util.Header.#ctor
+  isSpec: "True"
+  fullName: LibSasara.VoiSona.Util.Header.Header
+  nameWithType: Header.Header
+- uid: LibSasara.VoiSona.Util.Header.Count
+  name: Count
+  href: api/LibSasara.VoiSona.Util.Header.html#LibSasara_VoiSona_Util_Header_Count
+  commentId: P:LibSasara.VoiSona.Util.Header.Count
+  fullName: LibSasara.VoiSona.Util.Header.Count
+  nameWithType: Header.Count
+- uid: LibSasara.VoiSona.Util.Header.Count*
+  name: Count
+  href: api/LibSasara.VoiSona.Util.Header.html#LibSasara_VoiSona_Util_Header_Count_
+  commentId: Overload:LibSasara.VoiSona.Util.Header.Count
+  isSpec: "True"
+  fullName: LibSasara.VoiSona.Util.Header.Count
+  nameWithType: Header.Count
+- uid: LibSasara.VoiSona.Util.Header.Data
+  name: Data
+  href: api/LibSasara.VoiSona.Util.Header.html#LibSasara_VoiSona_Util_Header_Data
+  commentId: P:LibSasara.VoiSona.Util.Header.Data
+  fullName: LibSasara.VoiSona.Util.Header.Data
+  nameWithType: Header.Data
+- uid: LibSasara.VoiSona.Util.Header.Data*
+  name: Data
+  href: api/LibSasara.VoiSona.Util.Header.html#LibSasara_VoiSona_Util_Header_Data_
+  commentId: Overload:LibSasara.VoiSona.Util.Header.Data
+  isSpec: "True"
+  fullName: LibSasara.VoiSona.Util.Header.Data
+  nameWithType: Header.Data
+- uid: LibSasara.VoiSona.Util.Header.DataBytes
+  name: DataBytes
+  href: api/LibSasara.VoiSona.Util.Header.html#LibSasara_VoiSona_Util_Header_DataBytes
+  commentId: P:LibSasara.VoiSona.Util.Header.DataBytes
+  fullName: LibSasara.VoiSona.Util.Header.DataBytes
+  nameWithType: Header.DataBytes
+- uid: LibSasara.VoiSona.Util.Header.DataBytes*
+  name: DataBytes
+  href: api/LibSasara.VoiSona.Util.Header.html#LibSasara_VoiSona_Util_Header_DataBytes_
+  commentId: Overload:LibSasara.VoiSona.Util.Header.DataBytes
+  isSpec: "True"
+  fullName: LibSasara.VoiSona.Util.Header.DataBytes
+  nameWithType: Header.DataBytes
+- uid: LibSasara.VoiSona.Util.Header.Type
+  name: Type
+  href: api/LibSasara.VoiSona.Util.Header.html#LibSasara_VoiSona_Util_Header_Type
+  commentId: P:LibSasara.VoiSona.Util.Header.Type
+  fullName: LibSasara.VoiSona.Util.Header.Type
+  nameWithType: Header.Type
+- uid: LibSasara.VoiSona.Util.Header.Type*
+  name: Type
+  href: api/LibSasara.VoiSona.Util.Header.html#LibSasara_VoiSona_Util_Header_Type_
+  commentId: Overload:LibSasara.VoiSona.Util.Header.Type
+  isSpec: "True"
+  fullName: LibSasara.VoiSona.Util.Header.Type
+  nameWithType: Header.Type
+- uid: LibSasara.VoiSona.Util.HeaderUtil
+  name: HeaderUtil
+  href: api/LibSasara.VoiSona.Util.HeaderUtil.html
+  commentId: T:LibSasara.VoiSona.Util.HeaderUtil
+  fullName: LibSasara.VoiSona.Util.HeaderUtil
+  nameWithType: HeaderUtil
+- uid: LibSasara.VoiSona.Util.HeaderUtil.Analysis(System.Object)
+  name: Analysis(Object)
+  href: api/LibSasara.VoiSona.Util.HeaderUtil.html#LibSasara_VoiSona_Util_HeaderUtil_Analysis_System_Object_
+  commentId: M:LibSasara.VoiSona.Util.HeaderUtil.Analysis(System.Object)
+  fullName: LibSasara.VoiSona.Util.HeaderUtil.Analysis(System.Object)
+  nameWithType: HeaderUtil.Analysis(Object)
+- uid: LibSasara.VoiSona.Util.HeaderUtil.Analysis*
+  name: Analysis
+  href: api/LibSasara.VoiSona.Util.HeaderUtil.html#LibSasara_VoiSona_Util_HeaderUtil_Analysis_
+  commentId: Overload:LibSasara.VoiSona.Util.HeaderUtil.Analysis
+  isSpec: "True"
+  fullName: LibSasara.VoiSona.Util.HeaderUtil.Analysis
+  nameWithType: HeaderUtil.Analysis
+- uid: LibSasara.VoiSona.Util.TreeUtil
+  name: TreeUtil
+  href: api/LibSasara.VoiSona.Util.TreeUtil.html
+  commentId: T:LibSasara.VoiSona.Util.TreeUtil
+  fullName: LibSasara.VoiSona.Util.TreeUtil
+  nameWithType: TreeUtil
+- uid: LibSasara.VoiSona.Util.TreeUtil.GetValuesOnlyChildrenValue*
+  name: GetValuesOnlyChildrenValue
+  href: api/LibSasara.VoiSona.Util.TreeUtil.html#LibSasara_VoiSona_Util_TreeUtil_GetValuesOnlyChildrenValue_
+  commentId: Overload:LibSasara.VoiSona.Util.TreeUtil.GetValuesOnlyChildrenValue
+  isSpec: "True"
+  fullName: LibSasara.VoiSona.Util.TreeUtil.GetValuesOnlyChildrenValue
+  nameWithType: TreeUtil.GetValuesOnlyChildrenValue
+- uid: LibSasara.VoiSona.Util.TreeUtil.GetValuesOnlyChildrenValue``1(LibSasara.VoiSona.Model.Tree,System.String)
+  name: GetValuesOnlyChildrenValue<T>(Tree, String)
+  href: api/LibSasara.VoiSona.Util.TreeUtil.html#LibSasara_VoiSona_Util_TreeUtil_GetValuesOnlyChildrenValue__1_LibSasara_VoiSona_Model_Tree_System_String_
+  commentId: M:LibSasara.VoiSona.Util.TreeUtil.GetValuesOnlyChildrenValue``1(LibSasara.VoiSona.Model.Tree,System.String)
+  name.vb: GetValuesOnlyChildrenValue(Of T)(Tree, String)
+  fullName: LibSasara.VoiSona.Util.TreeUtil.GetValuesOnlyChildrenValue<T>(LibSasara.VoiSona.Model.Tree, System.String)
+  fullName.vb: LibSasara.VoiSona.Util.TreeUtil.GetValuesOnlyChildrenValue(Of T)(LibSasara.VoiSona.Model.Tree, System.String)
+  nameWithType: TreeUtil.GetValuesOnlyChildrenValue<T>(Tree, String)
+  nameWithType.vb: TreeUtil.GetValuesOnlyChildrenValue(Of T)(Tree, String)
+- uid: LibSasara.VoiSona.Util.TreeUtil.SetValuesOnlyChildrenValue*
+  name: SetValuesOnlyChildrenValue
+  href: api/LibSasara.VoiSona.Util.TreeUtil.html#LibSasara_VoiSona_Util_TreeUtil_SetValuesOnlyChildrenValue_
+  commentId: Overload:LibSasara.VoiSona.Util.TreeUtil.SetValuesOnlyChildrenValue
+  isSpec: "True"
+  fullName: LibSasara.VoiSona.Util.TreeUtil.SetValuesOnlyChildrenValue
+  nameWithType: TreeUtil.SetValuesOnlyChildrenValue
+- uid: LibSasara.VoiSona.Util.TreeUtil.SetValuesOnlyChildrenValue``1(LibSasara.VoiSona.Model.Tree,System.String,``0)
+  name: SetValuesOnlyChildrenValue<T>(Tree, String, T)
+  href: api/LibSasara.VoiSona.Util.TreeUtil.html#LibSasara_VoiSona_Util_TreeUtil_SetValuesOnlyChildrenValue__1_LibSasara_VoiSona_Model_Tree_System_String___0_
+  commentId: M:LibSasara.VoiSona.Util.TreeUtil.SetValuesOnlyChildrenValue``1(LibSasara.VoiSona.Model.Tree,System.String,``0)
+  name.vb: SetValuesOnlyChildrenValue(Of T)(Tree, String, T)
+  fullName: LibSasara.VoiSona.Util.TreeUtil.SetValuesOnlyChildrenValue<T>(LibSasara.VoiSona.Model.Tree, System.String, T)
+  fullName.vb: LibSasara.VoiSona.Util.TreeUtil.SetValuesOnlyChildrenValue(Of T)(LibSasara.VoiSona.Model.Tree, System.String, T)
+  nameWithType: TreeUtil.SetValuesOnlyChildrenValue<T>(Tree, String, T)
+  nameWithType.vb: TreeUtil.SetValuesOnlyChildrenValue(Of T)(Tree, String, T)

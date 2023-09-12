@@ -5,10 +5,10 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Class TuneData
+    <title>Class FileUtil
    | Documentation - LibSasara </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Class TuneData
+    <meta name="title" content="Class FileUtil
    | Documentation - LibSasara ">
     <meta name="generator" content="docfx 2.59.4.0">
     
@@ -78,45 +78,61 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="LibSasara.Model.Serialize.TuneData">
+            <article class="content wrap" id="_content" data-uid="LibSasara.VoiSona.Util.FileUtil">
   
   
-  <h1 id="LibSasara_Model_Serialize_TuneData" data-uid="LibSasara.Model.Serialize.TuneData" class="text-break">Class TuneData
+  <h1 id="LibSasara_VoiSona_Util_FileUtil" data-uid="LibSasara.VoiSona.Util.FileUtil" class="text-break">Class FileUtil
   </h1>
-  <div class="markdown level0 summary"><p>調声データ</p>
+  <div class="markdown level0 summary"><p>file utility</p>
 </div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
     <h5>Inheritance</h5>
     <div class="level0"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">Object</a></div>
-    <div class="level1"><span class="xref">TuneData</span></div>
-      <div class="level2"><a class="xref" href="LibSasara.Model.Serialize.Data.html">Data</a></div>
-      <div class="level2"><a class="xref" href="LibSasara.Model.Serialize.NoData.html">NoData</a></div>
+    <div class="level1"><span class="xref">FileUtil</span></div>
   </div>
-  <div class="implements">
-    <h5>Implements</h5>
-    <div><a class="xref" href="LibSasara.Model.Serialize.ITuneData.html">ITuneData</a></div>
-    <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">IEquatable</a>&lt;<a class="xref" href="LibSasara.Model.Serialize.TuneData.html">TuneData</a>&gt;</div>
-  </div>
-  <h6><strong>Namespace</strong>: <a class="xref" href="LibSasara.Model.Serialize.html">LibSasara.Model.Serialize</a></h6>
-  <h6><strong>Assembly</strong>: LibSasara.dll</h6>
-  <h5 id="LibSasara_Model_Serialize_TuneData_syntax">Syntax</h5>
+  <h6><strong>Namespace</strong>: <a class="xref" href="LibSasara.VoiSona.Util.html">LibSasara.VoiSona.Util</a></h6>
+  <h6><strong>Assembly</strong>: LibSasara.VoiSona.dll</h6>
+  <h5 id="LibSasara_VoiSona_Util_FileUtil_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class TuneData : ITuneData, IEquatable&lt;TuneData&gt;</code></pre>
+    <pre><code class="lang-csharp hljs">public static class FileUtil</code></pre>
   </div>
-  <h3 id="properties">Properties
+  <h3 id="methods">Methods
   </h3>
   
   
-  <a id="LibSasara_Model_Serialize_TuneData_Index_" data-uid="LibSasara.Model.Serialize.TuneData.Index*"></a>
-  <h4 id="LibSasara_Model_Serialize_TuneData_Index" data-uid="LibSasara.Model.Serialize.TuneData.Index">Index</h4>
-  <div class="markdown level1 summary"></div>
+  <a id="LibSasara_VoiSona_Util_FileUtil_LoadAsync_" data-uid="LibSasara.VoiSona.Util.FileUtil.LoadAsync*"></a>
+  <h4 id="LibSasara_VoiSona_Util_FileUtil_LoadAsync_System_String_System_Threading_CancellationToken_" data-uid="LibSasara.VoiSona.Util.FileUtil.LoadAsync(System.String,System.Threading.CancellationToken)">LoadAsync(String, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>load binary file async</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public int Index { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">public static async ValueTask&lt;byte[]&gt; LoadAsync(string path, CancellationToken ctx = default(CancellationToken))</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">path</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></td>
+        <td><span class="parametername">ctx</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
   <table class="table table-bordered table-striped table-condensed">
     <thead>
       <tr>
@@ -126,22 +142,65 @@
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">Int32</a></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.valuetask-1">ValueTask</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">Byte</a>[]&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.filenotfoundexception">FileNotFoundException</a></td>
         <td></td>
       </tr>
     </tbody>
   </table>
   
   
-  <a id="LibSasara_Model_Serialize_TuneData_Repeat_" data-uid="LibSasara.Model.Serialize.TuneData.Repeat*"></a>
-  <h4 id="LibSasara_Model_Serialize_TuneData_Repeat" data-uid="LibSasara.Model.Serialize.TuneData.Repeat">Repeat</h4>
-  <div class="markdown level1 summary"></div>
+  <a id="LibSasara_VoiSona_Util_FileUtil_SaveAsync_" data-uid="LibSasara.VoiSona.Util.FileUtil.SaveAsync*"></a>
+  <h4 id="LibSasara_VoiSona_Util_FileUtil_SaveAsync_System_String_System_Collections_Generic_IReadOnlyList_System_Byte__System_Threading_CancellationToken_" data-uid="LibSasara.VoiSona.Util.FileUtil.SaveAsync(System.String,System.Collections.Generic.IReadOnlyList{System.Byte},System.Threading.CancellationToken)">SaveAsync(String, IReadOnlyList&lt;Byte&gt;, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>save binary file async</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public int Repeat { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">public static async ValueTask SaveAsync(string path, IReadOnlyList&lt;byte&gt; data, CancellationToken ctx = default(CancellationToken))</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">path</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">Byte</a>&gt;</td>
+        <td><span class="parametername">data</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></td>
+        <td><span class="parametername">ctx</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
   <table class="table table-bordered table-striped table-condensed">
     <thead>
       <tr>
@@ -151,18 +210,11 @@
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">Int32</a></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.valuetask">ValueTask</a></td>
         <td></td>
       </tr>
     </tbody>
   </table>
-  <h3 id="implements">Implements</h3>
-  <div>
-      <a class="xref" href="LibSasara.Model.Serialize.ITuneData.html">ITuneData</a>
-  </div>
-  <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">System.IEquatable&lt;T&gt;</a>
-  </div>
 </article>
           </div>
           

@@ -6,6 +6,11 @@
           "files": ["*.csproj"],
           "exclude": [ "**/bin/**", "**/obj/**" ],
           "src": "../LibSasara/"
+        },
+        {
+          "files": ["*.csproj"],
+          "exclude": [ "**/bin/**", "**/obj/**" ],
+          "src": "../LibSasara.VoiSona/"
         }
       ],
       "dest": "api",

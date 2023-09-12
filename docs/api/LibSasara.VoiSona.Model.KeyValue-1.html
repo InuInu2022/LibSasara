@@ -5,10 +5,10 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Class SceneBase
+    <title>Class KeyValue&lt;T&gt;
    | Documentation - LibSasara </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Class SceneBase
+    <meta name="title" content="Class KeyValue&lt;T&gt;
    | Documentation - LibSasara ">
     <meta name="generator" content="docfx 2.59.4.0">
     
@@ -78,69 +78,96 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="LibSasara.Model.Serialize.SceneBase">
+            <article class="content wrap" id="_content" data-uid="LibSasara.VoiSona.Model.KeyValue`1">
   
   
-  <h1 id="LibSasara_Model_Serialize_SceneBase" data-uid="LibSasara.Model.Serialize.SceneBase" class="text-break">Class SceneBase
+  <h1 id="LibSasara_VoiSona_Model_KeyValue_1" data-uid="LibSasara.VoiSona.Model.KeyValue`1" class="text-break">Class KeyValue&lt;T&gt;
   </h1>
-  <div class="markdown level0 summary"><p>Scene共通実装</p>
+  <div class="markdown level0 summary"><p>key - value の組を表す</p>
 </div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
     <h5>Inheritance</h5>
     <div class="level0"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">Object</a></div>
-    <div class="level1"><span class="xref">SceneBase</span></div>
-      <div class="level2"><a class="xref" href="LibSasara.Model.Serialize.Scene.html">Scene</a></div>
-      <div class="level2"><a class="xref" href="LibSasara.Model.Serialize.Track.html">Track</a></div>
+    <div class="level1"><span class="xref">KeyValue&lt;T&gt;</span></div>
   </div>
   <div class="implements">
     <h5>Implements</h5>
-    <div><a class="xref" href="LibSasara.Model.Serialize.IScene.html">IScene</a></div>
-    <div><a class="xref" href="LibSasara.Model.Serialize.IHasId.html">IHasId</a></div>
-    <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">IEquatable</a>&lt;<a class="xref" href="LibSasara.Model.Serialize.SceneBase.html">SceneBase</a>&gt;</div>
+    <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">IEquatable</a>&lt;<a class="xref" href="LibSasara.VoiSona.Model.KeyValue-1.html">KeyValue</a>&lt;T&gt;&gt;</div>
   </div>
-  <h6><strong>Namespace</strong>: <a class="xref" href="LibSasara.Model.Serialize.html">LibSasara.Model.Serialize</a></h6>
-  <h6><strong>Assembly</strong>: LibSasara.dll</h6>
-  <h5 id="LibSasara_Model_Serialize_SceneBase_syntax">Syntax</h5>
+  <h6><strong>Namespace</strong>: <a class="xref" href="LibSasara.VoiSona.Model.html">LibSasara.VoiSona.Model</a></h6>
+  <h6><strong>Assembly</strong>: LibSasara.VoiSona.dll</h6>
+  <h5 id="LibSasara_VoiSona_Model_KeyValue_1_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public abstract class SceneBase : IScene, IHasId, IEquatable&lt;SceneBase&gt;</code></pre>
+    <pre><code class="lang-csharp hljs">public sealed class KeyValue&lt;T&gt; : IEquatable&lt;KeyValue&lt;T&gt;&gt;</code></pre>
   </div>
-  <h3 id="properties">Properties
-  </h3>
-  
-  
-  <a id="LibSasara_Model_Serialize_SceneBase_Groups_" data-uid="LibSasara.Model.Serialize.SceneBase.Groups*"></a>
-  <h4 id="LibSasara_Model_Serialize_SceneBase_Groups" data-uid="LibSasara.Model.Serialize.SceneBase.Groups">Groups</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Groups&lt;Group&gt; Groups { get; set; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
+  <h5 class="typeParameters">Type Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
     <thead>
       <tr>
-        <th>Type</th>
+        <th>Name</th>
         <th>Description</th>
       </tr>
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="LibSasara.Model.Serialize.Groups-1.html">Groups</a>&lt;<a class="xref" href="LibSasara.Model.Serialize.Group.html">Group</a>&gt;</td>
+        <td><span class="parametername">T</span></td>
         <td></td>
       </tr>
     </tbody>
   </table>
+  <h3 id="constructors">Constructors
+  </h3>
   
   
-  <a id="LibSasara_Model_Serialize_SceneBase_Id_" data-uid="LibSasara.Model.Serialize.SceneBase.Id*"></a>
-  <h4 id="LibSasara_Model_Serialize_SceneBase_Id" data-uid="LibSasara.Model.Serialize.SceneBase.Id">Id</h4>
-  <div class="markdown level1 summary"></div>
+  <a id="LibSasara_VoiSona_Model_KeyValue_1__ctor_" data-uid="LibSasara.VoiSona.Model.KeyValue`1.#ctor*"></a>
+  <h4 id="LibSasara_VoiSona_Model_KeyValue_1__ctor_System_String__0_System_Nullable_LibSasara_VoiSona_Model_VoiSonaValueType__" data-uid="LibSasara.VoiSona.Model.KeyValue`1.#ctor(System.String,`0,System.Nullable{LibSasara.VoiSona.Model.VoiSonaValueType})">KeyValue(String, T, Nullable&lt;VoiSonaValueType&gt;)</h4>
+  <div class="markdown level1 summary"><p>コンストラクタ</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public string Id { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">public KeyValue(string key, T value, VoiSonaValueType? type = VoiSonaValueType.Unknown)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">key</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">T</span></td>
+        <td><span class="parametername">value</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="LibSasara.VoiSona.Model.VoiSonaValueType.html">VoiSonaValueType</a>&gt;</td>
+        <td><span class="parametername">type</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="properties">Properties
+  </h3>
+  
+  
+  <a id="LibSasara_VoiSona_Model_KeyValue_1_Key_" data-uid="LibSasara.VoiSona.Model.KeyValue`1.Key*"></a>
+  <h4 id="LibSasara_VoiSona_Model_KeyValue_1_Key" data-uid="LibSasara.VoiSona.Model.KeyValue`1.Key">Key</h4>
+  <div class="markdown level1 summary"><p>キー</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string Key { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -159,13 +186,14 @@
   </table>
   
   
-  <a id="LibSasara_Model_Serialize_SceneBase_SongEditor_" data-uid="LibSasara.Model.Serialize.SceneBase.SongEditor*"></a>
-  <h4 id="LibSasara_Model_Serialize_SceneBase_SongEditor" data-uid="LibSasara.Model.Serialize.SceneBase.SongEditor">SongEditor</h4>
-  <div class="markdown level1 summary"></div>
+  <a id="LibSasara_VoiSona_Model_KeyValue_1_Type_" data-uid="LibSasara.VoiSona.Model.KeyValue`1.Type*"></a>
+  <h4 id="LibSasara_VoiSona_Model_KeyValue_1_Type" data-uid="LibSasara.VoiSona.Model.KeyValue`1.Type">Type</h4>
+  <div class="markdown level1 summary"><p>値の型 <a class="xref" href="LibSasara.VoiSona.Model.VoiSonaValueType.html">VoiSonaValueType</a></p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public SongEditor SongEditor { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">public VoiSonaValueType? Type { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -177,20 +205,21 @@
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="LibSasara.Model.Serialize.SongEditor.html">SongEditor</a></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="LibSasara.VoiSona.Model.VoiSonaValueType.html">VoiSonaValueType</a>&gt;</td>
         <td></td>
       </tr>
     </tbody>
   </table>
   
   
-  <a id="LibSasara_Model_Serialize_SceneBase_SoundSetting_" data-uid="LibSasara.Model.Serialize.SceneBase.SoundSetting*"></a>
-  <h4 id="LibSasara_Model_Serialize_SceneBase_SoundSetting" data-uid="LibSasara.Model.Serialize.SceneBase.SoundSetting">SoundSetting</h4>
-  <div class="markdown level1 summary"></div>
+  <a id="LibSasara_VoiSona_Model_KeyValue_1_Value_" data-uid="LibSasara.VoiSona.Model.KeyValue`1.Value*"></a>
+  <h4 id="LibSasara_VoiSona_Model_KeyValue_1_Value" data-uid="LibSasara.VoiSona.Model.KeyValue`1.Value">Value</h4>
+  <div class="markdown level1 summary"><p>任意の型の値</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public SoundSetting SoundSetting { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">public T Value { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -202,47 +231,47 @@
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="LibSasara.Model.Serialize.SoundSetting.html">SoundSetting</a></td>
+        <td><span class="xref">T</span></td>
         <td></td>
       </tr>
     </tbody>
   </table>
+  <h3 id="methods">Methods
+  </h3>
   
   
-  <a id="LibSasara_Model_Serialize_SceneBase_TalkEditor_" data-uid="LibSasara.Model.Serialize.SceneBase.TalkEditor*"></a>
-  <h4 id="LibSasara_Model_Serialize_SceneBase_TalkEditor" data-uid="LibSasara.Model.Serialize.SceneBase.TalkEditor">TalkEditor</h4>
-  <div class="markdown level1 summary"></div>
+  <a id="LibSasara_VoiSona_Model_KeyValue_1_GetHeaderBytes_" data-uid="LibSasara.VoiSona.Model.KeyValue`1.GetHeaderBytes*"></a>
+  <h4 id="LibSasara_VoiSona_Model_KeyValue_1_GetHeaderBytes_System_Boolean_System_Boolean_" data-uid="LibSasara.VoiSona.Model.KeyValue`1.GetHeaderBytes(System.Boolean,System.Boolean)">GetHeaderBytes(Boolean, Boolean)</h4>
+  <div class="markdown level1 summary"><p>ヘッダーバイト列を返す</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public TalkEditor TalkEditor { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">public ReadOnlyMemory&lt;byte&gt; GetHeaderBytes(bool withNull, bool withData = false)</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
+  <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
     <thead>
       <tr>
         <th>Type</th>
+        <th>Name</th>
         <th>Description</th>
       </tr>
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="LibSasara.Model.Serialize.TalkEditor.html">TalkEditor</a></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
+        <td><span class="parametername">withNull</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
+        <td><span class="parametername">withData</span></td>
         <td></td>
       </tr>
     </tbody>
   </table>
-  
-  
-  <a id="LibSasara_Model_Serialize_SceneBase_Timeline_" data-uid="LibSasara.Model.Serialize.SceneBase.Timeline*"></a>
-  <h4 id="LibSasara_Model_Serialize_SceneBase_Timeline" data-uid="LibSasara.Model.Serialize.SceneBase.Timeline">Timeline</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Timeline Timeline { get; set; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
+  <h5 class="returns">Returns</h5>
   <table class="table table-bordered table-striped table-condensed">
     <thead>
       <tr>
@@ -252,43 +281,12 @@
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="LibSasara.Model.Serialize.Timeline.html">Timeline</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  
-  
-  <a id="LibSasara_Model_Serialize_SceneBase_Units_" data-uid="LibSasara.Model.Serialize.SceneBase.Units*"></a>
-  <h4 id="LibSasara_Model_Serialize_SceneBase_Units" data-uid="LibSasara.Model.Serialize.SceneBase.Units">Units</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public List&lt;Unit&gt; Units { get; set; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="LibSasara.Model.Serialize.Unit.html">Unit</a>&gt;</td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.readonlymemory-1">ReadOnlyMemory</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">Byte</a>&gt;</td>
         <td></td>
       </tr>
     </tbody>
   </table>
   <h3 id="implements">Implements</h3>
-  <div>
-      <a class="xref" href="LibSasara.Model.Serialize.IScene.html">IScene</a>
-  </div>
-  <div>
-      <a class="xref" href="LibSasara.Model.Serialize.IHasId.html">IHasId</a>
-  </div>
   <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">System.IEquatable&lt;T&gt;</a>
   </div>
