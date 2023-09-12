@@ -1,0 +1,39 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net7.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <LangVersion>latest</LangVersion>
+
+    <PublishSingleFile>true</PublishSingleFile>
+    <PublishTrimmed>true</PublishTrimmed>
+    <TrimMode>partial</TrimMode>
+    <TrimmerRemoveSymbols>true</TrimmerRemoveSymbols>
+    <DebuggerSupport>false</DebuggerSupport>
+    <GenerateDocumentationFile>false</GenerateDocumentationFile>
+  </PropertyGroup>
+
+  <Target Name="MakeZipPackage" AfterTargets="Publish">
+      <MakeDir Directories="$(OutputPath)/../../../../../VoiSonaTalkLab/publish/" />
+      <Delete Files="$(OutputPath)/LibSasara.xml" />
+      <Delete Files="$(OutputPath)/LibSasara.VoiSona.xml" />
+      <Delete Files="$(OutputPath)/$(AssemblyName).pdb" />
+      <Delete Files="$(OutputPath)/publish/$(AssemblyName).pdb" />
+      <Delete Files="$(OutputPath)/publish/*.xml" />
+      <Delete Files="$(OutputPath)/publish/LibSasara.xml" />
+      <Delete Files="$(OutputPath)/publish/LibSasara.VoiSona.xml" />
+      <ZipDirectory SourceDirectory="$(OutputPath)/publish/" DestinationFile="$(OutputPath)/../../../../../VoiSonaTalkLab/publish/$(AssemblyName)-$(RuntimeIdentifier)-v.$(Version).zip" Overwrite="true" />
+      <Message Text="Actions After Publish" Importance="high" />
+  </Target>
+
+  <ItemGroup>
+    <PackageReference Include="ConsoleAppFramework" Version="4.2.4" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\LibSasara.VoiSona\LibSasara.VoiSona.csproj" />
+  </ItemGroup>
+
+</Project>
