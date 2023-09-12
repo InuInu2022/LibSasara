@@ -1,3 +1,4 @@
+using System.Text;
 using System;
 using System.Linq;
 using System.Collections.Generic;
@@ -172,6 +173,33 @@ public class Lab
 
 			lines = newLines;
 		});
+	}
+
+	/// <summary>
+	/// ラベルファイル(*.lab)フォーマットの文字列を返します。
+	/// </summary>
+	/// <returns>
+	/// ラベルファイル(*.lab)フォーマットの文字列
+	/// </returns>
+	/// <example>
+	/// <code>
+	/// 0 1000 sil
+	/// 1000 200000 a
+	/// 200000 201000 sil
+	/// </code>
+	/// </example>
+	public override string ToString()
+	{
+		if(lines is null){
+			return string.Empty;
+		}
+		var cap = Lines.Count() * 30;
+		var sb = new StringBuilder(cap);
+		foreach(var i in lines)
+		{
+			sb.AppendLine($"{i.From} {i.To} {i.Phoneme}");
+		}
+		return sb.ToString();
 	}
 }
 
