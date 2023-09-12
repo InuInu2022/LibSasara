@@ -5,8 +5,9 @@ using LibSasara.VoiSona.Model;
 namespace LibSasara.VoiSona.Util;
 
 /// <summary>
-/// Treeに対するユーティリティクラス
+/// <see cref="Tree"/>に対するユーティリティクラス
 /// </summary>
+/// <seealso cref="Tree"/>
 public static class TreeUtil
 {
 	/// <summary>
