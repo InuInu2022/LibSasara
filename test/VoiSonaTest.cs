@@ -98,23 +98,23 @@ public class VoiSonaTest : IAsyncLifetime
 
 		type.Should().Be(VoiSonaValueType.String);
 
-		var nameData = MemoryMarshal
-			.Cast<byte, StringTreeAttributeData>(track.Slice(index+key.Length,4))[0];
+		//var nameData = MemoryMarshal
+		//	.Cast<byte, StringTreeAttributeData>(track.Slice(index+key.Length,4))[0];
 
-		nameData.Type.Should().Be(type);
-		nameData.Null.Should().Be(0x00);
-		nameData.Delimiter.Should().Be(0x01);
-		nameData.LengthPlusTwo.Should().Be(len);
+		//nameData.Type.Should().Be(type);
+		//nameData.Null.Should().Be(0x00);
+		//nameData.Delimiter.Should().Be(0x01);
+		//nameData.LengthPlusTwo.Should().Be(len);
 
-		var data = track.Slice(index + key.Length + 4, nameData.LengthPlusTwo - 2);
+		//var data = track.Slice(index + key.Length + 4, nameData.LengthPlusTwo - 2);
 
-		var tName = System.Text.Encoding.UTF8.GetString(data);
+		//var tName = System.Text.Encoding.UTF8.GetString(data);
 
-		var header = new Header(
-			nameData.LengthPlusTwo - 2,
-			(VoiSonaValueType)nameData.Type,
-			data.ToImmutableArray()
-		);
+		//var header = new Header(
+		//	nameData.LengthPlusTwo - 2,
+		//	(VoiSonaValueType)nameData.Type,
+		//	data.ToImmutableArray()
+		//);
 	}
 
 	[Fact]

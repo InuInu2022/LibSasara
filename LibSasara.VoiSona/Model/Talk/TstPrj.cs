@@ -261,27 +261,3 @@ public record TstPrj: VoiSonaFileBase
 		target.Children.Add(tree);
 	}
 }
-
-/// <summary>
-/// 文字列のTreeAttribute
-/// </summary>
-[StructLayout(LayoutKind.Sequential,Pack = 0)]
-public struct StringTreeAttributeData
-{
-	/// <summary>
-	/// 終端文字列 0x00
-	/// </summary>
-	public readonly byte Null;
-	/// <summary>
-	/// 0x01
-	/// </summary>
-	public readonly byte Delimiter;
-	/// <summary>
-	/// データの長さ＋２
-	/// </summary>
-	public readonly byte LengthPlusTwo;
-	/// <summary>
-	/// データの型を表すenum
-	/// </summary>
-	public readonly VoiSonaValueType Type;
-}
