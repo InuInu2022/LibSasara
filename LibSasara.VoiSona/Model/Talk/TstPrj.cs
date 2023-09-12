@@ -95,21 +95,6 @@ public record TstPrj: VoiSonaFileBase
 			return ReadOnlyMemory<byte>.Empty;
 		}
 		return tracks[index];
-
-		/*
-		var span = bytes.ToArray().AsSpan();
-		const string word = "Track";
-		var key = Encoding.UTF8
-			.GetBytes($"{word}\0")
-			.AsSpan();
-
-		var first = span.IndexOf(key);
-		var after = span.Slice(first+key.Length+1);
-		var second = after.IndexOf(key);
-		second = second < 0 ? span.Length : second;
-
-		return span.Slice(first, second).ToArray();
-		*/
 	}
 
 	/// <summary>
