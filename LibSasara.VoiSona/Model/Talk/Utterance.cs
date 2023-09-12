@@ -163,8 +163,9 @@ public class Utterance : Tree
 			.Join("|", ph)
 			.Split(separators)
 			;
-		var sb = new StringBuilder();
-		decimal time = 0.0m;
+		var cap = 30 * pd.Length;
+		var sb = new StringBuilder(cap);
+		decimal time = 0m;
 		const decimal x = 1000000m;
 		for (var i = 0; i < pd.Length; i++)
 		{
