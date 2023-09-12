@@ -25,6 +25,7 @@ using Microsoft.CodeAnalysis.CSharp.Syntax;
 using System.Xml;
 using System.Xml.Linq;
 using System.Globalization;
+using System.Text;
 
 namespace test;
 
@@ -322,5 +323,106 @@ public class VoiSonaTest : IAsyncLifetime
 		oLab?.Lines?.Select(v=>v.Length)!
 			.SequenceEqual(tLab?.Lines!.Select(v=>v.Length)!)
 			.Should().Be(isNotTuned);
+	}
+
+	[Theory]
+	[InlineData("0.1,0.1,0.1", "")]
+	[InlineData("0.1,0.2,0.3", "1:0.4,2:0.3")]
+	public void LabelString(
+		string original,
+		string tuned,
+		string tsml = "<word phoneme=\"a|a|a\" />"
+	)
+	{
+		var u = new Utterance("test", tsml, "0.00")
+		{
+			PhonemeOriginalDuration = original,
+			PhonemeDuration = tuned
+		};
+
+		var labStr1 = u.DefaultLabel?.ToString();
+		var labStr2 = LabString(u, original);
+		labStr1 = labStr1?.Replace(".0", "", StringComparison.InvariantCulture);
+		labStr2 = labStr2?.Replace(".0", "", StringComparison.InvariantCulture);
+
+		labStr1.Should().Be(labStr2);
+	}
+
+	private string LabString(
+		Utterance utterance,
+		string durations
+	){
+		ReadOnlySpan<string> pd = durations
+			.Split(",".ToCharArray())
+			;
+		var ph = utterance
+			.Tsml
+			.Descendants("word")
+			.Attributes("phoneme")
+			.Select(s => s.Value)
+			.Select(s => s == "" ? "sil" : s)
+			;
+		char[] separators = { ',', '|' };
+		ReadOnlySpan<string> phonemes = string
+			.Join("|", ph)
+			.Split(separators)
+			;
+		var cap = 30 * pd.Length;
+		var sb = new StringBuilder(cap);
+		decimal time = 0m;
+		const decimal x = 1000000m;
+		for (var i = 0; i < pd.Length; i++)
+		{
+			var s = time;
+			time += decimal.TryParse(pd[i], out var t)
+				? t * x : 0m;
+			var e = time;
+			var p = (i - 1 < 0 || phonemes.Length <= i - 1)
+				? "sil"
+				: phonemes[i - 1]
+				;
+			sb.AppendLine(
+				CultureInfo.InvariantCulture,
+				$"{s} {e} {p}");
+		}
+		return sb.ToString();
+	}
+
+
+	[Fact]
+	public void BuildLab(){
+		var logger = new AccumulationLogger();
+
+        var config = ManualConfig.Create(DefaultConfig.Instance)
+            .AddLogger(logger)
+            .WithOptions(ConfigOptions.DisableOptimizationsValidator);
+
+        BenchmarkRunner.Run<Benchmarks>(config);
+
+        // write benchmark summary
+        _output.WriteLine(logger.GetLog());
+		Console.WriteLine(logger.GetLog());
+	}
+}
+
+[ShortRunJob]
+public class Benchmarks
+{
+	private Utterance utterance;
+	public Benchmarks()
+	{
+		utterance = new Utterance(
+			"test",
+			"<word phoneme=\"a|a|a\" />",
+			"0.00")
+		{
+			PhonemeOriginalDuration = "0.0,0.1,0.2,0.3"
+		};
+	}
+
+	[Benchmark]
+	public void BuildLab()
+	{
+		var lab = utterance.Label;
 	}
 }
