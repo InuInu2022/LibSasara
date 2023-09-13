@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Xml;
@@ -138,6 +139,132 @@ public class Utterance : Tree
 
 			return BuildLabFromSpan(pod.AsSpan());
 		}
+	}
+
+	/// <summary>
+	/// 生のStyle(感情)変化比率
+	/// </summary>
+	/// <remarks>
+	/// `[seconds]:[?]:[sty1rate]:[sty2rate]:...`
+	/// </remarks>
+	/// <returns>
+	/// カンマ<c>,</c>区切りテキスト。比率は<c>:</c>で区切られます
+	/// </returns>
+	public string FrameStyleRaw{
+		get => TreeUtil
+			.GetValuesOnlyChildrenValue<string>(
+				this,
+				nameof(FrameStyleRaw))
+			?? "";
+		set => TreeUtil.SetValuesOnlyChildrenValue(
+			this,
+			nameof(FrameStyleRaw),
+			value);
+	}
+
+	/// <summary>
+	/// 生のVolume(音量)変化比率
+	/// </summary>
+	/// <returns>
+	/// カンマ<c>,</c>区切りテキスト。[seconds]:[value]
+	/// </returns>
+	public string FrameC0Raw{
+		get => TreeUtil
+			.GetValuesOnlyChildrenValue<string>(
+				this,
+				nameof(FrameC0Raw))
+			?? "";
+		set => TreeUtil.SetValuesOnlyChildrenValue(
+			this,
+			nameof(FrameC0Raw),
+			value);
+	}
+
+	/// <summary>
+	/// 生のPitch(音程)変化比率
+	/// </summary>
+	/// <returns>
+	/// カンマ<c>,</c>区切りテキスト。[seconds]:[value]
+	/// </returns>
+	public string FrameLogF0Raw{
+		get => TreeUtil
+			.GetValuesOnlyChildrenValue<string>(
+				this,
+				nameof(FrameLogF0Raw))
+			?? "";
+		set => TreeUtil.SetValuesOnlyChildrenValue(
+			this,
+			nameof(FrameLogF0Raw),
+			value);
+	}
+
+	/// <summary>
+	/// 生のAlpha(声質、声の幼さ)変化比率
+	/// </summary>
+	/// <returns>
+	/// カンマ<c>,</c>区切りテキスト。[seconds]:[value]
+	/// </returns>
+	public string FrameAlphaRaw{
+		get => TreeUtil
+			.GetValuesOnlyChildrenValue<string>(
+				this,
+				nameof(FrameAlphaRaw))
+			?? "";
+		set => TreeUtil.SetValuesOnlyChildrenValue(
+			this,
+			nameof(FrameAlphaRaw),
+			value);
+	}
+
+	/// <summary>
+	/// Style(感情)の変化比率
+	/// </summary>
+	public IEnumerable<FrameStyle> FrameStyles
+	{
+		get {
+			return FrameStyleRaw
+				.Split(",".ToCharArray())
+				.Select<string,FrameStyle>(v => {
+					Memory<string> a = v.Split(":".ToCharArray());
+					return new(
+						SasaraUtil.ConvertDecimal(a.Span[0]),
+						SasaraUtil.ConvertInt(a.Span[1]),
+						a.Slice(3)
+							.ToArray()
+							.Select(s => SasaraUtil.ConvertDecimal(s))
+							.ToList()
+					);
+				})
+				;
+
+		}
+	}
+
+	/// <summary>
+	/// Volume(音量)変化比率
+	/// </summary>
+	public IEnumerable<FrameValue<decimal>> FrameC0
+	{
+		get => TextUtil
+			.SplitDecValBySec(FrameC0Raw);
+	}
+
+	/// <summary>
+	/// Pitch(音程)変化比率
+	/// </summary>
+	public IEnumerable<FrameValue<decimal>> FrameLogF0
+	{
+		get => TextUtil
+			.SplitDecValBySec(FrameLogF0Raw);
+	}
+
+	/// <summary>
+	/// Alpha(声質、声の幼さ)変化比率
+	/// </summary>
+	public IEnumerable<FrameValue<decimal>> FrameAlpha
+	{
+		get => TextUtil
+			.SplitDecValBySec(FrameAlphaRaw);
 	}
 
 	private LibSasara.Model.Lab BuildLab(
