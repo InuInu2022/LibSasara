@@ -14,12 +14,13 @@ namespace LibSasara.VoiSona.Util;
 public static class TextUtil
 {
 	/// <summary>
-	/// [seconds]:[decimal value] のカンマ区切り文字列を分割変換
+	/// [seconds]:[T value] のカンマ区切り文字列を分割変換
 	/// </summary>
-	/// <param name="source">[seconds]:[decimal value] のカンマ区切り文字列</param>
+	/// <param name="source">[seconds]:[T value] のカンマ区切り文字列</param>
 	/// <returns></returns>
-	public static IEnumerable<FrameValue<decimal>>
-	SplitDecValBySec(string source)
+	public static IEnumerable<FrameValue<T>>
+	SplitValBySec<T>(string source)
+		where T: struct
 	{
 		char[] comma = ",".ToCharArray();
 		char[] colon = ":".ToCharArray();
@@ -28,36 +29,47 @@ public static class TextUtil
 			.Select(v =>
 			{
 				Span<string> span = v.Split(colon);
-				return new FrameValue<decimal>(
+				return new FrameValue<T>(
 					SasaraUtil
 						.ConvertDecimal(span[0]),
-					SasaraUtil
-						.ConvertDecimal(span[1])
+					Cast<T>(v)
 				);
 			});
 	}
 
+
 	/// <summary>
-	/// [seconds]:[int value] のカンマ区切り文字列を分割変換
+	/// カンマ区切り文字列を分割
 	/// </summary>
-	/// <param name="source">[seconds]:[int value] のカンマ区切り文字列</param>
+	/// <param name="source"></param>
 	/// <returns></returns>
-	public static IEnumerable<FrameValue<int>>
-	SplitIntValBySec(string source)
+	public static IEnumerable<T>
+	SplitDecVal<T>(string source)
+		where T: struct
 	{
 		char[] comma = ",".ToCharArray();
-		char[] colon = ":".ToCharArray();
 		return source
 			.Split(comma)
-			.Select(v =>
-			{
-				Span<string> span = v.Split(colon);
-				return new FrameValue<int>(
-					SasaraUtil
-						.ConvertDecimal(span[0]),
-					SasaraUtil
-						.ConvertInt(span[1])
-				);
-			});
+			.Select(v => Cast<T>(v))
+			;
+	}
+
+	private static T Cast<T>(string value)
+		where T: struct
+	{
+		var type = typeof(T);
+		var code = Type.GetTypeCode(type);
+
+		return code switch
+		{
+			TypeCode.Int32 =>
+				(T)(object)SasaraUtil.ConvertInt(value),
+			TypeCode.Boolean =>
+				(T)(object)SasaraUtil.ConvertBool(value),
+			TypeCode.Decimal =>
+				(T)(object)SasaraUtil.ConvertDecimal(value),
+			TypeCode.String => (T)(object)value,
+			_ => default
+		};
 	}
 }

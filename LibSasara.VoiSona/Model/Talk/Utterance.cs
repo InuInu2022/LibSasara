@@ -246,7 +246,7 @@ public class Utterance : Tree
 	public IEnumerable<FrameValue<decimal>> FrameC0
 	{
 		get => TextUtil
-			.SplitDecValBySec(FrameC0Raw);
+			.SplitValBySec<decimal>(FrameC0Raw);
 	}
 
 	/// <summary>
@@ -255,7 +255,7 @@ public class Utterance : Tree
 	public IEnumerable<FrameValue<decimal>> FrameLogF0
 	{
 		get => TextUtil
-			.SplitDecValBySec(FrameLogF0Raw);
+			.SplitValBySec<decimal>(FrameLogF0Raw);
 	}
 
 	/// <summary>
@@ -264,7 +264,7 @@ public class Utterance : Tree
 	public IEnumerable<FrameValue<decimal>> FrameAlpha
 	{
 		get => TextUtil
-			.SplitDecValBySec(FrameAlphaRaw);
+			.SplitValBySec<decimal>(FrameAlphaRaw);
 	}
 
 	private LibSasara.Model.Lab BuildLab(
