@@ -1,7 +1,7 @@
-using System.Globalization;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Diagnostics;
 
 namespace LibSasara.VoiSona.Model;
 
@@ -100,6 +100,9 @@ public class Tree
     /// <summary>
     /// 属性のデータを追加する
     /// </summary>
+	/// <remarks>
+	/// 同じ <paramref name="key"/>の属性がある時は値を上書き、無ければ新規追加
+	/// </remarks>
     /// <param name="key"></param>
     /// <param name="value"></param>
     /// <param name="type"></param>
@@ -108,6 +111,38 @@ public class Tree
 		dynamic value,
 		VoiSonaValueType? type
 	){
-		Attributes.Add(new(key, value, type));
+		var exists = Attributes
+			.Exists(v => v.Key == key);
+		if(exists){
+			var a = Attributes
+				.First(v => v.Key == key);
+			a.Value = value;
+			a.Type = type;
+		}else{
+			Attributes.Add(new(key, value, type));
+		}
+	}
+
+	/// <summary>
+	///
+	/// </summary>
+	/// <typeparam name="T"></typeparam>
+	/// <param name="key"></param>
+	/// <returns></returns>
+	public KeyValue<T>? GetAttribute<T>(
+		string key
+	)
+		where T: notnull
+	{
+		var exists = Attributes
+			.Exists(v => v.Key == key);
+		if(exists){
+			var a = Attributes
+				.First(v => v.Key == key);
+			return a as KeyValue<T>;
+		}else{
+			Debug.WriteLine($"Attribute:{key} is not found!");
+			return new(key, default!, VoiSonaValueType.Unknown);
+		}
 	}
 }
