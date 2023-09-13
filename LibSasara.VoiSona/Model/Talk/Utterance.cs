@@ -23,7 +23,7 @@ public class Utterance : Tree
 	{
 		Text = text ?? "";
 		TsmlString = tsml;
-		StartRaw = start;
+		RawStart = start;
 		Disable = disable;
 
 		if(text is not null) AddAttribute(nameof(text), text, VoiSonaValueType.String);
@@ -57,20 +57,52 @@ public class Utterance : Tree
 	/// 時刻を表す文字列 (00.000)
 	/// </summary>
 	/// <seealso cref="Start"/>
-	public string? StartRaw { get; }
+	public string? RawStart { get; }
 
 	/// <summary>
 	/// セリフの開始秒
 	/// </summary>
-	/// <seealso cref="StartRaw"/>
+	/// <seealso cref="RawStart"/>
 	public decimal Start{
 		get => SasaraUtil
-			.ConvertDecimal(StartRaw);
+			.ConvertDecimal(RawStart);
 	}
 	/// <summary>
 	/// セリフ文が有効か無効か
 	/// </summary>
 	public bool Disable { get; }
+
+	/// <summary>
+	/// セリフの話速(Speed)
+	/// </summary>
+	public decimal SpeedRatio {
+		get => TreeUtil
+			.GetValueOnlyChildValue<decimal>(this, nameof(SpeedRatio));
+	}
+
+	/// <summary>
+	/// セリフの音量（Volume)
+	/// </summary>
+	public decimal C0Shift {
+		get => TreeUtil
+			.GetValueOnlyChildValue<decimal>(this, nameof(C0Shift));
+	}
+
+	/// <summary>
+	/// セリフの高さ（Pitch） -600 ~ +600
+	/// </summary>
+	public decimal LogF0Shift {
+		get => TreeUtil
+			.GetValueOnlyChildValue<decimal>(this, nameof(LogF0Shift));
+	}
+
+	/// <summary>
+	/// セリフの声質・声の幼さ（Alpha）
+	/// </summary>
+	public decimal AlphaShift {
+		get => TreeUtil
+			.GetValueOnlyChildValue<decimal>(this, nameof(AlphaShift));
+	}
 
 	/// <summary>
 	/// 元の音素の長さを示すカンマ区切り文字列
