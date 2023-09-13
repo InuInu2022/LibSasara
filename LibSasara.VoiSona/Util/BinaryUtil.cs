@@ -1,11 +1,10 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
-using System.IO;
 using System.Linq;
 using System.Text;
+
 using LibSasara.VoiSona.Model;
 
 namespace LibSasara.VoiSona.Util;
@@ -117,7 +116,7 @@ public static class BinaryUtil
 	}
 
 	/// <summary>
-	///
+	/// 子要素を探し、見つけたら返す
 	/// </summary>
 	/// <param name="source"></param>
 	/// <param name="name"></param>
@@ -156,7 +155,7 @@ public static class BinaryUtil
 	}
 
     /// <summary>
-    ///
+    /// コレクションの要素を探し、見つけたら返す
     /// </summary>
     /// <param name="source"></param>
     /// <param name="name"></param>
@@ -182,7 +181,6 @@ public static class BinaryUtil
 			return false;
 		}
 
-
 		var temp = source.Slice(index + key.Length);
 		var countType = (int)temp[1];
 		var countData = temp.Slice(2, countType);
@@ -204,43 +202,10 @@ public static class BinaryUtil
 			.Select(v => head.ToArray().Concat(v.ToArray()))
 			.ToList()
 			;
-		/*
-		var list = new List<ReadOnlyMemory<byte>>(count);
-
-		for(var i = 0; i < count; i++){
-			var a = separated.ElementAt(0).ToArray().AsSpan();
-
-            var hasChild = TryFindChild(a, childName, out var child);
-
-			list.Add(child.ToArray().AsMemory());
-		}
-		collection = list
-			.AsReadOnly();
-		*/
 		collection = separated
-			.Select(v => new ReadOnlyMemory<byte>(v.ToArray()))
-			.ToList()
+			.ConvertAll(v => new ReadOnlyMemory<byte>(v.ToArray()))
 			.AsReadOnly()
 			;
 		return true;
-
-		/*
-		var ret = temp
-			.Split(childKey)
-			.Skip(1)
-			;
-
-		if(ret.Count() != count){
-			throw new InvalidDataException($"Can't find child collections collectly! {name}'s {childName}");
-		}
-
-		collection = ret
-			.Cast<ReadOnlyMemory<byte>>()
-			.ToList()
-			.AsReadOnly()
-			;
-		return true;
-		*/
-
 	}
 }
