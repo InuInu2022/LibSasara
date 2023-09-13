@@ -71,51 +71,6 @@ public class VoiSonaTest : IAsyncLifetime
 			.Should().Be(category);
 	}
 
-	[Fact]
-	public void GetTrack()
-	{
-		if (SampleTalk is null){
-			SampleTalk.Should().NotBeNull();
-			return;
-		}
-
-		ReadOnlySpan<byte> track = SampleTalk
-			.GetTrack(0)
-			.Span;
-		ReadOnlySpan<byte> key = System.Text.Encoding.UTF8.GetBytes("name");
-
-		var index = track.IndexOf(key);
-
-		var str = System.Text.Encoding.UTF8.GetString(track);
-
-		index.Should().BeGreaterThan(0);
-
-		var head = track.Slice(index + key.Length + 2, 2);
-		//データの長さ＋2
-		var len = head[0];
-		var typeBytes = head[1];
-		var type = (VoiSonaValueType)typeBytes;
-
-		type.Should().Be(VoiSonaValueType.String);
-
-		//var nameData = MemoryMarshal
-		//	.Cast<byte, StringTreeAttributeData>(track.Slice(index+key.Length,4))[0];
-
-		//nameData.Type.Should().Be(type);
-		//nameData.Null.Should().Be(0x00);
-		//nameData.Delimiter.Should().Be(0x01);
-		//nameData.LengthPlusTwo.Should().Be(len);
-
-		//var data = track.Slice(index + key.Length + 4, nameData.LengthPlusTwo - 2);
-
-		//var tName = System.Text.Encoding.UTF8.GetString(data);
-
-		//var header = new Header(
-		//	nameData.LengthPlusTwo - 2,
-		//	(VoiSonaValueType)nameData.Type,
-		//	data.ToImmutableArray()
-		//);
-	}
 
 	[Fact]
 	public void GetAllTracks()
@@ -246,7 +201,7 @@ public class VoiSonaTest : IAsyncLifetime
 
 			us.ForEach(v =>
 			{
-				Debug.WriteLine($"{v.Start}, {v.Disable}");
+				Debug.WriteLine($"{v.StartRaw}, {v.Disable}");
 				Debug.WriteLine($"text: {v.Text}");
 				//Debug.WriteLine($"tsml: {v.TsmlString}");
 				Debug.WriteLine($"tsml: {v.Tsml}");
