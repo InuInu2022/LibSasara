@@ -197,16 +197,25 @@ public class VoiSonaTest : IAsyncLifetime
 			var v = track.Voice;
 			Debug.WriteLine($"{v?.Name}, id:{v?.Id}, {v?.Speaker}, {v?.Version}");
 
+			Debug.WriteLine($"	volume:{track.Volume}");
+			Debug.WriteLine($"	pan:{track.Pan}");
+
 			var us = track.Utterances;
 
 			us.ForEach(v =>
 			{
-				Debug.WriteLine($"{v.StartRaw}, {v.Disable}");
+				Debug.WriteLine($"{v.RawStart}, {v.Disable}");
 				Debug.WriteLine($"text: {v.Text}");
 				//Debug.WriteLine($"tsml: {v.TsmlString}");
 				Debug.WriteLine($"tsml: {v.Tsml}");
 				Debug.WriteLine($"POD: {v.PhonemeOriginalDuration}");
 				Debug.WriteLine($"PD: {v.PhonemeDuration}");
+
+				Debug.WriteLine("--globals--");
+				Debug.WriteLine($"{v.SpeedRatio}");
+				Debug.WriteLine($"{v.C0Shift}");
+				Debug.WriteLine($"{v.LogF0Shift}");
+				Debug.WriteLine($"{v.AlphaShift}");
 
 				var ph = v.Tsml
 					.Descendants("word")
@@ -325,7 +334,7 @@ public class VoiSonaTest : IAsyncLifetime
 		var cap = 30 * pd.Length;
 		var sb = new StringBuilder(cap);
 		decimal time = 0m;
-		const decimal x = 1000000m;
+		const decimal x = 10000000m;
 		for (var i = 0; i < pd.Length; i++)
 		{
 			var s = time;
@@ -357,6 +366,33 @@ public class VoiSonaTest : IAsyncLifetime
         // write benchmark summary
         _output.WriteLine(logger.GetLog());
 		Console.WriteLine(logger.GetLog());
+	}
+
+	[Theory]
+	[InlineData("test", 1, 100)]
+	[InlineData("test2", -10000, 12323)]
+	public void TreeAttributes(
+		string key,
+		int firstValue,
+		int secondValue
+	)
+	{
+		var tree = new Tree("Test");
+
+		//ここではまだ0
+		tree.AttributeCount.Should().Be(0);
+
+		//同じキーなら上書き
+		tree.AddAttribute(key, firstValue, VoiSonaValueType.Int32);
+		tree.AddAttribute(key, secondValue, VoiSonaValueType.Int32);
+		tree.AttributeCount.Should().Be(1);
+		tree.GetAttribute<int>(key)
+			.Value
+			.Should().Be(secondValue);
+
+		//存在しない筈
+		tree.GetAttribute<object>("notfound")
+			.Value.Should().BeNull();
 	}
 }
 
