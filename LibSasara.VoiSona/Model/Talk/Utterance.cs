@@ -23,7 +23,7 @@ public class Utterance : Tree
 	{
 		Text = text ?? "";
 		TsmlString = tsml;
-		Start = start;
+		StartRaw = start;
 		Disable = disable;
 
 		if(text is not null) AddAttribute(nameof(text), text, VoiSonaValueType.String);
@@ -56,7 +56,17 @@ public class Utterance : Tree
 	/// <summary>
 	/// 時刻を表す文字列 (00.000)
 	/// </summary>
-	public string? Start { get; }
+	/// <seealso cref="Start"/>
+	public string? StartRaw { get; }
+
+	/// <summary>
+	/// セリフの開始秒
+	/// </summary>
+	/// <seealso cref="StartRaw"/>
+	public decimal Start{
+		get => SasaraUtil
+			.ConvertDecimal(StartRaw);
+	}
 	/// <summary>
 	/// セリフ文が有効か無効か
 	/// </summary>
@@ -66,6 +76,8 @@ public class Utterance : Tree
 	/// 元の音素の長さを示すカンマ区切り文字列
 	/// </summary>
 	/// <seealso cref="PhonemeDuration"/>
+	/// <seealso cref="PhonemeOriginalDurations"/>
+	/// <seealso cref="DefaultLabel"/>
 	public string PhonemeOriginalDuration
 	{
 		get
@@ -86,6 +98,8 @@ public class Utterance : Tree
 	/// <summary>
 	/// 音素別の長さのリスト
 	/// </summary>
+	/// <seealso cref="PhonemeOriginalDuration"/>
+	/// <seealso cref="DefaultLabel"/>
 	public IEnumerable<decimal> PhonemeOriginalDurations
 	{
 		get => TextUtil.SplitVal<decimal>(PhonemeOriginalDuration);
