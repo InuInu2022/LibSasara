@@ -88,6 +88,7 @@ public record TstPrj: VoiSonaFileBase
 	/// </summary>
 	/// <param name="index"></param>
 	/// <returns></returns>
+	[Obsolete($"Use {nameof(GetAllTracksBin)}")]
 	public ReadOnlyMemory<byte> GetTrack(int index = 0)
 	{
 		var tracks = GetAllTracksBin();
