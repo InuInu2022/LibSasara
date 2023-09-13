@@ -21,8 +21,12 @@ public sealed class Voice : Tree
 	public string Id { get; }
 
 	/// <summary>
-	/// バージョン
+	/// ボイスライブラリのバージョン
 	/// </summary>
+	/// <remarks>
+	/// ボイスライブラリのバージョン表記は"1.0.0 ported from CeVIO AI"等の様にSemantic versioningにしたがっていません。
+	/// <see cref="System.Version"/>型ではなく文字列で返ります。
+	/// </remarks>
 	public string Version { get; }
 
 	/// <inheritdoc cref="Voice"/>
