@@ -19,9 +19,29 @@ public class TalkTrack : Tree
 	/// </summary>
 	public string TrackName {
 		get => Attributes
-			.FirstOrDefault(v => v.Key == "name")
+			.Find(v => v.Key == "name")
 			.Value;
+		set => AddAttribute("name", value, VoiSonaValueType.String);
 	}
+
+	/// <summary>
+	/// Track volume (dB)
+	/// </summary>
+	public decimal Volume{
+		get => GetAttribute<decimal>("volume")
+			.Value;
+		set => AddAttribute("volume", value, VoiSonaValueType.Double);
+	}
+
+	/// <summary>
+	/// Track pan
+	/// </summary>
+	public decimal Pan{
+		get => GetAttribute<decimal>("pan")
+			.Value;
+		set => AddAttribute("pan", value, VoiSonaValueType.Double);
+	}
+
 
 	/// <summary>
 	/// Voice
