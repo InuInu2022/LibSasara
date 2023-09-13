@@ -124,12 +124,12 @@ public class Tree
 	}
 
 	/// <summary>
-	///
+	/// 属性のデータを <see cref="KeyValue{T}"/>で取得する
 	/// </summary>
 	/// <typeparam name="T"></typeparam>
-	/// <param name="key"></param>
+	/// <param name="key">属性名</param>
 	/// <returns></returns>
-	public KeyValue<T>? GetAttribute<T>(
+	public KeyValue<T> GetAttribute<T>(
 		string key
 	)
 		where T: notnull
@@ -139,10 +139,23 @@ public class Tree
 		if(exists){
 			var a = Attributes
 				.First(v => v.Key == key);
-			return a as KeyValue<T>;
+			return new KeyValue<T>(a.Key, (T)a.Value, a.Type);
 		}else{
 			Debug.WriteLine($"Attribute:{key} is not found!");
 			return new(key, default!, VoiSonaValueType.Unknown);
 		}
+	}
+
+	/// <summary>
+	/// 属性の値だけを取得
+	/// </summary>
+	/// <typeparam name="T"></typeparam>
+	/// <param name="key">属性名</param>
+	/// <returns></returns>
+	/// <seealso cref="GetAttribute{T}(string)"/>
+	public T GetAttributeValue<T>(string key)
+		where T: notnull
+	{
+		return GetAttribute<T>(key).Value;
 	}
 }
