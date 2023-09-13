@@ -51,7 +51,14 @@ Tracks 0x00 0x00 0x01 (child_num)
 			values
 		FrameAlpha			//ALP
 			values
-
+		SpeedRatio			//話速
+			value 0x00 0x01 (text_bytes_len) 0x05
+		C0Shift				//Global VOL
+			value
+		LogF0Shitt			//Global PIT
+			value
+		AlphaShift			//Global ALP
+			value
 
 */
 using System.Collections.Generic;
@@ -208,6 +215,30 @@ public record TstPrj: VoiSonaFileBase
 					"PhonemeDuration",
 					u,
 					VoiSonaValueType.String);
+				SetSingleValOnlyChildIfPossible(
+					utterance.Span,
+					"SpeedRatio",
+					u,
+					VoiSonaValueType.String
+				);
+				SetSingleValOnlyChildIfPossible(
+					utterance.Span,
+					"C0Shift",
+					u,
+					VoiSonaValueType.String
+				);
+				SetSingleValOnlyChildIfPossible(
+					utterance.Span,
+					"LogF0Shift",
+					u,
+					VoiSonaValueType.String
+				);
+				SetSingleValOnlyChildIfPossible(
+					utterance.Span,
+					"AlphaShift",
+					u,
+					VoiSonaValueType.String
+				);
 
 				contents.Children.Add(u);
 			}
@@ -238,12 +269,35 @@ public record TstPrj: VoiSonaFileBase
 		VoiSonaValueType type
 	)
 	{
+		SetValueChild(source, name, target, type, "values");
+	}
+
+	static void SetSingleValOnlyChildIfPossible(
+		ReadOnlySpan<byte> source,
+		string name,
+		Tree target,
+		VoiSonaValueType type
+	)
+	{
+		SetValueChild(source, name, target, type, "value");
+	}
+
+	static void SetValueChild(
+		ReadOnlySpan<byte> source,
+		string name,
+		Tree target,
+		VoiSonaValueType type,
+		string attrName
+	)
+	{
 		var hasChild =
 			BinaryUtil.TryFindChild(source, name, out var child);
 		if (!hasChild) return;
 
 		var tree = new Tree(name);
-		SetAttrIfPossible(child, "values", tree, type);
+		SetAttrIfPossible(child, attrName, tree, type);
 		target.Children.Add(tree);
 	}
+
+
 }
