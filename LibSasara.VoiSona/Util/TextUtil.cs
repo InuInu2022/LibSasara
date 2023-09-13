@@ -16,9 +16,10 @@ public static class TextUtil
 	/// <summary>
 	/// [seconds]:[T value] のカンマ区切り文字列を分割変換
 	/// </summary>
+	/// <typeparam name="T">値の型</typeparam>
 	/// <param name="source">[seconds]:[T value] のカンマ区切り文字列</param>
 	/// <returns></returns>
-	public static IEnumerable<FrameValue<T>>
+	public static IEnumerable<SecondsValue<T>>
 	SplitValBySec<T>(string source)
 		where T: struct
 	{
@@ -29,9 +30,34 @@ public static class TextUtil
 			.Select(v =>
 			{
 				Span<string> span = v.Split(colon);
-				return new FrameValue<T>(
+				return new SecondsValue<T>(
 					SasaraUtil
 						.ConvertDecimal(span[0]),
+					Cast<T>(v)
+				);
+			});
+	}
+
+	/// <summary>
+	/// [frames]:[T value] のカンマ区切り文字列を分割変換
+	/// </summary>
+	/// <typeparam name="T">値の型</typeparam>
+	/// <param name="source">[frames]:[T value] のカンマ区切り文字列</param>
+	/// <returns></returns>
+	public static IEnumerable<FrameValue<T>>
+	SplitValByFrame<T>(string source)
+		where T: struct
+	{
+		char[] comma = ",".ToCharArray();
+		char[] colon = ":".ToCharArray();
+		return source
+			.Split(comma)
+			.Select<string, FrameValue<T>>(v =>
+			{
+				Span<string> span = v.Split(colon);
+				return new(
+					SasaraUtil
+						.ConvertInt(span[0]),
 					Cast<T>(v)
 				);
 			});
@@ -44,7 +70,7 @@ public static class TextUtil
 	/// <param name="source"></param>
 	/// <returns></returns>
 	public static IEnumerable<T>
-	SplitDecVal<T>(string source)
+	SplitVal<T>(string source)
 		where T: struct
 	{
 		char[] comma = ",".ToCharArray();

@@ -1,38 +1,36 @@
 using System;
-using System.Diagnostics;
 
 namespace LibSasara.VoiSona.Model.Talk;
 
 /// <summary>
-/// 秒ごとの値をあらわすRecord
+/// フレームごとの値を表すRecord
 /// </summary>
-/// <typeparam name="TValue">decimal, intなど</typeparam>
-public record FrameValue<TValue> : IFrameParam
-	where TValue: struct
+public record FrameValue<T>
+	where T : struct
 {
-	/// <inheritdoc cref="FrameValue{TValue}"/>
-	/// <param name="seconds">秒</param>
-	/// <param name="value">値</param>
+	/// <inheritdoc cref="FrameValue{T}"/>
 	public FrameValue(
-		decimal seconds,
-		TValue value
+		int frame,
+		T value
 	)
 	{
-		Seconds = seconds;
+		Frame = frame;
 		Value = value;
 	}
 
-	/// <inheritdoc/>
-	public decimal Seconds { get; set; }
+	/// <summary>
+	/// フレーム数
+	/// </summary>
+	public int Frame{ get; set; }
 	/// <summary>
 	/// 値
 	/// </summary>
-	public TValue Value { get; set; }
+	public T Value { get; set; }
 
 	/// <summary>
 	/// コロン区切り文字列で返します
 	/// </summary>
-	/// <returns>コロン区切り文字列。`<see cref="Seconds"/>:<see cref="Value"/>` </returns>
+	/// <returns>コロン区切り文字列。`<see cref="Frame"/>:<see cref="Value"/>` </returns>
 	public override string ToString()
-		=> $"{Seconds}:{Value}";
+		=> $"{Frame}:{Value}";
 }

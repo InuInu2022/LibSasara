@@ -5,7 +5,7 @@ namespace LibSasara.VoiSona.Model.Talk;
 /// <summary>
 /// フレームごとのパラメータ値の共通インターフェイス
 /// </summary>
-public interface IFrameParam
+public interface ISecondsParam
 {
 	/// <summary>
 	/// パラメータの対象フレーム秒

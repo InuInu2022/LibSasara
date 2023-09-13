@@ -6,10 +6,10 @@ namespace LibSasara.VoiSona.Model.Talk;
 /// <summary>
 /// Style(感情)の変化比率パラメータ
 /// </summary>
-public record FrameStyle : FrameValue<int>, IFrameParam
+public record FrameStyle : SecondsValue<int>, ISecondsParam
 {
 	/// <inheritdoc cref="FrameStyle"/>
-	/// <param name="seconds"><inheritdoc cref="IFrameParam.Seconds"/></param>
+	/// <param name="seconds"><inheritdoc cref="ISecondsParam.Seconds"/></param>
 	/// <param name="value"><inheritdoc cref="Value"/></param>
 	/// <param name="rates"><inheritdoc cref="Rates"/></param>
 	public FrameStyle(
@@ -34,7 +34,7 @@ public record FrameStyle : FrameValue<int>, IFrameParam
 	/// <summary>
 	/// コロン区切り文字列で返します
 	/// </summary>
-	/// <returns>コロン区切り文字列。`<see cref="IFrameParam.Seconds"/>:<see cref="Value"/>:<see cref="Rates"/>[]` </returns>
+	/// <returns>コロン区切り文字列。`<see cref="ISecondsParam.Seconds"/>:<see cref="Value"/>:<see cref="Rates"/>[]` </returns>
 	public override string ToString()
 		=> $"{Seconds}:{Value}:{string.Join(":", Rates)}";
 }

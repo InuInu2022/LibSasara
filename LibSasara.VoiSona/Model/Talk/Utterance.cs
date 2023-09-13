@@ -84,6 +84,14 @@ public class Utterance : Tree
 	}
 
 	/// <summary>
+	/// 音素別の長さのリスト
+	/// </summary>
+	public IEnumerable<decimal> PhonemeOriginalDurations
+	{
+		get => TextUtil.SplitVal<decimal>(PhonemeOriginalDuration);
+	}
+
+	/// <summary>
 	/// 調声後の音素の長さを示すカンマ区切り文字列
 	/// </summary>
 	/// <seealso cref="PhonemeOriginalDuration"/>
@@ -243,7 +251,7 @@ public class Utterance : Tree
 	/// <summary>
 	/// Volume(音量)変化比率
 	/// </summary>
-	public IEnumerable<FrameValue<decimal>> FrameC0
+	public IEnumerable<SecondsValue<decimal>> FrameC0
 	{
 		get => TextUtil
 			.SplitValBySec<decimal>(FrameC0Raw);
@@ -252,7 +260,7 @@ public class Utterance : Tree
 	/// <summary>
 	/// Pitch(音程)変化比率
 	/// </summary>
-	public IEnumerable<FrameValue<decimal>> FrameLogF0
+	public IEnumerable<SecondsValue<decimal>> FrameLogF0
 	{
 		get => TextUtil
 			.SplitValBySec<decimal>(FrameLogF0Raw);
@@ -261,7 +269,7 @@ public class Utterance : Tree
 	/// <summary>
 	/// Alpha(声質、声の幼さ)変化比率
 	/// </summary>
-	public IEnumerable<FrameValue<decimal>> FrameAlpha
+	public IEnumerable<SecondsValue<decimal>> FrameAlpha
 	{
 		get => TextUtil
 			.SplitValBySec<decimal>(FrameAlphaRaw);
