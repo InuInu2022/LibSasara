@@ -22,7 +22,7 @@ public class Utterance : Tree
 	) : base("Utterance")
 	{
 		Text = text ?? "";
-		TsmlString = tsml;
+		RawTsml = tsml;
 		RawStart = start;
 		Disable = disable;
 
@@ -40,15 +40,15 @@ public class Utterance : Tree
 	/// 発話データTSMLの文字列
 	/// </summary>
 	/// <seealso cref="Tsml"/>
-	public string? TsmlString { get; }
+	public string? RawTsml { get; }
 
 	/// <summary>
 	/// 発話データTSMLの<see cref="XElement"/>
 	/// </summary>
-	/// <seealso cref="TsmlString"/>
+	/// <seealso cref="RawTsml"/>
 	public XElement Tsml {
 		get {
-			var s = $"<tsml>{TsmlString?.Replace("\\\"", "\"")}</tsml>";
+			var s = $"<tsml>{RawTsml?.Replace("\\\"", "\"")}</tsml>";
 			var xml = XElement.Parse(s);
 			return xml;
 		}
