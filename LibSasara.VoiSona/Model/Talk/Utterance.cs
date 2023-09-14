@@ -105,6 +105,14 @@ public class Utterance : Tree
 	}
 
 	/// <summary>
+	/// セリフの抑揚（Intonation）
+	/// </summary>
+	public decimal LogF0Scale {
+		get => TreeUtil
+			.GetValueOnlyChildValue<decimal>(this, nameof(LogF0Scale));
+	}
+
+	/// <summary>
 	/// 元の音素の長さを示すカンマ区切り文字列
 	/// </summary>
 	/// <seealso cref="PhonemeDuration"/>

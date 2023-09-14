@@ -59,6 +59,8 @@ Tracks 0x00 0x00 0x01 (child_num)
 			value
 		AlphaShift			//Global ALP
 			value
+		LogF0Scale			//Global Intonation
+			value
 
 */
 using System.Collections.Generic;
@@ -236,6 +238,12 @@ public record TstPrj: VoiSonaFileBase
 				SetSingleValOnlyChildIfPossible(
 					utterance.Span,
 					"AlphaShift",
+					u,
+					VoiSonaValueType.String
+				);
+				SetSingleValOnlyChildIfPossible(
+					utterance.Span,
+					"LogF0Scale",
 					u,
 					VoiSonaValueType.String
 				);

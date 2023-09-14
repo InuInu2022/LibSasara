@@ -221,6 +221,7 @@ public class VoiSonaTest : IAsyncLifetime
 				Debug.WriteLine($"{v.C0Shift}");
 				Debug.WriteLine($"{v.LogF0Shift}");
 				Debug.WriteLine($"{v.AlphaShift}");
+				Debug.WriteLine($"{v.LogF0Scale}");
 
 				var ph = v.Tsml
 					.Descendants("word")
