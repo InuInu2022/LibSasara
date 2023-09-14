@@ -51,7 +51,19 @@ public class TalkTrack : Tree
 			;
 		set {
 			if (value is null) return;
-			Children.Add(value);
+
+			//Voiceはトークトラックに現状一つのみ
+			var index = Children
+				.FindIndex(v => v.Name == nameof(Voice));
+			if (index < 0)
+			{
+				Children.Add(value);
+			}
+			else{
+				Children[index] = value;
+			}
+
+			//Children.Add(value);
 		}
 	}
 

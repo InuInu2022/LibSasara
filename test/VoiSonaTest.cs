@@ -197,6 +197,11 @@ public class VoiSonaTest : IAsyncLifetime
 			var v = track.Voice;
 			Debug.WriteLine($"{v?.Name}, id:{v?.Id}, {v?.Speaker}, {v?.Version}");
 
+			track.Voice = new Voice("A", "B", "100.0.0");
+			track.Voice.Speaker.Should().Be("A");
+			track.Voice.Id.Should().Be("B");
+			track.Voice.Version.Should().Be("100.0.0");
+
 			Debug.WriteLine($"	volume:{track.Volume}");
 			Debug.WriteLine($"	pan:{track.Pan}");
 
