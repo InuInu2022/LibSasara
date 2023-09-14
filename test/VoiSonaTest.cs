@@ -378,22 +378,27 @@ public class VoiSonaTest : IAsyncLifetime
 	}
 
 	[Theory]
-	[InlineData(0)]
-	public async void ReplaceVoice(int trackIndex)
+	[InlineData("Takahashi", "techno-sp_ja_JP_m801_tts.tsnvoice","2.0.0 ported from CeVIO AI")]
+	[InlineData("Sato Sasara", "techno-sp_ja_JP_f801_tts.tsnvoice", "1.0.0 ported from CeVIO AI")]
+	[InlineData("Suzuki Tsudumi", "techno-sp_ja_JP_f802_tts.tsnvoice", "1.0.0 ported from CeVIO AI")]
+	public async void ReplaceVoice(
+		string speaker,
+		string id,
+		string version,
+		int trackIndex = 0
+	)
 	{
 		if (TemplateTalk is null) return;
 
 		var tstprj = TemplateTalk
 			.ReplaceVoice(
 				new Voice(
-					"Takahashi",
-					"techno-sp_ja_JP_m801_tts.tsnvoice",
-					"2.0.0 ported from CeVIO AI"),
+					speaker, id, version),
 				trackIndex
 			);
 
 		await LibVoiSona
-			.SaveAsync("../../../file/replaced.tstprj", tstprj.ToArray());
+			.SaveAsync($"../../../file/replaced{speaker}.tstprj", tstprj.ToArray());
 	}
 
 
