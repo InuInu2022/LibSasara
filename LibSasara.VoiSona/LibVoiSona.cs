@@ -30,7 +30,7 @@ public static class LibVoiSona
 		}
 		//TODO: TssPrj
 		else{
-			throw new Exception("not supported yet");
+			throw new NotSupportedException("not supported yet");
 		}
 	}
 
