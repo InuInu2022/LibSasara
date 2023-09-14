@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -48,8 +47,12 @@ public class TalkTrack : Tree
 	/// </summary>
 	public Voice? Voice{
 		get => Children
-			.FirstOrDefault(v => v.Name == nameof(Voice)) as Voice
+			.Find(v => v.Name == nameof(Voice)) as Voice
 			;
+		set {
+			if (value is null) return;
+			Children.Add(value);
+		}
 	}
 
 	/// <summary>
@@ -59,9 +62,7 @@ public class TalkTrack : Tree
 	{
 		get
 		{
-			var hasContents = Children.Exists(v => v.Name == "Contents");
-
-			return hasContents ?
+			return HasContents ?
 				Children?
 					.FirstOrDefault(v => v.Name == "Contents")
 					.Children
@@ -71,5 +72,32 @@ public class TalkTrack : Tree
 				: new List<Utterance>()
 			;
 		}
+		set
+		{
+			if(!HasContents || Contents is null){
+				Contents = new Tree("Contents");
+			}
+			Contents.Children = value
+				.Cast<Tree>().ToList();
+		}
+	}
+
+	private Tree? _contents;
+	private Tree? Contents{
+		get => HasContents
+			? _contents
+			: default;
+		set {
+			if (value is null) return;
+			if(!HasContents){
+				Children.Add(value);
+			}
+			_contents = value;
+		}
+	}
+
+	private bool HasContents {
+		get => Children
+			.Exists(v => v.Name == "Contents");
 	}
 }
