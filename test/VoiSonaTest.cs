@@ -33,6 +33,7 @@ public class VoiSonaTest : IAsyncLifetime
 {
 	private readonly ITestOutputHelper _output;
 	private static TstPrj? SampleTalk;
+	private static TstPrj? TemplateTalk;
 	private static byte[]? SampleSong;
 
 	public VoiSonaTest(ITestOutputHelper output)
@@ -44,8 +45,11 @@ public class VoiSonaTest : IAsyncLifetime
 	{
 		SampleTalk = await LibVoiSona
 			.LoadAsync<TstPrj>("../../../file/voisonatalk.tstprj");
+		TemplateTalk = await LibVoiSona
+			.LoadAsync<TstPrj>("../../../file/template.tstprj");
 		//SampleSong = await File
 		//	.ReadAllTextAsync("../../../file/voisonasong.tssprj");
+
 	}
 
 	public Task DisposeAsync()
@@ -356,6 +360,40 @@ public class VoiSonaTest : IAsyncLifetime
 				$"{s} {e} {p}");
 		}
 		return sb.ToString();
+	}
+	[Fact]
+	public void CopyTest()
+	{
+		if (TemplateTalk is null) return;
+		//データをテンプレから書き換え可能にしてコピー
+		var copied = TemplateTalk.Copy();
+
+		copied.Should().NotBeNull();
+		var r = new TstPrj(copied.Span.ToArray());
+		r.GetAllTracksBin().Count
+			.Should()
+			.Be(TemplateTalk
+				.GetAllTracksBin()
+				.Count);
+	}
+
+	[Theory]
+	[InlineData(0)]
+	public async void ReplaceVoice(int trackIndex)
+	{
+		if (TemplateTalk is null) return;
+
+		var tstprj = TemplateTalk
+			.ReplaceVoice(
+				new Voice(
+					"Takahashi",
+					"techno-sp_ja_JP_m801_tts.tsnvoice",
+					"2.0.0 ported from CeVIO AI"),
+				trackIndex
+			);
+
+		await LibVoiSona
+			.SaveAsync("../../../file/replaced.tstprj", tstprj.ToArray());
 	}
 
 
