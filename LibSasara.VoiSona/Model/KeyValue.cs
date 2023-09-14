@@ -69,4 +69,15 @@ public sealed record KeyValue<T>
 			: rs.ToArray().AsMemory()
 			;
 	}
+
+	/// <summary>
+	/// バイト列に変換して返す
+	/// </summary>
+	/// <returns></returns>
+	public ReadOnlyMemory<byte> GetBytes(){
+		ReadOnlyMemory<byte> hexKey = System.Text
+			.Encoding.UTF8.GetBytes($"{Key}\0");
+		var head = this.GetHeaderBytes(false, true);
+		return hexKey.Concat(head);
+	}
 }

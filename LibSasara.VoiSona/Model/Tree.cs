@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Diagnostics;
+using LibSasara.VoiSona.Util;
 
 namespace LibSasara.VoiSona.Model;
 
@@ -97,16 +98,72 @@ public class Tree
 		};
 	}
 
-    /// <summary>
-    /// 属性のデータを追加する
-    /// </summary>
+	/// <summary>
+	/// バイト列化して返す
+	/// </summary>
+	/// <param name="withNull">子要素のパラメータ名のあとにNULLを付与するか</param>
+	/// <param name="endNull">末端にNULLを付与するか</param>
+	/// <returns></returns>
+	public ReadOnlyMemory<byte> GetBytes(
+		bool withNull = false,
+		bool endNull = true)
+	{
+        ReadOnlyMemory<byte> hexName = System.Text
+			.Encoding.UTF8.GetBytes($"{Name}\0");
+		var atHead = GetAttributeHeader();
+
+		var atValues = AttributeCount > 0
+			? Attributes
+				.Select(v => v.GetBytes())
+				.Aggregate((a, b) => a.Concat(b))
+			: Array.Empty<byte>()
+	    	;
+		//TODO:必要な処理に置き換え
+		if(Name=="Timing" || Name=="LogF0" || Name=="C0"){
+			//強制的に
+			withNull = false;
+			endNull = false;
+		}
+		var cldHead = GetChildHeader(withNull);
+		//Console.WriteLine(BitConverter.ToString(cldHead));
+
+		var cldValues = Count > 0
+			? Children
+				.Select(v => v.GetBytes())
+				.Aggregate((a, b) => a.Concat(b))
+			: Array.Empty<byte>()
+		    ;
+
+		var ret = hexName;
+
+		if(AttributeCount>0){
+			ret = ret
+				.Concat(atHead)
+				.Concat(atValues)
+				;
+		}
+        if(Count>0){
+			ret = ret
+				.Concat(cldHead)
+				.Concat(cldValues)
+				;
+		}
+
+		return endNull
+			? ret.Concat(new byte[1] { Common.NULL_END })
+			: ret;
+	}
+
+	/// <summary>
+	/// 属性のデータを追加する
+	/// </summary>
 	/// <remarks>
 	/// 同じ <paramref name="key"/>の属性がある時は値を上書き、無ければ新規追加
 	/// </remarks>
-    /// <param name="key"></param>
-    /// <param name="value"></param>
-    /// <param name="type"></param>
-    public void AddAttribute(
+	/// <param name="key"></param>
+	/// <param name="value"></param>
+	/// <param name="type"></param>
+	public void AddAttribute(
 		string key,
 		dynamic value,
 		VoiSonaValueType? type
