@@ -57,6 +57,23 @@ public static class BinaryUtil
 	}
 
 	/// <summary>
+	/// <see cref="ReadOnlyMemory{T}"/>同士を結合する
+	/// </summary>
+	/// <param name="a"></param>
+	/// <param name="b"></param>
+	/// <returns></returns>
+	public static ReadOnlyMemory<byte> Concat(
+		this ReadOnlyMemory<byte> a,
+		ReadOnlyMemory<byte> b
+	)
+	{
+		Memory<byte> c = new(new byte[a.Length + b.Length]);
+		a.CopyTo(c.Slice(0, a.Length));
+		b.CopyTo(c.Slice(a.Length, b.Length));
+		return c;
+	}
+
+	/// <summary>
 	/// 指定されたバイト列 (<see cref="Span{T}"/>) から
 	/// 指定された名前の属性の検索を試みます。
 	/// </summary>
