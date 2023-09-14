@@ -60,9 +60,9 @@ public sealed record KeyValue<T>
 		if (withNull) rs[0] = 0x00;
 
 		//TODO:support int16
-		rs[1 + index] = 0x01;   //int8
-		rs[2 + index] = Convert.ToByte(ret.Count + 1);
-		rs[3 + index] = (byte)ret.Type;
+		rs[0 + index] = 0x01;   //int8
+		rs[1 + index] = Convert.ToByte(ret.Count + 1);
+		rs[2 + index] = (byte)ret.Type;
 
 		return withData
 			? rs.ToArray().Concat(ret.DataBytes).ToArray().AsMemory()
