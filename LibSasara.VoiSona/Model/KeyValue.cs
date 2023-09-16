@@ -52,17 +52,21 @@ public sealed record KeyValue<T>
 	{
 		Header ret = HeaderUtil.Analysis(Value!);
 
-		Span<byte> rs = withNull
-			? stackalloc byte[4]
-			: stackalloc byte[3];
+		var isInt16 = ret.Count + 1 > 256;
+		var cByteLen = isInt16 ? 2 : 1;
+		var len = withNull ? cByteLen + 3 : cByteLen + 2;
+
+		Span<byte> rs = stackalloc byte[len];
 		int index = withNull ? 1 : 0;
 
 		if (withNull) rs[0] = 0x00;
 
-		//TODO:support int16
-		rs[0 + index] = 0x01;   //int8
-		rs[1 + index] = Convert.ToByte(ret.Count + 1);
-		rs[2 + index] = (byte)ret.Type;
+		rs[0 + index] = isInt16 ? (byte)0x02 : (byte)0x01;
+		Span<byte> cbytes = isInt16
+			? BitConverter.GetBytes(Convert.ToInt16(ret.Count + 1))
+			: BitConverter.GetBytes(Convert.ToByte(ret.Count + 1));
+		cbytes.CopyTo(rs.Slice(1 + index, cbytes.Length));
+		rs[len - 1] = (byte)ret.Type;
 
 		return withData
 			? rs.ToArray().Concat(ret.DataBytes).ToArray().AsMemory()
