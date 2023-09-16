@@ -108,7 +108,7 @@ public class Tree
 		bool withNull = false,
 		bool endNull = true)
 	{
-        ReadOnlyMemory<byte> hexName = System.Text
+		ReadOnlyMemory<byte> hexName = System.Text
 			.Encoding.UTF8.GetBytes($"{Name}\0");
 		var atHead = GetAttributeHeader();
 
@@ -117,7 +117,7 @@ public class Tree
 				.Select(v => v.GetBytes())
 				.Aggregate((a, b) => a.Concat(b))
 			: Array.Empty<byte>()
-	    	;
+			;
 		//TODO:必要な処理に置き換え
 		if(Name=="Timing" || Name=="LogF0" || Name=="C0"){
 			//強制的に
@@ -132,7 +132,7 @@ public class Tree
 				.Select(v => v.GetBytes())
 				.Aggregate((a, b) => a.Concat(b))
 			: Array.Empty<byte>()
-		    ;
+			;
 
 		var ret = hexName;
 
@@ -142,7 +142,7 @@ public class Tree
 				.Concat(atValues)
 				;
 		}
-        if(Count>0){
+		if(Count>0){
 			ret = ret
 				.Concat(cldHead)
 				.Concat(cldValues)
