@@ -216,11 +216,11 @@ public class Utterance : Tree
 		get => TreeUtil
 			.GetValuesOnlyChildrenValue<string>(
 				this,
-				nameof(FrameStyleRaw))
+				nameof(FrameStyle))
 			?? "";
 		set => TreeUtil.SetValuesOnlyChildrenValue(
 			this,
-			nameof(FrameStyleRaw),
+			nameof(FrameStyle),
 			value);
 	}
 
@@ -234,11 +234,11 @@ public class Utterance : Tree
 		get => TreeUtil
 			.GetValuesOnlyChildrenValue<string>(
 				this,
-				nameof(FrameC0Raw))
+				nameof(FrameC0))
 			?? "";
 		set => TreeUtil.SetValuesOnlyChildrenValue(
 			this,
-			nameof(FrameC0Raw),
+			nameof(FrameC0),
 			value);
 	}
 
@@ -252,11 +252,11 @@ public class Utterance : Tree
 		get => TreeUtil
 			.GetValuesOnlyChildrenValue<string>(
 				this,
-				nameof(FrameLogF0Raw))
+				nameof(FrameLogF0))
 			?? "";
 		set => TreeUtil.SetValuesOnlyChildrenValue(
 			this,
-			nameof(FrameLogF0Raw),
+			nameof(FrameLogF0),
 			value);
 	}
 
@@ -270,11 +270,11 @@ public class Utterance : Tree
 		get => TreeUtil
 			.GetValuesOnlyChildrenValue<string>(
 				this,
-				nameof(FrameAlphaRaw))
+				nameof(FrameAlpha))
 			?? "";
 		set => TreeUtil.SetValuesOnlyChildrenValue(
 			this,
-			nameof(FrameAlphaRaw),
+			nameof(FrameAlpha),
 			value);
 	}
 
