@@ -63,7 +63,6 @@ public static class TextUtil
 			});
 	}
 
-
 	/// <summary>
 	/// カンマ区切り文字列を分割
 	/// </summary>
