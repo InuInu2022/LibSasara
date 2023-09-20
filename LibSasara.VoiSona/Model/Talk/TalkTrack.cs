@@ -76,7 +76,7 @@ public class TalkTrack : Tree
 		{
 			return HasContents ?
 				Children?
-					.FirstOrDefault(v => v.Name == "Contents")
+					.FirstOrDefault(v => v.Name == nameof(Contents))
 					.Children
 					.Cast<Utterance>()
 					.ToList()
@@ -87,11 +87,19 @@ public class TalkTrack : Tree
 		set
 		{
 			if(!HasContents || Contents is null){
-				Contents = new Tree("Contents");
+				Contents = new Tree(nameof(Contents));
 			}
 			Contents.Children = value
 				.Cast<Tree>().ToList();
 		}
+	}
+
+	/// <summary>
+	/// Content要素を持つかどうか
+	/// </summary>
+	public bool HasContents {
+		get => Children
+			.Exists(v => v.Name == nameof(Contents));
 	}
 
 	private Tree? _contents;
@@ -108,8 +116,5 @@ public class TalkTrack : Tree
 		}
 	}
 
-	private bool HasContents {
-		get => Children
-			.Exists(v => v.Name == "Contents");
-	}
+
 }

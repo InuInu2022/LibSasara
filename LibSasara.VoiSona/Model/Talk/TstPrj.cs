@@ -32,46 +32,45 @@ Tracks 0x00 0x00 0x01 (child_num)
 		speaker
 		name
 		version 0x00 0x01 len 0x05 (utf8string)
-	0x00 Contents 0x00 0x00 0x01 (child_num)
+	Contents 0x00 0x00 0x01 (child_num)
 		Utterance 0x00 0x01 (attr_num)
 			text 0x00 0x01 (text_bytes_len) 0x05 (utf8string) 0x00
 			tsml 0x00 0x02 (int16_len) 0x05 (utf8string)
 			start 0x00 0x01 (text_bytes_len) 0x05 (utf8string)
 			export_name 0x00 0x01 (text_bytes_len) 0x05 (utf8string)
 			disable 0x00 0x01 0x01 0x02 (bool)
-		FrameStyle			//STY
-			values
-		PhonemeOriginalDuration	//default LEN(TMG)
-			values
-		FrameC0				//VOL
-			values
-		FrameLogF0			//PIT
-			values
-		PhonemeDuration 	//変更したLEN(TMG)
-			values
-		FrameAlpha			//ALP
-			values
-		SpeedRatio			//話速
-			value 0x00 0x01 (text_bytes_len) 0x05
-		C0Shift				//Global VOL
-			value
-		LogF0Shitt			//Global PIT
-			value
-		AlphaShift			//Global ALP
-			value
-		LogF0Scale			//Global Intonation
-			value
+			FrameStyle			//STY
+				values
+			PhonemeOriginalDuration	//default LEN(TMG)
+				values
+			FrameC0				//VOL
+				values
+			FrameLogF0			//PIT
+				values
+			PhonemeDuration 	//変更したLEN(TMG)
+				values
+			FrameAlpha			//ALP
+				values
+			SpeedRatio			//話速
+				value 0x00 0x01 (text_bytes_len) 0x05
+			C0Shift				//Global VOL
+				value
+			LogF0Shitt			//Global PIT
+				value
+			AlphaShift			//Global ALP
+				value
+			LogF0Scale			//Global Intonation
+				value
 
 */
-using System.Collections.Generic;
 using System;
-using System.Text;
-using LibSasara.Model;
-using System.Linq;
-using System.Runtime.InteropServices;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
+using System.Text;
+
+using LibSasara.Model;
 using LibSasara.VoiSona.Util;
-using System.Diagnostics;
 
 namespace LibSasara.VoiSona.Model.Talk;
 
@@ -151,10 +150,11 @@ public record TstPrj: VoiSonaFileBase
 		SetAttrIfPossible(v.Span, "pan", track, VoiSonaValueType.Double);
 
 		//voice
-		var hasVoice = BinaryUtil.TryFindChild(v.Span, "Voice", out var voice);
+		var hasVoice = BinaryUtil
+			.TryFindChild(v.Span, nameof(Voice), out var voice);
 		if (hasVoice)
 		{
-			ReadOnlySpan<byte> s = voice;
+			var s = voice;
 			BinaryUtil.TryFindAttribute(s, "speaker", out var speaker);
 			BinaryUtil.TryFindAttribute(s, "name", out var name);
 			BinaryUtil.TryFindAttribute(s, "version", out var version);
@@ -166,11 +166,13 @@ public record TstPrj: VoiSonaFileBase
 			.TryFindCollection(
 				v.Span,
 				"Contents",
-				"Utterance",
+				nameof(Utterance),
 				out var utterances);
 		if (hasContents)
 		{
-			var contents = new Tree("Contents");
+			var contents = new Tree(
+				"Contents",
+				true);
 
 			foreach(var utterance in utterances){
 				var hasText = BinaryUtil.TryFindAttribute(utterance.Span, "text", out var text);
@@ -178,13 +180,11 @@ public record TstPrj: VoiSonaFileBase
 				var hasStart = BinaryUtil.TryFindAttribute(utterance.Span, "start", out var start);
 				var hasDisable = BinaryUtil.TryFindAttribute(utterance.Span, "disable", out var disable);
 
-
-
 				var u = new Utterance(
 					hasText ? text.Data : null,
 					hasTsml ? tsml.Data : null,
 					hasStart ? start.Data : null,
-					hasDisable ? disable.Data : true
+					hasDisable ? disable.Data : null
 				);
 
 				SetValueOnlyChildIfPossible(
@@ -306,6 +306,4 @@ public record TstPrj: VoiSonaFileBase
 		SetAttrIfPossible(child, attrName, tree, type);
 		target.Children.Add(tree);
 	}
-
-
 }

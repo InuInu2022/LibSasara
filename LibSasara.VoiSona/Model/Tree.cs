@@ -43,14 +43,22 @@ public class Tree
 		= new();
 
 	/// <summary>
+	/// このツリーがコレクション配列かどうか
+	/// </summary>
+	public bool IsCollection { get; }
+
+	/// <summary>
 	/// コンストラクタ
 	/// </summary>
-	/// <param name="Name">ツリーのプロパティ名 <see cref="Name"/></param>
+	/// <param name="Name">ツリーのプロパティ名 <see cref="Name"/>このツリーがコレクション配列かどうか</param>
+	/// <param name="isCollection"></param>
 	public Tree(
-		string Name
+		string Name,
+		bool isCollection = false
 	)
 	{
 		this.Name = Name;
+		this.IsCollection = isCollection;
 	}
 
 	/// <summary>
@@ -64,8 +72,23 @@ public class Tree
 		var cByte = BitConverter
 			.GetBytes(Count)
 			.AsSpan();
-		int len = cByte.Length;
+		var len = cByte.Length;
 
+		//isCollection
+		if (IsCollection){
+			var h = withNull
+				? stackalloc byte[4]
+				: stackalloc byte[3];
+			if (withNull) h[0] = 0x00;
+			var offset = withNull ? 1 : 0;
+			h[offset] = 0x00;
+			h[offset + 1] = 0x01;
+			//TODO: 255 < Count
+			h[offset + 2] = (byte)Count;
+			return new(h.ToArray());
+		}
+
+		//not collection
 		var n = withNull switch
 		{
 			true => new byte[2]{

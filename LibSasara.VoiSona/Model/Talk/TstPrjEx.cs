@@ -1,5 +1,9 @@
 using System;
-using System.Runtime.InteropServices;
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.IO;
+using System.Linq;
+using LibSasara.VoiSona.Util;
 
 namespace LibSasara.VoiSona.Model.Talk;
 
@@ -34,40 +38,154 @@ public static class TstPrjEx
 		this TstPrj source,
 		Voice newVoice,
 		int trackIndex = 0
-	){
+	)
+	{
 		var copied = source.Copy();
 
-		var tracksBin = source.GetAllTracksBin();
-		if(trackIndex > tracksBin.Count){
-			throw new IndexOutOfRangeException($"track[{trackIndex}] is not found!");
-		}
-		var track = source.GetAllTracks()[trackIndex];
-		var trackBin = tracksBin[trackIndex].Span;
-		var trackBytesIndex = copied.Span.IndexOf(trackBin);
+		TryFindTrack(
+			source,
+			trackIndex,
+			copied,
+			out var track,
+			out var trackBin,
+			out var trackBytesIndex);
+
 		var voiceBin = track.Voice!.GetBytes().Span;
 		var voiceBytesIndex = trackBin.IndexOf(voiceBin);
 
 		//置き換えの前後をslice
-		var before = copied.Slice(0, trackBytesIndex + voiceBytesIndex);
-		var after = copied.Slice(
-			trackBytesIndex + voiceBytesIndex + voiceBin.Length
-		);
+		(var before, var after) = SplitBeforeAfter(
+			copied,
+			trackBytesIndex + voiceBytesIndex,
+			voiceBin.Length);
 
 		var nvMemory = newVoice.GetBytes();
 
-		var len = before.Length + nvMemory.Length + after.Length;
+		return ConcatMemory(before, after, nvMemory);
+	}
+
+	private static bool TryFindTrack(
+		TstPrj source,
+		int trackIndex,
+		Memory<byte> copied,
+		out TalkTrack track,
+		out ReadOnlySpan<byte> trackBin,
+		out int trackBytesIndex)
+	{
+		var tracksBin = source.GetAllTracksBin();
+		if (trackIndex > tracksBin.Count)
+		{
+			Debug.WriteLine($"track[{trackIndex}] is not found!");
+			track = new TalkTrack();
+			trackBin = Array.Empty<byte>();
+			trackBytesIndex = 0;
+			return false;
+		}
+		track = source.GetAllTracks()[trackIndex];
+		trackBin = tracksBin[trackIndex].Span;
+		trackBytesIndex = copied.Span.IndexOf(trackBin);
+		return true;
+	}
+
+	/// <summary>
+	/// トラック内の <see cref="Utterance"/> (セリフ)をすべて置き換える
+	/// </summary>
+	/// <param name="source"></param>
+	/// <param name="newUtterances">新しいセリフのリスト</param>
+	/// <param name="trackIndex"></param>
+	/// <returns></returns>
+	public static Memory<byte> ReplaceAllUtterances(
+		this TstPrj source,
+		IEnumerable<Utterance> newUtterances,
+		int trackIndex = 0
+	)
+	{
+		var copied = source.Copy();
+
+		TryFindTrack(
+			source,
+			trackIndex,
+			copied,
+			out var track,
+			out var trackBin,
+			out var trackBytesIndex);
+
+		if(!track.HasContents){
+			throw new InvalidDataException($"Target track {track.TrackName} has no Content child.");
+		}
+
+		ReadOnlySpan<byte> hexName =
+			System.Text.Encoding.UTF8
+			.GetBytes("Contents\0");
+		//content要素がtrackの最後の前提
+		var contentBin = trackBin
+			.Slice(
+				trackBin.IndexOf(hexName)
+			);
+		var contentIndex = trackBin.IndexOf(contentBin);
+
+		//TODO:配列専用のヘッダーbyte生成＆セリフ数反映
+		const bool replaceMode = true;
+		if(replaceMode){
+			//Content collection replace
+			(var before, var after) = SplitBeforeAfter(
+				copied,
+				trackBytesIndex + contentIndex,
+				contentBin.Length);
+
+			var content = new Tree("Contents", true);
+			content.Children
+				.AddRange(newUtterances);
+
+			var uBytes = content.GetBytes();
+
+			return ConcatMemory(before, after, uBytes);
+		} else {
+			//中身くり抜くパターン
+			(var before, var after) = SplitBeforeAfter(
+				copied,
+				trackBytesIndex + contentIndex + hexName.Length + 3,
+				contentBin.Length - hexName.Length - 3);
+
+			var uBytes = newUtterances
+				.Select(u => u.GetBytes())
+				.Aggregate((x, y) => x.Concat(y));
+
+			return ConcatMemory(before, after, uBytes);
+		}
+	}
+
+	private static (Memory<byte> before, Memory<byte> after)
+	SplitBeforeAfter(
+		Memory<byte> target,
+		int insertIndex,
+		int insertLength)
+	{
+		var before = target.Slice(
+			0,
+			insertIndex);
+		var after = target.Slice(
+			insertIndex + insertLength);
+		return (before, after);
+	}
+
+	private static Memory<byte> ConcatMemory(
+		Memory<byte> before,
+		Memory<byte> after,
+		ReadOnlyMemory<byte> insert)
+	{
+		var len = before.Length + insert.Length + after.Length;
 		var ret = new Memory<byte>(new byte[len]);
 		before.CopyTo(ret.Slice(
 			0,
 			before.Length));
-		nvMemory.CopyTo(ret.Slice(
+		insert.CopyTo(ret.Slice(
 			before.Length,
-			nvMemory.Length));
+			insert.Length));
 		after.CopyTo(ret.Slice(
-			before.Length + nvMemory.Length,
+			before.Length + insert.Length,
 			after.Length
 		));
-
 		return ret;
 	}
 }

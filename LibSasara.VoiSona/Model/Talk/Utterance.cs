@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Xml;
 using System.Xml.Linq;
 using LibSasara.VoiSona.Util;
 
@@ -18,18 +17,21 @@ public class Utterance : Tree
 		string? text,
 		string? tsml,
 		string? start,
-		bool disable = false
-	) : base("Utterance")
+		bool? disable = null,
+		string export_name = ""
+	) : base(nameof(Utterance))
 	{
 		Text = text ?? "";
 		RawTsml = tsml;
 		RawStart = start;
-		Disable = disable;
+		if(disable is not null)Disable = disable;
+		ExportName = export_name;
 
 		if(text is not null) AddAttribute(nameof(text), text, VoiSonaValueType.String);
 		if(tsml is not null) AddAttribute(nameof(tsml), tsml, VoiSonaValueType.String);
 		if(start is not null) AddAttribute(nameof(start), start, VoiSonaValueType.String);
-		AddAttribute(nameof(disable), disable, VoiSonaValueType.Bool);
+		if(disable is not null) AddAttribute(nameof(disable), disable, VoiSonaValueType.Bool);
+		if (!string.IsNullOrEmpty(export_name)) AddAttribute(nameof(export_name), export_name, VoiSonaValueType.String);
 	}
 
 	/// <summary>
@@ -70,7 +72,12 @@ public class Utterance : Tree
 	/// <summary>
 	/// セリフ文が有効か無効か
 	/// </summary>
-	public bool Disable { get; }
+	public bool? Disable { get; }
+
+	/// <summary>
+	/// セリフ行の書き出しファイル名称
+	/// </summary>
+	public string ExportName { get; }
 
 	/// <summary>
 	/// セリフの話速(Speed)
@@ -166,7 +173,6 @@ public class Utterance : Tree
 	/// </summary>
 	/// <seealso cref="PhonemeOriginalDuration"/>
 	/// <seealso cref="Label"/>
-	//TODO
 	public LibSasara.Model.Lab? DefaultLabel {
 		get => BuildLab(PhonemeOriginalDuration);
 	}
@@ -197,8 +203,6 @@ public class Utterance : Tree
 			foreach(var i in pd){
 				pod[i.Item1] = i.Item2;
 			}
-
-
 			return BuildLabFromSpan(pod.AsSpan());
 		}
 	}
@@ -298,7 +302,6 @@ public class Utterance : Tree
 					);
 				})
 				;
-
 		}
 	}
 
@@ -345,7 +348,7 @@ public class Utterance : Tree
 			.Descendants("word")
 			.Attributes("phoneme")
 			.Select(s => s.Value)
-			.Select(s => s == "" ? "sil" : s)
+			.Select(s => s?.Length == 0 ? "sil" : s)
 			;
 		char[] separators = { ',', '|' };
 		ReadOnlySpan<string> phonemes = string
@@ -354,7 +357,7 @@ public class Utterance : Tree
 			;
 		var cap = 30 * pd.Length;
 		var sb = new StringBuilder(cap);
-		decimal time = 0m;
+		var time = 0m;
 		const decimal x = 10000000m;
 		for (var i = 0; i < pd.Length; i++)
 		{
