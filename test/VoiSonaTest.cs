@@ -61,7 +61,8 @@ public class VoiSonaTest : IAsyncLifetime
 	public void LoadTest()
 	{
 		SampleTalk.Should().NotBeNull();
-		SampleTalk?.Data.Should().NotBeNull();
+		if (SampleTalk is null) return;
+		SampleTalk.Data.Should().NotBeNull();
 
 		Console.WriteLine($"len:{SampleTalk?.Data.Length}");
 	}
@@ -71,7 +72,8 @@ public class VoiSonaTest : IAsyncLifetime
 	public void CheckCategory(
 		Category category)
 	{
-		SampleTalk?.Category
+		if (SampleTalk is null) return;
+		SampleTalk.Category
 			.Should().Be(category);
 	}
 
@@ -79,17 +81,19 @@ public class VoiSonaTest : IAsyncLifetime
 	[Fact]
 	public void GetAllTracks()
 	{
-		var tracksBin = SampleTalk?.GetAllTracksBin();
+		if (SampleTalk is null) return;
+		var tracksBin = SampleTalk
+			.GetAllTracksBin();
 
-		tracksBin?.Count.Should().BeGreaterThan(0);
+		tracksBin.Should().HaveCountGreaterThan(0);
 
 		if (tracksBin is null) return;
 
-		var tracksTree = SampleTalk?.GetAllTracks();
+		var tracksTree = SampleTalk.GetAllTracks();
 
-		tracksTree?.Count.Should().Be(tracksBin.Count);
+		tracksTree.Count.Should().Be(tracksBin.Count);
 
-		tracksTree?
+		tracksTree
 			.Select(t => t.AttributeCount)
 			.Should().NotBeEmpty()
 			.And.HaveCountGreaterThan(0)
@@ -280,8 +284,8 @@ public class VoiSonaTest : IAsyncLifetime
 		var oLab = u.DefaultLabel;
 		var tLab = u.Label;
 
-		oLab?.Lines.Should().NotBeNullOrEmpty();
-		tLab?.Lines.Should().NotBeNullOrEmpty();
+		(oLab?.Lines).Should().NotBeNullOrEmpty();
+		(tLab?.Lines).Should().NotBeNullOrEmpty();
 
 		//lab phonemes
 		var oPh = string.Join("", oLab?.Lines?.Select(l => l.Phoneme) ?? Array.Empty<string>());
@@ -294,7 +298,9 @@ public class VoiSonaTest : IAsyncLifetime
 		oLen.Should().Be(tLen);
 		Debug.WriteLine(string.Join(",",oLab?.Lines?.Select(v => v.Length.ToString(CultureInfo.InvariantCulture)!)!));
 		Debug.WriteLine(string.Join(",",tLab?.Lines?.Select(v => v.Length.ToString(CultureInfo.InvariantCulture)!)!));
-		oLab?.Lines?.Select(v=>v.Length)!
+
+		var l = oLab?.Lines ?? Array.Empty<LabLine>();
+		l.Select(v=>v.Length)
 			.SequenceEqual(tLab?.Lines!.Select(v=>v.Length)!)
 			.Should().Be(isNotTuned);
 	}
@@ -399,6 +405,31 @@ public class VoiSonaTest : IAsyncLifetime
 
 		await LibVoiSona
 			.SaveAsync($"../../../file/replaced{speaker}.tstprj", tstprj.ToArray());
+	}
+
+	[Fact]
+	public async void ReplaceAllUtterances()
+	{
+		if (TemplateTalk is null) return;
+
+		var us = new List<Utterance>(new Utterance[]{
+			new(
+				"ドレミ",
+				"""<acoustic_phrase><word begin_byte_index="0" chain="0" end_byte_index="15" hl="lhhhh" original="ドレミ" phoneme="d,o|r,e|m,i" pos="感動詞" pronunciation="ドレミ">ドレミ</word></acoustic_phrase>""",
+				"1.234",
+				export_name: "Talk1_1")
+			{
+				//must
+				FrameStyleRaw = "0:1:1.000:0.000:0.000:0.000:0.000",
+				PhonemeOriginalDuration = "0.1,0.225,0.200,0.155,0.140,0.175,0.220,0.155,0.160,0.225"
+			}
+		});
+
+		var tstprj = TemplateTalk
+			.ReplaceAllUtterances(us);
+
+		await LibVoiSona
+			.SaveAsync($"../../../file/replaced_utterances.tstprj", tstprj.ToArray());
 	}
 
 
