@@ -50,14 +50,14 @@ public sealed record KeyValue<T>
 		bool withNull,
 		bool withData = false)
 	{
-		Header ret = HeaderUtil.Analysis(Value!);
+		var ret = HeaderUtil.Analysis(Value!);
 
 		var isInt16 = ret.Count + 1 > 256;
 		var cByteLen = isInt16 ? 2 : 1;
 		var len = withNull ? cByteLen + 3 : cByteLen + 2;
 
 		Span<byte> rs = stackalloc byte[len];
-		int index = withNull ? 1 : 0;
+		var index = withNull ? 1 : 0;
 
 		if (withNull) rs[0] = 0x00;
 
