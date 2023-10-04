@@ -16,7 +16,7 @@ public abstract record VoiSonaFileBase
 	/// <summary>
 	/// format version
 	/// </summary>
-    public Version? Format { get; set; }
+	public Version? Format { get; set; }
 
 	/// <summary>
 	/// ファイルのカテゴリ（Talk or Song）
@@ -35,11 +35,11 @@ public abstract record VoiSonaFileBase
 	/// コンストラクタ
 	/// </summary>
 	/// <param name="data"></param>
-    protected VoiSonaFileBase(
+	protected VoiSonaFileBase(
 		IReadOnlyList<byte> data
 	)
-    {
+	{
 		bytes = data;
 		Data = bytes.ToArray().AsMemory();
-    }
+	}
 }
