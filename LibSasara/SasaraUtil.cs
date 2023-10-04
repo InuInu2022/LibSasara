@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using LibSasara.Model;
 
@@ -23,8 +24,11 @@ public static class SasaraUtil
 		decimal defaultValue = 0.00m
 	)
 	{
-		var isSafe = decimal
-			.TryParse(value, out var val);
+		var isSafe = decimal.TryParse(
+			value,
+			NumberStyles.Number,
+			CultureInfo.InvariantCulture,
+			out var val);
 
 		return isSafe ? val : defaultValue;
 	}
@@ -39,8 +43,11 @@ public static class SasaraUtil
 		int defaultValue = 0
 	)
 	{
-		var isSafe = int
-			.TryParse(value, out var val);
+		var isSafe = int.TryParse(
+			value,
+			NumberStyles.Number,
+			CultureInfo.InvariantCulture,
+			out var val);
 
 		return isSafe ? val : defaultValue;
 	}
@@ -67,8 +74,8 @@ public static class SasaraUtil
 	/// <param name="tempoList">テンポ変更リスト。"clock, tempo"のリスト。</param>
 	/// <param name="clockTick">変換したいClock（tick）値</param>
 	/// <param name="maxClock">テンポ変更の最終Clock値。未指定の場合は<paramref name="tempoList"/>の最後のClock＋1小節（<see cref="TickPerTempo"/>*4）とみなす。</param>
-    /// <exception cref="ArgumentOutOfRangeException" />
-    /// <seealso cref="SongUnit.Tempo"/>
+	/// <exception cref="ArgumentOutOfRangeException" />
+	/// <seealso cref="SongUnit.Tempo"/>
 	/// <returns></returns>
 	public static TimeSpan ClockToTimeSpan(
 		SortedDictionary<int, int> tempoList,
@@ -110,9 +117,7 @@ public static class SasaraUtil
 			));
 			next.Key = Key;
 		}
-
 		list.Reverse();
-
 		var l = list
 			.Where(v => clockTick > v.Key)
 			.Select(item =>
@@ -134,11 +139,8 @@ public static class SasaraUtil
 				return addTick * msecPerTick;
 			})
 			;
-
 		double sum = l.Sum();
-
 		var rsum = Math.Round(sum, 2, MidpointRounding.ToEven);
-
 		return TimeSpan.FromMilliseconds(rsum);
 	}
 
@@ -147,7 +149,7 @@ public static class SasaraUtil
 	/// </summary>
 	/// <param name="freq">周波数</param>
 	/// <param name="baseFreq">基準ド周波数</param>
-    /// <seealso cref="NoteNumToFreq(int, double)"/>
+	/// <seealso cref="NoteNumToFreq(int, double)"/>
 	/// <returns></returns>
 	public static int FreqToNoteNum(
 		double freq,
@@ -161,7 +163,7 @@ public static class SasaraUtil
 	/// <param name="num">MIDIノートナンバー</param>
 	/// <param name="baseFreq">基準ド周波数</param>
 	/// <returns>ノート中央の周波数</returns>
-    /// <seealso cref="FreqToNoteNum(double, double)"/>
+	/// <seealso cref="FreqToNoteNum(double, double)"/>
 	public static double NoteNumToFreq(
 		int num,
 		double baseFreq = 440.0
@@ -173,7 +175,7 @@ public static class SasaraUtil
 	/// </summary>
 	/// <param name="num">MIDIノートナンバー</param>
 	/// <returns></returns>
-    /// <seealso cref="OctaveStepToNoteNum(int, int)"/>
+	/// <seealso cref="OctaveStepToNoteNum(int, int)"/>
 	public static (int octave, int step) NoteNumToOctaveStep(int num)
 	{
 		var oc = num == 0 ? -1 : (num / 12) - 1;
@@ -182,35 +184,35 @@ public static class SasaraUtil
 	}
 
 	/// <summary>
-    /// <see cref="Note"/>の <see cref="Note.PitchOctave"/> と <see cref="Note.PitchStep"/>からMidiノートナンバーに変換
-    /// </summary>
-    /// <param name="octave"></param>
-    /// <param name="step"></param>
-    /// <returns></returns>
-    /// <seealso cref="NoteNumToOctaveStep(int)"/>
+	/// <see cref="Note"/>の <see cref="Note.PitchOctave"/> と <see cref="Note.PitchStep"/>からMidiノートナンバーに変換
+	/// </summary>
+	/// <param name="octave"></param>
+	/// <param name="step"></param>
+	/// <returns></returns>
+	/// <seealso cref="NoteNumToOctaveStep(int)"/>
 	public static int OctaveStepToNoteNum(int octave, int step)
 	{
 		return ((octave + 1) * 12) + step;
 	}
 
 	/// <summary>
-    /// 周波数を<see cref="Note"/>の <see cref="Note.PitchOctave"/> と <see cref="Note.PitchStep"/> に変換
-    /// </summary>
-    /// <param name="freq">周波数</param>
-    /// <returns></returns>
-    /// <seealso cref="OctaveStepToFreq(int, int)"/>
+	/// 周波数を<see cref="Note"/>の <see cref="Note.PitchOctave"/> と <see cref="Note.PitchStep"/> に変換
+	/// </summary>
+	/// <param name="freq">周波数</param>
+	/// <returns></returns>
+	/// <seealso cref="OctaveStepToFreq(int, int)"/>
 	public static (int octave, int step) FreqToOctaveStep(double freq){
 		int num = FreqToNoteNum(freq);
 		return NoteNumToOctaveStep(num);
 	}
 
 	/// <summary>
-    /// <see cref="Note"/>の <see cref="Note.PitchOctave"/> と <see cref="Note.PitchStep"/> をノート中央の周波数に変換
-    /// </summary>
-    /// <param name="octave"></param>
-    /// <param name="step"></param>
-    /// <returns></returns>
-    /// <seealso cref="FreqToOctaveStep(double)"/>
+	/// <see cref="Note"/>の <see cref="Note.PitchOctave"/> と <see cref="Note.PitchStep"/> をノート中央の周波数に変換
+	/// </summary>
+	/// <param name="octave"></param>
+	/// <param name="step"></param>
+	/// <returns></returns>
+	/// <seealso cref="FreqToOctaveStep(double)"/>
 	public static double OctaveStepToFreq(int octave, int step){
 		var num = OctaveStepToNoteNum(octave, step);
 		return NoteNumToFreq(num);
