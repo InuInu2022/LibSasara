@@ -174,85 +174,54 @@ public record TstPrj: VoiSonaFileBase
 				"Contents",
 				true);
 
-			foreach(var utterance in utterances){
-				var hasText = BinaryUtil.TryFindAttribute(utterance.Span, "text", out var text);
-				var hasTsml = BinaryUtil.TryFindAttribute(utterance.Span, "tsml", out var tsml);
-				var hasStart = BinaryUtil.TryFindAttribute(utterance.Span, "start", out var start);
-				var hasDisable = BinaryUtil.TryFindAttribute(utterance.Span, "disable", out var disable);
-
-				var u = new Utterance(
-					hasText ? text.Data : null,
-					hasTsml ? tsml.Data : null,
-					hasStart ? start.Data : null,
-					hasDisable ? disable.Data : null
-				);
-
-				SetValueOnlyChildIfPossible(
-					utterance.Span,
-					"PhonemeOriginalDuration",
-					u,
-					VoiSonaValueType.String);
-				SetValueOnlyChildIfPossible(
-					utterance.Span,
-					"FrameStyle",
-					u,
-					VoiSonaValueType.String);
-				SetValueOnlyChildIfPossible(
-					utterance.Span,
-					"FrameC0",
-					u,
-					VoiSonaValueType.String);
-				SetValueOnlyChildIfPossible(
-					utterance.Span,
-					"FrameLogF0",
-					u,
-					VoiSonaValueType.String);
-				SetValueOnlyChildIfPossible(
-					utterance.Span,
-					"FrameAlpha",
-					u,
-					VoiSonaValueType.String);
-				SetValueOnlyChildIfPossible(
-					utterance.Span,
-					"PhonemeDuration",
-					u,
-					VoiSonaValueType.String);
-				SetSingleValOnlyChildIfPossible(
-					utterance.Span,
-					"SpeedRatio",
-					u,
-					VoiSonaValueType.String
-				);
-				SetSingleValOnlyChildIfPossible(
-					utterance.Span,
-					"C0Shift",
-					u,
-					VoiSonaValueType.String
-				);
-				SetSingleValOnlyChildIfPossible(
-					utterance.Span,
-					"LogF0Shift",
-					u,
-					VoiSonaValueType.String
-				);
-				SetSingleValOnlyChildIfPossible(
-					utterance.Span,
-					"AlphaShift",
-					u,
-					VoiSonaValueType.String
-				);
-				SetSingleValOnlyChildIfPossible(
-					utterance.Span,
-					"LogF0Scale",
-					u,
-					VoiSonaValueType.String
-				);
-
-				contents.Children.Add(u);
-			}
+			BuildContentsTree(utterances, contents);
 			track.Children.Add(contents);
 		}
 		return track;
+	}
+
+	private static readonly Dictionary<string, VoiSonaValueType> utteranceChildPairs = new(StringComparer.Ordinal)
+	{
+		{"PhonemeOriginalDuration",VoiSonaValueType.String},
+		{"FrameStyle",VoiSonaValueType.String},
+		{"FrameC0",VoiSonaValueType.String},
+		{"FrameLogF0",VoiSonaValueType.String},
+		{"FrameAlpha",VoiSonaValueType.String},
+		{"PhonemeDuration",VoiSonaValueType.String},
+		{"SpeedRatio",VoiSonaValueType.String},
+		{"C0Shift",VoiSonaValueType.String},
+		{"LogF0Shift",VoiSonaValueType.String},
+		{"AlphaShift",VoiSonaValueType.String},
+		{"LogF0Scale",VoiSonaValueType.String},
+	};
+
+	private static void BuildContentsTree(ReadOnlyCollection<ReadOnlyMemory<byte>> utterances, Tree contents)
+	{
+		for (int i = 0; i < utterances.Count; i++)
+		{
+			var utterance = utterances[i];
+			var hasText = BinaryUtil.TryFindAttribute(utterance.Span, "text", out var text);
+			var hasTsml = BinaryUtil.TryFindAttribute(utterance.Span, "tsml", out var tsml);
+			var hasStart = BinaryUtil.TryFindAttribute(utterance.Span, "start", out var start);
+			var hasDisable = BinaryUtil.TryFindAttribute(utterance.Span, "disable", out var disable);
+
+			var u = new Utterance(
+				hasText ? text.Data : null,
+				hasTsml ? tsml.Data : null,
+				hasStart ? start.Data : null,
+				hasDisable ? disable.Data : null
+			);
+
+			foreach(var p in utteranceChildPairs)
+			{
+				SetValueOnlyChildIfPossible(
+					utterance.Span,
+					p.Key,
+					u,
+					p.Value);
+			}
+			contents.Children.Add(u);
+		}
 	}
 
 	static void SetAttrIfPossible(
