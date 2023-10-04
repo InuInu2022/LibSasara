@@ -26,6 +26,7 @@ using System.Xml;
 using System.Xml.Linq;
 using System.Globalization;
 using System.Text;
+using Microsoft.Extensions.Primitives;
 
 namespace test;
 
@@ -412,6 +413,23 @@ public class VoiSonaTest : IAsyncLifetime
 	{
 		if (TemplateTalk is null) return;
 
+		var f0 = string.Empty;
+		var sb = new StringBuilder(100000);
+		const int limit = 1000;
+		for (var i = 0; i< limit; i++){
+			string f = Math
+				.Round(1.0 + 0.005 * i, 3)
+				.ToString("F3", CultureInfo.InvariantCulture);
+			string v = Math
+				.Round(4.4 + (i * 0.001), 3)
+				.ToString("F3", CultureInfo.InvariantCulture);
+			sb.Append(
+				CultureInfo.InvariantCulture,
+				$"{f}:{v}");
+			if(i<limit-1)sb.Append(',');
+		}
+		f0 = sb.ToString();
+
 		var us = new List<Utterance>(new Utterance[]{
 			new(
 				"ドレミ",
@@ -421,7 +439,23 @@ public class VoiSonaTest : IAsyncLifetime
 			{
 				//must
 				FrameStyleRaw = "0:1:1.000:0.000:0.000:0.000:0.000",
-				PhonemeOriginalDuration = "0.1,0.225,0.200,0.155,0.140,0.175,0.220,0.155,0.160,0.225"
+				PhonemeOriginalDuration = "0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9",
+
+				//pitch write
+				FrameLogF0Raw = f0
+			},
+			new(
+				"ファソラ",
+				"""<acoustic_phrase><word begin_byte_index="0" chain="0" end_byte_index="15" hl="lhhhh" original="ファソラ" phoneme="f,a|s,o|r,a" pos="感動詞" pronunciation="ファソラ">ファソラ</word></acoustic_phrase>""",
+				"3.456",
+				export_name: "Talk1_2")
+			{
+				//must
+				FrameStyleRaw = "0:1:1.000:0.000:0.000:0.000:0.000",
+				PhonemeOriginalDuration = "0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9",
+
+				//pitch write
+				FrameLogF0Raw = f0
 			}
 		});
 
