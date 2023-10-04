@@ -96,6 +96,7 @@ public static class SasaraUtil
 			maxClock = last.Key + (TickPerTempo * 4);
 		}else if(maxClock < last.Key){
 			throw new ArgumentOutOfRangeException(
+				nameof(maxClock),
 				$"Invalid clock. {nameof(maxClock)} must be greater than or equal to the maximum clock tick in {nameof(tempoList)}.");
 		}
 
