@@ -10,9 +10,11 @@ namespace LibSasara.VoiSona.Util;
 public static class TreeUtil
 {
 	/// <summary>
-	/// 属性がvaluesのみ持ち、Tree中に一つしかない<see cref="Tree.Children"/>の値を返す
+	/// 属性が<c>values</c>のみ持ち、Tree中に一つしかない<see cref="Tree.Children"/>の値を返す
 	/// </summary>
 	/// <typeparam name="T"></typeparam>
+	/// <param name="tree">対象のTree</param>
+	/// <param name="childName">子の名前</param>
 	/// <returns></returns>
 	/// <seealso cref="SetValuesOnlyChildrenValue{T}(Tree, string, T)"/>
 	/// <seealso cref="GetValueOnlyChildValue{T}(Tree, string)"/>
@@ -107,7 +109,7 @@ public static class TreeUtil
 	)
 		where T: notnull
 	{
-		SetValueChildInternal(tree, childName, value, "value");
+		SetValueChildInternal(tree, childName, value, nameof(value));
 	}
 
 	private static void SetValueChildInternal<T>(
