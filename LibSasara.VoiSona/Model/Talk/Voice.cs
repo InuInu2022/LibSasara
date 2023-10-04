@@ -37,7 +37,7 @@ public sealed class Voice : Tree
 		string speaker,
 		string name,
 		string version
-	) : base("Voice")
+	) : base(nameof(Voice))
 	{
 		Speaker = speaker;
 		Id = name;
