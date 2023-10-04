@@ -139,6 +139,13 @@ Since NodoAme ver. 0.4, LibSasara has been used directly.
 - documents
   - [docfx](https://dotnet.github.io/docfx/)
 
+- analyzers
+  - [Microsoft.VisualStudio.Threading.Analyzers](https://github.com/microsoft/vs-threading)
+  - [NetFabric.Hyperlinq.Analyzer](https://github.com/NetFabric/NetFabric.Hyperlinq.Analyzer)
+  - [Roslynator](https://github.com/dotnet/roslynator)
+  - [Meziantou.Analyzer](https://github.com/meziantou/Meziantou.Analyzer)
+  - [Code Cracker](http://code-cracker.github.io/)
+
 ## LibSasara license
 
 > The MIT License
