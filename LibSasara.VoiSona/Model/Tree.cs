@@ -101,7 +101,6 @@ public class Tree
 		return n
 			.Concat(cByte.ToArray())
 			.ToArray();
-
 	}
 
 	/// <summary>
@@ -142,7 +141,8 @@ public class Tree
 			: Array.Empty<byte>()
 			;
 		//TODO:必要な処理に置き換え
-		if(Name=="Timing" || Name=="LogF0" || Name=="C0"){
+		if(Name is "Timing" or "LogF0" or "C0")
+		{
 			//強制的に
 			withNull = false;
 			endNull = false;
@@ -192,10 +192,10 @@ public class Tree
 		VoiSonaValueType? type
 	){
 		var exists = Attributes
-			.Exists(v => v.Key == key);
+			.Exists(v => string.Equals(v.Key, key, StringComparison.Ordinal));
 		if(exists){
 			var a = Attributes
-				.First(v => v.Key == key);
+				.First(v => string.Equals(v.Key, key, StringComparison.Ordinal));
 			a.Value = value;
 			a.Type = type;
 		}else{
@@ -215,10 +215,10 @@ public class Tree
 		where T: notnull
 	{
 		var exists = Attributes
-			.Exists(v => v.Key == key);
+			.Exists(v => string.Equals(v.Key, key, StringComparison.Ordinal));
 		if(exists){
 			var a = Attributes
-				.First(v => v.Key == key);
+				.First(v => string.Equals(v.Key, key, StringComparison.Ordinal));
 			return new KeyValue<T>(a.Key, (T)a.Value, a.Type);
 		}else{
 			Debug.WriteLine($"Attribute:{key} is not found!");
