@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 
 namespace LibSasara.VoiSona.Model.Talk;
@@ -29,7 +28,7 @@ public record FrameStyle : SecondsValue<int>, ISecondsParam
 	/// <summary>
 	/// その時点の感情(STY)比率
 	/// </summary>
-	public List<decimal> Rates { get; set; }
+	public IList<decimal> Rates { get; set; }
 
 	/// <summary>
 	/// コロン区切り文字列で返します
