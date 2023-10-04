@@ -12,6 +12,7 @@ using LibSasara.Model.Serialize;
 
 using Xunit;
 using Xunit.Abstractions;
+using FluentAssertions;
 
 namespace test;
 
@@ -91,7 +92,7 @@ public class LibSasaraTest : IAsyncLifetime
 	[InlineData(CCS_FILEPATH_CS7)]
 	[InlineData(CCST_FILEPATH_AI8_SONG)]
 	[InlineData(CCST_FILEPATH_CS7_TALK1)]
-	public async ValueTask LoadFileAsync(string path)
+	public async Task LoadFileAsync(string path)
 	{
 		//_output.WriteLine($"path:{Path.GetFullPath(path)}");
 		Assert.True(File.Exists(path), $"path:{Path.GetFullPath(path)}");
@@ -342,7 +343,7 @@ public class LibSasaraTest : IAsyncLifetime
 
 	[Theory]
 	[InlineData(CCS_FILEPATH_AI8)]
-	public async ValueTask LoadLinqAsync(string path){
+	public async Task LoadLinqAsync(string path){
 		var result = await SasaraCcs
 			.LoadAsync(path);
 		result.GetUnitsRaw();
@@ -365,7 +366,7 @@ public class LibSasaraTest : IAsyncLifetime
 
 	[Theory]
 	[InlineData(CCS_FILEPATH_AI8)]
-	public async ValueTask ReplaceCastAsync(string path){
+	public async Task ReplaceCastAsync(string path){
 		var result = await SasaraCcs
 			.LoadAsync(path);
 		var u0 = result.GetUnitsRaw().FirstOrDefault();
@@ -402,7 +403,7 @@ public class LibSasaraTest : IAsyncLifetime
 	//[InlineData(CCS_FILEPATH_AI8)]
 	[InlineData(CCS_FILEPATH_CS7)]
 	[InlineData(CCST_FILEPATH_AI8_TALK2)]
-	public async ValueTask MetadataAsync(string path)
+	public async Task MetadataAsync(string path)
 	{
 		var result = await SasaraCcs
 			.LoadAsync(path);
@@ -622,7 +623,7 @@ public class LibSasaraTest : IAsyncLifetime
 			)
 			.Build();
 		//checks
-		Assert.NotNull(tu);
+		tu.Should().NotBeNull();
 	}
 
 	[Fact]
@@ -644,9 +645,9 @@ public class LibSasaraTest : IAsyncLifetime
 			.Tone(-1.0)
 			.LogF0Scale(1.1)
 			.Build();
-		Assert.NotNull(result);
+		result.Should().NotBeNull();
 		Assert.Equal(0.6m, result.Alpha);
-		Assert.Equal(id, result.Group);
+		result.Group.Should().Be(id);
 		Assert.Equal("Latin", result.Language);
 		Assert.Equal(1.1m, result.Volume);
 		Assert.Equal(0.98m, result.Speed);
@@ -963,7 +964,7 @@ public class LibSasaraTest : IAsyncLifetime
 	[Theory]
 	[InlineData(CCS_FILEPATH_CS7)]
 	//[InlineData(CCS_FILEPATH_AI8)]
-	public async ValueTask GetVolumeAsync(string path)
+	public async Task GetVolumeAsync(string path)
 	{
 		var ccs = await SasaraCcs
 			.LoadAsync(path);

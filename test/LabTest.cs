@@ -58,7 +58,7 @@ public class LabTest : IAsyncLifetime
 
 	[Theory]
 	[MemberData(nameof(DisplaceSecondsData))]
-	public async ValueTask DisplaceSecondsAsync(
+	public async Task DisplaceSecondsAsync(
 		Lab label,
 		double expectFrom,
 		Index index,
@@ -72,7 +72,7 @@ public class LabTest : IAsyncLifetime
 
 		//tests
 		resultFrom.Should().NotBeNull();
-		resultFrom.Should().Equals(expectFrom);
+		resultFrom.Should().Be(expectFrom);
 		resultTo.Should().NotBeNull();
 		var targetTo = expectFrom + (displaced * 10000000);
 		resultTo.Should().BeInRange(targetTo-0.01, targetTo+0.01);
