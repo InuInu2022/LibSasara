@@ -47,5 +47,7 @@ public static class LibVoiSona
 		IReadOnlyList<byte> data,
 		CancellationToken ctx = default
 	)
-		=> await FileUtil.SaveAsync(path, data, ctx);
+		=> await FileUtil
+			.SaveAsync(path, data, ctx)
+			.ConfigureAwait(false);
 }
