@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Xml.Linq;
@@ -362,7 +363,11 @@ public class Utterance : Tree
 		for (var i = 0; i < pd.Length; i++)
 		{
 			var s = time;
-			time += decimal.TryParse(pd[i], out var t)
+			time += decimal.TryParse(
+				pd[i],
+				NumberStyles.Number,
+				CultureInfo.InvariantCulture,
+				out var t)
 				? t * x : 0m;
 			var e = time;
 			var p = (i - 1 < 0 || phonemes.Length <= i - 1)
