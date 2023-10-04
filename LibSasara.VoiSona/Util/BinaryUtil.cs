@@ -27,21 +27,19 @@ public static class BinaryUtil
 	{
 		var list = new List<ReadOnlyMemory<byte>>();
 
-		int currentIndex = 0;
+		var currentIndex = 0;
 		while (currentIndex < source.Length)
 		{
-			int delimiterIndex = source.Slice(currentIndex).IndexOf(separator);
+			var delimiterIndex = source.Slice(currentIndex).IndexOf(separator);
 
 			if (delimiterIndex == -1)
 			{
 				list.Add(source.Slice(currentIndex).ToArray());
 				break;
 			}
-			else
-			{
-				list.Add(source.Slice(currentIndex, delimiterIndex).ToArray());
-				currentIndex += delimiterIndex + separator.Length;
-			}
+
+			list.Add(source.Slice(currentIndex, delimiterIndex).ToArray());
+			currentIndex += delimiterIndex + separator.Length;
 		}
 
 		return list.AsReadOnly();
@@ -102,7 +100,7 @@ public static class BinaryUtil
 		var temp = source.Slice(index + key.Length);
 		var countType = (int)temp[0];
 		var countData = temp.Slice(1, countType);
-		int count = countType switch
+		var count = countType switch
 		{
 			0 or 1 => countData[0],
 			2 => BitConverter
@@ -202,7 +200,7 @@ public static class BinaryUtil
 		var countType = (int)temp[1];
 		var countData = temp.Slice(2, countType);
 
-		int count = countType switch
+		var count = countType switch
 		{
 			1 => countData[0],
 			2 => BitConverter.ToInt16(countData.ToArray(), 0),
