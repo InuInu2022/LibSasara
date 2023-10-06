@@ -47,32 +47,31 @@ public static class TreeUtil
 		var hasChild = tree
 			.Children
 			.Exists(v => v.Name == childName);
-		if(hasChild){
-			var value = tree.Children
-				.Find(c => c.Name == childName)
-				.Attributes
-				.Find(a => a.Key == valueName)
-				.Value
-				?? default(T);
-			if(value is null){
-				return default;
-			}
-			if (typeof(T) == typeof(int))
-			{
-				return SasaraUtil.ConvertInt(value);
-			}
-			else if (typeof(T) == typeof(decimal))
-			{
-				return SasaraUtil.ConvertDecimal(value);
-			}else if(typeof(T) == typeof(bool)){
-				return SasaraUtil.ConvertBool(value);
-			}else if(typeof(T) == typeof(string)){
-				return (T)(object)value;
-			}else{
-				throw new NotSupportedException();
-			}
-		}else{
+
+		if (!hasChild) return default;
+
+		var value = tree.Children
+			.Find(c => c.Name == childName)
+			.Attributes
+			.Find(a => a.Key == valueName)
+			.Value
+			?? default(T);
+		if(value is null){
 			return default;
+		}
+		if (typeof(T) == typeof(int))
+		{
+			return SasaraUtil.ConvertInt(value);
+		}
+		else if (typeof(T) == typeof(decimal))
+		{
+			return SasaraUtil.ConvertDecimal(value);
+		}else if(typeof(T) == typeof(bool)){
+			return SasaraUtil.ConvertBool(value);
+		}else if(typeof(T) == typeof(string)){
+			return (T)(object)value;
+		}else{
+			throw new NotSupportedException();
 		}
 	}
 
