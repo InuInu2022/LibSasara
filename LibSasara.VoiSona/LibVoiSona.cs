@@ -23,7 +23,9 @@ public static class LibVoiSona
 	LoadAsync<T>(string path, CancellationToken ctx = default)
 		where T: VoiSonaFileBase
 	{
-		var bytes = await FileUtil.LoadAsync(path, ctx);
+		var bytes = await FileUtil
+			.LoadAsync(path, ctx)
+			.ConfigureAwait(false);
 
 		if(typeof(T) == typeof(TstPrj)){
 			return (T)(object)new TstPrj(bytes);
