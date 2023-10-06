@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -32,7 +31,9 @@ public static class FileUtil
 
 		using var fs = new FileStream(path, FileMode.Open);
 		var buffer = new byte[fs.Length];
-		await fs.ReadAsync(buffer, 0, buffer.Length, ctx);
+		var _ = await fs
+			.ReadAsync(buffer, 0, buffer.Length, ctx)
+			.ConfigureAwait(false);
 
 		return buffer;
 	}
@@ -52,6 +53,8 @@ public static class FileUtil
 	){
 		using var fs = File.Open(path, FileMode.OpenOrCreate);
 		fs.Seek(0, SeekOrigin.Begin);
-		await fs.WriteAsync(data.ToArray(), 0, data.Count, ctx);
+		await fs
+			.WriteAsync(data.ToArray(), 0, data.Count, ctx)
+			.ConfigureAwait(false);
 	}
 }
