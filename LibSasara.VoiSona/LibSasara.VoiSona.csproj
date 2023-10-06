@@ -10,6 +10,7 @@
     <DebugType Condition="'$(Configuration)' == 'Debug'">embedded</DebugType>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <InvariantGlobalization>true</InvariantGlobalization>
+    <EnableNETAnalyzers>true</EnableNETAnalyzers>
     <!-- nupkg -->
     <PackageId>LibSasara.VoiSona</PackageId>
     <Version>0.0.1</Version>

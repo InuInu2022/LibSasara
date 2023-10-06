@@ -19,6 +19,7 @@
     <GeneratePackageOnBuild Condition="'$(Configuration)' == 'Release'">true</GeneratePackageOnBuild>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <InvariantGlobalization>true</InvariantGlobalization>
+    <EnableNETAnalyzers>true</EnableNETAnalyzers>
     <!-- info -->
     <Product>LibSasara</Product>
     <Description>The utility library for CeVIO project file (.ccs / .ccst) and timing label file (.lab).</Description>
