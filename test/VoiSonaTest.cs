@@ -508,6 +508,39 @@ public class VoiSonaTest : IAsyncLifetime
 		tree.GetAttribute<object>("notfound")
 			.Value.Should().BeNull();
 	}
+
+	[Theory]
+	[InlineData("test",10, sizeof(byte))]
+	[InlineData("test2",3000, sizeof(short))]
+	[InlineData("test3",35000, sizeof(int))]
+	public void TreeCollection(
+		string key,
+		int count,
+		int size
+	)
+	{
+		var tree = new Tree(key, true);
+		tree.Should().NotBeNull();
+		if (tree is null) return;
+
+		tree.IsCollection.Should().BeTrue();
+
+		//collection
+		for(var i = 0; i < count; i++){
+			var c = new Tree($"{key}_{i}");
+			tree.Children.Add(c);
+		}
+		tree.Count.Should().Be(count);
+
+		var header = tree.GetChildHeader();
+		header.Should().NotBeNull();
+
+		//size
+		var sizeOf = (int)header
+			.Slice(2, 1)
+			.ToArray()[0];
+		sizeOf.Should().Be(size);
+	}
 }
 
 [ShortRunJob]
