@@ -223,4 +223,41 @@ public static class BinaryUtil
 			;
 		return true;
 	}
+
+	/// <summary>
+	/// バイトから整数値を解析
+	/// </summary>
+	/// <param name="memory"></param>
+	/// <param name="countType"></param>
+	/// <returns></returns>
+	public static int ParseIntegerFromBytes(
+		ReadOnlyMemory<byte> memory,
+		int countType
+	){
+		return countType switch
+		{
+			0 => 0,
+			sizeof(byte) => BitConverter.ToInt32(memory.Slice(0,countType).ToArray(), 0),
+			sizeof(short) => BitConverter.ToInt16(memory.Slice(0,countType).ToArray(), 0),
+			sizeof(int) => BitConverter.ToInt32(memory.Slice(0,countType).ToArray(), 0),
+			_ => -1
+		};
+	}
+
+	/// <summary>
+	/// 個数からバイト数表現を求める
+	/// </summary>
+	/// <param name="count"></param>
+	/// <returns></returns>
+	public static byte ParseSizeBytesFromCount(
+		long count
+	){
+		return count switch
+		{
+			<= byte.MaxValue => sizeof(byte),
+			<= short.MaxValue => sizeof(short),
+			<= int.MaxValue => sizeof(int),
+			<= long.MaxValue => sizeof(long),
+		};
+	}
 }

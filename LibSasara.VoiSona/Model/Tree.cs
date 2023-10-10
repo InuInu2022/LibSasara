@@ -77,14 +77,14 @@ public class Tree
 		//isCollection
 		if (IsCollection){
 			var h = withNull
-				? stackalloc byte[4]
-				: stackalloc byte[3];
+				? stackalloc byte[3+len]
+				: stackalloc byte[2+len];
 			if (withNull) h[0] = 0x00;
 			var offset = withNull ? 1 : 0;
 			h[offset] = 0x00;
-			h[offset + 1] = 0x01;
-			//TODO: 255 < Count
-			h[offset + 2] = (byte)Count;
+			var size = BinaryUtil.ParseSizeBytesFromCount(Count);
+			h[offset + 1] = size;
+			cByte.CopyTo(h.Slice(offset + 2));
 			return new(h.ToArray());
 		}
 

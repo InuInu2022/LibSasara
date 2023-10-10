@@ -139,6 +139,8 @@ static LibSasara.VoiSona.Model.Talk.TstPrjEx.ReplaceAllUtterances(this LibSasara
 static LibSasara.VoiSona.Model.Talk.TstPrjEx.ReplaceVoice(this LibSasara.VoiSona.Model.Talk.TstPrj! source, LibSasara.VoiSona.Model.Talk.Voice! newVoice, int trackIndex = 0) -> System.Memory<byte>
 static LibSasara.VoiSona.Model.Talk.Voice.Count.get -> int
 static LibSasara.VoiSona.Util.BinaryUtil.Concat(this System.ReadOnlyMemory<byte> a, System.ReadOnlyMemory<byte> b) -> System.ReadOnlyMemory<byte>
+static LibSasara.VoiSona.Util.BinaryUtil.ParseBytesFromCount(long count) -> byte
+static LibSasara.VoiSona.Util.BinaryUtil.ParseIntegerFromBytes(System.ReadOnlyMemory<byte> memory, int countType) -> int
 static LibSasara.VoiSona.Util.BinaryUtil.Split(this System.ReadOnlySpan<byte> source, System.ReadOnlySpan<byte> separator) -> System.Collections.ObjectModel.ReadOnlyCollection<System.ReadOnlyMemory<byte>>!
 static LibSasara.VoiSona.Util.BinaryUtil.Split(this System.Span<byte> source, System.ReadOnlySpan<byte> separator) -> System.Collections.ObjectModel.ReadOnlyCollection<System.ReadOnlyMemory<byte>>!
 static LibSasara.VoiSona.Util.BinaryUtil.TryFindAttribute(System.ReadOnlySpan<byte> source, string! name, out LibSasara.VoiSona.Util.Header! header) -> bool
@@ -154,4 +156,7 @@ static LibSasara.VoiSona.Util.TreeUtil.GetValueOnlyChildValue<T>(LibSasara.VoiSo
 static LibSasara.VoiSona.Util.TreeUtil.GetValuesOnlyChildrenValue<T>(LibSasara.VoiSona.Model.Tree! tree, string! childName) -> T?
 static LibSasara.VoiSona.Util.TreeUtil.SetValueOnlyChildValue<T>(LibSasara.VoiSona.Model.Tree! tree, string! childName, T value) -> void
 static LibSasara.VoiSona.Util.TreeUtil.SetValuesOnlyChildrenValue<T>(LibSasara.VoiSona.Model.Tree! tree, string! childName, T value) -> void
+virtual LibSasara.VoiSona.Model.VoiSonaFileBase.Category.get -> LibSasara.Model.Categoryodel.Tree! tree, string! childName, T value) -> void
+virtual LibSasara.VoiSona.Model.VoiSonaFileBase.Category.get -> LibSasara.Model.Categoryodel.Tree! tree, string! childName, T value) -> void
+virtual LibSasara.VoiSona.Model.VoiSonaFileBase.Category.get -> LibSasara.Model.Categoryodel.Tree! tree, string! childName, T value) -> void
 virtual LibSasara.VoiSona.Model.VoiSonaFileBase.Category.get -> LibSasara.Model.Category
