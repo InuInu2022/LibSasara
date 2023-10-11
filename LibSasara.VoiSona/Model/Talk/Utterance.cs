@@ -217,7 +217,7 @@ public class Utterance : Tree
 	/// <returns>
 	/// カンマ<c>,</c>区切りテキスト。比率は<c>:</c>で区切られます
 	/// </returns>
-	public string FrameStyleRaw{
+	public string RawFrameStyle{
 		get => TreeUtil
 			.GetValuesOnlyChildrenValue<string>(
 				this,
@@ -229,13 +229,21 @@ public class Utterance : Tree
 			value);
 	}
 
+	/// <inheritdoc cref="RawFrameStyle"/>
+	[Obsolete($"see {nameof(RawFrameStyle)}")]
+	public string FrameStyleRaw
+	{
+		get => RawFrameStyle;
+		set => RawFrameStyle = value;
+	}
+
 	/// <summary>
 	/// 生のVolume(音量)変化比率
 	/// </summary>
 	/// <returns>
 	/// カンマ<c>,</c>区切りテキスト。[seconds]:[value]
 	/// </returns>
-	public string FrameC0Raw{
+	public string RawFrameC0{
 		get => TreeUtil
 			.GetValuesOnlyChildrenValue<string>(
 				this,
@@ -247,13 +255,21 @@ public class Utterance : Tree
 			value);
 	}
 
+	/// <inheritdoc cref="RawFrameC0"/>
+	[Obsolete($"see {nameof(RawFrameC0)}")]
+	public string FramwC0Raw
+	{
+		get => RawFrameC0;
+		set => RawFrameC0 = value;
+	}
+
 	/// <summary>
 	/// 生のPitch(音程)変化比率
 	/// </summary>
 	/// <returns>
 	/// カンマ<c>,</c>区切りテキスト。[seconds]:[value]
 	/// </returns>
-	public string FrameLogF0Raw{
+	public string RawFrameLogF0{
 		get => TreeUtil
 			.GetValuesOnlyChildrenValue<string>(
 				this,
@@ -265,13 +281,20 @@ public class Utterance : Tree
 			value);
 	}
 
+	/// <inheritdoc cref="RawFrameLogF0"/>
+	[Obsolete($"see {nameof(RawFrameLogF0)}")]
+	public string FrameLogF0Raw{
+		get => RawFrameLogF0;
+		set => RawFrameLogF0 = value;
+	}
+
 	/// <summary>
 	/// 生のAlpha(声質、声の幼さ)変化比率
 	/// </summary>
 	/// <returns>
 	/// カンマ<c>,</c>区切りテキスト。[seconds]:[value]
 	/// </returns>
-	public string FrameAlphaRaw{
+	public string RawFrameAlpha{
 		get => TreeUtil
 			.GetValuesOnlyChildrenValue<string>(
 				this,
@@ -283,13 +306,20 @@ public class Utterance : Tree
 			value);
 	}
 
+	/// <inheritdoc cref="RawFrameAlpha"/>
+	[Obsolete($"see {nameof(RawFrameAlpha)}")]
+	public string FrameAlphaRaw{
+		get => RawFrameAlpha;
+		set => RawFrameAlpha = value;
+	}
+
 	/// <summary>
 	/// Style(感情)の変化比率
 	/// </summary>
 	public IEnumerable<FrameStyle> FrameStyles
 	{
 		get {
-			return FrameStyleRaw
+			return RawFrameStyle
 				.Split(",".ToCharArray())
 				.Select<string,FrameStyle>(v => {
 					Memory<string> a = v.Split(":".ToCharArray());
@@ -312,7 +342,7 @@ public class Utterance : Tree
 	public IEnumerable<SecondsValue<decimal>> FrameC0
 	{
 		get => TextUtil
-			.SplitValBySec<decimal>(FrameC0Raw);
+			.SplitValBySec<decimal>(RawFrameC0);
 	}
 
 	/// <summary>
@@ -321,7 +351,7 @@ public class Utterance : Tree
 	public IEnumerable<SecondsValue<decimal>> FrameLogF0
 	{
 		get => TextUtil
-			.SplitValBySec<decimal>(FrameLogF0Raw);
+			.SplitValBySec<decimal>(RawFrameLogF0);
 	}
 
 	/// <summary>
@@ -330,7 +360,7 @@ public class Utterance : Tree
 	public IEnumerable<SecondsValue<decimal>> FrameAlpha
 	{
 		get => TextUtil
-			.SplitValBySec<decimal>(FrameAlphaRaw);
+			.SplitValBySec<decimal>(RawFrameAlpha);
 	}
 
 	private LibSasara.Model.Lab BuildLab(

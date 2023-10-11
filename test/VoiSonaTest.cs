@@ -439,14 +439,14 @@ public class VoiSonaTest : IAsyncLifetime
 				export_name: "Talk1_1")
 			{
 				//must
-				FrameStyleRaw = "0:1:1.000:0.000:0.000:0.000:0.000",
+				RawFrameStyle = "0:1:1.000:0.000:0.000:0.000:0.000",
 				PhonemeOriginalDuration = "0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9",
 
 				//len
 				PhonemeDuration = "0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9",
 
 				//pitch write
-				FrameLogF0Raw = f0
+				RawFrameLogF0 = f0
 			},
 			new(
 				"ファソラ",
@@ -455,11 +455,11 @@ public class VoiSonaTest : IAsyncLifetime
 				export_name: "Talk1_2")
 			{
 				//must
-				FrameStyleRaw = "0:1:1.000:0.000:0.000:0.000:0.000",
+				RawFrameStyle = "0:1:1.000:0.000:0.000:0.000:0.000",
 				PhonemeOriginalDuration = "0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9",
 
 				//pitch write
-				FrameLogF0Raw = f0
+				RawFrameLogF0 = f0
 			},
 			new(
 				"シラソ",
@@ -468,11 +468,11 @@ public class VoiSonaTest : IAsyncLifetime
 				export_name: "Talk1_3")
 			{
 				//must
-				FrameStyleRaw = "0:1:1.000:0.000:0.000:0.000:0.000",
+				RawFrameStyle = "0:1:1.000:0.000:0.000:0.000:0.000",
 				PhonemeOriginalDuration = "0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9",
 
 				//pitch write
-				FrameLogF0Raw = "0.05:4.4,1.05:4.4"
+				RawFrameLogF0 = "0.05:4.4,1.05:4.4"
 			}
 		});
 
