@@ -27,6 +27,7 @@ using System.Xml.Linq;
 using System.Globalization;
 using System.Text;
 using Microsoft.Extensions.Primitives;
+using CommandLine;
 
 namespace test;
 
@@ -441,13 +442,16 @@ public class VoiSonaTest : IAsyncLifetime
 				FrameStyleRaw = "0:1:1.000:0.000:0.000:0.000:0.000",
 				PhonemeOriginalDuration = "0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9",
 
+				//len
+				PhonemeDuration = "0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9",
+
 				//pitch write
 				FrameLogF0Raw = f0
 			},
 			new(
 				"ファソラ",
 				"""<acoustic_phrase><word begin_byte_index="0" chain="0" end_byte_index="15" hl="lhhhh" original="ファソラ" phoneme="f,a|s,o|r,a" pos="感動詞" pronunciation="ファソラ">ファソラ</word></acoustic_phrase>""",
-				"3.456",
+				"6.456",
 				export_name: "Talk1_2")
 			{
 				//must
@@ -456,6 +460,19 @@ public class VoiSonaTest : IAsyncLifetime
 
 				//pitch write
 				FrameLogF0Raw = f0
+			},
+			new(
+				"シラソ",
+				"""<acoustic_phrase><word begin_byte_index="0" chain="0" end_byte_index="15" hl="lhhhh" original="シラソ" phoneme="sh,i|r,a|s,o" pos="感動詞" pronunciation="シラソ">シラソ</word></acoustic_phrase>""",
+				"10.0",
+				export_name: "Talk1_3")
+			{
+				//must
+				FrameStyleRaw = "0:1:1.000:0.000:0.000:0.000:0.000",
+				PhonemeOriginalDuration = "0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9",
+
+				//pitch write
+				FrameLogF0Raw = "0.05:4.4,1.05:4.4"
 			}
 		});
 
@@ -510,6 +527,50 @@ public class VoiSonaTest : IAsyncLifetime
 	}
 
 	[Theory]
+	[InlineData(1, true)]
+	[InlineData(100, true)]
+	public void TreeChild(
+		int childNum,
+		bool isCollection
+	)
+	{
+		const string name = "Content";
+		var content = new Tree(name,isCollection);
+		for (int i = 0; i < childNum; i++)
+		{
+			content.Children.Add(new Tree($"Child{i}"));
+		}
+
+		//null check
+		content.Should().NotBeNull();
+		if (content is null) return;
+
+		//count check
+		content.Children.Should().NotBeEmpty();
+		content.Children.Should().HaveCount(childNum);
+
+		//byte check
+		var bytes = content.GetBytes();
+
+		//bytes name
+		var nb = Encoding.UTF8.GetBytes($"{name}\0");
+		var n = bytes.Slice(0, nb.Length);
+		Encoding.UTF8.GetString(n.ToArray())
+			.Should().Be($"{name}\0");
+
+		//bytes count
+		var span = bytes
+					.Slice(nb.Length, 4)
+					.Span;
+		var index = isCollection ? 3 : 2;
+		var count = span.Slice(index-1,1)[0];
+		count.Should().Be((byte)childNum);
+		_output.WriteLine($"count:{count}");
+
+
+	}
+
+	[Theory]
 	[InlineData("test",10, sizeof(byte))]
 	[InlineData("test2",3000, sizeof(short))]
 	[InlineData("test3",35000, sizeof(int))]
@@ -540,6 +601,7 @@ public class VoiSonaTest : IAsyncLifetime
 			.Slice(2, 1)
 			.ToArray()[0];
 		sizeOf.Should().Be(size);
+		(size + 3).Should().Be(header.Length);
 	}
 }
 
