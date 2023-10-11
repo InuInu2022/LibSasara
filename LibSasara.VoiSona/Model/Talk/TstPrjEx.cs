@@ -137,7 +137,7 @@ public static class TstPrjEx
 			content.Children
 				.AddRange(newUtterances);
 
-			var uBytes = content.GetBytes();
+			var uBytes = content.GetBytes(endNull:false);
 
 			return ConcatMemory(before, after, uBytes);
 		} else {

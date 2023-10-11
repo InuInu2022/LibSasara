@@ -72,7 +72,7 @@ public class Tree
 		var size = BinaryUtil.ParseSizeBytesFromCount(Count);
 		var cByte = size switch
 		{
-			sizeof(byte) => stackalloc byte[sizeof(byte)]{size},
+			sizeof(byte) => stackalloc byte[sizeof(byte)]{(byte)Count},
 			sizeof(short) => BitConverter.GetBytes((short)Count).AsSpan(),
 			sizeof(int) => BitConverter.GetBytes(Count).AsSpan(),
 			sizeof(long) => BitConverter.GetBytes((long)Count).AsSpan(),
@@ -146,7 +146,11 @@ public class Tree
 			: Array.Empty<byte>()
 			;
 		//TODO:必要な処理に置き換え
-		if(Name is "Timing" or "LogF0" or "C0")
+		if(Name is "Timing"
+			or "LogF0"
+			or "C0"
+			or "Utterance"
+		)
 		{
 			//強制的に
 			withNull = false;
