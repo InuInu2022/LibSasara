@@ -47,7 +47,7 @@ public static class HeaderUtil
 }
 
 /// <summary>
-/// HeaderUtil.Common の返すヘッダー型
+/// <see cref="HeaderUtil.Analysis(dynamic)"/> の返すヘッダー型
 /// </summary>
 public sealed record Header
 {

@@ -69,9 +69,15 @@ public class Tree
 	public ReadOnlyMemory<byte> GetChildHeader(
 		bool withNull = true
 	) {
-		var cByte = BitConverter
-			.GetBytes(Count)
-			.AsSpan();
+		var size = BinaryUtil.ParseSizeBytesFromCount(Count);
+		var cByte = size switch
+		{
+			sizeof(byte) => stackalloc byte[sizeof(byte)]{size},
+			sizeof(short) => BitConverter.GetBytes((short)Count).AsSpan(),
+			sizeof(int) => BitConverter.GetBytes(Count).AsSpan(),
+			sizeof(long) => BitConverter.GetBytes((long)Count).AsSpan(),
+			_ => BitConverter.GetBytes(Count).AsSpan()
+		};
 		var len = cByte.Length;
 
 		//isCollection
@@ -82,7 +88,6 @@ public class Tree
 			if (withNull) h[0] = 0x00;
 			var offset = withNull ? 1 : 0;
 			h[offset] = 0x00;
-			var size = BinaryUtil.ParseSizeBytesFromCount(Count);
 			h[offset + 1] = size;
 			cByte.CopyTo(h.Slice(offset + 2));
 			return new(h.ToArray());
