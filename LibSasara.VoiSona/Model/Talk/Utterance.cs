@@ -13,6 +13,8 @@ namespace LibSasara.VoiSona.Model.Talk;
 /// </summary>
 public class Utterance : Tree
 {
+	private string _text;
+
 	/// <inheritdoc cref="Utterance"/>
 	public Utterance(
 		string? text,
@@ -22,7 +24,7 @@ public class Utterance : Tree
 		string export_name = ""
 	) : base(nameof(Utterance))
 	{
-		Text = text ?? "";
+		_text = text ?? "";
 		RawTsml = tsml;
 		RawStart = start;
 		if(disable is not null)Disable = disable;
@@ -38,7 +40,14 @@ public class Utterance : Tree
 	/// <summary>
 	/// セリフの文字列
 	/// </summary>
-	public string Text { get; }
+	public string Text {
+		get => _text;
+		set
+		{
+			_text = value;
+			AddAttribute("text", value, VoiSonaValueType.String);
+		}
+	}
 	/// <summary>
 	/// 発話データTSMLの文字列
 	/// </summary>
@@ -48,6 +57,9 @@ public class Utterance : Tree
 	/// <summary>
 	/// 発話データTSMLの<see cref="XElement"/>
 	/// </summary>
+	/// <remarks>
+	/// 有効な<see cref="XElement"/>とするため, root要素として<c>&lt;tsml&gt;</c>でラップされたものが返ります。
+	/// </remarks>
 	/// <seealso cref="RawTsml"/>
 	public XElement Tsml {
 		get {
