@@ -431,6 +431,14 @@ public class VoiSonaTest : IAsyncLifetime
 		}
 		f0 = sb.ToString();
 
+		var sb2 = new StringBuilder(100000);
+		for(var i = 0; i<limit; i++){
+			var f = Math.Round(1.0 + 0.005 * i, 3)
+			.ToString("F3", CultureInfo.InvariantCulture);
+			sb2.Append(CultureInfo.InvariantCulture, $"{f}:4.6");
+			if(i<limit-1)sb2.Append(',');
+		}
+
 		var us = new List<Utterance>(new Utterance[]{
 			new(
 				"ドレミ",
@@ -472,7 +480,7 @@ public class VoiSonaTest : IAsyncLifetime
 				PhonemeOriginalDuration = "0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9",
 
 				//pitch write
-				RawFrameLogF0 = "0.05:4.4,0.10:4.4"
+				RawFrameLogF0 = sb2.ToString()
 			}
 		});
 
