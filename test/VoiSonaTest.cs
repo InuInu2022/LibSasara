@@ -337,6 +337,33 @@ public class VoiSonaTest : IAsyncLifetime
 	}
 
 	[Theory]
+	[InlineData("""
+<acoustic_phrase><word begin_byte_index="0" chain="0" end_byte_index="15" hl="lhhhh" original="ドレミ" phoneme="d,o|r,e|m,i" pos="感動詞" pronunciation="ドレミ">ドレミ</word></acoustic_phrase>
+""", "acoustic_phrase")]
+	public void UtteranceTsml(
+		string tsmlString,
+		string element
+	)
+	{
+		const string defaultText = "<word phoneme=\"a|a|a\" />";
+		var u = new Utterance("a", defaultText, "0.00")
+		{
+			PhonemeOriginalDuration = "0.1,0.1,0.1"
+		};
+
+		u.RawTsml.Should().Be(defaultText);
+		u.Tsml.Should().NotBeNull();
+
+		//raw tsml string checks
+		u.RawTsml = tsmlString;
+		u.RawTsml.Should().Be(tsmlString);
+
+		//tsml xelement checks
+		u.Tsml.Should().NotBeNull();
+		u.Tsml.Should().HaveElement(element);
+	}
+
+	[Theory]
 	[InlineData("0.1,0.1,0.1", "")]
 	[InlineData("0.1,0.2,0.3", "1:0.4,2:0.3")]
 	public void LabelString(
