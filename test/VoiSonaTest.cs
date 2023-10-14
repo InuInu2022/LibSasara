@@ -361,6 +361,8 @@ public class VoiSonaTest : IAsyncLifetime
 		//tsml xelement checks
 		u.Tsml.Should().NotBeNull();
 		u.Tsml.Should().HaveElement(element);
+		var xml = XElement.Parse($"<tsml>{tsmlString}</tsml>");
+		u.Tsml.Should().Be(xml);
 	}
 
 	[Theory]

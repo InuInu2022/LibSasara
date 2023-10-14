@@ -74,6 +74,19 @@ public class Utterance : Tree
 			var xml = XElement.Parse(s);
 			return xml;
 		}
+		set {
+			var hasRoot = value
+				.Element("tsml") is not null;
+			var content = hasRoot
+				? value.Element("tsml").Elements()
+				: value.Elements("acoustic_phrase");
+			var sb = new StringBuilder(1000);
+			foreach(var i in content)
+			{
+				sb.Append(i);
+			}
+			RawTsml = sb.ToString();
+		}
 	}
 	/// <summary>
 	/// 時刻を表す文字列 (00.000)
