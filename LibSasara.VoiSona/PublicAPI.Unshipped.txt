@@ -157,6 +157,4 @@ static LibSasara.VoiSona.Util.TreeUtil.GetValuesOnlyChildrenValue<T>(LibSasara.V
 static LibSasara.VoiSona.Util.TreeUtil.SetValueOnlyChildValue<T>(LibSasara.VoiSona.Model.Tree! tree, string! childName, T value) -> void
 static LibSasara.VoiSona.Util.TreeUtil.SetValuesOnlyChildrenValue<T>(LibSasara.VoiSona.Model.Tree! tree, string! childName, T value) -> void
 virtual LibSasara.VoiSona.Model.VoiSonaFileBase.Category.get -> LibSasara.Model.Categoryodel.Tree! tree, string! childName, T value) -> void
-virtual LibSasara.VoiSona.Model.VoiSonaFileBase.Category.get -> LibSasara.Model.Categoryodel.Tree! tree, string! childName, T value) -> void
-virtual LibSasara.VoiSona.Model.VoiSonaFileBase.Category.get -> LibSasara.Model.Categoryodel.Tree! tree, string! childName, T value) -> void
 virtual LibSasara.VoiSona.Model.VoiSonaFileBase.Category.get -> LibSasara.Model.Category
