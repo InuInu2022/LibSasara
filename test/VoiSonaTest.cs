@@ -380,6 +380,10 @@ public class VoiSonaTest : IAsyncLifetime
 		u.RawStart = startStr;
 		u.RawStart.Should().Be(startStr);
 		u.Start.Should().Be(startVal);
+
+		u.Start = 0.00m;
+		u.Start = startVal;
+		u.Start.Should().Be(startVal);
 	}
 
 	[Theory]
