@@ -15,6 +15,7 @@ public class Utterance : Tree
 {
 	private string _text;
 	private string? _rawTsml;
+	private string? _rawStart;
 
 	/// <inheritdoc cref="Utterance"/>
 	public Utterance(
@@ -27,7 +28,7 @@ public class Utterance : Tree
 	{
 		_text = text ?? "";
 		_rawTsml = tsml;
-		RawStart = start;
+		_rawStart = start;
 		if(disable is not null)Disable = disable;
 		ExportName = export_name;
 
@@ -92,7 +93,13 @@ public class Utterance : Tree
 	/// 時刻を表す文字列 (00.000)
 	/// </summary>
 	/// <seealso cref="Start"/>
-	public string? RawStart { get; }
+	public string? RawStart {
+		get => _rawStart;
+		set{
+			_rawStart = value ?? "0.00";
+			AddAttribute("start", _rawStart, VoiSonaValueType.String);
+		}
+	}
 
 	/// <summary>
 	/// セリフの開始秒
@@ -101,6 +108,9 @@ public class Utterance : Tree
 	public decimal Start{
 		get => SasaraUtil
 			.ConvertDecimal(RawStart);
+		set {
+			RawStart = value.ToString("N2", CultureInfo.InvariantCulture);
+		}
 	}
 	/// <summary>
 	/// セリフ文が有効か無効か

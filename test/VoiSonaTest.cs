@@ -366,6 +366,23 @@ public class VoiSonaTest : IAsyncLifetime
 	}
 
 	[Theory]
+	[InlineData("1.11", 1.11)]
+	[InlineData("100.11", 100.11)]
+	public void UtteranceStart(string startStr, decimal startVal)
+	{
+		const string defaultStart = "1.23";
+		var u = new Utterance("aaa", "<word phoneme=\"a|a|a\" />", defaultStart)
+		{
+			PhonemeOriginalDuration = "0.1,0.1,0.1"
+		};
+		u.RawStart.Should().Be(defaultStart);
+
+		u.RawStart = startStr;
+		u.RawStart.Should().Be(startStr);
+		u.Start.Should().Be(startVal);
+	}
+
+	[Theory]
 	[InlineData("0.1,0.1,0.1", "")]
 	[InlineData("0.1,0.2,0.3", "1:0.4,2:0.3")]
 	public void LabelString(
