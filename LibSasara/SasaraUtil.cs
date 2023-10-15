@@ -78,7 +78,7 @@ public static class SasaraUtil
 	/// <seealso cref="SongUnit.Tempo"/>
 	/// <returns></returns>
 	public static TimeSpan ClockToTimeSpan(
-		SortedDictionary<int, int> tempoList,
+		SortedDictionary<int, decimal> tempoList,
 		int clockTick,
 		int maxClock = 0
 	)
