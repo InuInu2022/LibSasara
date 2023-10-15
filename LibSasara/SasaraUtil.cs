@@ -98,7 +98,7 @@ public static class SasaraUtil
 			.Select(v => v.Key)
 			.Sum();
 
-		var list = new List<(int Key,int Tempo,int Length)>();
+		var list = new List<(int Key, decimal Tempo,int Length)>();
 		if(maxClock is 0){
 			maxClock = last.Key + (TickPerTempo * 4);
 		}else if(maxClock < last.Key){
@@ -107,7 +107,7 @@ public static class SasaraUtil
 				$"Invalid clock. {nameof(maxClock)} must be greater than or equal to the maximum clock tick in {nameof(tempoList)}.");
 		}
 
-		(int Key, int, int) next = (maxClock,0,0);
+		(int Key, decimal, int) next = (maxClock,0,0);
 		foreach (var (Key, Tempo, Length) in reverseList)
 		{
 			list.Add((
