@@ -460,3 +460,4 @@ sample/csharp/SongToTalk/file/*
 !sample/csharp/SongToTalk/file/dist.ccs
 test/file/*.wav
 test/file/*.tags
+sample/csharp/SongToTalkVoiSona/lib/*
