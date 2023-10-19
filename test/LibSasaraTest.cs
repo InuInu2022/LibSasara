@@ -692,7 +692,7 @@ public class LibSasaraTest : IAsyncLifetime
 			);
 		//*/
 
-		var tempo = song1.Tempo;
+		var tempo = song1.Tempos;
 
 		var notes = song1.Notes;
 		var culcs = notes
@@ -749,21 +749,28 @@ public class LibSasaraTest : IAsyncLifetime
 			new object[]{
 				0,
 				new TimeSpan(0),
-				new SortedDictionary<int,int>(){
+				new SortedDictionary<int,decimal>(){
+					{0, 120}
+				}
+			},
+			new object[]{
+				3840,
+				new TimeSpan(0,0,0,2,0),
+				new SortedDictionary<int,decimal>(){
 					{0, 120}
 				}
 			},
 			new object[]{
 				960,
 				new TimeSpan(0,0,0,0,500),
-				new SortedDictionary<int,int>(){
+				new SortedDictionary<int,decimal>(){
 					{0, 120}
 				}
 			},
 			new object[]{
 				960,
 				new TimeSpan(0,0,0,0,500),
-				new SortedDictionary<int,int>(){
+				new SortedDictionary<int,decimal>(){
 					{0, 120},
 					{960, 120}
 				}
@@ -771,7 +778,7 @@ public class LibSasaraTest : IAsyncLifetime
 			new object[]{
 				960,
 				new TimeSpan(0,0,0,0,500),
-				new SortedDictionary<int,int>(){
+				new SortedDictionary<int,decimal>(){
 					{0, 120},
 					{960, 60}
 				}
@@ -779,14 +786,14 @@ public class LibSasaraTest : IAsyncLifetime
 			new object[]{
 				960*4,
 				new TimeSpan(0,0,0,1,600),
-				new SortedDictionary<int,int>(){
+				new SortedDictionary<int,decimal>(){
 					{0, 150}
 				}
 			},
 			new object[]{
 				960*6,
 				new TimeSpan(0,0,0,3,190),
-				new SortedDictionary<int,int>(){
+				new SortedDictionary<int,decimal>(){
 					{0, 120},
 					{960*5, 87},
 					{960*6, 100},
@@ -799,7 +806,7 @@ public class LibSasaraTest : IAsyncLifetime
 			new object[]{
 				960*6.5,
 				new TimeSpan(0,0,0,3,490),
-				new SortedDictionary<int,int>(){
+				new SortedDictionary<int,decimal>(){
 					{0, 120},
 					{960*5, 87},
 					{960*6, 100},
@@ -812,7 +819,7 @@ public class LibSasaraTest : IAsyncLifetime
 			new object[]{
 				4800,
 				new TimeSpan(0,0,0,2,439),
-				new SortedDictionary<int,int>(){
+				new SortedDictionary<int,decimal>(){
 					{0, 123},
 					{7680, 88},
 				}
@@ -820,7 +827,7 @@ public class LibSasaraTest : IAsyncLifetime
 			new object[]{
 				8640,
 				new TimeSpan(0,0,0,4,584),
-				new SortedDictionary<int,int>(){
+				new SortedDictionary<int,decimal>(){
 					{0, 123},
 					{7680, 88},
 				}
@@ -832,7 +839,7 @@ public class LibSasaraTest : IAsyncLifetime
 	public void ClockToTimeSimple(
 		int testClock,
 		in TimeSpan should,
-		SortedDictionary<int,int> tempos
+		SortedDictionary<int,decimal> tempos
 	)
 	{
 		_output.WriteLine(
