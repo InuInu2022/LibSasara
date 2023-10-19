@@ -461,3 +461,7 @@ sample/csharp/SongToTalk/file/*
 test/file/*.wav
 test/file/*.tags
 sample/csharp/SongToTalkVoiSona/lib/*
+sample/csharp/SongToTalkVoiSona/file/dist.tstprj
+sample/csharp/SongToTalkVoiSona/file/kaeru_sample.tstprj
+.gitignore
+sample/csharp/SongToTalkVoiSona/file/kaeru2.ccs

@@ -32,6 +32,22 @@
 			"stopAtEntry": false
 		},
 		{
+			"name": ".NET S2T VoiSona",
+			"type": "coreclr",
+			"request": "launch",
+			"preLaunchTask": "build",
+			"program": "${workspaceFolder}/sample/csharp/SongToTalkVoiSona/bin/Debug/net7.0/win-x64/SongToTalkVoiSona.dll",
+			"args": [
+				"-s",
+				"${workspaceFolder}/sample/csharp/SongToTalkVoiSona/file/kaeru.ccs",
+				"-e",
+				"${workspaceFolder}/sample/csharp/SongToTalkVoiSona/file/dist.tstprj"
+			],
+			"cwd": "${workspaceFolder}",
+			"console": "internalConsole",
+			"stopAtEntry": false
+		},
+		{
 			"name": ".NET Core Attach",
 			"type": "coreclr",
 			"request": "attach"

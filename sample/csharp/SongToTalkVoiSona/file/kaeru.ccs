@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Scenario Code="7251BC4B6168E7B2992FA620BD3E1E77">
+  <Generation>
+    <Author Version="8.3.17.0" />
+    <TTS Version="6.0.20">
+      <Dictionary Version="3.0.15">
+        <Extension Version="2.0.2" Language="English" />
+      </Dictionary>
+      <SoundSources />
+    </TTS>
+    <SVSS Version="6.1.5">
+      <Dictionary Version="3.0.1">
+        <Extension Version="2.0.1" Language="English" />
+      </Dictionary>
+      <SoundSources>
+        <SoundSource Version="1.0.1" Id="CSNV-JPF-A" Name="さとうささら" />
+      </SoundSources>
+    </SVSS>
+  </Generation>
+  <Sequence Id="">
+    <Scene Id="">
+      <Timeline Partition="228.571428571429,188.571428571429" CurrentPosition="00:00:17.5410000">
+        <ViewScale Horizontal="0.31" Vertical="0.375" />
+      </Timeline>
+      <TalkEditor Partition="596">
+        <Extension VerticalRatio="224.571428571429*,336.571428571429*" />
+      </TalkEditor>
+      <SongEditor Partition="64" Quantize="240" Mode="0" EditingTool="1">
+        <ViewScale Horizontal="80" Vertical="14" />
+        <ReferenceState Current="None" Previous="None" />
+      </SongEditor>
+      <Units>
+        <Unit Version="1.0" Id="" Category="SingerSong" Group="ecc95180-0f7f-46f9-bfda-45adb9f60e16" StartTime="00:00:00" Duration="00:00:20" CastId="CSNV-JPF-A" Language="Japanese">
+          <Song Version="1.07">
+            <Tempo>
+              <Sound Clock="0" Tempo="120" />
+            </Tempo>
+            <Beat>
+              <Time Clock="0" Beats="4" BeatType="4" />
+            </Beat>
+            <Score>
+              <Key Clock="0" Fifths="0" Mode="0" />
+              <Dynamics Clock="0" Value="5" />
+              <Note Clock="3840" PitchStep="0" PitchOctave="4" Duration="960" Lyric="か" />
+              <Note Clock="4800" PitchStep="2" PitchOctave="4" Duration="960" Lyric="え" />
+              <Note Clock="5760" PitchStep="4" PitchOctave="4" Duration="960" Lyric="る" />
+              <Note Clock="6720" PitchStep="5" PitchOctave="4" Duration="960" Lyric="の" />
+              <Note Clock="7680" PitchStep="4" PitchOctave="4" Duration="960" Lyric="う" />
+              <Note Clock="8640" PitchStep="2" PitchOctave="4" Duration="960" Lyric="た" />
+              <Note Clock="9600" PitchStep="0" PitchOctave="4" Duration="960" Lyric="が" Phonetic="n,g,a" />
+              <Note Clock="11520" PitchStep="4" PitchOctave="4" Duration="960" Lyric="き" />
+              <Note Clock="12480" PitchStep="5" PitchOctave="4" Duration="960" Lyric="こ" />
+              <Note Clock="13440" PitchStep="7" PitchOctave="4" Duration="960" Lyric="え" />
+              <Note Clock="14400" PitchStep="9" PitchOctave="4" Duration="960" Lyric="て" />
+              <Note Clock="15360" PitchStep="7" PitchOctave="4" Duration="960" Lyric="く" />
+              <Note Clock="16320" PitchStep="5" PitchOctave="4" Duration="960" Lyric="る" />
+              <Note Clock="17280" PitchStep="4" PitchOctave="4" Duration="960" Lyric="よ" />
+              <Note Clock="19200" PitchStep="0" PitchOctave="4" Duration="960" Lyric="クヮ" />
+              <Note Clock="21120" PitchStep="0" PitchOctave="4" Duration="960" Lyric="クヮ" />
+              <Note Clock="23040" PitchStep="0" PitchOctave="4" Duration="960" Lyric="クヮ" />
+              <Note Clock="24960" PitchStep="0" PitchOctave="4" Duration="960" Lyric="クヮ" />
+              <Note Clock="26880" PitchStep="0" PitchOctave="4" Duration="480" Lyric="ケ" />
+              <Note Clock="27360" PitchStep="0" PitchOctave="4" Duration="480" Lyric="ロ" />
+              <Note Clock="27840" PitchStep="2" PitchOctave="4" Duration="480" Lyric="ケ" />
+              <Note Clock="28320" PitchStep="2" PitchOctave="4" Duration="480" Lyric="ロ" />
+              <Note Clock="28800" PitchStep="4" PitchOctave="4" Duration="480" Lyric="ケ" />
+              <Note Clock="29280" PitchStep="4" PitchOctave="4" Duration="480" Lyric="ロ" />
+              <Note Clock="29760" PitchStep="5" PitchOctave="4" Duration="480" Lyric="ケ" />
+              <Note Clock="30240" PitchStep="5" PitchOctave="4" Duration="480" Lyric="ロ" />
+              <Note Clock="30720" PitchStep="4" PitchOctave="4" Duration="960" Lyric="クヮ" />
+              <Note Clock="31680" PitchStep="2" PitchOctave="4" Duration="960" Lyric="クヮ" />
+              <Note Clock="32640" PitchStep="0" PitchOctave="4" Duration="960" Lyric="クヮ" />
+            </Score>
+            <Parameter>
+              <Timing Length="355">
+                <Data Index="50">4.581423611111112</Data>
+                <Data>4.6717013888888888</Data>
+                <Data>4.784548611111112</Data>
+                <Data>4.88046875</Data>
+                <Data>4.93125</Data>
+                <Data>4.937578125</Data>
+                <Data>4.9460156249999994</Data>
+                <Data>4.9565625</Data>
+                <Data>4.96078125</Data>
+              </Timing>
+            </Parameter>
+          </Song>
+        </Unit>
+      </Units>
+      <Groups ActiveGroup="ecc95180-0f7f-46f9-bfda-45adb9f60e16">
+        <Group Version="1.0" Id="ecc95180-0f7f-46f9-bfda-45adb9f60e16" Category="SingerSong" Name="ケロケロ" Color="#FFAF1F14" Volume="0" Pan="0" IsSolo="false" IsMuted="false" CastId="CSNV-JPF-A" Language="Japanese" />
+      </Groups>
+      <SoundSetting Rhythm="4/4" Tempo="78" MasterVolume="0" />
+    </Scene>
+  </Sequence>
+</Scenario>
