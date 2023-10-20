@@ -19,6 +19,24 @@
 				"reveal": "silent"
 			},
 			"problemMatcher": "$msCompile"
-		}
+		},
+		{
+            "label": "test",
+            "dependsOn": [],
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "test",
+                "${workspaceFolder}/test/test.csproj",
+                "/p:CollectCoverage=true",
+                "/p:CoverletOutputFormat=lcov",
+                "/p:CoverletOutput=./lcov.info"
+            ],
+            "problemMatcher": "$msCompile",
+            "group": {
+                "kind": "test",
+                "isDefault": true
+            }
+        }
 	]
 }
