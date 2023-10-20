@@ -465,3 +465,4 @@ sample/csharp/SongToTalkVoiSona/file/dist.tstprj
 sample/csharp/SongToTalkVoiSona/file/kaeru_sample.tstprj
 .gitignore
 sample/csharp/SongToTalkVoiSona/file/kaeru2.ccs
+test/coveragereport/*
