@@ -12,32 +12,106 @@ using BenchmarkDotNet.Loggers;
 using BenchmarkDotNet.Configs;
 using BenchmarkDotNet.Running;
 using BenchmarkDotNet.Attributes;
+using System.Text.Json;
 
 namespace test;
 
-public class LabTest : IAsyncLifetime
+public class LabFixture: IAsyncLifetime
 {
-	private readonly ITestOutputHelper _output;
-	private static string SampleLab1 = "";
-	private static string SampleLab2 = "";
+	public static string SampleLab1 = "";
+	public static string SampleLab2 = "";
 
-	public LabTest(ITestOutputHelper output)
+	public Task InitializeAsync()
 	{
-		_output = output;
-	}
-
-	public async Task InitializeAsync()
-	{
-		SampleLab1 = await File
-			.ReadAllTextAsync("../../../file/ソング.lab");
-		SampleLab2 = await File
-			.ReadAllTextAsync("../../../file/EnglishSong.lab");
+		SampleLab1 = File.ReadAllText("../../../file/ソング.lab");
+		SampleLab2 = File
+			.ReadAllText("../../../file/EnglishSong.lab");
+		return Task.CompletedTask;
 	}
 
 	public Task DisposeAsync()
 	{
 		return Task.CompletedTask;
 	}
+}
+
+public class LabTest : IClassFixture<LabFixture>
+{
+	private readonly ITestOutputHelper _output;
+	private readonly LabFixture _fixture;
+
+	public static string SampleLab1 = File
+		.ReadAllText("../../../file/ソング.lab");
+	public static string SampleLab2 = File
+		.ReadAllText("../../../file/EnglishSong.lab");
+
+	public static TheoryData<string, int> Samples { get; set; } = new()
+		{
+			{SampleLab1, 30},
+			{SampleLab2, 30},
+		};
+
+	public LabTest(ITestOutputHelper output, LabFixture fixture)
+	{
+		_output = output;
+		_fixture = fixture;
+		//SampleLab1 = LabFixture.SampleLab1;
+		//SampleLab2 = LabFixture.SampleLab2;
+	}
+
+	[Theory]
+	[MemberData(nameof(Samples))]
+	//[ClassData(typeof(SampleLabs))]
+	public void CtorLab(string text, int fps)
+	{
+		//text = SampleLab1;
+		text.Should().NotBeNullOrEmpty();
+		var result = new Lab(text, fps);
+		result.Should().NotBeNull();
+		result.Lines.Should().NotBeNull();
+		if (result?.Lines is null) return;
+		result.Lines.Count().Should().BePositive();
+	}
+
+
+	public static readonly
+		TheoryData<Lab, double>
+	ChangeLengthData = new()
+	{
+		{new Lab(SampleLab1!), 50},
+		{new Lab(SampleLab1!), 100},
+		{new Lab(SampleLab1!), 11.1},
+	};
+
+	[Theory]
+	[MemberData(nameof(ChangeLengthData))]
+	public async void ChangeLengthByRate(
+		Lab label,
+		double expectPercent
+	)
+	{
+		var original = new Lab(label.ToString());
+		original.Should().NotBeNull();
+		if(original is null){
+			return;
+		}
+		await label
+			.ChangeLengthByRateAsync(expectPercent);
+
+		var previous = original.Lines?.First().Length;
+		var current = label.Lines?.First().Length;
+
+		var rate = expectPercent / 100;
+		(previous / current)
+			.Should()
+			.BeInRange(rate - 0.01, rate + 0.01);
+
+		var prevEnd = original?.Lines?.Last().Length;
+		var currEnd = label.Lines?.Last().Length;
+		(prevEnd / currEnd).Should()
+			.BeInRange(rate - 0.01, rate + 0.01);
+	}
+
 
 	// labelfile, expect time, line index, diff time
 	public static readonly

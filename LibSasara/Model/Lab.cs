@@ -1,3 +1,4 @@
+using System.Globalization;
 using System.Text;
 using System;
 using System.Linq;
@@ -40,8 +41,8 @@ public class Lab
 			{
 				var a = v.Split(new string[]{" "},StringSplitOptions.RemoveEmptyEntries);
 				return new LabLine(
-					Convert.ToDouble(a[0]),
-					Convert.ToDouble(a[1]),
+					Convert.ToDouble(a[0], CultureInfo.InvariantCulture),
+					Convert.ToDouble(a[1], CultureInfo.InvariantCulture),
 					a[2],
 					fps
 				);
@@ -99,7 +100,7 @@ public class Lab
 	/// <summary>
 	/// 長さを比率に合わせて変更する
 	/// </summary>
-	/// <param name="percent"></param>
+	/// <param name="percent">0~100</param>
 	/// <returns></returns>
 	public async ValueTask ChangeLengthByRateAsync(double percent){
 		if(Lines is null)
@@ -130,8 +131,8 @@ public class Lab
 					LabLine.MovieFPS);
 			}
 
-			lines = newLines;
-		});
+			lines = newLines.AsEnumerable();
+		}).ConfigureAwait(false);
 	}
 
 	/// <summary>
@@ -171,8 +172,8 @@ public class Lab
 					LabLine.MovieFPS);
 			}
 
-			lines = newLines;
-		});
+			lines = newLines.AsEnumerable();
+		}).ConfigureAwait(false);
 	}
 
 	/// <summary>
@@ -197,7 +198,11 @@ public class Lab
 		var sb = new StringBuilder(cap);
 		foreach(var i in lines)
 		{
-			sb.AppendLine($"{i.From} {i.To} {i.Phoneme}");
+			sb.Append(i.From)
+				.Append(' ')
+				.Append(i.To)
+				.Append(' ')
+				.AppendLine(i.Phoneme);
 		}
 		return sb.ToString();
 	}
