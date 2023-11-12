@@ -52,7 +52,7 @@ public sealed record KeyValue<T>
 	{
 		var ret = HeaderUtil.Analysis(Value!);
 
-		var isInt16 = ret.Count + 1 > 256;
+		var isInt16 = ret.Count + 1 >= 256;
 		var cByteLen = isInt16 ? 2 : 1;
 		var len = withNull ? cByteLen + 3 : cByteLen + 2;
 
