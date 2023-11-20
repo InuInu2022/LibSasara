@@ -91,6 +91,7 @@
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
     <PackageReference Include="SharpOpenJTalk.Lang" Version="1.4.0" />
+    <PackageReference Include="WanaKana-net" Version="1.0.0" />
   </ItemGroup>
 
 

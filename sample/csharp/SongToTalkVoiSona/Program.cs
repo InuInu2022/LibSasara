@@ -9,6 +9,7 @@ using LibSasara.Model.FullContextLabel;
 using LibSasara.VoiSona;
 using LibSasara.VoiSona.Model.Talk;
 using SharpOpenJTalk.Lang;
+using WanaKanaNet;
 
 ConsoleApp.Run<SongToTalk>(args);
 
@@ -183,12 +184,11 @@ public partial class SongToTalk: ConsoleAppBase
 
 			var fcLabel = GetFullContext(p);
 
-			//読みを変えたフレーズ
-			//TODO:音素toカナ変換
-			var pronounce = text;/*string.Concat(
-				p.Select(n => n.Phonetic ?? n.Lyric));*/
 			//フレーズの音素
 			var phoneme = GetPhonemeLabel(fcLabel, GetPhonemeMode.Note);
+
+			//読み
+			var pronounce = GetPronounce(phoneme);
 			//アクセントの高低
 			//TODO: ノートの高低に合わせる
 			//とりあえず数だけ合わせる
@@ -230,6 +230,24 @@ public partial class SongToTalk: ConsoleAppBase
 			Console.WriteLine($"u[{text}], start:{nu.Start}");
 			return nu;
 		};
+	}
+
+	private static WanaKanaOptions kanaOption = new()
+	{
+		CustomKanaMapping = new Dictionary<string, string>()
+			{
+				{"cl","ッ"},
+				{"di","ディ"}
+			}
+	};
+	private static string GetPronounce(string phonemes)
+	{
+		var sb = new StringBuilder(phonemes);
+		sb.Replace("|", " ");
+		sb.Replace(",", "");
+		//読みを変えたフレーズ
+		var yomi = WanaKana.ToKatakana(sb.ToString(), kanaOption);
+		return yomi.Replace(" ", "", StringComparison.InvariantCulture);
 	}
 
 	private string GetPitches(
@@ -377,15 +395,15 @@ public partial class SongToTalk: ConsoleAppBase
 
 				//ノートあたりの長さを音素数で等分
 				var start = SasaraUtil.ClockToTimeSpan(
-					song.TempoList ?? new(),
+					song.TempoList ?? new(){ { 0, 120 } },
 					n.Clock
 				).TotalMilliseconds;
 				var end = SasaraUtil.ClockToTimeSpan(
-					song.TempoList ?? new(),
+					song.TempoList ?? new(){ { 0, 120 } },
 					n.Clock + n.Duration
 				).TotalMilliseconds;
 				var dur = SasaraUtil.ClockToTimeSpan(
-					song.TempoList ?? new(),
+					song.TempoList ?? new(){ { 0, 120 } },
 					n.Duration
 				);
 				var sub = (decimal)dur.Milliseconds / count;
@@ -408,6 +426,12 @@ public partial class SongToTalk: ConsoleAppBase
 
 	private int CountPhonemes(Note n)
 	{
+		//ノート歌詞が「ー」の時はOpenJTalkでエラーになるので解析しない
+		if(n.Lyric == "ー"){
+			//母音音素一つになるので1
+			return 1;
+		}
+
 		var fcLabel = GetFullContext(new List<Note> { n });
 
 		return fcLabel
@@ -476,6 +500,8 @@ public partial class SongToTalk: ConsoleAppBase
 
 	[GeneratedRegex("-([a-zAIUEON]+)+")]
 	private static partial Regex FullContextLabelRegex();
+	[GeneratedRegex(@"\|,")]
+	private static partial Regex GetPhonemeRegex();
 }
 
 /// <summary>
