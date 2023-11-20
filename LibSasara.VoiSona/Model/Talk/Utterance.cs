@@ -309,7 +309,7 @@ public class Utterance : Tree
 	/// 生のPitch(音程)変化比率
 	/// </summary>
 	/// <returns>
-	/// カンマ<c>,</c>区切りテキスト。[seconds]:[value]
+	/// カンマ<c>,</c>区切りテキスト。[phoneme count rate]:[value]
 	/// </returns>
 	public string RawFrameLogF0{
 		get => TreeUtil

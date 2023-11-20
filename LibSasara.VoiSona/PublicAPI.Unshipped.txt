@@ -61,14 +61,14 @@ LibSasara.VoiSona.Model.Talk.Utterance.FrameAlpha.get -> System.Collections.Gene
 LibSasara.VoiSona.Model.Talk.Utterance.FrameAlphaRaw.get -> string!
 LibSasara.VoiSona.Model.Talk.Utterance.FrameAlphaRaw.set -> void
 LibSasara.VoiSona.Model.Talk.Utterance.FrameC0.get -> System.Collections.Generic.IEnumerable<LibSasara.VoiSona.Model.Talk.SecondsValue<decimal>!>!
-LibSasara.VoiSona.Model.Talk.Utterance.FrameC0Raw.get -> string!
-LibSasara.VoiSona.Model.Talk.Utterance.FrameC0Raw.set -> void
 LibSasara.VoiSona.Model.Talk.Utterance.FrameLogF0.get -> System.Collections.Generic.IEnumerable<LibSasara.VoiSona.Model.Talk.SecondsValue<decimal>!>!
 LibSasara.VoiSona.Model.Talk.Utterance.FrameLogF0Raw.get -> string!
 LibSasara.VoiSona.Model.Talk.Utterance.FrameLogF0Raw.set -> void
 LibSasara.VoiSona.Model.Talk.Utterance.FrameStyleRaw.get -> string!
 LibSasara.VoiSona.Model.Talk.Utterance.FrameStyleRaw.set -> void
 LibSasara.VoiSona.Model.Talk.Utterance.FrameStyles.get -> System.Collections.Generic.IEnumerable<LibSasara.VoiSona.Model.Talk.FrameStyle!>!
+LibSasara.VoiSona.Model.Talk.Utterance.FramwC0Raw.get -> string!
+LibSasara.VoiSona.Model.Talk.Utterance.FramwC0Raw.set -> void
 LibSasara.VoiSona.Model.Talk.Utterance.Label.get -> LibSasara.Model.Lab?
 LibSasara.VoiSona.Model.Talk.Utterance.LogF0Scale.get -> decimal
 LibSasara.VoiSona.Model.Talk.Utterance.LogF0Shift.get -> decimal
@@ -77,12 +77,25 @@ LibSasara.VoiSona.Model.Talk.Utterance.PhonemeDuration.set -> void
 LibSasara.VoiSona.Model.Talk.Utterance.PhonemeOriginalDuration.get -> string!
 LibSasara.VoiSona.Model.Talk.Utterance.PhonemeOriginalDuration.set -> void
 LibSasara.VoiSona.Model.Talk.Utterance.PhonemeOriginalDurations.get -> System.Collections.Generic.IEnumerable<decimal>!
+LibSasara.VoiSona.Model.Talk.Utterance.RawFrameAlpha.get -> string!
+LibSasara.VoiSona.Model.Talk.Utterance.RawFrameAlpha.set -> void
+LibSasara.VoiSona.Model.Talk.Utterance.RawFrameC0.get -> string!
+LibSasara.VoiSona.Model.Talk.Utterance.RawFrameC0.set -> void
+LibSasara.VoiSona.Model.Talk.Utterance.RawFrameLogF0.get -> string!
+LibSasara.VoiSona.Model.Talk.Utterance.RawFrameLogF0.set -> void
+LibSasara.VoiSona.Model.Talk.Utterance.RawFrameStyle.get -> string!
+LibSasara.VoiSona.Model.Talk.Utterance.RawFrameStyle.set -> void
 LibSasara.VoiSona.Model.Talk.Utterance.RawStart.get -> string?
+LibSasara.VoiSona.Model.Talk.Utterance.RawStart.set -> void
 LibSasara.VoiSona.Model.Talk.Utterance.RawTsml.get -> string?
+LibSasara.VoiSona.Model.Talk.Utterance.RawTsml.set -> void
 LibSasara.VoiSona.Model.Talk.Utterance.SpeedRatio.get -> decimal
 LibSasara.VoiSona.Model.Talk.Utterance.Start.get -> decimal
+LibSasara.VoiSona.Model.Talk.Utterance.Start.set -> void
 LibSasara.VoiSona.Model.Talk.Utterance.Text.get -> string!
+LibSasara.VoiSona.Model.Talk.Utterance.Text.set -> void
 LibSasara.VoiSona.Model.Talk.Utterance.Tsml.get -> System.Xml.Linq.XElement!
+LibSasara.VoiSona.Model.Talk.Utterance.Tsml.set -> void
 LibSasara.VoiSona.Model.Talk.Utterance.Utterance(string? text, string? tsml, string? start, bool? disable = null, string! export_name = "") -> void
 LibSasara.VoiSona.Model.Talk.Voice
 LibSasara.VoiSona.Model.Talk.Voice.Id.get -> string!
@@ -139,8 +152,8 @@ static LibSasara.VoiSona.Model.Talk.TstPrjEx.ReplaceAllUtterances(this LibSasara
 static LibSasara.VoiSona.Model.Talk.TstPrjEx.ReplaceVoice(this LibSasara.VoiSona.Model.Talk.TstPrj! source, LibSasara.VoiSona.Model.Talk.Voice! newVoice, int trackIndex = 0) -> System.Memory<byte>
 static LibSasara.VoiSona.Model.Talk.Voice.Count.get -> int
 static LibSasara.VoiSona.Util.BinaryUtil.Concat(this System.ReadOnlyMemory<byte> a, System.ReadOnlyMemory<byte> b) -> System.ReadOnlyMemory<byte>
-static LibSasara.VoiSona.Util.BinaryUtil.ParseBytesFromCount(long count) -> byte
 static LibSasara.VoiSona.Util.BinaryUtil.ParseIntegerFromBytes(System.ReadOnlyMemory<byte> memory, int countType) -> int
+static LibSasara.VoiSona.Util.BinaryUtil.ParseSizeBytesFromCount(long count) -> byte
 static LibSasara.VoiSona.Util.BinaryUtil.Split(this System.ReadOnlySpan<byte> source, System.ReadOnlySpan<byte> separator) -> System.Collections.ObjectModel.ReadOnlyCollection<System.ReadOnlyMemory<byte>>!
 static LibSasara.VoiSona.Util.BinaryUtil.Split(this System.Span<byte> source, System.ReadOnlySpan<byte> separator) -> System.Collections.ObjectModel.ReadOnlyCollection<System.ReadOnlyMemory<byte>>!
 static LibSasara.VoiSona.Util.BinaryUtil.TryFindAttribute(System.ReadOnlySpan<byte> source, string! name, out LibSasara.VoiSona.Util.Header! header) -> bool
