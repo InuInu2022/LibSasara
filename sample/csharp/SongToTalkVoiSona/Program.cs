@@ -1,12 +1,11 @@
-﻿using System.Collections;
-using System.Collections.Immutable;
+﻿using System.Collections.Immutable;
 using System.Globalization;
+using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
-using ConsoleAppFramework;
 using LibSasara;
 using LibSasara.Model;
-using LibSasara.Model.Serialize;
+using LibSasara.Model.FullContextLabel;
 using LibSasara.VoiSona;
 using LibSasara.VoiSona.Model.Talk;
 using SharpOpenJTalk.Lang;
@@ -19,7 +18,7 @@ public partial class SongToTalk: ConsoleAppBase
 
 	[RootCommand]
 	public async ValueTask<int> ExportAsync(
-		[Option("s", "path to a export tstprj file")]
+		[Option("s", "path to song ccs file")]
 		string pathToSongCcs,
 		[Option("e", "path to a export tstprj file")]
 		string pathToPrj,
@@ -82,6 +81,8 @@ public partial class SongToTalk: ConsoleAppBase
 			//1note=1uttranceは重いはず
 			//なので休符で区切ったphrase単位に
 			PhraseList = SplitByPhrase(song, 0),
+
+			//TODO:tmgやf0を渡す
 		};
 
 		return songData;
@@ -180,24 +181,25 @@ public partial class SongToTalk: ConsoleAppBase
 			//フレーズをセリフ化
 			var text = GetPhraseText(p);
 
+			var fcLabel = GetFullContext(p);
+
 			//読みを変えたフレーズ
 			//TODO:音素toカナ変換
 			var pronounce = text;/*string.Concat(
 				p.Select(n => n.Phonetic ?? n.Lyric));*/
 			//フレーズの音素
-			//TODO: OpenJTalk辺りで解析
-			//var labels = _jtalk?.GetLabels(text);
-			var phoneme = GetPhonemeLabel(p, GetPhonemeMode.Note);//"k,e|r,o|k,e|r,o|k.e|r,o|k,e|r,o|k,u|w,a|k,u|w,a|k,u|w,a";//"d,o|r,e|m,i";
+			var phoneme = GetPhonemeLabel(fcLabel, GetPhonemeMode.Note);
 			//アクセントの高低
-			//TODO: OpenJTalk辺りで解析
-			var accent = "lhhh";
+			//TODO: ノートの高低に合わせる
+			//とりあえず数だけ合わせる
+			var accent = MakeAccText(fcLabel);
 			//調整後LEN
 			//TODO:ccsやlabから割当
 			var timing = "";
 			//PIT
 			//TODO:楽譜データだけならnote高さから計算
 			//TODO:ccsやwavがあるなら解析して割当
-			var pitch = "";
+			var pitch = GetPitches(p, data);
 
 			var s = string.Concat(data.TempoList!.Select(v => $"{v.Key}, {v.Value}"));
 
@@ -221,7 +223,8 @@ public partial class SongToTalk: ConsoleAppBase
 			{
 				nu.PhonemeDuration = nu.PhonemeOriginalDuration; //timing;
 			}
-			if (!string.IsNullOrEmpty(pitch)){
+			if (!string.IsNullOrEmpty(pitch))
+			{
 				nu.RawFrameLogF0 = pitch;
 			}
 			Console.WriteLine($"u[{text}], start:{nu.Start}");
@@ -229,22 +232,112 @@ public partial class SongToTalk: ConsoleAppBase
 		};
 	}
 
+	private string GetPitches(
+		List<Note> notes,
+		SongData data)
+	{
+		List<(TimeSpan start, TimeSpan end, double logF0, int counts)> d = notes
+			.ConvertAll(n =>
+			(
+				start: SasaraUtil
+					.ClockToTimeSpan(
+						data.TempoList ?? new() { { 0, 120 } },
+						n.Clock
+					),
+				end: SasaraUtil
+					.ClockToTimeSpan(
+						data.TempoList ?? new() { { 0, 120 } },
+						n.Clock + n.Duration
+					),
+				logF0: Math.Log(SasaraUtil
+					.OctaveStepToFreq(n.PitchOctave, n.PitchStep)),
+				counts: CountPhonemes(n)
+			))
+			;
+
+		var pitches = Enumerable.Empty<(double ph, double logF0)>().ToList();
+		var offset = d[0].start.TotalMilliseconds;
+		var total = 1;	//冒頭sil分offset
+		foreach (var (start, end, logF0, counts) in d)
+		{
+			//TODO:時間を見て分割数を決める？
+			//一旦固定分割数で
+			const int split = 20;
+			var length = split * counts;
+			const double add = 1.0 / split;
+			for (var i = 0; i <= length; i++)
+			{
+				var t = total + i * add;
+				pitches.Add((t, logF0));
+			}
+
+			total += counts;
+		}
+
+		var sb = new StringBuilder(100000);
+		for (int i = 0; i < pitches.Count; i++)
+		{
+			var sf = pitches[i].ph
+				.ToString("F2", CultureInfo.InvariantCulture);
+			var logF0 = pitches[i].logF0;
+			sb.Append(
+				CultureInfo.InvariantCulture,
+				$"{sf}:{logF0}");
+			if(i<pitches.Count-1)sb.Append(',');
+		}
+		return sb.ToString();
+	}
+
+	private static string MakeAccText(FullContextLab fcLabel)
+	{
+		var mCount = fcLabel
+			.Lines
+			.Cast<FCLabLineJa>()
+			.First()?
+			.UtteranceInfo?
+			.Mora
+			?? 0
+			;
+		var ac = Enumerable
+			.Range(0, mCount > 1 ? mCount - 1 : 0)
+			.Select(s => "h")
+			.ToArray();
+		var accText = "l" + string.Concat(ac);
+		return accText;
+	}
+
 	private string GetPhonemeLabel(
-		IEnumerable<Note> notes,
+		FullContextLab fcLabel,
 		GetPhonemeMode mode
-	){
+	)
+	{
+		var moras = fcLabel.Lines
+			.Cast<FCLabLineJa>();
+		var splited = FullContextLabUtil
+			.SplitByMora(moras)
+			.Select(s => s
+				.Select(s2 => s2.Phoneme)
+				.Where(s2 => s2 != "sil"))
+			.Select(s => string.Join(",", s))
+			.Where(s => s != string.Empty)
+			;
+
+		return string.Join("|", splited);
+	}
+
+	private FullContextLab GetFullContext(IEnumerable<Note> notes)
+	{
 		_jtalk ??= new OpenJTalkAPI();
 
-		var text = _jtalk.GetLabels(GetPhraseText(notes.ToList()));
-		var list = new List<string>();
-		foreach (var note in notes)
+		var lyrics = GetPhraseText(notes.ToList());
+		var text = _jtalk.GetLabels(lyrics);
+
+		if (text is null)
 		{
-			var lyrics = GetPhraseText(new() { note });
-			var fLab = _jtalk.GetLabels(lyrics);
-			var lab = ConvertSimpleLabel(fLab);
-			list.Add(string.Join(",", lab));
+			return new FullContextLab("");
 		}
-		return string.Join("|",list);
+
+		return new FullContextLab(string.Join("\n", text));
 	}
 
 	private IEnumerable<string> ConvertSimpleLabel(IEnumerable<string> fullLabel)
@@ -262,15 +355,17 @@ public partial class SongToTalk: ConsoleAppBase
 	/// </summary>
 	/// <param name="p"></param>
 	/// <returns></returns>
-	private static string GetSplittedTiming(
-		List<Note> p, SongData song)
+	private string GetSplittedTiming(
+		List<Note> p,
+		SongData song)
 	{
 		var s = string
 			.Join(",", p.Select(n =>
 			{
 				//音素数を数える
-				//TODO:OpenJTalk辺りで正確に数える
-				var count = 0;
+				//OpenJTalkで正確に数える
+				int count = CountPhonemes(n);
+				/*
 				string str = n.Lyric ?? "";
 				for (int i = 0; i < str.Length; i++)
 				{
@@ -278,6 +373,7 @@ public partial class SongToTalk: ConsoleAppBase
 					count += IsSinglePhoneme(c) ? 1 : 2;
 				}
 				count = count == 0 ? 1 : count;
+				*/
 
 				//ノートあたりの長さを音素数で等分
 				var start = SasaraUtil.ClockToTimeSpan(
@@ -292,7 +388,7 @@ public partial class SongToTalk: ConsoleAppBase
 					song.TempoList ?? new(),
 					n.Duration
 				);
-				var sub = (decimal) dur.Milliseconds / count;
+				var sub = (decimal)dur.Milliseconds / count;
 				var len = Enumerable
 					.Range(0, count)
 					.Select(_ => sub / 1000m)
@@ -310,6 +406,18 @@ public partial class SongToTalk: ConsoleAppBase
 		}
 	}
 
+	private int CountPhonemes(Note n)
+	{
+		var fcLabel = GetFullContext(new List<Note> { n });
+
+		return fcLabel
+			.Lines
+			.Cast<FCLabLineJa>()
+			.Select(s => s.Phoneme)
+			//前後sil除外
+			.Count(s => s != "sil");
+	}
+
 	/// <summary>
 	/// ソング用の特殊ラベルを消してフレーズのセリフを得る
 	/// </summary>
@@ -323,6 +431,15 @@ public partial class SongToTalk: ConsoleAppBase
 	{
 		var concated = string
 			.Concat(p.Select(n => n.Lyric));
+
+		//TODO: ユーザー辞書対応
+		concated = concated
+			.Replace(
+			"クヮ", "クワ", StringComparison.InvariantCulture);
+
+		if(string.IsNullOrEmpty(concated)){
+			concated = "ラ";
+		}
 
 		return SpecialLabelRegex()
 			.Replace(concated, string.Empty);
@@ -372,7 +489,7 @@ internal record SongData{
 	public IEnumerable<List<Note>>? PhraseList { get; set; }
 
 	//ピッチ調声データ(LogF0)のリスト
-	//TODO:public IEnumerable<List<>>? PitchList { get; set; }
+	public IEnumerable<List<decimal>>? PitchList { get; set; }
 
 	//タイミング調声データのリスト
 	//ccsに記録されたものであれば細かい中間タイミングデータが取れる
