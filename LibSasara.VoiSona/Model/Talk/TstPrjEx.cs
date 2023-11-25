@@ -10,7 +10,7 @@ namespace LibSasara.VoiSona.Model.Talk;
 /// <summary>
 /// TstPrjに対する拡張メソッド
 /// </summary>
-public static class TstPrjEx
+public static class TstPrjExtension
 {
 	/// <summary>
 	/// tstprj のバイナリ列をコピーする

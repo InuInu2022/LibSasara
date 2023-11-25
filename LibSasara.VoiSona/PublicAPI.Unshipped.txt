@@ -149,7 +149,9 @@ static LibSasara.VoiSona.LibVoiSona.LoadAsync<T>(string! path, System.Threading.
 static LibSasara.VoiSona.LibVoiSona.SaveAsync(string! path, System.Collections.Generic.IReadOnlyList<byte>! data, System.Threading.CancellationToken ctx = default(System.Threading.CancellationToken)) -> System.Threading.Tasks.ValueTask
 static LibSasara.VoiSona.Model.Talk.TstPrjEx.Copy(this LibSasara.VoiSona.Model.Talk.TstPrj! source) -> System.Memory<byte>
 static LibSasara.VoiSona.Model.Talk.TstPrjEx.ReplaceAllUtterances(this LibSasara.VoiSona.Model.Talk.TstPrj! source, System.Collections.Generic.IEnumerable<LibSasara.VoiSona.Model.Talk.Utterance!>! newUtterances, int trackIndex = 0) -> System.Memory<byte>
+static LibSasara.VoiSona.Model.Talk.TstPrjEx.ReplaceAllUtterancesAsPrj(this LibSasara.VoiSona.Model.Talk.TstPrj! source, System.Collections.Generic.IEnumerable<LibSasara.VoiSona.Model.Talk.Utterance!>! newUtterances, int trackIndex = 0) -> LibSasara.VoiSona.Model.Talk.TstPrj!
 static LibSasara.VoiSona.Model.Talk.TstPrjEx.ReplaceVoice(this LibSasara.VoiSona.Model.Talk.TstPrj! source, LibSasara.VoiSona.Model.Talk.Voice! newVoice, int trackIndex = 0) -> System.Memory<byte>
+static LibSasara.VoiSona.Model.Talk.TstPrjEx.ReplaceVoiceAsPrj(this LibSasara.VoiSona.Model.Talk.TstPrj! source, LibSasara.VoiSona.Model.Talk.Voice! newVoice, int trackIndex = 0) -> LibSasara.VoiSona.Model.Talk.TstPrj!
 static LibSasara.VoiSona.Model.Talk.Voice.Count.get -> int
 static LibSasara.VoiSona.Util.BinaryUtil.Concat(this System.ReadOnlyMemory<byte> a, System.ReadOnlyMemory<byte> b) -> System.ReadOnlyMemory<byte>
 static LibSasara.VoiSona.Util.BinaryUtil.ParseIntegerFromBytes(System.ReadOnlyMemory<byte> memory, int countType) -> int
