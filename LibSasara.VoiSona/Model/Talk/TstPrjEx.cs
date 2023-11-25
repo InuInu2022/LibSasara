@@ -64,6 +64,17 @@ public static class TstPrjEx
 		return ConcatMemory(before, after, nvMemory);
 	}
 
+	/// <inheritdoc cref="ReplaceVoice(TstPrj, Voice, int)"/>
+	/// <returns><see cref="TstPrj"/>を返します</returns>
+	public static TstPrj ReplaceVoiceAsPrj(
+		this TstPrj source,
+		Voice newVoice,
+		int trackIndex = 0
+	){
+		var data = ReplaceVoice(source, newVoice, trackIndex);
+		return new TstPrj(data.ToArray());
+	}
+
 	private static bool TryFindTrack(
 		TstPrj source,
 		int trackIndex,
@@ -153,6 +164,17 @@ public static class TstPrjEx
 
 			return ConcatMemory(before, after, uBytes);
 		}
+	}
+
+	/// <inheritdoc cref="ReplaceAllUtterances(TstPrj, IEnumerable{Utterance}, int)"/>
+	/// <returns><see cref="TstPrj"/>を返します</returns>
+	public static TstPrj ReplaceAllUtterancesAsPrj(
+		this TstPrj source,
+		IEnumerable<Utterance> newUtterances,
+		int trackIndex = 0
+	){
+		var data = ReplaceAllUtterances(source, newUtterances, trackIndex);
+		return new TstPrj(data.ToArray());
 	}
 
 	private static (Memory<byte> before, Memory<byte> after)
