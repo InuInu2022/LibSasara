@@ -471,7 +471,8 @@ public partial class SongToTalk: ConsoleAppBase
 					song.TempoList ?? new(){ { 0, 120 } },
 					n.Duration
 				);
-				var sub = (decimal)dur.Milliseconds / count;
+				var sub = (decimal)(end - start) / count;
+				//var sub = (decimal)dur.Milliseconds / count;
 				var len = Enumerable
 					.Range(0, count)
 					.Select(_ => sub / 1000m)
