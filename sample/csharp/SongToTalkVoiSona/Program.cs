@@ -3,6 +3,7 @@ using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
+using CevioCasts;
 using LibSasara;
 using LibSasara.Model;
 using LibSasara.Model.FullContextLabel;
@@ -16,6 +17,7 @@ ConsoleApp.Run<SongToTalk>(args);
 public partial class SongToTalk: ConsoleAppBase
 {
 	private OpenJTalkAPI? _jtalk;
+	private Cast? _defs;
 
 	[RootCommand]
 	public async ValueTask<int> ExportAsync(
@@ -23,6 +25,8 @@ public partial class SongToTalk: ConsoleAppBase
 		string pathToSongCcs,
 		[Option("e", "path to a export tstprj file")]
 		string pathToPrj,
+		[Option("c", "singing cast name")]
+		string? castName = null,
 		string? pathToWav = "",
 		string? pathToLab = ""
 	){
@@ -38,10 +42,12 @@ public partial class SongToTalk: ConsoleAppBase
 			&& File.Exists(pathToLab);
 
 		//ccsを解析
-		var processed = await ProcessCcsAsync(pathToSongCcs);
+		var processed = await ProcessCcsAsync(pathToSongCcs)
+			.ConfigureAwait(false);
 
 		//解析を元にtstprj作成
-		await GenerateFileAsync(processed, pathToPrj);
+		await GenerateFileAsync(processed, pathToPrj, castName)
+			.ConfigureAwait(false);
 
 		return default;
 	}
@@ -59,7 +65,8 @@ public partial class SongToTalk: ConsoleAppBase
 	/// <param name="path"></param>
 	/// <returns></returns>
 	private async ValueTask<SongData> ProcessCcsAsync(string path){
-		var ccs = await SasaraCcs.LoadAsync(path);
+		var ccs = await SasaraCcs.LoadAsync(path)
+			.ConfigureAwait(false);
 		var trackset = ccs
 			.GetTrackSets<SongUnit>()
 			.FirstOrDefault();
@@ -132,7 +139,8 @@ public partial class SongToTalk: ConsoleAppBase
 
 	private async ValueTask GenerateFileAsync(
 		SongData processed,
-		string exportPath
+		string exportPath,
+		string? castName = null
 	)
 	{
 		var path = Path.Combine(
@@ -140,12 +148,28 @@ public partial class SongToTalk: ConsoleAppBase
 			"file/template.tstprj"
 		);
 		var TemplateTalk = await LibVoiSona
-			.LoadAsync<TstPrj>(path);
-		await InitOpenJTalk();
+			.LoadAsync<TstPrj>(path)
+			.ConfigureAwait(false);
+		await InitOpenJTalk()
+			.ConfigureAwait(false);
+
+		double[]? rates = null;
+		if(castName is not null){
+			//感情数を調べる
+			var cast = await GetCastDefAsync(castName)
+				.ConfigureAwait(false);
+			rates = cast
+				.Emotions
+				.Select(e => 0.00)
+				.ToArray();
+			//とりあえず最初の感情だけMAX
+			//TODO:感情比率設定可能に
+			rates[0] = 1.00;
+		}
 		var us = processed
 			.PhraseList?
 			//.AsParallel()
-			.Select(ToUtterance(processed))
+			.Select(ToUtterance(processed, rates))
 			.ToImmutableList()
 			;
 		if (us is null)
@@ -153,10 +177,48 @@ public partial class SongToTalk: ConsoleAppBase
 			Console.Error.WriteLine("解析に失敗しました。。。");
 			return;
 		}
+
 		var tstprj = TemplateTalk
-			.ReplaceAllUtterances(us);
+			.ReplaceAllUtterancesAsPrj(us);
+		if(castName is not null){
+			var voice = await GetVoiceByCastNameAsync(castName)
+				.ConfigureAwait(false);
+			tstprj = tstprj
+				.ReplaceVoiceAsPrj(voice);
+		}
 		await LibVoiSona
-			.SaveAsync(exportPath, tstprj.ToArray());
+			.SaveAsync(exportPath, tstprj.Data.ToArray())
+			.ConfigureAwait(false);
+	}
+
+	private async ValueTask<Voice> GetVoiceByCastNameAsync(string castName)
+	{
+		var cast = await GetCastDefAsync(castName)
+			.ConfigureAwait(false);
+
+		return new Voice(
+			Array.Find(cast.Names, n => n.Lang == Lang.English)?.Display ?? "error",
+			cast.Cname,
+			cast.Versions.Last()
+		);
+	}
+
+	private async Task<Cast> GetCastDefAsync(string castName)
+	{
+		if (_defs is not null) return _defs;
+
+		var path = Path.Combine(
+			AppDomain.CurrentDomain.BaseDirectory,
+			"lib/data.json"
+		);
+		var jsonString = await File
+			.ReadAllTextAsync(path)
+			.ConfigureAwait(false);
+		var defs = Definitions.FromJson(jsonString);
+		return defs.Casts
+			.Where(c => c.Product == Product.VoiSona)
+			.FirstOrDefault(c => c.Names.Any(n => n.Display == castName))
+			?? throw new ArgumentException($"cast name {castName} is not found in cast data. please check https://github.com/InuInu2022/cevio-casts/ ");
 	}
 
 	private async ValueTask InitOpenJTalk()
@@ -174,7 +236,8 @@ public partial class SongToTalk: ConsoleAppBase
 
 	private Func<List<Note>, Utterance>
 	ToUtterance(
-		SongData data
+		SongData data,
+		double[]? emotionRates = null
 	)
 	{
 		return p =>
@@ -214,8 +277,10 @@ public partial class SongToTalk: ConsoleAppBase
 			)
 			{
 				//感情比率
-				//TODO:感情数に合わせる
-				RawFrameStyle = "0:1:1.000:0.000:0.000:0.000:0.000",
+				//感情数に合わせる
+				RawFrameStyle = emotionRates is null
+					? "0:1:1.000:0.000:0.000:0.000:0.000"
+					: $"0:1:{string.Join(":", emotionRates)}",
 				//調整前LEN
 				PhonemeOriginalDuration = GetSplittedTiming(p, data),
 			};
@@ -337,7 +402,7 @@ public partial class SongToTalk: ConsoleAppBase
 				.Select(s2 => s2.Phoneme)
 				.Where(s2 => s2 != "sil"))
 			.Select(s => string.Join(",", s))
-			.Where(s => s != string.Empty)
+			.Where(s => !string.IsNullOrEmpty(s))
 			;
 
 		return string.Join("|", splited);
@@ -416,12 +481,6 @@ public partial class SongToTalk: ConsoleAppBase
 			)
 			;
 		return $"0.005,{s},0.125";
-
-		static bool IsSinglePhoneme(char c)
-		{
-			const string singles = "あいうえおんアイウエオンぁぃぅぇぉァィゥェォー";
-			return singles.Contains(c, StringComparison.InvariantCulture);
-		}
 	}
 
 	private int CountPhonemes(Note n)
