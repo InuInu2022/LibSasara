@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -51,6 +52,8 @@ public static class FileUtil
 		IReadOnlyList<byte> data,
 		CancellationToken ctx = default
 	){
+		data ??= Enumerable.Empty<byte>().ToList();
+
 		using var fs = File.Open(path, FileMode.OpenOrCreate);
 		fs.Seek(0, SeekOrigin.Begin);
 		await fs
