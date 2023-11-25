@@ -1,0 +1,6 @@
+<Project>
+  <PropertyGroup>
+	<AnalysisLevel>6.0-All</AnalysisLevel>
+    <ReportAnalyzer>true</ReportAnalyzer>
+  </PropertyGroup>
+</Project>
