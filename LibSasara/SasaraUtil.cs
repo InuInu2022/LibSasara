@@ -11,7 +11,7 @@ namespace LibSasara;
 /// </summary>
 public static class SasaraUtil
 {
-	private const int TickPerTempo = 960;
+	private const decimal TickPerBeat = 960;
 
 	/// <summary>
 	/// 文字列を <see cref="decimal"/> 型に変換。失敗時は第2引数<paramref name="defaultValue"/>を返す
@@ -71,78 +71,65 @@ public static class SasaraUtil
 	/// <summary>
 	/// Clockを時間（<see cref="TimeSpan"/>）に変換
 	/// </summary>
-	/// <param name="tempoList">テンポ変更リスト。"clock, tempo"のリスト。</param>
 	/// <param name="clockTick">変換したいClock（tick）値</param>
-	/// <param name="maxClock">テンポ変更の最終Clock値。未指定の場合は<paramref name="tempoList"/>の最後のClock＋1小節（<see cref="TickPerTempo"/>*4）とみなす。</param>
+	/// <param name="tempoList">テンポ変更リスト。"clock, tempo"のリスト。</param>
 	/// <exception cref="ArgumentOutOfRangeException" />
 	/// <seealso cref="SongUnit.Tempo"/>
 	/// <returns></returns>
 	public static TimeSpan ClockToTimeSpan(
+		int clockTick,
+		SortedDictionary<int, decimal> tempoList
+	)
+	{
+		//null check
+		if (tempoList is null)
+		{
+			throw new ArgumentNullException(nameof(tempoList));
+		}
+
+		//init
+		var sec = 0m;
+		var tick = 0m;
+		var tempo = 0m;
+
+		foreach (var item in tempoList)
+		{
+			var cTick = item.Key;
+			var cTempo = item.Value;
+
+			var elapsed = Math.Min(clockTick, cTick) - tick;
+			if (tempo != 0)
+			{
+				var spt = 60 / tempo / TickPerBeat;
+				sec += elapsed * spt;
+			}
+
+			//update
+			tick = cTick;
+			tempo = cTempo;
+
+			//抜ける
+			if (clockTick < cTick) break;
+		}
+		if(clockTick > tick){
+			if (tempo != 0){
+				sec += (clockTick - tick) * (60 / tempo /TickPerBeat);
+			}
+		}
+
+		return TimeSpan.FromSeconds((double)sec);
+	}
+
+	/// <inheritdoc cref="ClockToTimeSpan(SortedDictionary{int, decimal}, int, int)"/>
+	/// <seealso cref="ClockToTimeSpan(SortedDictionary{int, decimal}, int, int)"/>
+	public static TimeSpan ClockToTimeSpan(
 		SortedDictionary<int, decimal> tempoList,
 		int clockTick,
 		int maxClock = 0
-	)
-	{
-		var last = tempoList.Last();
-		if(last.Key == 0){
-			double msecPerTick = 60 / (double)last.Value * 1000 / (double)TickPerTempo;
-			return TimeSpan.FromMilliseconds(msecPerTick*clockTick);
-		}
-
-		var reverseList = tempoList
-			.Select(v => (v.Key, Tempo: v.Value, Length: -1))
-			.Reverse()
-			.ToList()
-			;
-		var clockSum = tempoList
-			.Select(v => v.Key)
-			.Sum();
-
-		var list = new List<(int Key, decimal Tempo,int Length)>();
-		if(maxClock is 0){
-			maxClock = last.Key + (TickPerTempo * 4);
-		}else if(maxClock < last.Key){
-			throw new ArgumentOutOfRangeException(
-				nameof(maxClock),
-				$"Invalid clock. {nameof(maxClock)} must be greater than or equal to the maximum clock tick in {nameof(tempoList)}.");
-		}
-
-		(int Key, decimal, int) next = (maxClock,0,0);
-		foreach (var (Key, Tempo, Length) in reverseList)
-		{
-			list.Add((
-				Key,
-				Tempo,
-				Length: next.Key - Key
-			));
-			next.Key = Key;
-		}
-		list.Reverse();
-		var l = list
-			.Where(v => clockTick > v.Key)
-			.Select(item =>
-			{
-				double msecPerTick = 60 / (double)item.Tempo * 1000 / (double)TickPerTempo;
-
-				double addTick = clockTick switch
-				{
-					int x when x <= item.Key
-						=> 0,
-					int x when item.Key < x
-						&& x < item.Key + item.Length
-						=> clockTick - item.Key,
-					int x when item.Key + item.Length <= x
-						=> item.Length,
-					_ => 0
-				};
-
-				return addTick * msecPerTick;
-			})
-			;
-		double sum = l.Sum();
-		var rsum = Math.Round(sum, 2, MidpointRounding.ToEven);
-		return TimeSpan.FromMilliseconds(rsum);
-	}
+	) => ClockToTimeSpan(
+			clockTick,
+			tempoList
+		);
 
 	/// <summary>
 	/// 周波数をMIDIノートナンバーに変換
