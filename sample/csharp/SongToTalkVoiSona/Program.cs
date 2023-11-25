@@ -216,7 +216,8 @@ public partial class SongToTalk: ConsoleAppBase
 			.ConfigureAwait(false);
 		var defs = Definitions.FromJson(jsonString);
 		return defs.Casts
-			.Where(c => c.Product == Product.VoiSona)
+			.Where(c => c.Product == Product.VoiSona
+			&& c.Category == CevioCasts.Category.TextVocal)
 			.FirstOrDefault(c => c.Names.Any(n => n.Display == castName))
 			?? throw new ArgumentException($"cast name {castName} is not found in cast data. please check https://github.com/InuInu2022/cevio-casts/ ");
 	}
