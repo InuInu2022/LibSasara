@@ -831,6 +831,34 @@ public class LibSasaraTest : IAsyncLifetime
 					{0, 123},
 					{7680, 88},
 				}
+			},
+			new object[]{
+				7680,
+				new TimeSpan(0,0,0,3,478),
+				new SortedDictionary<int, decimal>(){
+					{0, 138}
+				}
+			},
+			new object[]{
+				10080,
+				new TimeSpan(0,0,0,4,565),
+				new SortedDictionary<int, decimal>(){
+					{0, 138}
+				}
+			},
+			new object[]{
+				34560,
+				new TimeSpan(0,0,0,15,652),
+				new SortedDictionary<int, decimal>(){
+					{0, 138}
+				}
+			},
+			new object[]{
+				34560+3840,
+				new TimeSpan(0,0,0,17,391),
+				new SortedDictionary<int, decimal>(){
+					{0, 138}
+				}
 			}
 		};
 
