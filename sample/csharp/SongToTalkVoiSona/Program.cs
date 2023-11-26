@@ -259,46 +259,8 @@ public partial class SongToTalk: ConsoleAppBase
 			var text = GetPhraseText(p);
 
 			//分割
-			if(noteSplit?.isSplit is true){
-				p = p.ConvertAll(n =>
-				{
-					var dur = SasaraUtil
-						.ClockToTimeSpan(
-							n.Duration,
-							data.TempoList ?? new(){{0,120}})
-						.TotalMilliseconds;
-					var th = noteSplit?.threthold ?? 100000;
-					th = th < 100 ? 100 : th;
-
-					if (dur < th) return n;
-
-					var spCount = (int)Math.Floor(dur / th) + 1;
-
-					var ph = GetPhonemeLabel(GetFullContext(new List<Note> { n }), GetPhonemeMode.Note);
-					var sph = ph.Split('|');
-					var add = spCount - sph.Length;
-					sph = sph.Last().Split(',').Last() switch
-					{
-						//ん
-						"N" => sph
-							.Concat(
-								Enumerable
-								.Repeat("u", add-1)
-								.Append("N"))
-							.ToArray(),
-						//無効
-						"xx" => sph,
-						//それ以外（母音）
-						string s => sph
-							.Concat(Enumerable.Repeat(s, add))
-							.ToArray()
-					};
-					n.Phonetic = string
-						.Join(",", sph);
-					n.Lyric = GetPronounce(string.Join("|", sph));
-					return n;
-				})
-				;
+			if (noteSplit?.isSplit is true){
+				p = SplitNoteIfSetOption(data, noteSplit, p);
 			}
 
 			var fcLabel = GetFullContext(p);
@@ -351,6 +313,74 @@ public partial class SongToTalk: ConsoleAppBase
 			Console.WriteLine($"u[{text}], start:{nu.Start}");
 			return nu;
 		};
+	}
+
+	private List<Note> SplitNoteIfSetOption(
+		SongData data,
+		(bool isSplit, double threthold)? noteSplit,
+		List<Note> p)
+	{
+		//「ー」対応
+		for (var i = 1; i < p.Count; i++)
+		{
+			var lyric = p[i].Lyric;
+			if (lyric is null) continue;
+			if (!lyric.Contains('ー', StringComparison.InvariantCulture))
+			{
+				continue;
+			}
+			//「ー」の時は前のノートの母音歌詞に置換
+			var prev = p[i - 1];
+			var ph = GetPhonemeLabel(GetFullContext(new List<Note> { prev }), GetPhonemeMode.Note).Split("|");
+			var last = ph.Last() ?? "a";
+			p[i].Lyric = lyric
+				.Replace(
+				"ー",
+				GetPronounce(last),
+				StringComparison.InvariantCulture);
+		}
+
+		return p.ConvertAll(n =>
+		{
+			var dur = SasaraUtil
+				.ClockToTimeSpan(
+					n.Duration,
+					data.TempoList ?? new() { { 0, 120 } })
+				.TotalMilliseconds;
+			var th = noteSplit?.threthold ?? 100000;
+			th = th < 100 ? 100 : th;
+
+			if (dur < th) return n;
+
+			var spCount = (int)Math.Floor(dur / th) + 1;
+
+			var ph = GetPhonemeLabel(GetFullContext(new List<Note> { n }), GetPhonemeMode.Note);
+			var sph = ph.Split('|');
+			var add = spCount - sph.Length;
+
+			if (add <= 0) return n;
+
+			sph = sph.Last().Split(',').Last() switch
+			{
+				//ん
+				"N" => sph
+					.Concat(
+						Enumerable
+						.Repeat("u", add > 0 ? add - 1 : 0)
+						.Append("N"))
+					.ToArray(),
+				//無効
+				"xx" => sph,
+				//それ以外（母音）
+				string s => sph
+					.Concat(Enumerable.Repeat(s, add))
+					.ToArray()
+			};
+			n.Phonetic = string
+				.Join(",", sph);
+			n.Lyric = GetPronounce(string.Join("|", sph));
+			return n;
+		});
 	}
 
 	private static WanaKanaOptions kanaOption = new()
