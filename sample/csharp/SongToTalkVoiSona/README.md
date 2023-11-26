@@ -40,7 +40,7 @@ WIP
 
 ```cmd
 //windows
-SongToTalkVoiSona.exe -s path/to/ccs -d path/to/dist.ttsprj
+SongToTalkVoiSona.exe -s path/to/ccs -e path/to/dist.ttsprj -c 田中傘
 
 //mac, linux
 ```
@@ -53,5 +53,5 @@ SongToTalkVoiSona.exe -s path/to/ccs -d path/to/dist.ttsprj
 
 実行
 ```cmd
-dotnet run -s path/to/ccs -d path/to/dist.ttsprj
+dotnet run -s path/to/ccs -e path/to/dist.ttsprj
 ```
