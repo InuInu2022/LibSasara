@@ -1,4 +1,5 @@
-﻿using System.Collections.Immutable;
+﻿using System.Net.Http;
+using System.Collections.Immutable;
 using System.Globalization;
 using System.Linq;
 using System.Text;
@@ -27,6 +28,10 @@ public partial class SongToTalk: ConsoleAppBase
 		string pathToPrj,
 		[Option("c", "singing cast name")]
 		string? castName = null,
+		[Option("split", "split note by threthold msec.")]
+		bool splitNoteByThrethold = true,
+		[Option("th", "threthold time (MessageProcessingHandler.) for note split")]
+		double splitThrethold = 250,
 		string? pathToWav = "",
 		string? pathToLab = ""
 	){
@@ -46,7 +51,12 @@ public partial class SongToTalk: ConsoleAppBase
 			.ConfigureAwait(false);
 
 		//解析を元にtstprj作成
-		await GenerateFileAsync(processed, pathToPrj, castName)
+		await GenerateFileAsync(
+			processed,
+			pathToPrj,
+			castName,
+			(splitNoteByThrethold, splitThrethold)
+		)
 			.ConfigureAwait(false);
 
 		return default;
@@ -140,7 +150,8 @@ public partial class SongToTalk: ConsoleAppBase
 	private async ValueTask GenerateFileAsync(
 		SongData processed,
 		string exportPath,
-		string? castName = null
+		string? castName = null,
+		(bool isSplit, double threthold)? splitNote = null
 	)
 	{
 		var path = Path.Combine(
@@ -169,7 +180,7 @@ public partial class SongToTalk: ConsoleAppBase
 		var us = processed
 			.PhraseList?
 			//.AsParallel()
-			.Select(ToUtterance(processed, rates))
+			.Select(ToUtterance(processed, rates, splitNote))
 			.ToImmutableList()
 			;
 		if (us is null)
@@ -238,13 +249,57 @@ public partial class SongToTalk: ConsoleAppBase
 	private Func<List<Note>, Utterance>
 	ToUtterance(
 		SongData data,
-		double[]? emotionRates = null
+		double[]? emotionRates = null,
+		(bool isSplit, double threthold)? noteSplit = null
 	)
 	{
 		return p =>
 		{
 			//フレーズをセリフ化
 			var text = GetPhraseText(p);
+
+			//分割
+			if(noteSplit?.isSplit is true){
+				p = p.ConvertAll(n =>
+				{
+					var dur = SasaraUtil
+						.ClockToTimeSpan(
+							n.Duration,
+							data.TempoList ?? new(){{0,120}})
+						.TotalMilliseconds;
+					var th = noteSplit?.threthold ?? 100000;
+					th = th < 100 ? 100 : th;
+
+					if (dur < th) return n;
+
+					var spCount = (int)Math.Floor(dur / th) + 1;
+
+					var ph = GetPhonemeLabel(GetFullContext(new List<Note> { n }), GetPhonemeMode.Note);
+					var sph = ph.Split('|');
+					var add = spCount - sph.Length;
+					sph = sph.Last().Split(',').Last() switch
+					{
+						//ん
+						"N" => sph
+							.Concat(
+								Enumerable
+								.Repeat("u", add-1)
+								.Append("N"))
+							.ToArray(),
+						//無効
+						"xx" => sph,
+						//それ以外（母音）
+						string s => sph
+							.Concat(Enumerable.Repeat(s, add))
+							.ToArray()
+					};
+					n.Phonetic = string
+						.Join(",", sph);
+					n.Lyric = GetPronounce(string.Join("|", sph));
+					return n;
+				})
+				;
+			}
 
 			var fcLabel = GetFullContext(p);
 
@@ -441,7 +496,8 @@ public partial class SongToTalk: ConsoleAppBase
 	/// <returns></returns>
 	private string GetSplittedTiming(
 		List<Note> p,
-		SongData song)
+		SongData song
+	)
 	{
 		var s = string
 			.Join(",", p.Select(n =>
@@ -468,10 +524,6 @@ public partial class SongToTalk: ConsoleAppBase
 					song.TempoList ?? new(){ { 0, 120 } },
 					n.Clock + n.Duration
 				).TotalMilliseconds;
-				var dur = SasaraUtil.ClockToTimeSpan(
-					song.TempoList ?? new(){ { 0, 120 } },
-					n.Duration
-				);
 				var sub = (decimal)(end - start) / count;
 				//var sub = (decimal)dur.Milliseconds / count;
 				var len = Enumerable
@@ -539,7 +591,7 @@ public partial class SongToTalk: ConsoleAppBase
 		string phoneme,
 		string accent)
 	{
-		var bytes = Encoding.UTF8.GetByteCount(text);
+		var bytes = Encoding.UTF8.GetByteCount(pronounce);
 		return $"""<acoustic_phrase><word begin_byte_index="0" chain="0" end_byte_index="{bytes}" hl="{accent}" original="{text}" phoneme="{phoneme}" pos="感動詞" pronunciation="{pronounce}">{text}</word></acoustic_phrase>""";
 	}
 

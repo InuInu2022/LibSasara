@@ -168,16 +168,32 @@ public static class FullContextLabUtil
 			if (currentGroup.Count == 0 ||
 				currentGroup[currentGroup.Count - 1].MoraIdentity?.ForwardPos == item.MoraIdentity?.ForwardPos)
 			{
-				currentGroup.Add(item);
+				//暫定fix, 同一モーラと判定される場合がある対応
+				if (currentGroup.Count >= 1
+					&& PhonemeUtil.IsVowel(currentGroup[currentGroup.Count - 1].Phoneme)) {
+					//音素数が2以上で母音終わりならモーラの区切りとみなす
+					currentGroup = AddNewList(grouped, currentGroup, item);
+				} else {
+					currentGroup.Add(item);
+				}
+
 			}
 			else
 			{
-				grouped.Add(currentGroup);
-				currentGroup = new(){ item };
+				currentGroup = AddNewList(grouped, currentGroup, item);
 			}
 		}
 
 		grouped.Add(currentGroup);
 		return grouped;
+
+		static List<FCLabLineJa> AddNewList(
+			List<List<FCLabLineJa>> grouped,
+			List<FCLabLineJa> currentGroup,
+			FCLabLineJa item)
+		{
+			grouped.Add(currentGroup);
+			return new() { item };
+		}
 	}
 }
