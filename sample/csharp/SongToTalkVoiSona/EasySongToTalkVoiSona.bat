@@ -6,8 +6,8 @@ echo "EasySongToTalkVoiSona.batの中身を書き換えて使ってください"
 
 @rem 【書き換えてOK】ソングトラックのあるccs/ccstへのパス
 @set SRC="./file/kaeru.ccs"
-@rem 【書き換えてOK】上書きするccsへのパス
-@set DIST="./file/dist.ccs"
+@rem 【書き換えてOK】上書きするttsprjへのパス
+@set DIST="./file/dist.ttsprj"
 @rem 【書き換えてOK】歌わせるキャラ名。持ってるキャラ名にしてね。English name is OK!
 @set CAST="田中傘"
 @rem 【書き換えてOK】感情比率（キャストごとに要変更）
