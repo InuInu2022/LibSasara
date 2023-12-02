@@ -4,6 +4,13 @@ VoiSona Talkを”歌わせる”ツールです。
 
 This is a tool for "Singing" [VoiSona Talk](https://voisona.com/talk/).
 
+## Sample
+
+* [「いかないで / 想太」 田中傘カバー](https://utaloader.net/music/20231202201954332325)
+* [「いかないで / 想太」 すずきつづみカバー](https://utaloader.net/music/20231202155012082509)
+* [「宇宙戦艦"ア"マト / ささきいさお」 タカハシアカペラカバー１フレーズ](https://youtu.be/lnJEOS__mTo)
+* [「酔いどれ知らず / Kanaria」 田中傘アカペラカバー](https://youtu.be/LGDpAN4goIs)
+
 ## できること
 
 ### STEP.1
