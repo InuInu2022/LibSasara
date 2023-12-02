@@ -26,6 +26,8 @@ public partial class SongToTalk: ConsoleAppBase
 		string pathToSongCcs,
 		[Option("e", "path to a export tstprj file")]
 		string pathToPrj,
+		[Option("er", "emotion rate array")]
+		double[] emotions,
 		[Option("c", "singing cast name")]
 		string? castName = null,
 		[Option("split", "split note by threthold msec.")]
@@ -55,7 +57,8 @@ public partial class SongToTalk: ConsoleAppBase
 			processed,
 			pathToPrj,
 			castName,
-			(splitNoteByThrethold, splitThrethold)
+			(splitNoteByThrethold, splitThrethold),
+			emotions
 		)
 			.ConfigureAwait(false);
 
@@ -151,7 +154,8 @@ public partial class SongToTalk: ConsoleAppBase
 		SongData processed,
 		string exportPath,
 		string? castName = null,
-		(bool isSplit, double threthold)? splitNote = null
+		(bool isSplit, double threthold)? splitNote = null,
+		double[]? emotions = null
 	)
 	{
 		var path = Path.Combine(
@@ -165,7 +169,7 @@ public partial class SongToTalk: ConsoleAppBase
 			.ConfigureAwait(false);
 
 		double[]? rates = null;
-		if(castName is not null){
+		if(castName is not null && emotions is null){
 			//感情数を調べる
 			var cast = await GetCastDefAsync(castName)
 				.ConfigureAwait(false);
@@ -174,8 +178,14 @@ public partial class SongToTalk: ConsoleAppBase
 				.Select(e => 0.00)
 				.ToArray();
 			//とりあえず最初の感情だけMAX
-			//TODO:感情比率設定可能に
 			rates[0] = 1.00;
+		}
+		if(emotions is not null){
+			//感情比率設定可能に
+			if(emotions.Length == 0){
+				Console.Error.WriteLine($"emotion {emotions} is length 0.");
+			}
+			rates = emotions;
 		}
 		var us = processed
 			.PhraseList?

@@ -52,6 +52,7 @@ SongToTalkVoiSona.exe -s path/to/ccs -e path/to/dist.ttsprj -c 田中傘
   * `/lib/`フォルダに置いてください
 
 実行
+
 ```cmd
-dotnet run -s path/to/ccs -e path/to/dist.ttsprj
+dotnet run -s path/to/ccs -e path/to/dist.ttsprj -c タカハシ -emotions [1.0, 0.0, 0.0]
 ```
