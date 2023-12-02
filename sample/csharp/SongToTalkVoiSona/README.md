@@ -25,7 +25,7 @@ This is a tool for "Singing" [VoiSona Talk](https://voisona.com/talk/).
   * 逆に助詞の「は」は `[w,a]` と自動で発音します
 * ノートのアーティキュレーション未対応
 
-### STEP.2
+### [WIP]STEP.2
 
 歌唱指導を使って歌わせます。
 なめらかな歌声になります。
@@ -38,11 +38,34 @@ WIP
 
 ## Usage
 
-```cmd
-//windows
-SongToTalkVoiSona.exe -s path/to/ccs -e path/to/dist.ttsprj -c 田中傘
+### `EasySongToTalkVoiSona.bat` (win only)
 
-//mac, linux
+`EasySongToTalkVoiSona.bat`をメモ帳などで開いて編集したあとダブルクリックして起動してください。
+
+```bat
+@rem 【書き換えてOK】ソングトラックのあるccs/ccstへのパス
+@set SRC="./file/kaeru.ccs"
+@rem 【書き換えてOK】上書きするttsprjへのパス
+@set DIST="./file/dist.ttsprj"
+@rem 【書き換えてOK】歌わせるキャラ名。持ってるキャラ名にしてね。English name is OK!
+@set CAST="田中傘"
+@rem 【書き換えてOK】感情比率（キャストごとに要変更）
+@set EMOTIONS="[1.0,0.0,0.0,0.0]"
+```
+
+### command (win/mac/linux)
+
+```cmd
+//win
+SongToTalkVoiSona.exe -s path\to\ccs -e path\to\dist.ttsprj -c 田中傘 -emotions [1.0, 0.0, 0.0, 0.0, 0.0]
+
+//mac,linux
+SongToTalkVoiSona s path/to/ccs -e path/to/dist.ttsprj -c 田中傘 -emotions [1.0, 0.0, 0.0, 0.0, 0.0]
+```
+
+詳しくはhelpコマンドで確認してください。
+```cmd
+SongToTalkVoiSona.exe help
 ```
 
 ## Build
