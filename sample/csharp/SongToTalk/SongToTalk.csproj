@@ -5,7 +5,8 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <PublishSingleFile>true</PublishSingleFile>
-    <PublishTrimmed>false</PublishTrimmed>
+    <SelfContained>true</SelfContained>
+    <PublishTrimmed>true</PublishTrimmed>
     <TrimMode>partial</TrimMode>
     <TrimmerRemoveSymbols>true</TrimmerRemoveSymbols>
     <EnableCompressionInSingleFile>true</EnableCompressionInSingleFile>
@@ -40,6 +41,10 @@
   <ItemGroup>
     <!-- アプリに付与するファイル -->
     <Content Include="./Licenses/*/*">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+    </Content>
+    <Content Include="./README.md">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
     </Content>
