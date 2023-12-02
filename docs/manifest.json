@@ -9,19 +9,16 @@
         "resource": {
           "relative_path": "index.json"
         }
-      },
-      "is_incremental": false
+      }
     },
     {
       "type": "ManagedReference",
       "source_relative_path": "api/LibSasara.Builder.AudioUnitBuilder.yml",
       "output": {
         ".html": {
-          "relative_path": "api/LibSasara.Builder.AudioUnitBuilder.html",
-          "hash": "cezxvyk7IFIjGHGnoK8w0Rx02jxMqnqK1gU8DP1xfQQ="
+          "relative_path": "api/LibSasara.Builder.AudioUnitBuilder.html"
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -29,11 +26,9 @@
       "source_relative_path": "api/LibSasara.Builder.SongUnitBuilder.yml",
       "output": {
         ".html": {
-          "relative_path": "api/LibSasara.Builder.SongUnitBuilder.html",
-          "hash": "dm5PdyrZAR9Z1yITesL/ufPrnarZHKVDwGpiRpKqYxQ="
+          "relative_path": "api/LibSasara.Builder.SongUnitBuilder.html"
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -41,11 +36,9 @@
       "source_relative_path": "api/LibSasara.Builder.TalkUnitBuilder.yml",
       "output": {
         ".html": {
-          "relative_path": "api/LibSasara.Builder.TalkUnitBuilder.html",
-          "hash": "GzxgSqi4DYE/6QzjOs288dnWHAJmIAZRFXbjAIppsyA="
+          "relative_path": "api/LibSasara.Builder.TalkUnitBuilder.html"
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -53,11 +46,9 @@
       "source_relative_path": "api/LibSasara.Builder.yml",
       "output": {
         ".html": {
-          "relative_path": "api/LibSasara.Builder.html",
-          "hash": "3VIrHBnYyVyXC2PmQN6nZ7whntkhDwf90h/cHqdoUAI="
+          "relative_path": "api/LibSasara.Builder.html"
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -65,11 +56,9 @@
       "source_relative_path": "api/LibSasara.Model.AudioUnit.yml",
       "output": {
         ".html": {
-          "relative_path": "api/LibSasara.Model.AudioUnit.html",
-          "hash": "oTkNDc7693M6sWL49TYOwEfHze/LF79cJ8yBDI+9dQA="
+          "relative_path": "api/LibSasara.Model.AudioUnit.html"
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -77,11 +66,9 @@
       "source_relative_path": "api/LibSasara.Model.Category.yml",
       "output": {
         ".html": {
-          "relative_path": "api/LibSasara.Model.Category.html",
-          "hash": "6A92KNuWYaqwxZBinALr5UjKeO9l6KIrOad+byV6Tio="
+          "relative_path": "api/LibSasara.Model.Category.html"
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -89,11 +76,9 @@
       "source_relative_path": "api/LibSasara.Model.CcsProject.yml",
       "output": {
         ".html": {
-          "relative_path": "api/LibSasara.Model.CcsProject.html",
-          "hash": "Co0ekk1iNLtZzTx7cjc6PMkogAYCC7SIk1Fd5glW36o="
+          "relative_path": "api/LibSasara.Model.CcsProject.html"
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -101,11 +86,9 @@
       "source_relative_path": "api/LibSasara.Model.CcstTrack.yml",
       "output": {
         ".html": {
-          "relative_path": "api/LibSasara.Model.CcstTrack.html",
-          "hash": "FXI5mwzWtFXJMoCZMVJD6ZVxIiK/QF/GZH9AKcfW4fk="
+          "relative_path": "api/LibSasara.Model.CcstTrack.html"
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -113,11 +96,9 @@
       "source_relative_path": "api/LibSasara.Model.CeVIOFileBase.yml",
       "output": {
         ".html": {
-          "relative_path": "api/LibSasara.Model.CeVIOFileBase.html",
-          "hash": "0H5oUA6Ckza4wur1PSEOFywHZjt2NBqnYGshGgVaYuM="
+          "relative_path": "api/LibSasara.Model.CeVIOFileBase.html"
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -125,11 +106,9 @@
       "source_relative_path": "api/LibSasara.Model.CeVIOFileExt.yml",
       "output": {
         ".html": {
-          "relative_path": "api/LibSasara.Model.CeVIOFileExt.html",
-          "hash": "AEsgHr3RFAx+T+RommeoP6fIy5s5qJ4G62Qh3L2z410="
+          "relative_path": "api/LibSasara.Model.CeVIOFileExt.html"
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -137,11 +116,189 @@
       "source_relative_path": "api/LibSasara.Model.Dynamics.yml",
       "output": {
         ".html": {
-          "relative_path": "api/LibSasara.Model.Dynamics.html",
-          "hash": "GITzTy2KL9PlwPG3Wq9uBukNT+yxG5OJUCkJj41taZk="
+          "relative_path": "api/LibSasara.Model.Dynamics.html"
         }
       },
-      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibSasara.Model.FullContextLabel.AccentPhrase.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibSasara.Model.FullContextLabel.AccentPhrase.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibSasara.Model.FullContextLabel.BreathGroup.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibSasara.Model.FullContextLabel.BreathGroup.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibSasara.Model.FullContextLabel.ContinuousContexts-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibSasara.Model.FullContextLabel.ContinuousContexts-1.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibSasara.Model.FullContextLabel.FCLabLineEn.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibSasara.Model.FullContextLabel.FCLabLineEn.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibSasara.Model.FullContextLabel.FCLabLineJa.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibSasara.Model.FullContextLabel.FCLabLineJa.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibSasara.Model.FullContextLabel.FullContextLab.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibSasara.Model.FullContextLabel.FullContextLab.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibSasara.Model.FullContextLabel.FullContextLabLine.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibSasara.Model.FullContextLabel.FullContextLabLine.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibSasara.Model.FullContextLabel.FullContextLabUtil.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibSasara.Model.FullContextLabel.FullContextLabUtil.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibSasara.Model.FullContextLabel.IAccentPhrase.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibSasara.Model.FullContextLabel.IAccentPhrase.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibSasara.Model.FullContextLabel.IContinousContext.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibSasara.Model.FullContextLabel.IContinousContext.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibSasara.Model.FullContextLabel.IFullContext.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibSasara.Model.FullContextLabel.IFullContext.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibSasara.Model.FullContextLabel.IUtteranceInfo.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibSasara.Model.FullContextLabel.IUtteranceInfo.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibSasara.Model.FullContextLabel.MoraIndentity.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibSasara.Model.FullContextLabel.MoraIndentity.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibSasara.Model.FullContextLabel.PosOfContinous.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibSasara.Model.FullContextLabel.PosOfContinous.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibSasara.Model.FullContextLabel.UtteranceInfoEn.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibSasara.Model.FullContextLabel.UtteranceInfoEn.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibSasara.Model.FullContextLabel.UtteranceInfoJa.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibSasara.Model.FullContextLabel.UtteranceInfoJa.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibSasara.Model.FullContextLabel.WordInfo.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibSasara.Model.FullContextLabel.WordInfo.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibSasara.Model.FullContextLabel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibSasara.Model.FullContextLabel.html"
+        }
+      },
       "version": ""
     },
     {
@@ -149,11 +306,9 @@
       "source_relative_path": "api/LibSasara.Model.ICeVIOFile.yml",
       "output": {
         ".html": {
-          "relative_path": "api/LibSasara.Model.ICeVIOFile.html",
-          "hash": "4Fn1wq4EE78ftr6KpyDk4Uo86IWkP2jy1rXq6CaTH+g="
+          "relative_path": "api/LibSasara.Model.ICeVIOFile.html"
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -161,11 +316,9 @@
       "source_relative_path": "api/LibSasara.Model.Lab.yml",
       "output": {
         ".html": {
-          "relative_path": "api/LibSasara.Model.Lab.html",
-          "hash": "KFDRkjbUAzA4tuEBslT5QtMJ9GJB6H5glvqQSKF7XAY="
+          "relative_path": "api/LibSasara.Model.Lab.html"
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -173,11 +326,9 @@
       "source_relative_path": "api/LibSasara.Model.LabLine.yml",
       "output": {
         ".html": {
-          "relative_path": "api/LibSasara.Model.LabLine.html",
-          "hash": "SNfWuggpBCBdkrWO3X5QMGkhnSqQ0UxxMyIQMR04s1w="
+          "relative_path": "api/LibSasara.Model.LabLine.html"
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -185,11 +336,9 @@
       "source_relative_path": "api/LibSasara.Model.Note.yml",
       "output": {
         ".html": {
-          "relative_path": "api/LibSasara.Model.Note.html",
-          "hash": "FbRMd/kmLPuM19T3tRJn2ncxpvALOvcu0HB6LBp7wx0="
+          "relative_path": "api/LibSasara.Model.Note.html"
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -197,11 +346,9 @@
       "source_relative_path": "api/LibSasara.Model.PhonemeUtil.yml",
       "output": {
         ".html": {
-          "relative_path": "api/LibSasara.Model.PhonemeUtil.html",
-          "hash": "Q5M2WQ4cfgOTXS1Z04qNCUxDGbDSZV0RLktcqtC/85s="
+          "relative_path": "api/LibSasara.Model.PhonemeUtil.html"
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -209,11 +356,9 @@
       "source_relative_path": "api/LibSasara.Model.Serialize.AcousticPhrase.yml",
       "output": {
         ".html": {
-          "relative_path": "api/LibSasara.Model.Serialize.AcousticPhrase.html",
-          "hash": "ZuueGQxxUVHdNoisgkGLrQA2JJ4B4K+VbN6409P0kco="
+          "relative_path": "api/LibSasara.Model.Serialize.AcousticPhrase.html"
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -221,11 +366,9 @@
       "source_relative_path": "api/LibSasara.Model.Serialize.Author.yml",
       "output": {
         ".html": {
-          "relative_path": "api/LibSasara.Model.Serialize.Author.html",
-          "hash": "A5IEvw7X9Uq6/Vbz4vG6Ay04LOCdUXPvSH3R4tlhxgs="
+          "relative_path": "api/LibSasara.Model.Serialize.Author.html"
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -233,11 +376,9 @@
       "source_relative_path": "api/LibSasara.Model.Serialize.ClockObject.yml",
       "output": {
         ".html": {
-          "relative_path": "api/LibSasara.Model.Serialize.ClockObject.html",
-          "hash": "FESm3H5CgqyVi5BXAQ4mpW3ayp1mKkfKjJvLdoOUEE8="
+          "relative_path": "api/LibSasara.Model.Serialize.ClockObject.html"
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -245,11 +386,9 @@
       "source_relative_path": "api/LibSasara.Model.Serialize.Component.yml",
       "output": {
         ".html": {
-          "relative_path": "api/LibSasara.Model.Serialize.Component.html",
-          "hash": "R+a877A0qByHRZ9q4aFTe11vN6xSNgPmyvBtpu3xbkk="
+          "relative_path": "api/LibSasara.Model.Serialize.Component.html"
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -257,11 +396,9 @@
       "source_relative_path": "api/LibSasara.Model.Serialize.Data.yml",
       "output": {
         ".html": {
-          "relative_path": "api/LibSasara.Model.Serialize.Data.html",
-          "hash": "X/PaEks1qVwYDQp1JtyBzsyblCoytJBaSjiEKQ7g9Ag="
+          "relative_path": "api/LibSasara.Model.Serialize.Data.html"
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -269,11 +406,9 @@
       "source_relative_path": "api/LibSasara.Model.Serialize.DictionaryInfo.yml",
       "output": {
         ".html": {
-          "relative_path": "api/LibSasara.Model.Serialize.DictionaryInfo.html",
-          "hash": "VfUqJK5zrF2jsW/XyjbPWX7SzxY+vqkLxoJp1ffNczc="
+          "relative_path": "api/LibSasara.Model.Serialize.DictionaryInfo.html"
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -281,11 +416,9 @@
       "source_relative_path": "api/LibSasara.Model.Serialize.Direction-1.yml",
       "output": {
         ".html": {
-          "relative_path": "api/LibSasara.Model.Serialize.Direction-1.html",
-          "hash": "Vxy2hLjoFtSxX2LzGF/3qKpMuoiicZ7tzDtDcYogFNM="
+          "relative_path": "api/LibSasara.Model.Serialize.Direction-1.html"
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -293,11 +426,9 @@
       "source_relative_path": "api/LibSasara.Model.Serialize.Dynamics.yml",
       "output": {
         ".html": {
-          "relative_path": "api/LibSasara.Model.Serialize.Dynamics.html",
-          "hash": "Kx/ZLcx4t0gNx6yJHoQ5acH7KOt6LlG5SrpHp9kbpZc="
+          "relative_path": "api/LibSasara.Model.Serialize.Dynamics.html"
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -305,11 +436,9 @@
       "source_relative_path": "api/LibSasara.Model.Serialize.ExtensionInfo.yml",
       "output": {
         ".html": {
-          "relative_path": "api/LibSasara.Model.Serialize.ExtensionInfo.html",
-          "hash": "dWb6wUBl/78BFFabKhD3BTzn+4t81N9JkMx9r2Og38Q="
+          "relative_path": "api/LibSasara.Model.Serialize.ExtensionInfo.html"
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -317,11 +446,9 @@
       "source_relative_path": "api/LibSasara.Model.Serialize.Generator.yml",
       "output": {
         ".html": {
-          "relative_path": "api/LibSasara.Model.Serialize.Generator.html",
-          "hash": "0S4+aIjOVot4fQ57KNJdL6rECp44plsNNFo9PzzNVPI="
+          "relative_path": "api/LibSasara.Model.Serialize.Generator.html"
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -329,11 +456,9 @@
       "source_relative_path": "api/LibSasara.Model.Serialize.Group.yml",
       "output": {
         ".html": {
-          "relative_path": "api/LibSasara.Model.Serialize.Group.html",
-          "hash": "kUjSgtEPqB1jTOz9fjayGj5R4G3mHZ5Y2QYbz9tLR3k="
+          "relative_path": "api/LibSasara.Model.Serialize.Group.html"
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -341,11 +466,9 @@
       "source_relative_path": "api/LibSasara.Model.Serialize.Groups-1.yml",
       "output": {
         ".html": {
-          "relative_path": "api/LibSasara.Model.Serialize.Groups-1.html",
-          "hash": "8TOM7F1dvnQHtGCuyrkLBjOQrD3r6AuWDU2FPHHGosc="
+          "relative_path": "api/LibSasara.Model.Serialize.Groups-1.html"
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -353,11 +476,9 @@
       "source_relative_path": "api/LibSasara.Model.Serialize.IEditor.yml",
       "output": {
         ".html": {
-          "relative_path": "api/LibSasara.Model.Serialize.IEditor.html",
-          "hash": "ZkiyATGWm3RArYo6e7dg3sjOKcHSI7QYiqtEW8Ql07s="
+          "relative_path": "api/LibSasara.Model.Serialize.IEditor.html"
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -365,11 +486,9 @@
       "source_relative_path": "api/LibSasara.Model.Serialize.IEngine.yml",
       "output": {
         ".html": {
-          "relative_path": "api/LibSasara.Model.Serialize.IEngine.html",
-          "hash": "nTdUt2WLxN7Ov3fnhFENByJxhXrF886+zGPuifmP8ys="
+          "relative_path": "api/LibSasara.Model.Serialize.IEngine.html"
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -377,11 +496,9 @@
       "source_relative_path": "api/LibSasara.Model.Serialize.IHasCategory.yml",
       "output": {
         ".html": {
-          "relative_path": "api/LibSasara.Model.Serialize.IHasCategory.html",
-          "hash": "iSjodEz6QUkaXBI9z9fVCML9w/ZxZQJfnDV9UhVfpuk="
+          "relative_path": "api/LibSasara.Model.Serialize.IHasCategory.html"
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -389,11 +506,9 @@
       "source_relative_path": "api/LibSasara.Model.Serialize.IHasId.yml",
       "output": {
         ".html": {
-          "relative_path": "api/LibSasara.Model.Serialize.IHasId.html",
-          "hash": "PP2n9qPYP/Kar9YOQa0/vGnT8Q8BfEWcPeDjIGQvCxw="
+          "relative_path": "api/LibSasara.Model.Serialize.IHasId.html"
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -401,11 +516,9 @@
       "source_relative_path": "api/LibSasara.Model.Serialize.IHasVersion.yml",
       "output": {
         ".html": {
-          "relative_path": "api/LibSasara.Model.Serialize.IHasVersion.html",
-          "hash": "7KNxjjAN/glpIJwO0btpL5pMIGNQZYXU6KZNB7idKZ4="
+          "relative_path": "api/LibSasara.Model.Serialize.IHasVersion.html"
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -413,11 +526,9 @@
       "source_relative_path": "api/LibSasara.Model.Serialize.IRoot.yml",
       "output": {
         ".html": {
-          "relative_path": "api/LibSasara.Model.Serialize.IRoot.html",
-          "hash": "d/NIneF1FfRoi+13faV0sujaBhbIDHOt/iT9dgRe9mg="
+          "relative_path": "api/LibSasara.Model.Serialize.IRoot.html"
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -425,11 +536,9 @@
       "source_relative_path": "api/LibSasara.Model.Serialize.IScene.yml",
       "output": {
         ".html": {
-          "relative_path": "api/LibSasara.Model.Serialize.IScene.html",
-          "hash": "LavyhTVsOSTlNEFbNDjaICUNRkgwIINl2b2DEu5/j/o="
+          "relative_path": "api/LibSasara.Model.Serialize.IScene.html"
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -437,11 +546,9 @@
       "source_relative_path": "api/LibSasara.Model.Serialize.ITuneData.yml",
       "output": {
         ".html": {
-          "relative_path": "api/LibSasara.Model.Serialize.ITuneData.html",
-          "hash": "YKO7RHjGZICYCnOWvMJl4BGn3xPIbJQqlIug9FCgQRI="
+          "relative_path": "api/LibSasara.Model.Serialize.ITuneData.html"
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -449,11 +556,9 @@
       "source_relative_path": "api/LibSasara.Model.Serialize.IUnit.yml",
       "output": {
         ".html": {
-          "relative_path": "api/LibSasara.Model.Serialize.IUnit.html",
-          "hash": "UwG6UasGjNnHacuG76fHaTlkGYFwA6droiIyzXNzJdU="
+          "relative_path": "api/LibSasara.Model.Serialize.IUnit.html"
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -461,11 +566,9 @@
       "source_relative_path": "api/LibSasara.Model.Serialize.Key.yml",
       "output": {
         ".html": {
-          "relative_path": "api/LibSasara.Model.Serialize.Key.html",
-          "hash": "JREAy4QXRwnVL4bW1VRe7IoAb+bO3EZyz1jC5H4OIxs="
+          "relative_path": "api/LibSasara.Model.Serialize.Key.html"
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -473,11 +576,9 @@
       "source_relative_path": "api/LibSasara.Model.Serialize.Metadata_EN.yml",
       "output": {
         ".html": {
-          "relative_path": "api/LibSasara.Model.Serialize.Metadata_EN.html",
-          "hash": "0wC4ir+PRoqyiJnI/0+meWoIspzChj8o65cNAXShUPA="
+          "relative_path": "api/LibSasara.Model.Serialize.Metadata_EN.html"
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -485,11 +586,9 @@
       "source_relative_path": "api/LibSasara.Model.Serialize.NoData.yml",
       "output": {
         ".html": {
-          "relative_path": "api/LibSasara.Model.Serialize.NoData.html",
-          "hash": "/C7pgoKH0bLqhW/CAlGLiLNy0s0mrocb7/K8yMqeoW4="
+          "relative_path": "api/LibSasara.Model.Serialize.NoData.html"
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -497,11 +596,9 @@
       "source_relative_path": "api/LibSasara.Model.Serialize.Parameter.yml",
       "output": {
         ".html": {
-          "relative_path": "api/LibSasara.Model.Serialize.Parameter.html",
-          "hash": "cUz7dggSCfaDruo2z4DeQ+s3OWjEYpEeqnv8tJ00CtQ="
+          "relative_path": "api/LibSasara.Model.Serialize.Parameter.html"
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -509,11 +606,9 @@
       "source_relative_path": "api/LibSasara.Model.Serialize.Parameters.yml",
       "output": {
         ".html": {
-          "relative_path": "api/LibSasara.Model.Serialize.Parameters.html",
-          "hash": "Vm6/NQmjdJ+NTeVMskh7uwOqThWMcviz1uhteG1Slyo="
+          "relative_path": "api/LibSasara.Model.Serialize.Parameters.html"
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -521,11 +616,9 @@
       "source_relative_path": "api/LibSasara.Model.Serialize.Phoneme.yml",
       "output": {
         ".html": {
-          "relative_path": "api/LibSasara.Model.Serialize.Phoneme.html",
-          "hash": "bKZXaQAaS+21s2c59PvmxdRsJa5745RbLxHBL9MwjXI="
+          "relative_path": "api/LibSasara.Model.Serialize.Phoneme.html"
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -533,11 +626,9 @@
       "source_relative_path": "api/LibSasara.Model.Serialize.Phonemes.yml",
       "output": {
         ".html": {
-          "relative_path": "api/LibSasara.Model.Serialize.Phonemes.html",
-          "hash": "YNV6XmhFTOOcjuzoaukiIqOVn/3s/uqcHwzJUIPwpRw="
+          "relative_path": "api/LibSasara.Model.Serialize.Phonemes.html"
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -545,11 +636,9 @@
       "source_relative_path": "api/LibSasara.Model.Serialize.Project.yml",
       "output": {
         ".html": {
-          "relative_path": "api/LibSasara.Model.Serialize.Project.html",
-          "hash": "sip9yvVCz/VLSt2NKNrCCO4OocDDFZCKp/drDjH20nM="
+          "relative_path": "api/LibSasara.Model.Serialize.Project.html"
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -557,11 +646,9 @@
       "source_relative_path": "api/LibSasara.Model.Serialize.ReferenceState.yml",
       "output": {
         ".html": {
-          "relative_path": "api/LibSasara.Model.Serialize.ReferenceState.html",
-          "hash": "M0Mm1cMh02lA5j8aH9+4J4yNYPa5wZYZU4P5zsh5Sy0="
+          "relative_path": "api/LibSasara.Model.Serialize.ReferenceState.html"
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -569,11 +656,9 @@
       "source_relative_path": "api/LibSasara.Model.Serialize.RootBase.yml",
       "output": {
         ".html": {
-          "relative_path": "api/LibSasara.Model.Serialize.RootBase.html",
-          "hash": "y4Vcl2O0Klsv8LuZfqyIaALY7sMJYhkEyyggkD9HDeQ="
+          "relative_path": "api/LibSasara.Model.Serialize.RootBase.html"
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -581,11 +666,9 @@
       "source_relative_path": "api/LibSasara.Model.Serialize.RootExt.yml",
       "output": {
         ".html": {
-          "relative_path": "api/LibSasara.Model.Serialize.RootExt.html",
-          "hash": "RPBuMaNGzJMzE+7kjjAn5lr3cfEO095mPSJ1BWUL7kc="
+          "relative_path": "api/LibSasara.Model.Serialize.RootExt.html"
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -593,11 +676,9 @@
       "source_relative_path": "api/LibSasara.Model.Serialize.Scene.yml",
       "output": {
         ".html": {
-          "relative_path": "api/LibSasara.Model.Serialize.Scene.html",
-          "hash": "DzeWD03PjAxyD5+t8+hdP/um6MSvPUuhrxza6lsFsRk="
+          "relative_path": "api/LibSasara.Model.Serialize.Scene.html"
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -605,11 +686,9 @@
       "source_relative_path": "api/LibSasara.Model.Serialize.SceneBase.yml",
       "output": {
         ".html": {
-          "relative_path": "api/LibSasara.Model.Serialize.SceneBase.html",
-          "hash": "8UJ9e1RJhljleSHgP7z/iCRlBv+LyuxC481h84qlEig="
+          "relative_path": "api/LibSasara.Model.Serialize.SceneBase.html"
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -617,11 +696,9 @@
       "source_relative_path": "api/LibSasara.Model.Serialize.ScoreObject.yml",
       "output": {
         ".html": {
-          "relative_path": "api/LibSasara.Model.Serialize.ScoreObject.html",
-          "hash": "FTU2dazWa5reXx54GE4YKPeruX2+vKZVpN946Gl5v1U="
+          "relative_path": "api/LibSasara.Model.Serialize.ScoreObject.html"
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -629,11 +706,9 @@
       "source_relative_path": "api/LibSasara.Model.Serialize.Sequence.yml",
       "output": {
         ".html": {
-          "relative_path": "api/LibSasara.Model.Serialize.Sequence.html",
-          "hash": "qub3/HjMt8xGcBm0gOjIQzlUTddqTCzdrUXoFu+3Lx8="
+          "relative_path": "api/LibSasara.Model.Serialize.Sequence.html"
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -641,11 +716,9 @@
       "source_relative_path": "api/LibSasara.Model.Serialize.Song.yml",
       "output": {
         ".html": {
-          "relative_path": "api/LibSasara.Model.Serialize.Song.html",
-          "hash": "DSOOKML/9ZrtPlt7VbUnF13Bhv9i0H6udlQDVC10Vxg="
+          "relative_path": "api/LibSasara.Model.Serialize.Song.html"
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -653,11 +726,9 @@
       "source_relative_path": "api/LibSasara.Model.Serialize.SongEditor.yml",
       "output": {
         ".html": {
-          "relative_path": "api/LibSasara.Model.Serialize.SongEditor.html",
-          "hash": "v4qlkf5ryIw4If+wnhyHpyEhStfM4wmYjBGZep1761k="
+          "relative_path": "api/LibSasara.Model.Serialize.SongEditor.html"
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -665,11 +736,9 @@
       "source_relative_path": "api/LibSasara.Model.Serialize.SongEngine.yml",
       "output": {
         ".html": {
-          "relative_path": "api/LibSasara.Model.Serialize.SongEngine.html",
-          "hash": "ZZH5cLnt1CeihTXOEDTuplN3BBJMxOGmGZwgfp+18Cs="
+          "relative_path": "api/LibSasara.Model.Serialize.SongEngine.html"
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -677,11 +746,9 @@
       "source_relative_path": "api/LibSasara.Model.Serialize.Sound.yml",
       "output": {
         ".html": {
-          "relative_path": "api/LibSasara.Model.Serialize.Sound.html",
-          "hash": "SolAQHB4SWGYYtWXkrn6FqnwjZ6wgrrIqmLMVW7wmhQ="
+          "relative_path": "api/LibSasara.Model.Serialize.Sound.html"
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -689,11 +756,9 @@
       "source_relative_path": "api/LibSasara.Model.Serialize.SoundSetting.yml",
       "output": {
         ".html": {
-          "relative_path": "api/LibSasara.Model.Serialize.SoundSetting.html",
-          "hash": "gPD9dQCWegpKnMQvatD2v/qnQX/Sc2tfULv/9u6qkyk="
+          "relative_path": "api/LibSasara.Model.Serialize.SoundSetting.html"
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -701,11 +766,9 @@
       "source_relative_path": "api/LibSasara.Model.Serialize.SoundSource.yml",
       "output": {
         ".html": {
-          "relative_path": "api/LibSasara.Model.Serialize.SoundSource.html",
-          "hash": "x5ckAJg7ZQ1kyanOqm5d5h39GHRENjZUH48fLrYmOnE="
+          "relative_path": "api/LibSasara.Model.Serialize.SoundSource.html"
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -713,11 +776,9 @@
       "source_relative_path": "api/LibSasara.Model.Serialize.TalkEditor.yml",
       "output": {
         ".html": {
-          "relative_path": "api/LibSasara.Model.Serialize.TalkEditor.html",
-          "hash": "YWA2lf1Z4t4w4qiY2ywYbhhK3cm7MnGy2jS7814dY+E="
+          "relative_path": "api/LibSasara.Model.Serialize.TalkEditor.html"
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -725,11 +786,9 @@
       "source_relative_path": "api/LibSasara.Model.Serialize.TalkEditorExtension.yml",
       "output": {
         ".html": {
-          "relative_path": "api/LibSasara.Model.Serialize.TalkEditorExtension.html",
-          "hash": "OvDzKfDTaUF838ds2oZdEhE9r03fWPOVOsChVvpsRUQ="
+          "relative_path": "api/LibSasara.Model.Serialize.TalkEditorExtension.html"
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -737,11 +796,9 @@
       "source_relative_path": "api/LibSasara.Model.Serialize.TalkEngine.yml",
       "output": {
         ".html": {
-          "relative_path": "api/LibSasara.Model.Serialize.TalkEngine.html",
-          "hash": "aMTf9fcq225Pv0z9+7/nWQmIOKNVBGBf7WX0tVcaYgI="
+          "relative_path": "api/LibSasara.Model.Serialize.TalkEngine.html"
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -749,11 +806,9 @@
       "source_relative_path": "api/LibSasara.Model.Serialize.Time.yml",
       "output": {
         ".html": {
-          "relative_path": "api/LibSasara.Model.Serialize.Time.html",
-          "hash": "fUPXCMq7BPblm/jBKlwp3Geczzpp5JISleYjFN9u4K0="
+          "relative_path": "api/LibSasara.Model.Serialize.Time.html"
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -761,11 +816,9 @@
       "source_relative_path": "api/LibSasara.Model.Serialize.Timeline.yml",
       "output": {
         ".html": {
-          "relative_path": "api/LibSasara.Model.Serialize.Timeline.html",
-          "hash": "ts7gcMAaKKjLbn971pZYCvpai40FkLDKB6GXfIrLRdw="
+          "relative_path": "api/LibSasara.Model.Serialize.Timeline.html"
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -773,11 +826,9 @@
       "source_relative_path": "api/LibSasara.Model.Serialize.Track.yml",
       "output": {
         ".html": {
-          "relative_path": "api/LibSasara.Model.Serialize.Track.html",
-          "hash": "0CPyw/bp7ih8LeZCPpfaG+kEEFMQMbhwSnlC4+9/+qU="
+          "relative_path": "api/LibSasara.Model.Serialize.Track.html"
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -785,11 +836,9 @@
       "source_relative_path": "api/LibSasara.Model.Serialize.TuneData.yml",
       "output": {
         ".html": {
-          "relative_path": "api/LibSasara.Model.Serialize.TuneData.html",
-          "hash": "rZaU6Ii7vM09cUObvqhPZkwHugS7NjqWlTcr6/8uQ/o="
+          "relative_path": "api/LibSasara.Model.Serialize.TuneData.html"
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -797,11 +846,9 @@
       "source_relative_path": "api/LibSasara.Model.Serialize.Unit.yml",
       "output": {
         ".html": {
-          "relative_path": "api/LibSasara.Model.Serialize.Unit.html",
-          "hash": "8gb7yrWtmHSNAi7+kSeq6IhtDjjkvFXDUqHq78+BjKQ="
+          "relative_path": "api/LibSasara.Model.Serialize.Unit.html"
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -809,11 +856,9 @@
       "source_relative_path": "api/LibSasara.Model.Serialize.ViewScale.yml",
       "output": {
         ".html": {
-          "relative_path": "api/LibSasara.Model.Serialize.ViewScale.html",
-          "hash": "A214s5aPLEcVWTWwHP1eg8YqqJxTo8rnr6ugIbFh+i8="
+          "relative_path": "api/LibSasara.Model.Serialize.ViewScale.html"
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -821,11 +866,9 @@
       "source_relative_path": "api/LibSasara.Model.Serialize.Word.yml",
       "output": {
         ".html": {
-          "relative_path": "api/LibSasara.Model.Serialize.Word.html",
-          "hash": "WeCN08yQ2v73PXRGIX9xjlvZDioVmmuto+gGEDByqk0="
+          "relative_path": "api/LibSasara.Model.Serialize.Word.html"
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -833,11 +876,9 @@
       "source_relative_path": "api/LibSasara.Model.Serialize.yml",
       "output": {
         ".html": {
-          "relative_path": "api/LibSasara.Model.Serialize.html",
-          "hash": "91pcLZO1Kp8vHmxKkVVuHD790rOcOFpOltxthdmHVVA="
+          "relative_path": "api/LibSasara.Model.Serialize.html"
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -845,11 +886,9 @@
       "source_relative_path": "api/LibSasara.Model.SongUnit.yml",
       "output": {
         ".html": {
-          "relative_path": "api/LibSasara.Model.SongUnit.html",
-          "hash": "rG4L0Daoh+kQiPnpa+6a3FRq1UBv+2WC41ZDx3GP5mg="
+          "relative_path": "api/LibSasara.Model.SongUnit.html"
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -857,11 +896,9 @@
       "source_relative_path": "api/LibSasara.Model.Syllabic.yml",
       "output": {
         ".html": {
-          "relative_path": "api/LibSasara.Model.Syllabic.html",
-          "hash": "LUU4YiVCjNtwQyycXrt//AJy3Lb5ZHLrUdkK2UAX4Mo="
+          "relative_path": "api/LibSasara.Model.Syllabic.html"
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -869,11 +906,9 @@
       "source_relative_path": "api/LibSasara.Model.TalkPhoneme.yml",
       "output": {
         ".html": {
-          "relative_path": "api/LibSasara.Model.TalkPhoneme.html",
-          "hash": "+dcRbklAfOl6v6ybJYqaZftcwzNq9wOVPpCwN/DbC/Y="
+          "relative_path": "api/LibSasara.Model.TalkPhoneme.html"
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -881,11 +916,9 @@
       "source_relative_path": "api/LibSasara.Model.TalkUnit.yml",
       "output": {
         ".html": {
-          "relative_path": "api/LibSasara.Model.TalkUnit.html",
-          "hash": "BaH0yhlwnCeAZ+51g9Ol4z9Uktrb4sE8t+LNaZJoNCo="
+          "relative_path": "api/LibSasara.Model.TalkUnit.html"
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -893,11 +926,9 @@
       "source_relative_path": "api/LibSasara.Model.TrackSet-1.yml",
       "output": {
         ".html": {
-          "relative_path": "api/LibSasara.Model.TrackSet-1.html",
-          "hash": "45P1KNB/XSa52Ra/ErfFMgl+la74EQm00u4vKHfPtek="
+          "relative_path": "api/LibSasara.Model.TrackSet-1.html"
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -905,11 +936,9 @@
       "source_relative_path": "api/LibSasara.Model.UnitBase.yml",
       "output": {
         ".html": {
-          "relative_path": "api/LibSasara.Model.UnitBase.html",
-          "hash": "/4k4f81ul6HYAjKPL7AW+o17AE7PpUMi7rMFPmiPqYc="
+          "relative_path": "api/LibSasara.Model.UnitBase.html"
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -917,11 +946,9 @@
       "source_relative_path": "api/LibSasara.Model.yml",
       "output": {
         ".html": {
-          "relative_path": "api/LibSasara.Model.html",
-          "hash": "1CxhbvyO8uXFl8WeGNJqqp2NyWM/dxjFk5NoHwtahY0="
+          "relative_path": "api/LibSasara.Model.html"
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -929,11 +956,9 @@
       "source_relative_path": "api/LibSasara.SasaraCcs.yml",
       "output": {
         ".html": {
-          "relative_path": "api/LibSasara.SasaraCcs.html",
-          "hash": "wyvKmvcYt1kTfPlGaHqkMjOngRP3N+acYIcM9xHAIiY="
+          "relative_path": "api/LibSasara.SasaraCcs.html"
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -941,11 +966,9 @@
       "source_relative_path": "api/LibSasara.SasaraLabel.yml",
       "output": {
         ".html": {
-          "relative_path": "api/LibSasara.SasaraLabel.html",
-          "hash": "iIfr06Q64yZAm68OQtc9xo1VkgDj5R3SLdRL4zsNdvs="
+          "relative_path": "api/LibSasara.SasaraLabel.html"
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -953,11 +976,9 @@
       "source_relative_path": "api/LibSasara.SasaraUtil.yml",
       "output": {
         ".html": {
-          "relative_path": "api/LibSasara.SasaraUtil.html",
-          "hash": "A4oDUzeaOakH4E7QFUQHLgQwOZQpsE11Ge0uGPdFnRA="
+          "relative_path": "api/LibSasara.SasaraUtil.html"
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -965,11 +986,9 @@
       "source_relative_path": "api/LibSasara.VoiSona.LibVoiSona.yml",
       "output": {
         ".html": {
-          "relative_path": "api/LibSasara.VoiSona.LibVoiSona.html",
-          "hash": "kn6xwIKR4kjQCDM1v8qOZf7d0SArP8NVaX32AAcwEoA="
+          "relative_path": "api/LibSasara.VoiSona.LibVoiSona.html"
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -977,11 +996,9 @@
       "source_relative_path": "api/LibSasara.VoiSona.Model.Common.yml",
       "output": {
         ".html": {
-          "relative_path": "api/LibSasara.VoiSona.Model.Common.html",
-          "hash": "FpNlz4029I2GZgY3oFj8fHwNNZ9+99hQRTdJJJ+QG7E="
+          "relative_path": "api/LibSasara.VoiSona.Model.Common.html"
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -989,11 +1006,49 @@
       "source_relative_path": "api/LibSasara.VoiSona.Model.KeyValue-1.yml",
       "output": {
         ".html": {
-          "relative_path": "api/LibSasara.VoiSona.Model.KeyValue-1.html",
-          "hash": "B6OTewe8/KEZPSkzMzoRpcyZRmEHYqjJKNMw+O+zuOM="
+          "relative_path": "api/LibSasara.VoiSona.Model.KeyValue-1.html"
         }
       },
-      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibSasara.VoiSona.Model.Talk.FrameStyle.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibSasara.VoiSona.Model.Talk.FrameStyle.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibSasara.VoiSona.Model.Talk.FrameValue-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibSasara.VoiSona.Model.Talk.FrameValue-1.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibSasara.VoiSona.Model.Talk.ISecondsParam.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibSasara.VoiSona.Model.Talk.ISecondsParam.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibSasara.VoiSona.Model.Talk.SecondsValue-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibSasara.VoiSona.Model.Talk.SecondsValue-1.html"
+        }
+      },
       "version": ""
     },
     {
@@ -1001,11 +1056,9 @@
       "source_relative_path": "api/LibSasara.VoiSona.Model.Talk.TalkTrack.yml",
       "output": {
         ".html": {
-          "relative_path": "api/LibSasara.VoiSona.Model.Talk.TalkTrack.html",
-          "hash": "ajtiES5fA3bJOCAjQyb9CHae4w0JcfYQArhib/mLOBI="
+          "relative_path": "api/LibSasara.VoiSona.Model.Talk.TalkTrack.html"
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -1013,11 +1066,19 @@
       "source_relative_path": "api/LibSasara.VoiSona.Model.Talk.TstPrj.yml",
       "output": {
         ".html": {
-          "relative_path": "api/LibSasara.VoiSona.Model.Talk.TstPrj.html",
-          "hash": "Y0baEeRW2IK0woIKgJMNumrZejastcG20SY6Wzc3cIA="
+          "relative_path": "api/LibSasara.VoiSona.Model.Talk.TstPrj.html"
         }
       },
-      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibSasara.VoiSona.Model.Talk.TstPrjExtension.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibSasara.VoiSona.Model.Talk.TstPrjExtension.html"
+        }
+      },
       "version": ""
     },
     {
@@ -1025,11 +1086,9 @@
       "source_relative_path": "api/LibSasara.VoiSona.Model.Talk.Utterance.yml",
       "output": {
         ".html": {
-          "relative_path": "api/LibSasara.VoiSona.Model.Talk.Utterance.html",
-          "hash": "nAhviQutiFE8kaIL0HhN+jeb+Yxi+Vr30xXPm5eqmmk="
+          "relative_path": "api/LibSasara.VoiSona.Model.Talk.Utterance.html"
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -1037,11 +1096,9 @@
       "source_relative_path": "api/LibSasara.VoiSona.Model.Talk.Voice.yml",
       "output": {
         ".html": {
-          "relative_path": "api/LibSasara.VoiSona.Model.Talk.Voice.html",
-          "hash": "C+9CjgNZzCy5wiq1RvTOjBvE8oHRNGdE+CuoXpuikq0="
+          "relative_path": "api/LibSasara.VoiSona.Model.Talk.Voice.html"
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -1049,11 +1106,9 @@
       "source_relative_path": "api/LibSasara.VoiSona.Model.Talk.yml",
       "output": {
         ".html": {
-          "relative_path": "api/LibSasara.VoiSona.Model.Talk.html",
-          "hash": "u2fxo3O0QBXUQ4uWQGV1GcHS7wng02ns7srhroOIcPI="
+          "relative_path": "api/LibSasara.VoiSona.Model.Talk.html"
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -1061,11 +1116,9 @@
       "source_relative_path": "api/LibSasara.VoiSona.Model.Tree.yml",
       "output": {
         ".html": {
-          "relative_path": "api/LibSasara.VoiSona.Model.Tree.html",
-          "hash": "wvuXHjGe/AxOzXEhF7TJ+ETUpUkOMUemIqNL7yxUdlI="
+          "relative_path": "api/LibSasara.VoiSona.Model.Tree.html"
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -1073,11 +1126,9 @@
       "source_relative_path": "api/LibSasara.VoiSona.Model.VoiSonaFileBase.yml",
       "output": {
         ".html": {
-          "relative_path": "api/LibSasara.VoiSona.Model.VoiSonaFileBase.html",
-          "hash": "yKTB4+BTfHzs4WEHA/TwDKhPDNWHFv4q1YrFWv9s3vg="
+          "relative_path": "api/LibSasara.VoiSona.Model.VoiSonaFileBase.html"
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -1085,11 +1136,9 @@
       "source_relative_path": "api/LibSasara.VoiSona.Model.VoiSonaValueType.yml",
       "output": {
         ".html": {
-          "relative_path": "api/LibSasara.VoiSona.Model.VoiSonaValueType.html",
-          "hash": "5NXMGeIDRV9VNr1JdlKDBaOdroUdylVeAuxC7gsEJss="
+          "relative_path": "api/LibSasara.VoiSona.Model.VoiSonaValueType.html"
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -1097,11 +1146,9 @@
       "source_relative_path": "api/LibSasara.VoiSona.Model.yml",
       "output": {
         ".html": {
-          "relative_path": "api/LibSasara.VoiSona.Model.html",
-          "hash": "SI5brW4AM+i6B12QyIxqFbmO0T2i4d3IwNXEch4ZYVs="
+          "relative_path": "api/LibSasara.VoiSona.Model.html"
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -1109,11 +1156,9 @@
       "source_relative_path": "api/LibSasara.VoiSona.Util.BinaryUtil.yml",
       "output": {
         ".html": {
-          "relative_path": "api/LibSasara.VoiSona.Util.BinaryUtil.html",
-          "hash": "nvEIcXDH/qNlwG8nYgarxnxF0b2Q0VDZGvVmqK8Njk0="
+          "relative_path": "api/LibSasara.VoiSona.Util.BinaryUtil.html"
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -1121,11 +1166,9 @@
       "source_relative_path": "api/LibSasara.VoiSona.Util.FileUtil.yml",
       "output": {
         ".html": {
-          "relative_path": "api/LibSasara.VoiSona.Util.FileUtil.html",
-          "hash": "h0KbPfXtcq955qfJJdiwnKr6Deo3/WfntZ7a0hrates="
+          "relative_path": "api/LibSasara.VoiSona.Util.FileUtil.html"
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -1133,11 +1176,9 @@
       "source_relative_path": "api/LibSasara.VoiSona.Util.Header.yml",
       "output": {
         ".html": {
-          "relative_path": "api/LibSasara.VoiSona.Util.Header.html",
-          "hash": "IYo04Xt1tj8kfXzwuabnQkfI3Djzvi4cVcYmPn4VQwQ="
+          "relative_path": "api/LibSasara.VoiSona.Util.Header.html"
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -1145,11 +1186,19 @@
       "source_relative_path": "api/LibSasara.VoiSona.Util.HeaderUtil.yml",
       "output": {
         ".html": {
-          "relative_path": "api/LibSasara.VoiSona.Util.HeaderUtil.html",
-          "hash": "Q0O6dkIMPuMNs+E2wXqa6x42OEU0WdbAwPjt+LMJgTc="
+          "relative_path": "api/LibSasara.VoiSona.Util.HeaderUtil.html"
         }
       },
-      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibSasara.VoiSona.Util.TextUtil.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibSasara.VoiSona.Util.TextUtil.html"
+        }
+      },
       "version": ""
     },
     {
@@ -1157,11 +1206,9 @@
       "source_relative_path": "api/LibSasara.VoiSona.Util.TreeUtil.yml",
       "output": {
         ".html": {
-          "relative_path": "api/LibSasara.VoiSona.Util.TreeUtil.html",
-          "hash": "NfUgDanS9D+rM2xWpgtcWOUcx5/gnWZxORq67vSZfDM="
+          "relative_path": "api/LibSasara.VoiSona.Util.TreeUtil.html"
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -1169,11 +1216,9 @@
       "source_relative_path": "api/LibSasara.VoiSona.Util.yml",
       "output": {
         ".html": {
-          "relative_path": "api/LibSasara.VoiSona.Util.html",
-          "hash": "6/r/h6pi3pm+xdHUKGW9ICPh+2H59itK/knBJcP4Nlo="
+          "relative_path": "api/LibSasara.VoiSona.Util.html"
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -1181,11 +1226,9 @@
       "source_relative_path": "api/LibSasara.VoiSona.yml",
       "output": {
         ".html": {
-          "relative_path": "api/LibSasara.VoiSona.html",
-          "hash": "kbLNwecN/HmTmV6n9Hy6X6N0yIlBsGF1gtM7NPTZ9Eg="
+          "relative_path": "api/LibSasara.VoiSona.html"
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -1193,11 +1236,9 @@
       "source_relative_path": "api/LibSasara.yml",
       "output": {
         ".html": {
-          "relative_path": "api/LibSasara.html",
-          "hash": "JlqELS4JDQLV2iKUA/W6Vc3+3NZa7ATX0eb1kIHU7tQ="
+          "relative_path": "api/LibSasara.html"
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -1205,11 +1246,9 @@
       "source_relative_path": "api/index.md",
       "output": {
         ".html": {
-          "relative_path": "api/index.html",
-          "hash": "XaKpZZwIt2Nc43KwHiHKFu1MhSCm/WVv5Yb53MsNBF8="
+          "relative_path": "api/index.html"
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -1217,11 +1256,9 @@
       "source_relative_path": "api/toc.yml",
       "output": {
         ".html": {
-          "relative_path": "api/toc.html",
-          "hash": "EoXucsPTE5ipjGDsW79yLAbz2BQrjR2uFKRd/+au4D8="
+          "relative_path": "api/toc.html"
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -1229,11 +1266,9 @@
       "source_relative_path": "articles/intro.md",
       "output": {
         ".html": {
-          "relative_path": "articles/intro.html",
-          "hash": "l6J/+/BA/xedyeCKWtXHItOypgWXB9HYsKIannxx5IA="
+          "relative_path": "articles/intro.html"
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -1241,11 +1276,9 @@
       "source_relative_path": "articles/toc.yml",
       "output": {
         ".html": {
-          "relative_path": "articles/toc.html",
-          "hash": "BlPxk5mtl2kgfcZUgkEguqiSAR/EUyUTT4EdebwkQvs="
+          "relative_path": "articles/toc.html"
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -1256,7 +1289,6 @@
           "relative_path": "images/LibSasara.mdp"
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -1267,7 +1299,6 @@
           "relative_path": "images/LibSasara_icon.ico"
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -1278,7 +1309,6 @@
           "relative_path": "images/LibSasara_icon.mdp"
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -1289,7 +1319,6 @@
           "relative_path": "images/LibSasara_icon_128x128.png"
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -1300,7 +1329,6 @@
           "relative_path": "images/LibSasara_icon_32x32.png"
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -1311,7 +1339,6 @@
           "relative_path": "images/LibSasara_icon_48x48.png"
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -1322,7 +1349,6 @@
           "relative_path": "images/LibSasara_icon_64x64.png"
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -1333,7 +1359,6 @@
           "relative_path": "images/header.png"
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -1344,7 +1369,6 @@
           "relative_path": "images/libsasara-logo.png"
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -1355,11 +1379,9 @@
       "source_relative_path": "index.md",
       "output": {
         ".html": {
-          "relative_path": "index.html",
-          "hash": "P0chwCOTWo/Is1NHaZ4VfO4HiBSd9uTrloeFDT5xyDA="
+          "relative_path": "index.html"
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -1367,60 +1389,10 @@
       "source_relative_path": "toc.yml",
       "output": {
         ".html": {
-          "relative_path": "toc.html",
-          "hash": "THbRYyXL98cuFItq6hylBHLQLIjIkxT2PtiDiEJ5+Iw="
+          "relative_path": "toc.html"
         }
       },
-      "is_incremental": false,
       "version": ""
-    }
-  ],
-  "incremental_info": [
-    {
-      "status": {
-        "can_incremental": true,
-        "incrementalPhase": "build",
-        "total_file_count": 0,
-        "skipped_file_count": 0
-      },
-      "processors": {
-        "ConceptualDocumentProcessor": {
-          "can_incremental": true,
-          "incrementalPhase": "build",
-          "total_file_count": 3,
-          "skipped_file_count": 3
-        },
-        "ManagedReferenceDocumentProcessor": {
-          "can_incremental": true,
-          "incrementalPhase": "build",
-          "total_file_count": 99,
-          "skipped_file_count": 39
-        },
-        "ResourceDocumentProcessor": {
-          "can_incremental": false,
-          "details": "Processor ResourceDocumentProcessor cannot support incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
-          "incrementalPhase": "build",
-          "total_file_count": 0,
-          "skipped_file_count": 0
-        },
-        "TocDocumentProcessor": {
-          "can_incremental": false,
-          "details": "Processor TocDocumentProcessor cannot support incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
-          "incrementalPhase": "build",
-          "total_file_count": 0,
-          "skipped_file_count": 0
-        }
-      }
-    },
-    {
-      "status": {
-        "can_incremental": false,
-        "details": "Cannot support incremental post processing, the reason is: should not trace intermediate info.",
-        "incrementalPhase": "postProcessing",
-        "total_file_count": 0,
-        "skipped_file_count": 0
-      },
-      "processors": {}
     }
   ],
   "version_info": {},

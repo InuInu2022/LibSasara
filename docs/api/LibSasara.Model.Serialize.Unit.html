@@ -1,23 +1,22 @@
 ﻿<!DOCTYPE html>
 <!--[if IE]><![endif]-->
 <html>
-  
+
   <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Class Unit
-   | Documentation - LibSasara </title>
-    <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Class Unit
-   | Documentation - LibSasara ">
-    <meta name="generator" content="docfx 2.59.4.0">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Class Unit
+ | Documentation - LibSasara </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="Class Unit
+ | Documentation - LibSasara ">
     
-    <link rel="shortcut icon" href="../images/LibSasara_icon.ico">
-    <link rel="stylesheet" href="../styles/docfx.vendor.css">
-    <link rel="stylesheet" href="../styles/docfx.css">
-    <link rel="stylesheet" href="../styles/main.css">
-    <meta property="docfx:navrel" content="../toc.html">
-    <meta property="docfx:tocrel" content="toc.html">
+      <link rel="shortcut icon" href="../images/LibSasara_icon.ico">
+      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../styles/docfx.css">
+      <link rel="stylesheet" href="../styles/main.css">
+      <meta property="docfx:navrel" content="../toc.html">
+      <meta property="docfx:tocrel" content="toc.html">
     
     <meta property="docfx:rel" content="../">
     
@@ -25,7 +24,7 @@
   <body data-spy="scroll" data-target="#affix" data-offset="120">
     <div id="wrapper">
       <header>
-        
+
         <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
           <div class="container">
             <div class="navbar-header">
@@ -35,7 +34,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
               </button>
-              
+
               <a class="navbar-brand" href="../index.html">
                 <img id="logo" class="svg" src="../images/LibSasara_icon_48x48.png" alt="">
               </a>
@@ -49,7 +48,7 @@
             </div>
           </div>
         </nav>
-        
+
         <div class="subnav navbar navbar-default">
           <div class="container hide-when-search" id="breadcrumb">
             <ul class="breadcrumb">
@@ -59,7 +58,7 @@
         </div>
       </header>
       <div class="container body-content">
-        
+
         <div id="search-results">
           <div class="search-list">Search Results for <span></span></div>
           <div class="sr-items">
@@ -69,7 +68,7 @@
         </div>
       </div>
       <div role="main" class="container body-content hide-when-search">
-        
+
         <div class="sidenav hide-when-search">
           <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
           <div class="sidetoggle collapse" id="sidetoggle">
@@ -79,16 +78,17 @@
         <div class="article row grid-right">
           <div class="col-md-10">
             <article class="content wrap" id="_content" data-uid="LibSasara.Model.Serialize.Unit">
-  
-  
+
+
+
   <h1 id="LibSasara_Model_Serialize_Unit" data-uid="LibSasara.Model.Serialize.Unit" class="text-break">Class Unit
-  </h1>
+</h1>
   <div class="markdown level0 summary"><p>ユニット</p>
 </div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
     <h5>Inheritance</h5>
-    <div class="level0"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">Object</a></div>
+    <div class="level0"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
     <div class="level1"><span class="xref">Unit</span></div>
   </div>
   <div class="implements">
@@ -98,27 +98,27 @@
     <div><a class="xref" href="LibSasara.Model.Serialize.IHasId.html">IHasId</a></div>
     <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">IEquatable</a>&lt;<a class="xref" href="LibSasara.Model.Serialize.Unit.html">Unit</a>&gt;</div>
   </div>
-  <h6><strong>Namespace</strong>: <a class="xref" href="LibSasara.Model.Serialize.html">LibSasara.Model.Serialize</a></h6>
+  <h6><strong>Namespace</strong>: <a class="xref" href="LibSasara.html">LibSasara</a>.<a class="xref" href="LibSasara.Model.html">Model</a>.<a class="xref" href="LibSasara.Model.Serialize.html">Serialize</a></h6>
   <h6><strong>Assembly</strong>: LibSasara.dll</h6>
   <h5 id="LibSasara_Model_Serialize_Unit_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class Unit : IUnit, IHasVersion, IHasId, IEquatable&lt;Unit&gt;</code></pre>
+    <pre><code class="lang-csharp hljs">public record Unit : IUnit, IHasVersion, IHasId, IEquatable&lt;Unit&gt;</code></pre>
   </div>
   <h3 id="properties">Properties
-  </h3>
-  
-  
+</h3>
+
+
   <a id="LibSasara_Model_Serialize_Unit_CastId_" data-uid="LibSasara.Model.Serialize.Unit.CastId*"></a>
   <h4 id="LibSasara_Model_Serialize_Unit_CastId" data-uid="LibSasara.Model.Serialize.Unit.CastId">CastId</h4>
   <div class="markdown level1 summary"><p>指定ボイスライブラリのキャストのID</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public string CastId { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">public string? CastId { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -127,24 +127,24 @@
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
         <td></td>
       </tr>
     </tbody>
   </table>
-  
-  
+
+
   <a id="LibSasara_Model_Serialize_Unit_Category_" data-uid="LibSasara.Model.Serialize.Unit.Category*"></a>
   <h4 id="LibSasara_Model_Serialize_Unit_Category" data-uid="LibSasara.Model.Serialize.Unit.Category">Category</h4>
   <div class="markdown level1 summary"><p>ユニットのカテゴリ</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public Category Category { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -158,19 +158,19 @@
       </tr>
     </tbody>
   </table>
-  
-  
+
+
   <a id="LibSasara_Model_Serialize_Unit_Direction_" data-uid="LibSasara.Model.Serialize.Unit.Direction*"></a>
   <h4 id="LibSasara_Model_Serialize_Unit_Direction" data-uid="LibSasara.Model.Serialize.Unit.Direction">Direction</h4>
   <div class="markdown level1 summary"><p>キャストのコンディション・感情設定</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Direction&lt;Component&gt; Direction { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">public Direction&lt;Component&gt;? Direction { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -184,19 +184,19 @@
       </tr>
     </tbody>
   </table>
-  
-  
+
+
   <a id="LibSasara_Model_Serialize_Unit_Duration_" data-uid="LibSasara.Model.Serialize.Unit.Duration*"></a>
   <h4 id="LibSasara_Model_Serialize_Unit_Duration" data-uid="LibSasara.Model.Serialize.Unit.Duration">Duration</h4>
   <div class="markdown level1 summary"><p>長さ</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public TimeSpan? Duration { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -205,24 +205,24 @@
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a>&gt;</td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a>?</td>
         <td></td>
       </tr>
     </tbody>
   </table>
-  
-  
+
+
   <a id="LibSasara_Model_Serialize_Unit_Group_" data-uid="LibSasara.Model.Serialize.Unit.Group*"></a>
   <h4 id="LibSasara_Model_Serialize_Unit_Group" data-uid="LibSasara.Model.Serialize.Unit.Group">Group</h4>
   <div class="markdown level1 summary"><p>所属トラックを指定するID</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public Guid Group { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -236,18 +236,19 @@
       </tr>
     </tbody>
   </table>
-  
-  
+
+
   <a id="LibSasara_Model_Serialize_Unit_Id_" data-uid="LibSasara.Model.Serialize.Unit.Id*"></a>
   <h4 id="LibSasara_Model_Serialize_Unit_Id" data-uid="LibSasara.Model.Serialize.Unit.Id">Id</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Identifier</p>
+</div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public string Id { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">public string? Id { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -256,24 +257,24 @@
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
         <td></td>
       </tr>
     </tbody>
   </table>
-  
-  
+
+
   <a id="LibSasara_Model_Serialize_Unit_Language_" data-uid="LibSasara.Model.Serialize.Unit.Language*"></a>
   <h4 id="LibSasara_Model_Serialize_Unit_Language" data-uid="LibSasara.Model.Serialize.Unit.Language">Language</h4>
   <div class="markdown level1 summary"><p>言語</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public string Language { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">public string? Language { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -282,24 +283,24 @@
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
         <td></td>
       </tr>
     </tbody>
   </table>
-  
-  
+
+
   <a id="LibSasara_Model_Serialize_Unit_Metadata_" data-uid="LibSasara.Model.Serialize.Unit.Metadata*"></a>
   <h4 id="LibSasara_Model_Serialize_Unit_Metadata" data-uid="LibSasara.Model.Serialize.Unit.Metadata">Metadata</h4>
   <div class="markdown level1 summary"><p>BASE64で記録された調声バイナリメタデータ</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public string Metadata { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">public string? Metadata { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -308,24 +309,24 @@
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
         <td></td>
       </tr>
     </tbody>
   </table>
-  
-  
+
+
   <a id="LibSasara_Model_Serialize_Unit_Metadata_EN_" data-uid="LibSasara.Model.Serialize.Unit.Metadata_EN*"></a>
   <h4 id="LibSasara_Model_Serialize_Unit_Metadata_EN" data-uid="LibSasara.Model.Serialize.Unit.Metadata_EN">Metadata_EN</h4>
   <div class="markdown level1 summary"><p>英語調声データ（英語ボイスのみ）</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Metadata_EN Metadata_EN { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">public Metadata_EN? Metadata_EN { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -339,19 +340,19 @@
       </tr>
     </tbody>
   </table>
-  
-  
+
+
   <a id="LibSasara_Model_Serialize_Unit_Phonemes_" data-uid="LibSasara.Model.Serialize.Unit.Phonemes*"></a>
   <h4 id="LibSasara_Model_Serialize_Unit_Phonemes" data-uid="LibSasara.Model.Serialize.Unit.Phonemes">Phonemes</h4>
   <div class="markdown level1 summary"><p>音素一覧</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Phonemes Phonemes { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">public Phonemes? Phonemes { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -365,19 +366,19 @@
       </tr>
     </tbody>
   </table>
-  
-  
+
+
   <a id="LibSasara_Model_Serialize_Unit_SnapShot_" data-uid="LibSasara.Model.Serialize.Unit.SnapShot*"></a>
   <h4 id="LibSasara_Model_Serialize_Unit_SnapShot" data-uid="LibSasara.Model.Serialize.Unit.SnapShot">SnapShot</h4>
   <div class="markdown level1 summary"><p>合成結果のキャッシュのキー(CeVIO AIのみ)</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public string SnapShot { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">public string? SnapShot { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -386,24 +387,24 @@
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
         <td></td>
       </tr>
     </tbody>
   </table>
-  
-  
+
+
   <a id="LibSasara_Model_Serialize_Unit_Song_" data-uid="LibSasara.Model.Serialize.Unit.Song*"></a>
   <h4 id="LibSasara_Model_Serialize_Unit_Song" data-uid="LibSasara.Model.Serialize.Unit.Song">Song</h4>
   <div class="markdown level1 summary"><p><inheritdoc cref="P:LibSasara.Model.Serialize.Unit.Song"></inheritdoc></p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Song Song { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">public Song? Song { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -417,19 +418,19 @@
       </tr>
     </tbody>
   </table>
-  
-  
+
+
   <a id="LibSasara_Model_Serialize_Unit_StartTime_" data-uid="LibSasara.Model.Serialize.Unit.StartTime*"></a>
   <h4 id="LibSasara_Model_Serialize_Unit_StartTime" data-uid="LibSasara.Model.Serialize.Unit.StartTime">StartTime</h4>
   <div class="markdown level1 summary"><p>開始時間</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public TimeSpan? StartTime { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -438,24 +439,24 @@
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a>&gt;</td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a>?</td>
         <td></td>
       </tr>
     </tbody>
   </table>
-  
-  
+
+
   <a id="LibSasara_Model_Serialize_Unit_Text_" data-uid="LibSasara.Model.Serialize.Unit.Text*"></a>
   <h4 id="LibSasara_Model_Serialize_Unit_Text" data-uid="LibSasara.Model.Serialize.Unit.Text">Text</h4>
   <div class="markdown level1 summary"><p>セリフ文字列。トークの場合のみ。</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public string Text { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -464,23 +465,24 @@
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
         <td></td>
       </tr>
     </tbody>
   </table>
-  
-  
+
+
   <a id="LibSasara_Model_Serialize_Unit_Version_" data-uid="LibSasara.Model.Serialize.Unit.Version*"></a>
   <h4 id="LibSasara_Model_Serialize_Unit_Version" data-uid="LibSasara.Model.Serialize.Unit.Version">Version</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>バージョン</p>
+</div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Version Version { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">public Version? Version { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -505,11 +507,12 @@
       <a class="xref" href="LibSasara.Model.Serialize.IHasId.html">IHasId</a>
   </div>
   <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">System.IEquatable&lt;T&gt;</a>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">IEquatable&lt;T&gt;</a>
   </div>
+
 </article>
           </div>
-          
+
           <div class="hidden-sm col-md-2" role="complementary">
             <div class="sideaffix">
               <div class="contribution">
@@ -517,14 +520,14 @@
                 </ul>
               </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-                <h5>In This Article</h5>
+                <h5>In this article</h5>
                 <div></div>
               </nav>
             </div>
           </div>
         </div>
       </div>
-      
+
       <footer>
         <div class="grad-bottom"></div>
         <div class="footer">
@@ -532,14 +535,14 @@
             <span class="pull-right">
               <a href="#top">Back to top</a>
             </span>
-            LibSasara
-            
+      LibSasara
+      
           </div>
         </div>
       </footer>
     </div>
-    
-    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+
+    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
     <script type="text/javascript" src="../styles/docfx.js"></script>
     <script type="text/javascript" src="../styles/main.js"></script>
   </body>

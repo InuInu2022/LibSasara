@@ -1,23 +1,22 @@
 ﻿<!DOCTYPE html>
 <!--[if IE]><![endif]-->
 <html>
-  
+
   <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Interface ICeVIOFile
-   | Documentation - LibSasara </title>
-    <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Interface ICeVIOFile
-   | Documentation - LibSasara ">
-    <meta name="generator" content="docfx 2.59.4.0">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Interface ICeVIOFile
+ | Documentation - LibSasara </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="Interface ICeVIOFile
+ | Documentation - LibSasara ">
     
-    <link rel="shortcut icon" href="../images/LibSasara_icon.ico">
-    <link rel="stylesheet" href="../styles/docfx.vendor.css">
-    <link rel="stylesheet" href="../styles/docfx.css">
-    <link rel="stylesheet" href="../styles/main.css">
-    <meta property="docfx:navrel" content="../toc.html">
-    <meta property="docfx:tocrel" content="toc.html">
+      <link rel="shortcut icon" href="../images/LibSasara_icon.ico">
+      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../styles/docfx.css">
+      <link rel="stylesheet" href="../styles/main.css">
+      <meta property="docfx:navrel" content="../toc.html">
+      <meta property="docfx:tocrel" content="toc.html">
     
     <meta property="docfx:rel" content="../">
     
@@ -25,7 +24,7 @@
   <body data-spy="scroll" data-target="#affix" data-offset="120">
     <div id="wrapper">
       <header>
-        
+
         <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
           <div class="container">
             <div class="navbar-header">
@@ -35,7 +34,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
               </button>
-              
+
               <a class="navbar-brand" href="../index.html">
                 <img id="logo" class="svg" src="../images/LibSasara_icon_48x48.png" alt="">
               </a>
@@ -49,7 +48,7 @@
             </div>
           </div>
         </nav>
-        
+
         <div class="subnav navbar navbar-default">
           <div class="container hide-when-search" id="breadcrumb">
             <ul class="breadcrumb">
@@ -59,7 +58,7 @@
         </div>
       </header>
       <div class="container body-content">
-        
+
         <div id="search-results">
           <div class="search-list">Search Results for <span></span></div>
           <div class="sr-items">
@@ -69,7 +68,7 @@
         </div>
       </div>
       <div role="main" class="container body-content hide-when-search">
-        
+
         <div class="sidenav hide-when-search">
           <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
           <div class="sidetoggle collapse" id="sidetoggle">
@@ -79,34 +78,35 @@
         <div class="article row grid-right">
           <div class="col-md-10">
             <article class="content wrap" id="_content" data-uid="LibSasara.Model.ICeVIOFile">
-  
-  
+
+
+
   <h1 id="LibSasara_Model_ICeVIOFile" data-uid="LibSasara.Model.ICeVIOFile" class="text-break">Interface ICeVIOFile
-  </h1>
+</h1>
   <div class="markdown level0 summary"><p>CCS/CCST共通インターフェイス</p>
 </div>
   <div class="markdown level0 conceptual"></div>
-  <h6><strong>Namespace</strong>: <a class="xref" href="LibSasara.Model.html">LibSasara.Model</a></h6>
+  <h6><strong>Namespace</strong>: <a class="xref" href="LibSasara.html">LibSasara</a>.<a class="xref" href="LibSasara.Model.html">Model</a></h6>
   <h6><strong>Assembly</strong>: LibSasara.dll</h6>
   <h5 id="LibSasara_Model_ICeVIOFile_syntax">Syntax</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public interface ICeVIOFile</code></pre>
   </div>
   <h3 id="methods">Methods
-  </h3>
-  
-  
+</h3>
+
+
   <a id="LibSasara_Model_ICeVIOFile_DuplicateAndAddTrackSetAsync_" data-uid="LibSasara.Model.ICeVIOFile.DuplicateAndAddTrackSetAsync*"></a>
-  <h4 id="LibSasara_Model_ICeVIOFile_DuplicateAndAddTrackSetAsync_System_Guid_System_Nullable_System_Guid__" data-uid="LibSasara.Model.ICeVIOFile.DuplicateAndAddTrackSetAsync(System.Guid,System.Nullable{System.Guid})">DuplicateAndAddTrackSetAsync(Guid, Nullable&lt;Guid&gt;)</h4>
+  <h4 id="LibSasara_Model_ICeVIOFile_DuplicateAndAddTrackSetAsync_System_Guid_System_Nullable_System_Guid__" data-uid="LibSasara.Model.ICeVIOFile.DuplicateAndAddTrackSetAsync(System.Guid,System.Nullable{System.Guid})">DuplicateAndAddTrackSetAsync(Guid, Guid?)</h4>
   <div class="markdown level1 summary"><p>指定したIDのトラックデータセット（GroupとUnit）を複製・追加</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">ValueTask&lt;(XElement group, List&lt;XElement&gt; units)&gt; DuplicateAndAddTrackSetAsync(Guid targetId, Guid? newId = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -122,7 +122,7 @@
 </td>
       </tr>
       <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.guid">Guid</a>&gt;</td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.guid">Guid</a>?</td>
         <td><span class="parametername">newId</span></td>
         <td><p>新規GUID</p>
 </td>
@@ -130,7 +130,7 @@
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -139,25 +139,25 @@
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.valuetask-1">ValueTask</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-2">(T1, T2)</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement">XElement</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement">XElement</a>&gt;&gt;&gt;</td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.valuetask-1">ValueTask</a>&lt;(<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement">XElement</a> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-system.xml.linq.xelement,system.collections.generic.list-system.xml.linq.xelement--.group">group</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement">XElement</a>&gt; <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-system.xml.linq.xelement,system.collections.generic.list-system.xml.linq.xelement--.units">units</a>)&gt;</td>
         <td></td>
       </tr>
     </tbody>
   </table>
-  
-  
+
+
   <a id="LibSasara_Model_ICeVIOFile_DuplicateTrackSetAsync_" data-uid="LibSasara.Model.ICeVIOFile.DuplicateTrackSetAsync*"></a>
-  <h4 id="LibSasara_Model_ICeVIOFile_DuplicateTrackSetAsync_System_Guid_System_Nullable_System_Guid__" data-uid="LibSasara.Model.ICeVIOFile.DuplicateTrackSetAsync(System.Guid,System.Nullable{System.Guid})">DuplicateTrackSetAsync(Guid, Nullable&lt;Guid&gt;)</h4>
+  <h4 id="LibSasara_Model_ICeVIOFile_DuplicateTrackSetAsync_System_Guid_System_Nullable_System_Guid__" data-uid="LibSasara.Model.ICeVIOFile.DuplicateTrackSetAsync(System.Guid,System.Nullable{System.Guid})">DuplicateTrackSetAsync(Guid, Guid?)</h4>
   <div class="markdown level1 summary"><p>指定したIDのトラックデータセット（GroupとUnit）を複製 <br>
-see also：<a class="xref" href="LibSasara.Model.ICeVIOFile.html#LibSasara_Model_ICeVIOFile_DuplicateAndAddTrackSetAsync_System_Guid_System_Nullable_System_Guid__">DuplicateAndAddTrackSetAsync(Guid, Nullable&lt;Guid&gt;)</a></p>
+see also：<a class="xref" href="LibSasara.Model.ICeVIOFile.html#LibSasara_Model_ICeVIOFile_DuplicateAndAddTrackSetAsync_System_Guid_System_Nullable_System_Guid__">DuplicateAndAddTrackSetAsync(Guid, Guid?)</a></p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">ValueTask&lt;(XElement group, List&lt;XElement&gt; units)&gt; DuplicateTrackSetAsync(Guid targetId, Guid? newId = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -173,7 +173,7 @@ see also：<a class="xref" href="LibSasara.Model.ICeVIOFile.html#LibSasara_Model
 </td>
       </tr>
       <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.guid">Guid</a>&gt;</td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.guid">Guid</a>?</td>
         <td><span class="parametername">newId</span></td>
         <td><p>新規GUID</p>
 </td>
@@ -181,7 +181,7 @@ see also：<a class="xref" href="LibSasara.Model.ICeVIOFile.html#LibSasara_Model
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -190,24 +190,24 @@ see also：<a class="xref" href="LibSasara.Model.ICeVIOFile.html#LibSasara_Model
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.valuetask-1">ValueTask</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-2">(T1, T2)</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement">XElement</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement">XElement</a>&gt;&gt;&gt;</td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.valuetask-1">ValueTask</a>&lt;(<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement">XElement</a> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-system.xml.linq.xelement,system.collections.generic.list-system.xml.linq.xelement--.group">group</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement">XElement</a>&gt; <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-system.xml.linq.xelement,system.collections.generic.list-system.xml.linq.xelement--.units">units</a>)&gt;</td>
         <td></td>
       </tr>
     </tbody>
   </table>
-  
-  
+
+
   <a id="LibSasara_Model_ICeVIOFile_GetTrackSet_" data-uid="LibSasara.Model.ICeVIOFile.GetTrackSet*"></a>
   <h4 id="LibSasara_Model_ICeVIOFile_GetTrackSet_System_Guid_" data-uid="LibSasara.Model.ICeVIOFile.GetTrackSet(System.Guid)">GetTrackSet(Guid)</h4>
   <div class="markdown level1 summary"><p>指定したIDのトラックデータセット（GroupとUnit）を取得</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">(XElement group, List&lt;XElement&gt; units) GetTrackSet(Guid id)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -225,7 +225,7 @@ see also：<a class="xref" href="LibSasara.Model.ICeVIOFile.html#LibSasara_Model
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -234,25 +234,24 @@ see also：<a class="xref" href="LibSasara.Model.ICeVIOFile.html#LibSasara_Model
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-2">(T1, T2)</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement">XElement</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement">XElement</a>&gt;&gt;</td>
+        <td>(<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement">XElement</a> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-system.xml.linq.xelement,system.collections.generic.list-system.xml.linq.xelement--.group">group</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement">XElement</a>&gt; <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-system.xml.linq.xelement,system.collections.generic.list-system.xml.linq.xelement--.units">units</a>)</td>
         <td></td>
       </tr>
     </tbody>
   </table>
-  
-  
+
+
   <a id="LibSasara_Model_ICeVIOFile_GetTrackSet_" data-uid="LibSasara.Model.ICeVIOFile.GetTrackSet*"></a>
   <h4 id="LibSasara_Model_ICeVIOFile_GetTrackSet__1_System_Guid_" data-uid="LibSasara.Model.ICeVIOFile.GetTrackSet``1(System.Guid)">GetTrackSet&lt;T&gt;(Guid)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>指定したIDのトラックデータセット（GroupとUnit）を取得</p>
+</div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">TrackSet&lt;T&gt; GetTrackSet&lt;T&gt;(Guid id)
-
-    where T : UnitBase</code></pre>
+    <pre><code class="lang-csharp hljs">TrackSet&lt;T&gt; GetTrackSet&lt;T&gt;(Guid id) where T : UnitBase</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -264,12 +263,13 @@ see also：<a class="xref" href="LibSasara.Model.ICeVIOFile.html#LibSasara_Model
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.guid">Guid</a></td>
         <td><span class="parametername">id</span></td>
-        <td></td>
+        <td><p>指定ID</p>
+</td>
       </tr>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -284,7 +284,7 @@ see also：<a class="xref" href="LibSasara.Model.ICeVIOFile.html#LibSasara_Model
     </tbody>
   </table>
   <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Name</th>
@@ -298,19 +298,19 @@ see also：<a class="xref" href="LibSasara.Model.ICeVIOFile.html#LibSasara_Model
       </tr>
     </tbody>
   </table>
-  
-  
+
+
   <a id="LibSasara_Model_ICeVIOFile_GetTrackSets_" data-uid="LibSasara.Model.ICeVIOFile.GetTrackSets*"></a>
   <h4 id="LibSasara_Model_ICeVIOFile_GetTrackSets" data-uid="LibSasara.Model.ICeVIOFile.GetTrackSets">GetTrackSets()</h4>
   <div class="markdown level1 summary"><p>トラックデータ（GroupとUnit）のリストを返す</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">List&lt;(XElement group, List&lt;XElement&gt; units)&gt; GetTrackSets()</code></pre>
   </div>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -319,24 +319,24 @@ see also：<a class="xref" href="LibSasara.Model.ICeVIOFile.html#LibSasara_Model
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-2">(T1, T2)</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement">XElement</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement">XElement</a>&gt;&gt;&gt;</td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;(<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement">XElement</a> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-system.xml.linq.xelement,system.collections.generic.list-system.xml.linq.xelement--.group">group</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement">XElement</a>&gt; <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-system.xml.linq.xelement,system.collections.generic.list-system.xml.linq.xelement--.units">units</a>)&gt;</td>
         <td></td>
       </tr>
     </tbody>
   </table>
-  
-  
+
+
   <a id="LibSasara_Model_ICeVIOFile_GetUnitsRaw_" data-uid="LibSasara.Model.ICeVIOFile.GetUnitsRaw*"></a>
   <h4 id="LibSasara_Model_ICeVIOFile_GetUnitsRaw" data-uid="LibSasara.Model.ICeVIOFile.GetUnitsRaw">GetUnitsRaw()</h4>
   <div class="markdown level1 summary"><p>ボイスアイテム一覧を返す</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">List&lt;XElement&gt; GetUnitsRaw()</code></pre>
   </div>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -350,19 +350,19 @@ see also：<a class="xref" href="LibSasara.Model.ICeVIOFile.html#LibSasara_Model
       </tr>
     </tbody>
   </table>
-  
-  
+
+
   <a id="LibSasara_Model_ICeVIOFile_GetUnitsRaw_" data-uid="LibSasara.Model.ICeVIOFile.GetUnitsRaw*"></a>
   <h4 id="LibSasara_Model_ICeVIOFile_GetUnitsRaw_LibSasara_Model_Category_" data-uid="LibSasara.Model.ICeVIOFile.GetUnitsRaw(LibSasara.Model.Category)">GetUnitsRaw(Category)</h4>
-  <div class="markdown level1 summary"><p><inheritdoc cref="M:LibSasara.Model.ICeVIOFile.GetUnitsRaw"></inheritdoc></p>
+  <div class="markdown level1 summary"><p>ボイスアイテム一覧を返す</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
+  <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">List&lt;XElement&gt; GetUnitsRaw(Category category)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -380,7 +380,7 @@ see also：<a class="xref" href="LibSasara.Model.ICeVIOFile.html#LibSasara_Model
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
+  <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th>Type</th>
@@ -396,11 +396,12 @@ see also：<a class="xref" href="LibSasara.Model.ICeVIOFile.html#LibSasara_Model
   </table>
   <h3 id="extensionmethods">Extension Methods</h3>
   <div>
-      <a class="xref" href="LibSasara.SasaraCcs.html#LibSasara_SasaraCcs_SaveAsync_LibSasara_Model_ICeVIOFile_System_String_System_Boolean_">SasaraCcs.SaveAsync(ICeVIOFile, String, Boolean)</a>
+      <a class="xref" href="LibSasara.SasaraCcs.html#LibSasara_SasaraCcs_SaveAsync_LibSasara_Model_ICeVIOFile_System_String_System_Boolean_">SasaraCcs.SaveAsync(ICeVIOFile, string, bool)</a>
   </div>
+
 </article>
           </div>
-          
+
           <div class="hidden-sm col-md-2" role="complementary">
             <div class="sideaffix">
               <div class="contribution">
@@ -408,14 +409,14 @@ see also：<a class="xref" href="LibSasara.Model.ICeVIOFile.html#LibSasara_Model
                 </ul>
               </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-                <h5>In This Article</h5>
+                <h5>In this article</h5>
                 <div></div>
               </nav>
             </div>
           </div>
         </div>
       </div>
-      
+
       <footer>
         <div class="grad-bottom"></div>
         <div class="footer">
@@ -423,14 +424,14 @@ see also：<a class="xref" href="LibSasara.Model.ICeVIOFile.html#LibSasara_Model
             <span class="pull-right">
               <a href="#top">Back to top</a>
             </span>
-            LibSasara
-            
+      LibSasara
+      
           </div>
         </div>
       </footer>
     </div>
-    
-    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+
+    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
     <script type="text/javascript" src="../styles/docfx.js"></script>
     <script type="text/javascript" src="../styles/main.js"></script>
   </body>
