@@ -76,7 +76,7 @@ WIP
 SongToTalkVoiSona.exe -s path\to\ccs -e path\to\dist.ttsprj -c 田中傘 -emotions [1.0, 0.0, 0.0, 0.0, 0.0]
 
 //mac,linux
-SongToTalkVoiSona s path/to/ccs -e path/to/dist.ttsprj -c 田中傘 -emotions [1.0, 0.0, 0.0, 0.0, 0.0]
+SongToTalkVoiSona -s path/to/ccs -e path/to/dist.ttsprj -c 田中傘 -emotions [1.0, 0.0, 0.0, 0.0, 0.0]
 ```
 
 * `-emotions`
@@ -93,7 +93,11 @@ SongToTalkVoiSona s path/to/ccs -e path/to/dist.ttsprj -c 田中傘 -emotions [1
 詳しくはhelpコマンドで確認してください。
 
 ```cmd
+//win
 SongToTalkVoiSona.exe help
+
+//mac linux
+SongToTalkVoiSona help
 ```
 
 ## Build
