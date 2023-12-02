@@ -36,10 +36,10 @@ WIP
 
 [github Release](https://github.com/InuInu2022/LibSasara/releases/tag/v0.2.3)からDL
 
--Windows: `SongToTalkVoiSona-win-x64-v.****.zip`
--macOS (intel): `SongToTalkVoiSona-osx-x64-v.****.zip`
--macOS (apple silicon): `SongToTalkVoiSona-osx-arm64-v.****.zip`
--Linux (x64): `SongToTalkVoiSona-linux-x64-v.****.zip`
+* Windows: `SongToTalkVoiSona-win-x64-v.****.zip`
+* macOS (intel): `SongToTalkVoiSona-osx-x64-v.****.zip`
+* macOS (apple silicon): `SongToTalkVoiSona-osx-arm64-v.****.zip`
+* Linux (x64): `SongToTalkVoiSona-linux-x64-v.****.zip`
 
 ## Usage
 
