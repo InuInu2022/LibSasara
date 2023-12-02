@@ -64,6 +64,7 @@ SongToTalkVoiSona s path/to/ccs -e path/to/dist.ttsprj -c 田中傘 -emotions [1
 ```
 
 詳しくはhelpコマンドで確認してください。
+
 ```cmd
 SongToTalkVoiSona.exe help
 ```
@@ -79,3 +80,12 @@ SongToTalkVoiSona.exe help
 ```cmd
 dotnet run -s path/to/ccs -e path/to/dist.ttsprj -c タカハシ -emotions [1.0, 0.0, 0.0]
 ```
+
+## Libraries
+
+* LibSasara
+* ConsoleAppFramework
+* MinVer
+* Newtonsoft.Json
+* SharpOpenJTalk.Lang
+* WanaKana-net
