@@ -28,9 +28,13 @@ This is a tool for "Singing" [VoiSona Talk](https://voisona.com/talk/).
 #### 制限
 
 * 歌詞は日本語のみ
+  * 歌詞はCeVIOソングなどと異なり、漢字かな交じりに対応しています
+  * むしろ漢字かな交じりの方が発音が正確になります
 * 読み（音素）の差し替えは未対応
   * 逆に助詞の「は」は `[w,a]` と自動で発音します
 * ノートのアーティキュレーション未対応
+* 歌詞の記号は無視されます
+  * `※`,`$`,`’`,`@`,`%`,`^`,`_`
 
 ### [WIP]STEP.2
 
@@ -74,6 +78,17 @@ SongToTalkVoiSona.exe -s path\to\ccs -e path\to\dist.ttsprj -c 田中傘 -emotio
 //mac,linux
 SongToTalkVoiSona s path/to/ccs -e path/to/dist.ttsprj -c 田中傘 -emotions [1.0, 0.0, 0.0, 0.0, 0.0]
 ```
+
+* `-emotions`
+  * 感情の比率を`[1.0, 0.0, 0.0, 0.0, 0.0]`みたいに指定します
+  * `1.0`～`0.0`の範囲です
+  * ボイスによって感情の数が違うので調整してください
+* `--split (true|false)`
+  * 長いノートを分割するか
+  * トークボイスは長い発音に弱いため、分割して母音を加える処理を行います
+* `--th 250`
+  * 分割するときに何ミリ秒以上なら分割するか
+  * 最小は`100`
 
 詳しくはhelpコマンドで確認してください。
 
