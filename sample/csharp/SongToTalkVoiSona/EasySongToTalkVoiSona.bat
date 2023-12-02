@@ -13,7 +13,7 @@ echo "EasySongToTalkVoiSona.batの中身を書き換えて使ってください"
 @rem 【書き換えてOK】感情比率（キャストごとに要変更）
 @set EMOTIONS="[1.0,0.0,0.0,0.0]"
 
-call SongToTalkVoiSona.exe -s %SRC% -d %DIST% -c %CAST% -er %EMOTIONS%
+call SongToTalkVoiSona.exe -s %SRC% -e %DIST% -c %CAST% -er %EMOTIONS%
 
 echo "SongToTalk 生成が終了しました！"
 pause
