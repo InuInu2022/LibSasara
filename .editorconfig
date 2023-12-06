@@ -35,6 +35,7 @@ dotnet_diagnostic.CC0001.severity = suggestion
 dotnet_diagnostic.MA0016.severity = suggestion
 dotnet_diagnostic.CA2007.severity = suggestion
 dotnet_diagnostic.HLQ012.severity = suggestion
+dotnet_diagnostic.CA2227.severity = suggestion
 dotnet_diagnostic.IDE1006.severity = none
 dotnet_diagnostic.MA0048.severity = none
 dotnet_diagnostic.CA1707.severity = none
