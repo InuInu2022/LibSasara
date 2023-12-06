@@ -1,5 +1,3 @@
-using System;
-
 namespace LibSasara.VoiSona.Model;
 
 /// <summary>
@@ -11,7 +9,9 @@ public static class Common{
 	/// </summary>
 	public const byte NULL_END = 0x00;
 }
-
+#pragma warning disable CA1720 // 識別子に型名が含まれます
+#pragma warning disable CA1008 // 列挙型は 0 値を含んでいなければなりません
+#pragma warning disable CA1028 // 列挙ストレージは Int32 でなければなりません
 /// <summary>
 /// Type definitions in tssprj/tstprj format
 /// </summary>
@@ -37,3 +37,6 @@ public enum VoiSonaValueType: byte{
 	/// </summary>
 	Unknown = 99,
 }
+#pragma warning restore CA1720 // 識別子に型名が含まれます
+#pragma warning restore CA1008 // 列挙型は 0 値を含んでいなければなりません
+#pragma warning restore CA1028 // 列挙ストレージは Int32 でなければなりません
