@@ -19,8 +19,8 @@ internal interface IUnitBuilder<TUnit,TBuilder>
 	/// <summary>
 	/// <see cref="UnitBase"/>を作成
 	/// </summary>
-	/// <param name="doAdd">生成と同時にccs/ccstに追加する</param>
+	/// <param name="canAdd">生成と同時にccs/ccstに追加する</param>
 	/// <returns>作成した<see cref="UnitBase"/>を返す</returns>
     /// <seealso cref="UnitBase"/>
-	TUnit Build(bool doAdd = true);
+	TUnit Build(bool canAdd = true);
 }

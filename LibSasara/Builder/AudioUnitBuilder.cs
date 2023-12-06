@@ -47,9 +47,9 @@ public sealed class AudioUnitBuilder : IUnitBuilder<AudioUnit, AudioUnitBuilder>
 	/// <summary>
 	/// 最後に呼ぶ
 	/// </summary>
-	/// <param name="doAdd">生成と同時にccs/ccstに追加する</param>
+	/// <param name="canAdd">生成と同時にccs/ccstに追加する</param>
 	/// <returns>作成した<see cref="AudioUnit"/></returns>
-	public AudioUnit Build(bool doAdd = true)
+	public AudioUnit Build(bool canAdd = true)
 	{
 		var rawElem = AudioUnit.CreateAudioUnitRaw(
 			startTime,
@@ -57,11 +57,11 @@ public sealed class AudioUnitBuilder : IUnitBuilder<AudioUnit, AudioUnitBuilder>
 			filePath,
 			group
 		);
-		if(doAdd){
+		if(canAdd){
 			ccs.AddUnits(
 				new List<XElement>(1)
 				{
-					rawElem
+					rawElem,
 				}
 			);
 		}
