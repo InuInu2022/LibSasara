@@ -18,7 +18,7 @@ public class TalkTrack : Tree
 	/// </summary>
 	public string TrackName {
 		get => Attributes
-			.Find(v => v.Key == "name")
+			.Find(v => string.Equals(v.Key, "name", System.StringComparison.Ordinal))
 			.Value;
 		set => AddAttribute("name", value, VoiSonaValueType.String);
 	}
@@ -47,14 +47,14 @@ public class TalkTrack : Tree
 	/// </summary>
 	public Voice? Voice{
 		get => Children
-			.Find(v => v.Name == nameof(Voice)) as Voice
+			.Find(v => string.Equals(v.Name, nameof(Voice), System.StringComparison.Ordinal)) as Voice
 			;
 		set {
 			if (value is null) return;
 
 			//Voiceはトークトラックに現状一つのみ
 			var index = Children
-				.FindIndex(v => v.Name == nameof(Voice));
+				.FindIndex(v => string.Equals(v.Name, nameof(Voice), System.StringComparison.Ordinal));
 			if (index < 0)
 			{
 				Children.Add(value);
@@ -76,12 +76,12 @@ public class TalkTrack : Tree
 		{
 			return HasContents ?
 				Children?
-					.FirstOrDefault(v => v.Name == nameof(Contents))
+					.Find(v => string.Equals(v.Name, nameof(Contents), System.StringComparison.Ordinal))
 					.Children
 					.Cast<Utterance>()
 					.ToList()
-					?? new List<Utterance>()
-				: new List<Utterance>()
+					?? []
+				: []
 			;
 		}
 		set
@@ -99,7 +99,7 @@ public class TalkTrack : Tree
 	/// </summary>
 	public bool HasContents {
 		get => Children
-			.Exists(v => v.Name == nameof(Contents));
+			.Exists(v => string.Equals(v.Name, nameof(Contents), System.StringComparison.Ordinal));
 	}
 
 	private Tree? _contents;
