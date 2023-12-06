@@ -65,7 +65,6 @@ public class AudioUnit : UnitBase
 					Group.ToString()),
 		};
 
-		var elem = new XElement("Unit", attrs);
-		return elem;
+		return new XElement("Unit", attrs);
 	}
 }
