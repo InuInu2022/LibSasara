@@ -1,6 +1,5 @@
 using System;
 using System.Linq;
-using System.Runtime.InteropServices;
 using LibSasara.VoiSona.Util;
 
 namespace LibSasara.VoiSona.Model;
@@ -64,7 +63,7 @@ public sealed record KeyValue<T>
 		rs[0 + index] = isInt16 ? (byte)0x02 : (byte)0x01;
 		Span<byte> cbytes = isInt16
 			? BitConverter.GetBytes(Convert.ToInt16(ret.Count + 1))
-			: BitConverter.GetBytes(Convert.ToByte(ret.Count + 1));
+			: BitConverter.GetBytes((short)Convert.ToByte(ret.Count + 1));
 		cbytes.CopyTo(rs.Slice(1 + index, cbytes.Length));
 		rs[len - 1] = (byte)ret.Type;
 
@@ -81,7 +80,7 @@ public sealed record KeyValue<T>
 	public ReadOnlyMemory<byte> GetBytes(){
 		ReadOnlyMemory<byte> hexKey = System.Text
 			.Encoding.UTF8.GetBytes($"{Key}\0");
-		var head = this.GetHeaderBytes(false, true);
+		var head = GetHeaderBytes(false, true);
 		return hexKey.Concat(head);
 	}
 }
