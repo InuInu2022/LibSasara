@@ -23,6 +23,16 @@ public static class TreeUtil
 		string childName
 	)
 	{
+		if (tree is null)
+		{
+			throw new ArgumentNullException(nameof(tree));
+		}
+
+		if (string.IsNullOrEmpty(childName))
+		{
+			throw new ArgumentException($"'{nameof(childName)}' を NULL または空にすることはできません。", nameof(childName));
+		}
+
 		return GetValueFromChildInternal<T>(tree, childName, "values");
 	}
 
@@ -39,21 +49,34 @@ public static class TreeUtil
 		string childName
 	)
 	{
+		if (tree is null)
+		{
+			throw new ArgumentNullException(nameof(tree));
+		}
+
+		if (string.IsNullOrEmpty(childName))
+		{
+			throw new ArgumentException($"'{nameof(childName)}' を NULL または空にすることはできません。", nameof(childName));
+		}
+
 		return GetValueFromChildInternal<T>(tree, childName, "value");
 	}
 
-	private static T? GetValueFromChildInternal<T>(Tree tree, string childName, string valueName)
+	private static T? GetValueFromChildInternal<T>(
+		Tree tree,
+		string childName,
+		string valueName)
 	{
 		var hasChild = tree
 			.Children
-			.Exists(v => v.Name == childName);
+			.Exists(v => string.Equals(v.Name, childName, StringComparison.Ordinal));
 
 		if (!hasChild) return default;
 
 		var value = tree.Children
-			.Find(c => c.Name == childName)
+			.Find(c => string.Equals(c.Name, childName, StringComparison.Ordinal))
 			.Attributes
-			.Find(a => a.Key == valueName)
+			.Find(a => string.Equals(a.Key, valueName, StringComparison.Ordinal))
 			.Value
 			?? default(T);
 		if(value is null){
@@ -90,6 +113,16 @@ public static class TreeUtil
 	)
 		where T: notnull
 	{
+		if (tree is null)
+		{
+			throw new ArgumentNullException(nameof(tree));
+		}
+
+		if (string.IsNullOrEmpty(childName))
+		{
+			throw new ArgumentException($"'{nameof(childName)}' を NULL または空にすることはできません。", nameof(childName));
+		}
+
 		SetValueChildInternal(tree, childName, value, "values");
 	}
 
@@ -108,6 +141,16 @@ public static class TreeUtil
 	)
 		where T: notnull
 	{
+		if (tree is null)
+		{
+			throw new ArgumentNullException(nameof(tree));
+		}
+
+		if (string.IsNullOrEmpty(childName))
+		{
+			throw new ArgumentException($"'{nameof(childName)}' を NULL または空にすることはできません。", nameof(childName));
+		}
+
 		SetValueChildInternal(tree, childName, value, nameof(value));
 	}
 
@@ -121,13 +164,13 @@ public static class TreeUtil
 	{
 		var hasChild = tree
 			.Children
-			.Exists(v => v.Name == childName);
+			.Exists(v => string.Equals(v.Name, childName, StringComparison.Ordinal));
 		if (hasChild)
 		{
 			tree.Children
-				.Find(c => c.Name == childName)
+				.Find(c => string.Equals(c.Name, childName, StringComparison.Ordinal))
 				.Attributes
-				.Find(a => a.Key == valueName)
+				.Find(a => string.Equals(a.Key, valueName, StringComparison.Ordinal))
 				.Value = value;
 		}
 		else
