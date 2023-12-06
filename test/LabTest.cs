@@ -40,9 +40,9 @@ public class LabTest : IClassFixture<LabFixture>
 	private readonly ITestOutputHelper _output;
 	private readonly LabFixture _fixture;
 
-	public static string SampleLab1 = File
+	public static readonly string SampleLab1 = File
 		.ReadAllText("../../../file/ソング.lab");
-	public static string SampleLab2 = File
+	public static readonly string SampleLab2 = File
 		.ReadAllText("../../../file/EnglishSong.lab");
 
 	public static TheoryData<string, int> Samples { get; set; } = new()
@@ -69,7 +69,7 @@ public class LabTest : IClassFixture<LabFixture>
 		var result = new Lab(text, fps);
 		result.Should().NotBeNull();
 		result.Lines.Should().NotBeNull();
-		if (result?.Lines is null) return;
+		if (result.Lines is null) return;
 		result.Lines.Count().Should().BePositive();
 	}
 
@@ -110,11 +110,9 @@ public class LabTest : IClassFixture<LabFixture>
 		double expectPercent
 	)
 	{
+		if (label is null) return;
 		var original = new Lab(label.ToString());
 		original.Should().NotBeNull();
-		if(original is null){
-			return;
-		}
 		await label
 			.ChangeLengthByRateAsync(expectPercent);
 
@@ -126,7 +124,7 @@ public class LabTest : IClassFixture<LabFixture>
 			.Should()
 			.BeInRange(rate - 0.01, rate + 0.01);
 
-		var prevEnd = original?.Lines?.Last().Length;
+		var prevEnd = original.Lines?.Last().Length;
 		var currEnd = label.Lines?.Last().Length;
 		(prevEnd / currEnd).Should()
 			.BeInRange(rate - 0.01, rate + 0.01);
@@ -159,6 +157,7 @@ public class LabTest : IClassFixture<LabFixture>
 		double displaced
 	)
 	{
+		if (label is null) return;
 		await label.DisplaceSecondsAsync(displaced);
 
 		var resultFrom = label.Lines?.ElementAt(index)?.From;
@@ -195,7 +194,7 @@ public class LabTest : IClassFixture<LabFixture>
 public class LabBenchmarks
 {
 	[BenchmarkDotNet.Attributes.Benchmark]
-	public void DisplaceSeconds()
+	public static void DisplaceSeconds()
 	{
 		var label = LibSasara.SasaraLabel.LoadAsync("../../../file/ソング.lab").Result;
 
