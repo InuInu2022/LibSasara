@@ -62,7 +62,7 @@ public class AudioUnit : UnitBase
 				nameof(Group),
 				Group is null ?
 					Guid.NewGuid() :
-					Group.ToString()),
+					Group.ToString()!),
 		};
 
 		return new XElement("Unit", attrs);
