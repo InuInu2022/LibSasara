@@ -5,7 +5,9 @@ namespace LibSasara.Model;
 /// <summary>
 /// ノートの音節の位置
 /// </summary>
+#pragma warning disable CA1008 // 列挙型は 0 値を含んでいなければなりません
 public enum Syllabic
+#pragma warning restore CA1008 // 列挙型は 0 値を含んでいなければなりません
 {
 	/// <summary>
 	/// 音節開始、後ろのノートに音節続く
