@@ -268,7 +268,7 @@ public abstract class CeVIOFileBase : ICeVIOFile
 			.ToList()
 			.ConvertAll(e
 				=> (
-					e.Attribute("Group").Value,
+					e.Attribute("Group")?.Value ?? string.Empty,
 					e.Descendants("Parameter").First()
 				)
 			)
@@ -298,7 +298,7 @@ public abstract class CeVIOFileBase : ICeVIOFile
 		=> GetUnitsRaw()
 			.Where(e => e.HasAttributes
 				&& string.Equals(
-					e.Attribute("Category").Value,
+					e.Attribute("Category")?.Value,
 					nameof(Category.SingerSong),
 					StringComparison.Ordinal))
 			.ToList();
@@ -309,7 +309,7 @@ public abstract class CeVIOFileBase : ICeVIOFile
 	public List<UnitBase> GetUnits()
 		=> GetUnitsRaw()
 			.ConvertAll<UnitBase>(e =>
-				e.Attribute("Category").Value switch
+				e.Attribute("Category")?.Value switch
 				{
 					nameof(Category.SingerSong)
 						=> new SongUnit(e, this),
@@ -407,7 +407,7 @@ public abstract class CeVIOFileBase : ICeVIOFile
 			0 => rawXml.Descendants("Units").First(),
 			_ => GetUnitsRaw().Last().Parent
 		};
-		parent.Add(units);
+		parent?.Add(units);
 	}
 
 	/// <summary>
@@ -480,14 +480,17 @@ public static class CeVIOFileExt
 	{
 		var g = groupAndUnits.Item1.Attribute("CastId");
 
-		if (string.Equals(g.Value, beforeId, StringComparison.Ordinal))
+		if (string.Equals(g?.Value, beforeId, StringComparison.Ordinal))
 		{
-			g.SetValue(afterId);
+			g?.SetValue(afterId);
 		}
 
 		groupAndUnits.Item2
 			.Where(e
-				=> string.Equals(e.Attribute("CastId").Value, beforeId, StringComparison.Ordinal))
+				=> string.Equals(
+					e.Attribute("CastId")?.Value,
+					beforeId,
+					StringComparison.Ordinal))
 			.ToList()
 			.ForEach(e =>
 			{
@@ -533,7 +536,7 @@ public static class CeVIOFileExt
 			.ForEach(v =>
 			{
 				v
-					.Attribute("CastId")
+					.Attribute("CastId")?
 					.SetValue(replacedId);
 				v.Attribute("SnapShot")?.Remove();
 			});
@@ -544,7 +547,7 @@ public static class CeVIOFileExt
 		}
 
 		allUnits
-			.ForEach(v => v.Attribute("Language").SetValue(lang));
+			.ForEach(v => v.Attribute("Language")?.SetValue(lang));
 	}
 
 	/// <summary>
@@ -556,12 +559,12 @@ public static class CeVIOFileExt
 		this (XElement, List<XElement>) groupAndUnits
 	)
 	{
-		return new(
-			groupAndUnits
-				.Item1
-				.Attribute("Id")
-				.Value
-		);
+		var id = (groupAndUnits
+			.Item1
+			.Attribute("Id")?
+			.Value)
+			?? throw new ArgumentNullException(nameof(groupAndUnits));
+		return new(id);
 	}
 
 	/// <summary>
