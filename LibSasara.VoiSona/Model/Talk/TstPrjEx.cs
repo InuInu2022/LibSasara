@@ -20,6 +20,11 @@ public static class TstPrjExtension
 	public static Memory<byte> Copy(
 		this TstPrj source
 	){
+		if (source is null)
+		{
+			throw new ArgumentNullException(nameof(source));
+		}
+
 		var len = source.Data.Length;
 		var replaced = new Memory<byte>(new byte[len]);
 		source.Data.CopyTo(replaced);
@@ -40,6 +45,11 @@ public static class TstPrjExtension
 		int trackIndex = 0
 	)
 	{
+		if (newVoice is null)
+		{
+			throw new ArgumentNullException(nameof(newVoice));
+		}
+
 		var copied = source.Copy();
 
 		TryFindTrack(
