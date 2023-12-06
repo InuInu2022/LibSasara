@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Xml;
 using System.Xml.Linq;
 
 namespace LibSasara.Model;
@@ -229,7 +230,7 @@ public class SongUnit : UnitBase
     /// Score要素の子要素のみのリスト(<see cref="List{XElement}"/>)です。Score要素そのものは <see cref="RawScore"/> を使用して下さい。
     /// </remarks>
     /// <seealso cref="RawScore"/>
-	public List<XElement> RawScores
+	public IList<XElement> RawScores
 	{
 		get => RawSong
 			.Element("Score")
@@ -365,6 +366,10 @@ public class SongUnit : UnitBase
 		get => GetParams(RawVolume, "Volume");
 
 		set {
+			if(value is null){
+				throw new XmlException("setted Parameter is null");
+			}
+
 			if(RawVolume.HasElements){
 				//子要素削除
 				RawVolume.RemoveNodes();
@@ -398,7 +403,7 @@ public class SongUnit : UnitBase
 
 					return e;
 				})
-				.Where(e => e.Value != "")
+				.Where(e => !string.IsNullOrEmpty(e.Value))
 				.ToList()
 				.ForEach(e => RawVolume.Add(e))
 				;

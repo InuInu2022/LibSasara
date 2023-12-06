@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text.RegularExpressions;
 using System.Xml.Linq;
@@ -216,14 +217,17 @@ public class TalkUnit : UnitBase
 						))
 					;
 			}
-			else if (version is not null && version >= 8)
+
+			if (version is not null && version >= 8)
 			{
 				//cevio ai
 				return RawComponents
 					.Where(e =>
 						Regex.IsMatch(
 							e.Attribute("Name").Value,
-							$"{CastId}_.+"
+							$"{CastId}_.+",
+							RegexOptions.Compiled,
+							TimeSpan.FromSeconds(1)
 						)
 					)
 					.Select(e =>
@@ -239,23 +243,22 @@ public class TalkUnit : UnitBase
 					.ToList()
 					;
 			}
-			else
-			{
-				return new();
-			}
+
+			return new();
 		}
 
 		set
 		{
-			value.ForEach(v =>
+			value?.ForEach(v =>
 			{
 				var c = RawComponents
 					//.Elements("Component")
 					//.ToList()
-					.FindAll(x => x.Attribute("Name").Value == v.Id)
+					.FindAll(x => string.Equals(x.Attribute("Name").Value, v.Id, StringComparison.Ordinal))
 					;
 				c.ForEach(x =>
-					x.Attribute("Value").SetValue(v.Value.ToString())
+					x.Attribute("Value")
+						.SetValue(v.Value.ToString(CultureInfo.InvariantCulture))
 				)
 				;
 			});
@@ -435,8 +438,8 @@ public class TalkUnit : UnitBase
 		string attr, decimal value, string? format = null)
 	{
 		var sValue = format is null ?
-			value.ToString() :
-			value.ToString(format);
+			value.ToString(CultureInfo.InvariantCulture) :
+			value.ToString(format, CultureInfo.InvariantCulture);
 		RawDirection.Attribute(attr).SetValue(sValue);
 	}
 

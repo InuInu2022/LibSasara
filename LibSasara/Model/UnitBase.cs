@@ -85,9 +85,9 @@ public abstract class UnitBase
     /// <seealso cref="Builder.IUnitBuilder{TUnit, TBuilder}"/>
 	protected UnitBase(XElement elem, CeVIOFileBase root)
 	{
-		if (elem.Name.LocalName is not "Unit")
+		if (elem?.Name.LocalName is not "Unit")
 		{
-			throw new ArgumentException($"parameter {elem} is not a Unit element.");
+			throw new ArgumentException($"parameter {elem} is not a Unit element.", nameof(elem));
 		}
 
 		rawElem = elem;
@@ -113,7 +113,7 @@ public abstract class UnitBase
     /// <returns>属性の値</returns>
 	protected internal int GetAttrInt(XElement v, string attr, int defVal = 0)
 		=> SasaraUtil.ConvertInt(
-			v.Attribute(attr)?.Value,
+			v?.Attribute(attr)?.Value,
 			defVal
 		);
 
@@ -125,7 +125,7 @@ public abstract class UnitBase
     /// <returns>属性の値</returns>
 	protected internal bool GetAttrBool(XElement v, string attr)
 		=> SasaraUtil.ConvertBool(
-			v.Attribute(attr)?.Value
+			v?.Attribute(attr)?.Value
 		);
 
 	/// <summary>
@@ -138,7 +138,7 @@ public abstract class UnitBase
 	protected internal decimal GetAttrDecimal(
 		XElement v, string attr, decimal defVal = 0.00m)
 		=> SasaraUtil.ConvertDecimal(
-			v.Attribute(attr)?.Value,
+			v?.Attribute(attr)?.Value,
 			defVal
 		);
 
@@ -153,5 +153,5 @@ public abstract class UnitBase
 		XElement v,
 		string attr,
 		T value
-	) => v.SetAttributeValue(attr, value);
+	) => v?.SetAttributeValue(attr, value);
 }

@@ -7,6 +7,8 @@ using System.Linq;
 using System.ComponentModel;
 using LibSasara.Builder;
 using System.Threading.Tasks;
+using System.IO;
+using System.Globalization;
 
 namespace LibSasara.Model;
 
@@ -51,8 +53,8 @@ public class TrackSet<TUnit> : IEquatable<TrackSet<TUnit>>
 	public Category Category {
 		get {
 			var val = GetGroupValueString(nameof(Category));
-			Enum.TryParse<Category>(val, out var result);
-			return result;
+			var isSuccess = Enum.TryParse<Category>(val, out var result);
+			return isSuccess ? result : Category.OuterAudio;
 		}
 
 		set { SetGroupValue(nameof(Category), value); }
@@ -135,8 +137,8 @@ public class TrackSet<TUnit> : IEquatable<TrackSet<TUnit>>
 	public List<TUnit> Units
 	{
 		get => _project
-			.GetUnits(this.Category)
-			.Where(v => v.Group == this.GroupId)
+			.GetUnits(Category)
+			.Where(v => v.Group == GroupId)
 			.Cast<TUnit>()
 			.ToList();
 		//set
@@ -147,7 +149,10 @@ public class TrackSet<TUnit> : IEquatable<TrackSet<TUnit>>
 	/// </summary>
 	public XElement RawGroup {
 		get => _project.RawGroups
-			.First(v => v.Attribute("Id").Value == GroupId.ToString());
+			.First(v => string.Equals(
+				v.Attribute("Id").Value,
+				GroupId.ToString(),
+				StringComparison.Ordinal));
 	}
 
 	/// <summary>
@@ -155,7 +160,7 @@ public class TrackSet<TUnit> : IEquatable<TrackSet<TUnit>>
 	/// </summary>
 	public List<XElement> RawUnits {
 		get => _project
-			.GetUnitsRaw(this.Category)
+			.GetUnitsRaw(Category)
 			.Where(e
 				=> e.Attribute("Group").Value == GroupId.ToString())
 			.ToList();
@@ -186,19 +191,36 @@ public class TrackSet<TUnit> : IEquatable<TrackSet<TUnit>>
 	/// <inheritdoc cref="IEquatable{T}.Equals(T)"/>
 	public bool Equals(TrackSet<TUnit> other)
 	{
-		return this.GroupId == other.GroupId
-			&& this.CastId == other.CastId
-			&& this.Category == other.Category
-			&& this.Name == other.Name
-			;
+		return GroupId == other?.GroupId
+			&& string.Equals(CastId,
+					other.CastId,
+					StringComparison.Ordinal)
+			&& Category == other.Category
+			&& string.Equals(Name,
+					other.Name,
+					StringComparison.Ordinal);
+	}
+
+	/// <inheritdoc cref="IEquatable{T}.Equals(T)"/>
+	public override bool Equals(object obj)
+	{
+		if (obj is null) return false;
+		if (obj is not TrackSet<TUnit> other) return false;
+		return Equals(other);
+	}
+
+	/// <inheritdoc/>
+	public override int GetHashCode()
+	{
+		return base.GetHashCode();
 	}
 
 	/// <summary>
-    /// トラックに同じ種類のUnitを追加します
-    /// </summary>
-    /// <seealso cref="Builder.AudioUnitBuilder" />
-    /// <seealso cref="Builder.SongUnitBuilder" />
-    /// <seealso cref="Builder.TalkUnitBuilder" />
+	/// トラックに同じ種類のUnitを追加します
+	/// </summary>
+	/// <seealso cref="Builder.AudioUnitBuilder" />
+	/// <seealso cref="Builder.SongUnitBuilder" />
+	/// <seealso cref="Builder.TalkUnitBuilder" />
 	public TUnit AddUnit(
 		TimeSpan start,
 		TimeSpan duration,
@@ -222,13 +244,16 @@ public class TrackSet<TUnit> : IEquatable<TrackSet<TUnit>>
 				.Group(GroupId)
 				.Build();
 		}else{
-			throw new Exception();
+			throw new InvalidDataException();
 		}
 	}
 
 	/// <inheritdoc cref="AddUnit(TimeSpan, TimeSpan, string)"/>
     /// <param name="unit"></param>
 	public TUnit AddUnit(TUnit unit){
+		if(unit is null){
+			throw new ArgumentNullException(nameof(unit));
+		}
 		unit.Group = GroupId;
 		return unit;
 	}
@@ -267,20 +292,20 @@ public class TrackSet<TUnit> : IEquatable<TrackSet<TUnit>>
 		return Type.GetTypeCode(typeof(T)) switch
 		{
 			TypeCode.String => (T)(object)val,
-			TypeCode.Boolean => (T)(object)Convert.ToBoolean(val),
-			TypeCode.Double => (T)(object)Convert.ToDouble(val),
-			TypeCode.Int32 => (T)(object)Convert.ToInt32(val),
-			TypeCode.Byte => (T)(object)Convert.ToByte(val),
-			TypeCode.Char => (T)(object)Convert.ToChar(val),
-			TypeCode.DateTime => (T)(object)Convert.ToDateTime(val),
-			TypeCode.Decimal => (T)(object)Convert.ToDecimal(val),
-			TypeCode.Int16 => (T)(object)Convert.ToInt16(val),
-			TypeCode.Int64 => (T)(object)Convert.ToInt64(val),
-			TypeCode.SByte => (T)(object)Convert.ToSByte(val),
-			TypeCode.Single => (T)(object)Convert.ToSingle(val),
-			TypeCode.UInt16 => (T)(object)Convert.ToUInt16(val),
-			TypeCode.UInt32 => (T)(object)Convert.ToUInt32(val),
-			TypeCode.UInt64 => (T)(object)Convert.ToUInt64(val),
+			TypeCode.Boolean => (T)(object)Convert.ToBoolean(val, CultureInfo.InvariantCulture),
+			TypeCode.Double => (T)(object)Convert.ToDouble(val, CultureInfo.InvariantCulture),
+			TypeCode.Int32 => (T)(object)Convert.ToInt32(val, CultureInfo.InvariantCulture),
+			TypeCode.Byte => (T)(object)Convert.ToByte(val, CultureInfo.InvariantCulture),
+			TypeCode.Char => (T)(object)Convert.ToChar(val, CultureInfo.InvariantCulture),
+			TypeCode.DateTime => (T)(object)Convert.ToDateTime(val, CultureInfo.InvariantCulture),
+			TypeCode.Decimal => (T)(object)Convert.ToDecimal(val, CultureInfo.InvariantCulture),
+			TypeCode.Int16 => (T)(object)Convert.ToInt16(val, CultureInfo.InvariantCulture),
+			TypeCode.Int64 => (T)(object)Convert.ToInt64(val, CultureInfo.InvariantCulture),
+			TypeCode.SByte => (T)(object)Convert.ToSByte(val, CultureInfo.InvariantCulture),
+			TypeCode.Single => (T)(object)Convert.ToSingle(val, CultureInfo.InvariantCulture),
+			TypeCode.UInt16 => (T)(object)Convert.ToUInt16(val, CultureInfo.InvariantCulture),
+			TypeCode.UInt32 => (T)(object)Convert.ToUInt32(val, CultureInfo.InvariantCulture),
+			TypeCode.UInt64 => (T)(object)Convert.ToUInt64(val, CultureInfo.InvariantCulture),
 			_ => throw new NotSupportedException()
 		};
 	}
