@@ -1,3 +1,4 @@
+using System;
 using System.Text.RegularExpressions;
 
 namespace LibSasara.Model;
@@ -31,22 +32,22 @@ public static class PhonemeUtil
 	/// <summary>
 	/// 日本語の母音音素の正規表現パターン。無声母音含む
 	/// </summary>
-	public static Regex VOWELS_JA = new("[aiueoAIUEO]", RegexOptions.Compiled);
+	public static readonly Regex VOWELS_JA = new("[aiueoAIUEO]", RegexOptions.Compiled, TimeSpan.FromSeconds(1));
 
 	/// <summary>
 	/// 日本語の無声母音音素の正規表現パターン。
 	/// </summary>
-	public static Regex NOSOUND_VOWELS = new("[AIUEO]", RegexOptions.Compiled);
+	public static readonly Regex NOSOUND_VOWELS = new("[AIUEO]", RegexOptions.Compiled, TimeSpan.FromSeconds(1));
 
 	/// <summary>
 	/// 子音でない音素の正規表現パターン。
 	/// </summary>
-	public static Regex NO_CONSONANT = new($"{INVALID_PH}|{CL}|{PAU}|{SIL}", RegexOptions.Compiled);
+	public static readonly Regex NO_CONSONANT = new($"{INVALID_PH}|{CL}|{PAU}|{SIL}", RegexOptions.Compiled, TimeSpan.FromSeconds(1));
 
 	/// <summary>
 	/// 日本語の鼻音子音音素の正規表現パターン。
 	/// </summary>
-	public static Regex NASAL_JA = new("[nmN]|ng", RegexOptions.Compiled);
+	public static readonly Regex NASAL_JA = new("[nmN]|ng", RegexOptions.Compiled, TimeSpan.FromSeconds(1));
 
 	/// <summary>
 	/// 音素テキストが母音かどうか
@@ -83,13 +84,16 @@ public static class PhonemeUtil
 		if(NO_CONSONANT.IsMatch(cText)){
 			//no:子音
 			return false;
-		}else if(IsVowel(cText)){
+		}
+
+		if (IsVowel(cText))
+		{
 			//no:母音
 			return false;
-		}else{
-			//yes
-			return true;
 		}
+
+		//yes
+		return true;
 	}
 
 	/// <inheritdoc cref="IsConsonant(string?)"/>
@@ -118,7 +122,7 @@ public static class PhonemeUtil
 	/// </summary>
 	/// <param name="text"></param>
 	public static bool IsCL(string? text) =>
-		!string.IsNullOrEmpty(text) && text == CL;
+		!string.IsNullOrEmpty(text) && string.Equals(text, CL, StringComparison.Ordinal);
 
 	/// <summary>
 	/// ラベルの音素が促音かどうか
@@ -136,7 +140,7 @@ public static class PhonemeUtil
 	/// <seealso cref="IsNoSounds(LabLine)"/>
 	/// <returns></returns>
 	public static bool IsPau(LabLine label) =>
-		label?.Phoneme == PAU;
+		string.Equals(label?.Phoneme, PAU, StringComparison.Ordinal);
 
 	/// <summary>
 	/// ラベルの音素が[sil]かどうか
@@ -146,7 +150,7 @@ public static class PhonemeUtil
 	/// <seealso cref="IsNoSounds(LabLine)"/>
 	/// <returns></returns>
 	public static bool IsSil(LabLine label) =>
-		label?.Phoneme == SIL;
+		string.Equals(label?.Phoneme, SIL, StringComparison.Ordinal);
 
 	/// <summary>
 	/// ラベル音素が休符音素かどうか
