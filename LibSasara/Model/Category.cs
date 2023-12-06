@@ -23,5 +23,5 @@ public enum Category
 	/// オーディオ
 	/// </summary>
 	[XmlEnum]
-	OuterAudio
+	OuterAudio,
 }
