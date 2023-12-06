@@ -25,13 +25,13 @@ public class Tree
 	/// 子ツリー
 	/// </summary>
 	public List<Tree> Children { get; set; }
-		= new();
+		= [];
 
 	/// <summary>
 	/// 属性の個数
 	/// </summary>
 	public int AttributeCount {
-		get => this.Attributes?.Count ?? 0;
+		get => Attributes?.Count ?? 0;
 	}
 	/// <summary>
 	/// 属性
@@ -40,7 +40,7 @@ public class Tree
 	/// key - value式で返ります。
 	/// </remarks>
 	public List<KeyValue<dynamic>> Attributes { get; set; }
-		= new();
+		= [];
 
 	/// <summary>
 	/// このツリーがコレクション配列かどうか
@@ -97,11 +97,11 @@ public class Tree
 		var n = withNull switch
 		{
 			true => new byte[2]{
-				00, Convert.ToByte(len)
+				00, Convert.ToByte(len),
 			},
-			false => new byte[1]{
-				Convert.ToByte(len)
-			}
+			false => [
+				Convert.ToByte(len),
+			]
 		};
 		return n
 			.Concat(cByte.ToArray())
@@ -116,12 +116,12 @@ public class Tree
 		return AttributeCount switch
 		{
 			<= 0 => new byte[1] {
-				Common.NULL_END
+				Common.NULL_END,
 			},
-			_ => new byte[2]{
+			_ => [
 				01,
-				Convert.ToByte(AttributeCount)
-			}
+				Convert.ToByte(AttributeCount),
+			]
 		};
 	}
 
