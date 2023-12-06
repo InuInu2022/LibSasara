@@ -159,6 +159,10 @@ public static class FullContextLabUtil
 		IEnumerable<FCLabLineJa> list
 	)
 	{
+		if(list is null){
+			return Enumerable
+				.Empty<List<FCLabLineJa>>().ToList();
+		}
 		var grouped = new List<List<FCLabLineJa>>();
 		var currentGroup = Enumerable
 			.Empty<FCLabLineJa>().ToList();
@@ -176,7 +180,6 @@ public static class FullContextLabUtil
 				} else {
 					currentGroup.Add(item);
 				}
-
 			}
 			else
 			{

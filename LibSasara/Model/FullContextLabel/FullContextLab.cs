@@ -1,11 +1,7 @@
-using System.Collections.ObjectModel;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
-using System.Runtime.InteropServices;
-using System.Text.RegularExpressions;
-using LibSasara.Model.Serialize;
 
 namespace LibSasara.Model.FullContextLabel;
 
@@ -37,15 +33,19 @@ public class FullContextLab
 		int fps = 30
 	)
 	{
-		Lines = labData
-			.Split(
-				breaklines,
-				StringSplitOptions.RemoveEmptyEntries)
-			.AsParallel().AsSequential()
-			.Where(s => !string.IsNullOrEmpty(s))
-			.Select((s, i) => AnalyzeLine(s, i, fps))
-			.ToList()
-			;
+		Lines = labData is null
+			? Enumerable
+				.Empty<FullContextLabLine>()
+				.ToList()
+			: labData
+				.Split(
+					breaklines,
+					StringSplitOptions.RemoveEmptyEntries)
+				.AsParallel().AsSequential()
+				.Where(s => !string.IsNullOrEmpty(s))
+				.Select((s, i) => AnalyzeLine(s, i, fps))
+				.ToList()
+				;
 	}
 
 	/// <summary>
