@@ -139,12 +139,14 @@ public abstract class CeVIOFileBase : ICeVIOFile
 		var g = rawXml
 			.Descendants("Group")
 			.FirstOrDefault(e
-				=> e.Attribute("Id").Value == id.ToString())
+				=> e?.Attribute("Id")?.Value == id.ToString())
+			?? new XElement("Group")
 			;
 		var u = GetUnitsRaw()
 			.Where(e
-				=> e.Attribute("Group").Value == id.ToString())
+				=> e?.Attribute("Group")?.Value == id.ToString())
 			.ToList()
+			?? Enumerable.Empty<XElement>().ToList()
 			;
 		return (g, u);
 	}
@@ -163,8 +165,9 @@ public abstract class CeVIOFileBase : ICeVIOFile
 		GetTrackSets()
 	{
 		return RawGroups
-			.Select(v => v.Attribute("Id").Value)
-			.Select(v => GetTrackSet(new(v)))
+			.Select(v => v.Attribute("Id")?.Value)
+			.Where(v => v is not null)
+			.Select(v => GetTrackSet(new(v!)))
 			.ToList();
 	}
 
@@ -173,8 +176,9 @@ public abstract class CeVIOFileBase : ICeVIOFile
 		where T: UnitBase
 	{
 		return RawGroups
-			.Select(v => v.Attribute("Id").Value)
-			.Select(v => new TrackSet<T>(this, new(v)))
+			.Select(v => v.Attribute("Id")?.Value)
+			.Where(v => v is not null)
+			.Select(v => new TrackSet<T>(this, new(v!)))
 			.Where(v => {
 				Category cat;
 				if(typeof(T) == typeof(SongUnit)){
@@ -207,7 +211,7 @@ public abstract class CeVIOFileBase : ICeVIOFile
 
 		//duplicate Group
 		var ng = new XElement(group);
-		ng.Attribute("Id").SetValue(id);
+		ng.Attribute("Id")?.SetValue(id);
 
 		//duplicate Unit-s
 		var nu = await Task.Run(() =>
@@ -216,18 +220,18 @@ public abstract class CeVIOFileBase : ICeVIOFile
 				{
 					var u2 = new XElement(u);
 					u2
-						.Attribute("Group")
+						.Attribute("Group")?
 						.SetValue(id);
 					//clear cached rendered data
 					if (u2.Attribute("ShapShot") is not null)
 					{
-						u2.Attribute("SnapShot")
+						u2.Attribute("SnapShot")?
 							.Remove();
 					}
 
 					return u2;
 				})
-		);
+		).ConfigureAwait(false);
 
 		return (ng, nu);
 	}
@@ -241,14 +245,15 @@ public abstract class CeVIOFileBase : ICeVIOFile
 		Guid id = newId ?? Guid.NewGuid();
 
 		var (group, units) = GetTrackSet(targetId);
-		var (ng, nu) = await DuplicateTrackSetAsync(targetId, id);
+		var (ng, nu) = await DuplicateTrackSetAsync(targetId, id)
+			.ConfigureAwait(false);
 
 		//Add after
 		group.AddAfterSelf(ng);
 		//var last = units.Last();
 		foreach (var item in nu)
 		{
-			units.Last().AddAfterSelf(item);
+			units[units.Count - 1].AddAfterSelf(item);
 			//last = item;
 		}
 
@@ -282,7 +287,7 @@ public abstract class CeVIOFileBase : ICeVIOFile
 		}
 		catch (System.Exception e)
 		{
-			throw new Exception($"ERROR:{e}");
+			throw new XmlException($"ERROR:{e}", e);
 		}
 
 		return x;
@@ -292,7 +297,10 @@ public abstract class CeVIOFileBase : ICeVIOFile
 	public List<XElement> GetUnitsRaw(Category category)
 		=> GetUnitsRaw()
 			.Where(e => e.HasAttributes
-				&& e.Attribute("Category").Value == nameof(Category.SingerSong))
+				&& string.Equals(
+					e.Attribute("Category").Value,
+					nameof(Category.SingerSong),
+					StringComparison.Ordinal))
 			.ToList();
 
 	/// <summary>
@@ -447,7 +455,7 @@ public abstract class CeVIOFileBase : ICeVIOFile
 			var w = XmlWriter.Create(writer, settings);
 			rawXml.Save(w);
 		}
-		);
+		).ConfigureAwait(false);
 	}
 }
 
@@ -472,14 +480,14 @@ public static class CeVIOFileExt
 	{
 		var g = groupAndUnits.Item1.Attribute("CastId");
 
-		if (g.Value == beforeId)
+		if (string.Equals(g.Value, beforeId, StringComparison.Ordinal))
 		{
 			g.SetValue(afterId);
 		}
 
 		groupAndUnits.Item2
 			.Where(e
-				=> e.Attribute("CastId").Value == beforeId)
+				=> string.Equals(e.Attribute("CastId").Value, beforeId, StringComparison.Ordinal))
 			.ToList()
 			.ForEach(e =>
 			{
