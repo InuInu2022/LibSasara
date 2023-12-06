@@ -98,7 +98,7 @@ public sealed class SongUnitBuilder : IUnitBuilder<SongUnit, SongUnitBuilder>
 			ccs.AddUnits(
 				new List<XElement>(1)
 				{
-					rawElem
+					rawElem,
 				}
 			);
 		}
