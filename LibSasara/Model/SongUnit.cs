@@ -499,7 +499,7 @@ public class SongUnit : UnitBase
 				Group is null ?
 					Guid.NewGuid() :
 					Group.ToString()),
-			new(nameof(Language),Language ?? "Japanaese")
+			new(nameof(Language),Language ?? "Japanaese"),
 		};
 
 		var elem = new XElement("Unit", attrs);

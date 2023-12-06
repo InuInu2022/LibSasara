@@ -184,7 +184,7 @@ public static class SasaraCcs
 		var set = new XmlWriterSettings
 		{
 			Indent = true,
-			IndentChars = "  "
+			IndentChars = "  ",
 		};
 		var xw = XmlWriter.Create(path, set);
 		await Task.Run(() => {

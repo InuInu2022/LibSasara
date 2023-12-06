@@ -71,5 +71,5 @@ public enum Dynamics
 	/// フォルティシモ・フォルティシモ
 	/// </summary>
 	[XmlEnum]
-	FF_FF = 10
+	FF_FF = 10,
 }

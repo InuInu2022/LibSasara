@@ -23,7 +23,7 @@ public record SoundSetting
 				.Select(v => System.Convert.ToUInt32(v));
 			return new() {
 				Beats = rhythms.ElementAt(0),
-				BeatType = rhythms.ElementAt(1)
+				BeatType = rhythms.ElementAt(1),
 			};
 		}
 

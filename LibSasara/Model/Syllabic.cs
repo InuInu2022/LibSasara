@@ -23,5 +23,5 @@ public enum Syllabic
 	/// 音節終了、前のノートからの音節がここで終わる
 	/// </summary>
 	[XmlEnum]
-	End = 3
+	End = 3,
 }

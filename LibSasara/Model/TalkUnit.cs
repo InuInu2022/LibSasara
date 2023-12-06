@@ -294,7 +294,7 @@ public class TalkUnit : UnitBase
 								SasaraUtil.ConvertDecimal(v.Attribute("Speed").Value),
 					Tone = (v.Attribute("Tone") is null) ?
 								null :
-								SasaraUtil.ConvertDecimal(v.Attribute("Tone").Value)
+								SasaraUtil.ConvertDecimal(v.Attribute("Tone").Value),
 				})
 			.ToList();
 	}
@@ -363,7 +363,7 @@ public class TalkUnit : UnitBase
 				Group is null ?
 					Guid.NewGuid() :
 					Group.ToString()),
-			new(nameof(Language),Language ?? "Japanaese")
+			new(nameof(Language),Language ?? "Japanaese"),
 		};
 
 		var elem = new XElement("Unit", attrs);
@@ -372,7 +372,7 @@ public class TalkUnit : UnitBase
 			new(nameof(Speed), Speed),
 			new(nameof(Tone), Tone),
 			new(nameof(Alpha), Alpha),
-			new(nameof(LogF0Scale), LogF0Scale)
+			new(nameof(LogF0Scale), LogF0Scale),
 		};
 		elem.Add(
 			new XElement("Direction", dirAttr)

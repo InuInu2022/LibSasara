@@ -384,7 +384,7 @@ public abstract class CeVIOFileBase : ICeVIOFile
 			new("IsSolo", isSolo),
 			new("IsMuted", isMuted),
 			new("CastId", castId),
-			new("Language", language)
+			new("Language", language),
 		};
 		var e = new XElement("Group", attr);
 
@@ -523,7 +523,7 @@ public static class CeVIOFileExt
 	{
 		var allUnits = new List<XElement>
 		{
-			groupAndUnits.Item1
+			groupAndUnits.Item1,
 		};
 		allUnits = allUnits
 			.Concat(groupAndUnits.Item2)
