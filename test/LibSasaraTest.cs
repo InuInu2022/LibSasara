@@ -278,24 +278,6 @@ public class LibSasaraTest : IAsyncLifetime
 	}
 
 	[Theory]
-	[InlineData(CCS_FILEPATH_AI8, $"{CCS_FILEPATH_AI8}.new.ccs")]
-	[InlineData(CCS_FILEPATH_CS7, $"{CCS_FILEPATH_CS7}.new.xml")]
-	public async void LoadAndSaveSerializedAsync(string from, string to){
-		var result = await SasaraCcs.LoadDeserializedAsync<IRoot>(from);
-		if(result is null
-			|| result?.Generation is null
-			|| result?.Generation?.Author is null){
-			return;
-		}
-
-		result.Generation.Author.Version = new Version(0, 0);
-
-		//Assert.True(v == new Version(0, 0));
-
-		await result!.SaveSerializedAsync(to);
-	}
-
-	[Theory]
 	[InlineData(CCS_FILEPATH_AI8, $"{CCS_FILEPATH_AI8}.dup.ccs")]
 	[InlineData(CCS_FILEPATH_CS7, $"{CCS_FILEPATH_CS7}.dup.xml")]
 	[Trait("Category", "FileIO")]
