@@ -1,3 +1,4 @@
+using System.Globalization;
 using System.Linq;
 using System.Xml.Serialization;
 
@@ -20,7 +21,7 @@ public record SoundSetting
 
 			var rhythms = RhythmStr!
 				.Split("/"[0])
-				.Select(v => System.Convert.ToUInt32(v));
+				.Select(v => System.Convert.ToUInt32(v, CultureInfo.InvariantCulture));
 			return new() {
 				Beats = rhythms.ElementAt(0),
 				BeatType = rhythms.ElementAt(1),
