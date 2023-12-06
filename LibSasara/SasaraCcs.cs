@@ -30,6 +30,7 @@ public static class SasaraCcs
 	/// <seealso cref="LoadAsync(string)"/>
 	/// <exception cref="FileNotFoundException"></exception>
 	/// <exception cref="InvalidDataException"></exception>
+	[Obsolete($"use {nameof(LoadAsync)}")]
 	public static async Task<T> LoadDeserializedAsync<T>(string path)
 		where T : IRoot
 	{
@@ -56,7 +57,7 @@ public static class SasaraCcs
 		using var filestream = new FileStream(path, FileMode.Open);
 		var serializer = new XmlSerializer(fileType);
 		var data = await Task.Run(()=>
-			(T) serializer.Deserialize(filestream));
+			(T) serializer.Deserialize(filestream)).ConfigureAwait(false);
 		return data;
 	}
 
@@ -114,7 +115,8 @@ public static class SasaraCcs
 	public static async Task<T?> LoadAsync<T>(string path)
 		where T: CeVIOFileBase,ICeVIOFile
 	{
-		return await LoadAsync(path) as T;
+		return await LoadAsync(path)
+			.ConfigureAwait(false) as T;
 	}
 
 	/// <summary>
@@ -151,7 +153,9 @@ public static class SasaraCcs
 			path = Path.ChangeExtension(path, ext);
 		}
 
-		await ccs.SaveAsync(path);
+		await ccs
+			.SaveAsync(path)
+			.ConfigureAwait(false);
 	}
 
 	/// <summary>

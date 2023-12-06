@@ -34,7 +34,8 @@ public static class SasaraLabel
 
         using var filestream = new FileStream(path, FileMode.Open);
 		using var sr = new StreamReader(filestream);
-		var t = await sr.ReadToEndAsync();
+		var t = await sr.ReadToEndAsync()
+			.ConfigureAwait(false);
 		return new Lab(t, fps);
 	}
 }
