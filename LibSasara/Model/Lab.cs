@@ -92,6 +92,10 @@ public class Lab
 			}
 
 			tmpList.Add(c.v);
+
+			if(i == len - 1){
+				result.Add(tmpList);
+			}
 		}
 
 		return result;

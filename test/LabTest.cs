@@ -73,6 +73,26 @@ public class LabTest : IClassFixture<LabFixture>
 		result.Lines.Count().Should().BePositive();
 	}
 
+	public static readonly
+		TheoryData<Lab, int>
+	PhraseData = new()
+	{
+		{new(SampleLab1), 2},
+		{new(SampleLab2), 1}
+	};
+
+	[Theory]
+	[MemberData(nameof(PhraseData))]
+	public void SplitByPhrase(
+		Lab lab,
+		int count
+	)
+	{
+		var list = lab?
+			.SplitToSentence(0.001);
+		list.Should().NotBeNullOrEmpty();
+		list!.Should().HaveCount(count);
+	}
 
 	public static readonly
 		TheoryData<Lab, double>
