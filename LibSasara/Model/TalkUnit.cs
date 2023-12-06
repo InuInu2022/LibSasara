@@ -52,7 +52,7 @@ public class TalkUnit : UnitBase
 	public string? RawMetadata
 	{
 		get => rawElem.Descendants("Metadata").First().Value;
-		set => rawElem.Descendants("Metadata").First().SetValue(value);
+		set => rawElem.Descendants("Metadata").First().SetValue(value ?? string.Empty);
 	}
 
 	/// <summary>
@@ -83,9 +83,10 @@ public class TalkUnit : UnitBase
 	/// </summary>
 	public XElement RawDirection
 	{
-		get => rawElem.Element("Direction");
+		get => rawElem.Element("Direction")
+			?? new XElement("Direction");
 
-		set => rawElem.Element("Direction")
+		set => rawElem.Element("Direction")?
 			.SetElementValue("Direction", value);
 	}
 
@@ -207,14 +208,16 @@ public class TalkUnit : UnitBase
 			{
 				//cevio cs
 				return RawComponents
-					.ConvertAll(e =>
+					.Where(e => e.Attribute("Name")?.Value is not null)
+					.Select(e =>
 						(
-							Id: e.Attribute("Name").Value,
+							Id: e.Attribute("Name")!.Value,
 							Value: SasaraUtil
 								.ConvertDecimal(
-									e.Attribute("Value").Value
+									e.Attribute("Value")?.Value
 								)
 						))
+					.ToList()
 					;
 			}
 
@@ -222,9 +225,11 @@ public class TalkUnit : UnitBase
 			{
 				//cevio ai
 				return RawComponents
-					.Where(e =>
-						Regex.IsMatch(
-							e.Attribute("Name").Value,
+					.Where(e => e
+							.Attribute("Name")?
+							.Value is not null
+						&& Regex.IsMatch(
+							e.Attribute("Name")!.Value,
 							$"{CastId}_.+",
 							RegexOptions.Compiled,
 							TimeSpan.FromSeconds(1)
@@ -233,10 +238,10 @@ public class TalkUnit : UnitBase
 					.Select(e =>
 					{
 						return (
-							Id: e.Attribute("Name").Value,
+							Id: e.Attribute("Name")!.Value,
 							Value: SasaraUtil
 								.ConvertDecimal(
-									e.Attribute("Value").Value
+									e.Attribute("Value")?.Value
 								)
 						);
 					})
@@ -254,10 +259,10 @@ public class TalkUnit : UnitBase
 				var c = RawComponents
 					//.Elements("Component")
 					//.ToList()
-					.FindAll(x => string.Equals(x.Attribute("Name").Value, v.Id, StringComparison.Ordinal))
+					.FindAll(x => string.Equals(x.Attribute("Name")?.Value, v.Id, StringComparison.Ordinal))
 					;
 				c.ForEach(x =>
-					x.Attribute("Value")
+					x.Attribute("Value")?
 						.SetValue(v.Value.ToString(CultureInfo.InvariantCulture))
 				)
 				;
@@ -271,9 +276,10 @@ public class TalkUnit : UnitBase
 	public List<XElement> RawPhonemes
 	{
 		get => rawElem
-			.Element("Phonemes")
+			.Element("Phonemes")?
 			.Elements("Phoneme")
-			.ToList();
+			.ToList()
+			?? Enumerable.Empty<XElement>().ToList();
 	}
 
 	/// <summary>
@@ -291,13 +297,13 @@ public class TalkUnit : UnitBase
 					Data = v.Attribute("Data")?.Value,
 					Volume = (v.Attribute("Volume") is null) ?
 								null :
-								SasaraUtil.ConvertDecimal(v.Attribute("Volume").Value),
+								SasaraUtil.ConvertDecimal(v.Attribute("Volume")?.Value),
 					Speed = (v.Attribute("Speed") is null) ?
 								null :
-								SasaraUtil.ConvertDecimal(v.Attribute("Speed").Value),
+								SasaraUtil.ConvertDecimal(v.Attribute("Speed")?.Value),
 					Tone = (v.Attribute("Tone") is null) ?
 								null :
-								SasaraUtil.ConvertDecimal(v.Attribute("Tone").Value),
+								SasaraUtil.ConvertDecimal(v.Attribute("Tone")?.Value),
 				})
 			.ToList();
 	}
@@ -353,33 +359,10 @@ public class TalkUnit : UnitBase
 		IEnumerable<TalkPhoneme>? phonemes = null
 	)
 	{
-		XAttribute[] attrs = {
-			new("Version","1.1"),	//
-			new("Id",""),			//
-			new("Category", nameof(Category.TextVocal)),
-			new("Text", Text ?? ""),
-			new(nameof(StartTime),StartTime.ToString("c")),
-			new(nameof(Duration),Duration.ToString("c")),
-			new(nameof(CastId),CastId),
-			new(
-				nameof(Group),
-				Group is null ?
-					Guid.NewGuid() :
-					Group.ToString()),
-			new(nameof(Language),Language ?? "Japanaese"),
-		};
-
+		XAttribute[] attrs = CreateUnitAttr(StartTime, Duration, CastId, Text, Group, Language);
 		var elem = new XElement("Unit", attrs);
-		XAttribute[] dirAttr = {
-			new(nameof(Volume), Volume),
-			new(nameof(Speed), Speed),
-			new(nameof(Tone), Tone),
-			new(nameof(Alpha), Alpha),
-			new(nameof(LogF0Scale), LogF0Scale),
-		};
-		elem.Add(
-			new XElement("Direction", dirAttr)
-		);
+		XAttribute[] dirAttr = CreateDirAttr(Volume, Speed, Tone, Alpha, LogF0Scale);
+		elem.Add(new XElement("Direction", dirAttr));
 
 		if (components is not null)
 		{
@@ -392,7 +375,7 @@ public class TalkUnit : UnitBase
 					return c;
 				});
 			elem
-				.Element("Direction")
+				.Element("Direction")?
 				.Add(comps);
 		}
 
@@ -429,9 +412,50 @@ public class TalkUnit : UnitBase
 		return elem;
 	}
 
+	private static XAttribute[] CreateDirAttr(
+		decimal Volume,
+		decimal Speed,
+		decimal Tone,
+		decimal Alpha,
+		decimal LogF0Scale)
+	{
+		return new XAttribute[]{
+			new(nameof(Volume), Volume),
+			new(nameof(Speed), Speed),
+			new(nameof(Tone), Tone),
+			new(nameof(Alpha), Alpha),
+			new(nameof(LogF0Scale), LogF0Scale),
+		};
+	}
+
+	private static XAttribute[] CreateUnitAttr(
+		TimeSpan StartTime,
+		TimeSpan Duration,
+		string CastId,
+		string? Text,
+		Guid? Group,
+		string? Language)
+	{
+		return new XAttribute[]{
+			new("Version","1.1"),	//
+			new("Id",""),			//
+			new("Category", nameof(Category.TextVocal)),
+			new("Text", Text ?? ""),
+			new(nameof(StartTime),StartTime.ToString("c")),
+			new(nameof(Duration),Duration.ToString("c")),
+			new(nameof(CastId),CastId),
+			new(
+				nameof(Group),
+				Group is null ?
+					Guid.NewGuid() :
+					Group.ToString()!),
+			new(nameof(Language),Language ?? "Japanaese"),
+		};
+	}
+
 	decimal GetDirectionValue(string attr)
 		=> SasaraUtil.ConvertDecimal(
-			RawDirection.Attribute(attr).Value
+			RawDirection.Attribute(attr)?.Value
 		);
 
 	void SetDicrectionValue(
@@ -440,7 +464,7 @@ public class TalkUnit : UnitBase
 		var sValue = format is null ?
 			value.ToString(CultureInfo.InvariantCulture) :
 			value.ToString(format, CultureInfo.InvariantCulture);
-		RawDirection.Attribute(attr).SetValue(sValue);
+		RawDirection.Attribute(attr)?.SetValue(sValue);
 	}
 
 	static string PaddingForBase64(string s)
