@@ -23,6 +23,11 @@ public static class TextUtil
 	SplitValBySec<T>(string source)
 		where T: struct
 	{
+		if (string.IsNullOrEmpty(source))
+		{
+			throw new ArgumentException($"'{nameof(source)}' を NULL または空にすることはできません。", nameof(source));
+		}
+
 		char[] comma = ",".ToCharArray();
 		char[] colon = ":".ToCharArray();
 		return source
@@ -48,6 +53,11 @@ public static class TextUtil
 	SplitValByFrame<T>(string source)
 		where T: struct
 	{
+		if (string.IsNullOrEmpty(source))
+		{
+			throw new ArgumentException($"'{nameof(source)}' を NULL または空にすることはできません。", nameof(source));
+		}
+
 		char[] comma = ",".ToCharArray();
 		char[] colon = ":".ToCharArray();
 		return source
@@ -72,6 +82,11 @@ public static class TextUtil
 	SplitVal<T>(string source)
 		where T: struct
 	{
+		if (string.IsNullOrEmpty(source))
+		{
+			throw new ArgumentException($"'{nameof(source)}' を NULL または空にすることはできません。", nameof(source));
+		}
+
 		char[] comma = ",".ToCharArray();
 		return source
 			.Split(comma)
