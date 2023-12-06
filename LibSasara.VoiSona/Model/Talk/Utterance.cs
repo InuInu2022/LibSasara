@@ -76,11 +76,11 @@ public class Utterance : Tree
 			return xml;
 		}
 		set {
-			var hasRoot = value
-				.Element("tsml") is not null;
+			var hasRoot = value?
+					.Element("tsml") is not null;
 			var content = hasRoot
-				? value.Element("tsml").Elements()
-				: value.Elements("acoustic_phrase");
+				? value!.Element("tsml").Elements()
+				: value!.Elements("acoustic_phrase");
 			var sb = new StringBuilder(1000);
 			foreach(var i in content)
 			{
