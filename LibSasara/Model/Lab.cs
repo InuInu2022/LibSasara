@@ -34,7 +34,7 @@ public class Lab
 	/// <param name="fps"></param>
 	public Lab(string labData, int fps = 30)
 	{
-		lines = labData
+		lines = labData?
 			.Split(new string[]{"\n","\r\n","\r"}, StringSplitOptions.RemoveEmptyEntries)
 			.Where(s => !string.IsNullOrEmpty(s))    //空行無視
 			.Select((v) =>
@@ -63,27 +63,32 @@ public class Lab
 	{
 		var t = threshold * TenNanoSeconds;
 
-		var l = this.Lines!
-			.Where(v => v.Phoneme != "pau")     //無音の空白無視
+		var l = Lines!
+			.Where(v => !string.Equals(v.Phoneme, "pau", StringComparison.Ordinal))	//無音の空白無視
 			.Select(v =>
-			{                                   //判定プロパティ生やす
+			{
+				//判定プロパティ生やす
 				return (IsSep: false, v);
 			});
 
-		var result = new List<List<LabLine>>();
-		var tmpList = new List<LabLine>();
+		var result = Enumerable
+			.Empty<List<LabLine>>()
+			.ToList();
+		var tmpList = Enumerable
+			.Empty<LabLine>()
+			.ToList();
 		var len = l.ToList().Count;
 		for (int i = 0; i < len; i++)
 		{
-			var c = l.ElementAt(i);
+			var (IsSep, v) = l.ElementAt(i);
 
 			if (i > 0)
 			{
 				var prev = l.ElementAt(i - 1);
-				c.IsSep = (c.v.From - prev.v.To) >= t;
+				IsSep = (v.From - prev.v.To) >= t;
 			}
 
-			if (c.IsSep && tmpList.Count != 0)
+			if (IsSep && tmpList.Count != 0)
 			{
 				var copyed = new List<LabLine>(tmpList);
 
@@ -91,7 +96,7 @@ public class Lab
 				tmpList.Clear();
 			}
 
-			tmpList.Add(c.v);
+			tmpList.Add(v);
 
 			if(i == len - 1){
 				result.Add(tmpList);
@@ -107,7 +112,7 @@ public class Lab
 	/// <param name="percent">0~100</param>
 	/// <returns></returns>
 	public async ValueTask ChangeLengthByRateAsync(double percent){
-		if(Lines is null)
+		if(lines is null)
 		{
 			return;
 		}
@@ -118,9 +123,9 @@ public class Lab
 		await Task.Run(() =>
 		{
 			var newLines = lines.ToList();
-			for (int i = 0; i < Lines.Count(); i++)
+			for (int i = 0; lines.Skip(i).Any(); i++)
 			{
-				var line = Lines.ElementAt(i);
+				var line = lines.ElementAt(i);
 				if(i is 0){
 					origin = line.From;
 				}
@@ -162,10 +167,10 @@ public class Lab
 		await Task.Run(() =>
 		{
 			var newLines = lines.ToList();
-			var count = Lines.Count();
+			var count = lines.Count();
 			for (int i = 0; i < count; i++)
 			{
-				var line = Lines.ElementAt(i);
+				var line = lines.ElementAt(i);
 
 				var newFrom = Math.Max(line.From + labSeconds, 0.0);
 				var newTo = Math.Max(line.To + labSeconds, 0.0);
@@ -198,7 +203,7 @@ public class Lab
 		if(lines is null){
 			return string.Empty;
 		}
-		var cap = Lines.Count() * 30;
+		var cap = lines.Count() * 30;
 		var sb = new StringBuilder(cap);
 		foreach(var i in lines)
 		{
