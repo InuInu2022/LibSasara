@@ -41,9 +41,10 @@ public class SongUnit : UnitBase
 	/// </summary>
 	public XElement RawSong
 	{
-		get => rawElem.Element("Song");
+		get => rawElem.Element("Song")
+			?? new XElement("Song");
 
-		set => rawElem.Element("Song")
+		set => rawElem.Element("Song")?
 			.SetElementValue("Song", value);
 	}
 
@@ -66,7 +67,11 @@ public class SongUnit : UnitBase
 			if (RawSong.HasAttributes
 				&& RawSong.Attribute("Version") is not null)
 			{
-				return new(RawSong.Attribute("Version").Value);
+				return new(
+					RawSong
+						.Attribute("Version")!
+						.Value
+				);
 			}
 
 			return new();
@@ -102,12 +107,13 @@ public class SongUnit : UnitBase
 	{
 		get => new(
 			RawSong
-				.Element("Tempo")
+				.Element("Tempo")?
 				.Elements("Sound")
 				.ToDictionary(
 					v => GetAttrInt(v, "Clock"),
 					v => GetAttrInt(v, "Tempo")
 				)
+				?? new Dictionary<int, int>()
 			);
 	}
 
@@ -122,13 +128,15 @@ public class SongUnit : UnitBase
 	{
 		get => new(
 			RawSong
-				.Element("Tempo")
+				.Element("Tempo")?
 				.Elements("Sound")
 				.ToDictionary(
 					v => GetAttrInt(v, "Clock"),
 					v => GetAttrDecimal(v, "Tempo")
 				)
-			);
+				?? new Dictionary<int, decimal>()
+			)
+			;
 	}
 
 	/// <summary>
@@ -138,7 +146,7 @@ public class SongUnit : UnitBase
 	{
 		get => new(
 			RawSong
-				.Element("Beat")
+				.Element("Beat")?
 				.Elements("Time")
 				.ToDictionary(
 					v => GetAttrInt(v, "Clock"),
@@ -147,6 +155,7 @@ public class SongUnit : UnitBase
 						BeatType: GetAttrInt(v, "BeatType")
 					)
 				)
+				?? new Dictionary<int, (int,int)>()
 		);
 	}
 
@@ -156,7 +165,8 @@ public class SongUnit : UnitBase
     /// <seealso cref="RawScores"/>
 	public XElement RawScore
 	{
-		get => RawSong.Element("Score");
+		get => RawSong.Element("Score")
+			?? new XElement("Score");
 		set => RawSong.SetElementValue("Score", value);
 	}
 
@@ -232,13 +242,15 @@ public class SongUnit : UnitBase
     /// <seealso cref="RawScore"/>
 	public IList<XElement> RawScores
 	{
-		get => RawSong
-			.Element("Score")
-			.Elements()
-			.ToList();
+		get => RawSong?
+			.Element("Score")?
+			.Elements()?
+			.ToList()
+			?? Enumerable
+				.Empty<XElement>().ToList();
 
-		set => RawSong
-			.Element("Score")
+		set => RawSong?
+			.Element("Score")?
 			.SetElementValue("Score", value);
 	}
 
@@ -378,8 +390,6 @@ public class SongUnit : UnitBase
 			RawVolume
 				.SetAttributeValue("Length", value.Length);
 
-			var len = RawVolume.Attribute("Length").Value;
-
 			value
 				.Data?
 				.ConvertAll(d =>
@@ -503,7 +513,7 @@ public class SongUnit : UnitBase
 				nameof(Group),
 				Group is null ?
 					Guid.NewGuid() :
-					Group.ToString()),
+					Group.ToString()!),
 			new(nameof(Language),Language ?? "Japanaese"),
 		};
 
@@ -559,7 +569,10 @@ public class SongUnit : UnitBase
 		}
 
 		var elm = RawParameterChildren?
-			.FirstOrDefault(e => e.Name.ToString() == nodeName)
+			.Find(e => string.Equals(
+				e.Name.ToString(),
+				nodeName,
+				StringComparison.Ordinal))
 			;
 		if(elm is null){
 			var hasNode = RawParameter?
@@ -573,10 +586,11 @@ public class SongUnit : UnitBase
 					.Add(x);
 				elm = x;
 			}else{
-				elm = RawParameterChildren
+				elm = RawParameterChildren?
 					.Elements(nodeName)
 					.FirstOrDefault();
 			}
+			elm ??= new XElement(nodeName);
 		}
 
 		return elm;
