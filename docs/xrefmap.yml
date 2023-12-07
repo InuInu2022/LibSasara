@@ -6096,6 +6096,15 @@ references:
   fullName.vb: LibSasara.Model.TrackSet(Of TUnit).Equals(LibSasara.Model.TrackSet(Of TUnit))
   nameWithType: TrackSet<TUnit>.Equals(TrackSet<TUnit>)
   nameWithType.vb: TrackSet(Of TUnit).Equals(TrackSet(Of TUnit))
+- uid: LibSasara.Model.TrackSet`1.Equals(System.Object)
+  name: Equals(object)
+  href: api/LibSasara.Model.TrackSet-1.html#LibSasara_Model_TrackSet_1_Equals_System_Object_
+  commentId: M:LibSasara.Model.TrackSet`1.Equals(System.Object)
+  name.vb: Equals(Object)
+  fullName: LibSasara.Model.TrackSet<TUnit>.Equals(object)
+  fullName.vb: LibSasara.Model.TrackSet(Of TUnit).Equals(Object)
+  nameWithType: TrackSet<TUnit>.Equals(object)
+  nameWithType.vb: TrackSet(Of TUnit).Equals(Object)
 - uid: LibSasara.Model.TrackSet`1.Equals*
   name: Equals
   href: api/LibSasara.Model.TrackSet-1.html#LibSasara_Model_TrackSet_1_Equals_
@@ -6122,6 +6131,23 @@ references:
   fullName.vb: LibSasara.Model.TrackSet(Of TUnit).GetBackgroundColor
   nameWithType: TrackSet<TUnit>.GetBackgroundColor
   nameWithType.vb: TrackSet(Of TUnit).GetBackgroundColor
+- uid: LibSasara.Model.TrackSet`1.GetHashCode
+  name: GetHashCode()
+  href: api/LibSasara.Model.TrackSet-1.html#LibSasara_Model_TrackSet_1_GetHashCode
+  commentId: M:LibSasara.Model.TrackSet`1.GetHashCode
+  fullName: LibSasara.Model.TrackSet<TUnit>.GetHashCode()
+  fullName.vb: LibSasara.Model.TrackSet(Of TUnit).GetHashCode()
+  nameWithType: TrackSet<TUnit>.GetHashCode()
+  nameWithType.vb: TrackSet(Of TUnit).GetHashCode()
+- uid: LibSasara.Model.TrackSet`1.GetHashCode*
+  name: GetHashCode
+  href: api/LibSasara.Model.TrackSet-1.html#LibSasara_Model_TrackSet_1_GetHashCode_
+  commentId: Overload:LibSasara.Model.TrackSet`1.GetHashCode
+  isSpec: "True"
+  fullName: LibSasara.Model.TrackSet<TUnit>.GetHashCode
+  fullName.vb: LibSasara.Model.TrackSet(Of TUnit).GetHashCode
+  nameWithType: TrackSet<TUnit>.GetHashCode
+  nameWithType.vb: TrackSet(Of TUnit).GetHashCode
 - uid: LibSasara.Model.TrackSet`1.GroupId
   name: GroupId
   href: api/LibSasara.Model.TrackSet-1.html#LibSasara_Model_TrackSet_1_GroupId
