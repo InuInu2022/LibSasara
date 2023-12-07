@@ -16,8 +16,8 @@ The .NET library for convenient handling of project files (`.ccs`), track files 
 ## Features
 
 - The utility .NET class library for CeVIO files
-- Written in C# 10
-- [.NET Standard 2.0](https://learn.microsoft.com/en-US/dotnet/standard/net-standard?tabs=net-standard-2-0#tabpanel_1_net-standard-2-0)
+- Written in C# 12
+- .NET 8.0 & [.NET Standard 2.0](https://learn.microsoft.com/en-US/dotnet/standard/net-standard?tabs=net-standard-2-0#tabpanel_1_net-standard-2-0)
 - Supported file formats:
   - CeVIO project file (`.ccs`)
   - CeVIO track file (`.ccst`)
@@ -40,6 +40,7 @@ The .NET library for convenient handling of project files (`.ccs`), track files 
     - `TUNE`: not supported yet
   - import / export ccst
   - export lab
+  - [Future plan] import / export tssprj
 - [WIP] VoiSona Talk
   - import / export tstprj
 
