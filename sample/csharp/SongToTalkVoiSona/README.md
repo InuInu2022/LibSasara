@@ -45,7 +45,7 @@ WIP
 
 ## DL
 
-[github Release](https://github.com/InuInu2022/LibSasara/releases/tag/v0.2.3)からDL
+[github Release](https://github.com/InuInu2022/LibSasara/releases/latest)からDL
 
 * Windows: `SongToTalkVoiSona-win-x64-v.****.zip`
 * macOS (intel): `SongToTalkVoiSona-osx-x64-v.****.zip`
