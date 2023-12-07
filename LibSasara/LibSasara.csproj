@@ -16,6 +16,7 @@
     <Company>InuInu</Company>
     <PackageDescription>The utility library for CeVIO project file (.ccs / .ccst) and timing label file (.lab).</PackageDescription>
     <RepositoryUrl>https://github.com/InuInu2022/LibSasara</RepositoryUrl>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <GeneratePackageOnBuild Condition="'$(Configuration)' == 'Release'">true</GeneratePackageOnBuild>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <InvariantGlobalization>true</InvariantGlobalization>
@@ -42,6 +43,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Include="../README.md" Pack="true" PackagePath="\"/>
     <PackageReference Include="Meziantou.Analyzer" Version="2.0.119">
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
