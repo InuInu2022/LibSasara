@@ -36,7 +36,9 @@ public class VoiSonaTest : IAsyncLifetime
 	private readonly ITestOutputHelper _output;
 	private static TstPrj? SampleTalk;
 	private static TstPrj? TemplateTalk;
+#pragma warning disable CA1823,CS0169 // 使用されていないプライベート フィールドを使用しません
 	private static byte[]? SampleSong;
+#pragma warning restore CA1823,CS0169 // 使用されていないプライベート フィールドを使用しません
 
 	public VoiSonaTest(ITestOutputHelper output)
 	{
@@ -66,7 +68,7 @@ public class VoiSonaTest : IAsyncLifetime
 		if (SampleTalk is null) return;
 		SampleTalk.Data.Should().NotBeNull();
 
-		Console.WriteLine($"len:{SampleTalk?.Data.Length}");
+		Console.WriteLine($"len:{SampleTalk.Data.Length}");
 	}
 
 	[Theory]
@@ -237,7 +239,7 @@ public class VoiSonaTest : IAsyncLifetime
 					.Descendants("word")
 					.Attributes("phoneme")
 					.Select(s => s.Value)
-					.Select(s => s == "" ? "sil" : s)
+					.Select(s => string.IsNullOrEmpty(s) ? "sil" : s)
 					;
 				var phonemes = string.Join("|", ph);
 				Debug.WriteLine($"ph:{phonemes}");
@@ -395,6 +397,12 @@ public class VoiSonaTest : IAsyncLifetime
 		string tsml = "<word phoneme=\"a|a|a\" />"
 	)
 	{
+		original.Should().NotBeNull();
+		if (original is null)
+		{
+			throw new ArgumentNullException(nameof(original));
+		}
+
 		var u = new Utterance("test", tsml, "0.00")
 		{
 			PhonemeOriginalDuration = original,
@@ -409,7 +417,7 @@ public class VoiSonaTest : IAsyncLifetime
 		labStr1.Should().Be(labStr2);
 	}
 
-	private string LabString(
+	private static string LabString(
 		Utterance utterance,
 		string durations
 	){
@@ -421,7 +429,7 @@ public class VoiSonaTest : IAsyncLifetime
 			.Descendants("word")
 			.Attributes("phoneme")
 			.Select(s => s.Value)
-			.Select(s => s == "" ? "sil" : s)
+			.Select(s => string.IsNullOrEmpty(s) ? "sil" : s)
 			;
 		char[] separators = { ',', '|' };
 		ReadOnlySpan<string> phonemes = string
@@ -630,7 +638,6 @@ public class VoiSonaTest : IAsyncLifetime
 
 		//null check
 		content.Should().NotBeNull();
-		if (content is null) return;
 
 		//count check
 		content.Children.Should().NotBeEmpty();
@@ -669,7 +676,6 @@ public class VoiSonaTest : IAsyncLifetime
 	{
 		var tree = new Tree(key, true);
 		tree.Should().NotBeNull();
-		if (tree is null) return;
 
 		tree.IsCollection.Should().BeTrue();
 
