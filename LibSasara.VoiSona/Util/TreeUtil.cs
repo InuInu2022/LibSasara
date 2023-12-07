@@ -1,4 +1,6 @@
 using System;
+using System.Data;
+using System.Linq;
 using LibSasara.VoiSona.Model;
 
 namespace LibSasara.VoiSona.Util;
@@ -73,13 +75,24 @@ public static class TreeUtil
 
 		if (!hasChild) return default;
 
-		var value = tree.Children
+		var attrs = tree.Children
 			.Find(c => string.Equals(c.Name, childName, StringComparison.Ordinal))
-			.Attributes
-			.Find(a => string.Equals(a.Key, valueName, StringComparison.Ordinal))
-			.Value
-			?? default(T);
-		if(value is null){
+			.Attributes;
+		dynamic? value;
+#pragma warning disable CA1031 // 一般的な例外の種類はキャッチしません
+		try
+		{
+			value = attrs
+				.Find(a => string.Equals(a.Key, valueName, StringComparison.Ordinal))
+				.Value
+				?? default(T);
+		}
+		catch (System.Exception)
+		{
+			return default;
+		}
+#pragma warning restore CA1031 // 一般的な例外の種類はキャッチしません
+		if (value is null){
 			return default;
 		}
 		if (typeof(T) == typeof(int))
