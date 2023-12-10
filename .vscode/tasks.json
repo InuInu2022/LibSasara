@@ -30,7 +30,8 @@
                 "${workspaceFolder}/test/test.csproj",
                 "/p:CollectCoverage=true",
                 "/p:CoverletOutputFormat=lcov",
-                "/p:CoverletOutput=./lcov.info"
+                "/p:CoverletOutput=./lcov.info",
+				"/p:RunAnalyzers=false"
             ],
             "problemMatcher": "$msCompile",
             "group": {
