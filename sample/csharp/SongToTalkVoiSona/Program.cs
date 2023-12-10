@@ -622,7 +622,7 @@ public partial class SongToTalk: ConsoleAppBase
 			.Replace(concated, string.Empty);
 	}
 
-	[GeneratedRegex("[’※$＄@＠%％^＾]")]
+	[GeneratedRegex("[’※$＄@＠%％^＾_＿=＝]")]
 	private static partial Regex SpecialLabelRegex();
 
 	private static string GetTsml(
