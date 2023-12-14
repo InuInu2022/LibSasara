@@ -1,4 +1,6 @@
-﻿using System.Collections.Immutable;
+﻿using System.Collections.Concurrent;
+using System.Collections.Immutable;
+using System.Diagnostics;
 using System.Diagnostics.CodeAnalysis;
 using System.Globalization;
 using System.Text;
@@ -52,6 +54,13 @@ public partial class SongToTalk: ConsoleAppBase
 		//ccsを解析
 		var processed = await ProcessCcsAsync(pathToSongCcs)
 			.ConfigureAwait(false);
+
+		//あればlabファイル
+		if(hasLab){
+			processed.Label = await SasaraLabel
+				.LoadAsync(pathToLab!)
+				.ConfigureAwait(false);
+		}
 
 		//解析を元にtstprj作成
 		await GenerateFileAsync(
@@ -192,12 +201,18 @@ public partial class SongToTalk: ConsoleAppBase
 			}
 			rates = emotions;
 		}
-		var us = processed
-			.PhraseList?
-			//.AsParallel()
+		var sw = new Stopwatch();
+		sw.Start();
+
+		var us = processed.PhraseList?
+			.AsParallel().AsOrdered()
 			.Select(ToUtterance(processed, rates, splitNote))
 			.ToImmutableList()
 			;
+
+		sw.Stop();
+		Debug.WriteLine($"★processed: {sw.ElapsedMilliseconds} msec.");
+
 		if (us is null)
 		{
 			await Console.Error.WriteLineAsync("解析に失敗しました。。。")
@@ -521,7 +536,10 @@ public partial class SongToTalk: ConsoleAppBase
 		_jtalk ??= new OpenJTalkAPI();
 
 		var lyrics = GetPhraseText(notes.ToList());
-		var text = _jtalk.GetLabels(lyrics);
+		var text = Enumerable.Empty<string>();
+		lock(_jtalk){
+			text = _jtalk.GetLabels(lyrics);
+		}
 
 		if (text is null)
 		{
@@ -686,6 +704,8 @@ internal sealed record SongData{
 	//なにもない時はでっち上げ
 	//labファイルがある時は子音と母音だけなので中間タイミングデータをでっち上げ
 	//TODO:public IEnumerable<List<>>? TimingList { get; set; }
+
+	public Lab? Label { get; set; }
 
 	public SortedDictionary<int, decimal>? TempoList { get; set; }
 	public SortedDictionary<int, (int Beats, int BeatType)>? BeatList { get; set; }
