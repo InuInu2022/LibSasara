@@ -36,12 +36,16 @@
 			"type": "coreclr",
 			"request": "launch",
 			"preLaunchTask": "build",
-			"program": "${workspaceFolder}/sample/csharp/SongToTalkVoiSona/bin/Debug/net7.0/win-x64/SongToTalkVoiSona.dll",
+			"program": "${workspaceFolder}/sample/csharp/SongToTalkVoiSona/bin/Debug/net7.0/SongToTalkVoiSona.dll",
 			"args": [
 				"-s",
-				"${workspaceFolder}/sample/csharp/SongToTalkVoiSona/file/kaeru.ccs",
+				"${workspaceFolder}/sample/csharp/SongToTalkVoiSona/file/yoidore.ccs",
 				"-e",
-				"${workspaceFolder}/sample/csharp/SongToTalkVoiSona/file/dist.tstprj"
+				"${workspaceFolder}/sample/csharp/SongToTalkVoiSona/file/dist.tstprj",
+				"-c",
+				"田中傘",
+				"--emotions",
+				"[1.0]"
 			],
 			"cwd": "${workspaceFolder}",
 			"console": "internalConsole",
