@@ -1,4 +1,5 @@
 ﻿using System.Collections.Immutable;
+using System.Diagnostics.CodeAnalysis;
 using System.Globalization;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -13,6 +14,7 @@ using WanaKanaNet;
 
 ConsoleApp.Run<SongToTalk>(args);
 
+[SuppressMessage("Usage", "CA1050")]
 public partial class SongToTalk: ConsoleAppBase
 {
 	private OpenJTalkAPI? _jtalk;
@@ -36,7 +38,8 @@ public partial class SongToTalk: ConsoleAppBase
 		string? pathToLab = ""
 	){
 		if(!File.Exists(pathToSongCcs)){
-			Console.Error.WriteLine($"file:{pathToSongCcs} is not found!");
+			await Console.Error.WriteLineAsync($"file:{pathToSongCcs} is not found!")
+				.ConfigureAwait(false);
 			return 1;
 		}
 
@@ -60,6 +63,7 @@ public partial class SongToTalk: ConsoleAppBase
 		)
 			.ConfigureAwait(false);
 
+		_jtalk?.Dispose();
 		return default;
 	}
 
@@ -75,7 +79,8 @@ public partial class SongToTalk: ConsoleAppBase
 	/// </remarks>
 	/// <param name="path"></param>
 	/// <returns></returns>
-	private async ValueTask<SongData> ProcessCcsAsync(string path){
+	private static async ValueTask<SongData> ProcessCcsAsync(string path)
+	{
 		var ccs = await SasaraCcs.LoadAsync(path)
 			.ConfigureAwait(false);
 		var trackset = ccs
@@ -85,7 +90,8 @@ public partial class SongToTalk: ConsoleAppBase
 			.Units
 			.FirstOrDefault();
 		if(trackset is null || song is null){
-			Console.Error.WriteLine($"Error!: ソングデータがありません: { path }");
+			await Console.Error.WriteLineAsync($"Error!: ソングデータがありません: { path }")
+				.ConfigureAwait(false);
 			return new SongData();
 		}
 
@@ -181,7 +187,8 @@ public partial class SongToTalk: ConsoleAppBase
 		if(emotions is not null){
 			//感情比率設定可能に
 			if(emotions.Length == 0){
-				Console.Error.WriteLine($"emotion {emotions} is length 0.");
+				await Console.Error.WriteLineAsync($"emotion {emotions} is length 0.")
+					.ConfigureAwait(false);
 			}
 			rates = emotions;
 		}
@@ -193,7 +200,8 @@ public partial class SongToTalk: ConsoleAppBase
 			;
 		if (us is null)
 		{
-			Console.Error.WriteLine("解析に失敗しました。。。");
+			await Console.Error.WriteLineAsync("解析に失敗しました。。。")
+				.ConfigureAwait(false);
 			return;
 		}
 
@@ -234,11 +242,17 @@ public partial class SongToTalk: ConsoleAppBase
 			.ReadAllTextAsync(path)
 			.ConfigureAwait(false);
 		var defs = Definitions.FromJson(jsonString);
-		return defs.Casts
+		if(defs is null){
+			await Console.Error.WriteLineAsync($"invalid cast definitions data: {path}")
+				.ConfigureAwait(false);
+			throw new InvalidDataException($"invalid cast definitions data: {path}");
+		}
+		_defs = defs.Casts
 			.Where(c => c.Product == Product.VoiSona
 			&& c.Category == CevioCasts.Category.TextVocal)
 			.FirstOrDefault(c => c.Names.Any(n => n.Display == castName))
 			?? throw new ArgumentException($"cast name {castName} is not found in cast data. please check https://github.com/InuInu2022/cevio-casts/ ");
+		return _defs;
 	}
 
 	private async ValueTask InitOpenJTalk()
@@ -286,7 +300,7 @@ public partial class SongToTalk: ConsoleAppBase
 			//TODO:ccsやlabから割当
 			var timing = "";
 			//PIT
-			//TODO:楽譜データだけならnote高さから計算
+			//楽譜データだけならnote高さから計算
 			//TODO:ccsやwavがあるなら解析して割当
 			var pitch = GetPitches(p, data);
 
@@ -483,7 +497,7 @@ public partial class SongToTalk: ConsoleAppBase
 		return accText;
 	}
 
-	private string GetPhonemeLabel(
+	private static string GetPhonemeLabel(
 		FullContextLab fcLabel,
 		GetPhonemeMode mode
 	)
@@ -517,7 +531,7 @@ public partial class SongToTalk: ConsoleAppBase
 		return new FullContextLab(string.Join("\n", text));
 	}
 
-	private IEnumerable<string> ConvertSimpleLabel(IEnumerable<string> fullLabel)
+	private static IEnumerable<string> ConvertSimpleLabel(IEnumerable<string> fullLabel)
 	{
 		//pL-pC+pR
 		return fullLabel
@@ -637,7 +651,6 @@ public partial class SongToTalk: ConsoleAppBase
 	//	本当は最初の子音分、前にはみ出したほうがいい
 	private static string GetStartTimeString(SongData data, List<Note> p)
 	{
-		//TODO: fix ClockToTimeSpan
 		var time = SasaraUtil
 			.ClockToTimeSpan(
 				data.TempoList ?? new(){{0,120}},
@@ -658,7 +671,7 @@ public partial class SongToTalk: ConsoleAppBase
 /// <summary>
 /// トーク変換用中間ソングデータ
 /// </summary>
-internal record SongData{
+internal sealed record SongData{
 	public string? SongTrackName { get; set; }
 
 	//フレーズ単位で分割されたNoteのリスト
