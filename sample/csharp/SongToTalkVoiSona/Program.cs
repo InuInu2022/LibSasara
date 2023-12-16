@@ -140,7 +140,7 @@ public partial class SongToTalk: ConsoleAppBase
 			.Notes
 			.OrderBy(n => n.Clock);
 
-		var phrase = new List<Note>();
+		var phrase = Enumerable.Empty<Note>().ToList();
 		foreach (var note in notes)
 		{
 			if(phrase.Count != 0){
@@ -209,9 +209,6 @@ public partial class SongToTalk: ConsoleAppBase
 			.ToImmutableList()
 			;
 
-		sw.Stop();
-		Debug.WriteLine($"★processed: {sw.ElapsedMilliseconds} msec.");
-
 		if (us is null)
 		{
 			await Console.Error.WriteLineAsync("解析に失敗しました。。。")
@@ -221,12 +218,17 @@ public partial class SongToTalk: ConsoleAppBase
 
 		var tstprj = TemplateTalk
 			.ReplaceAllUtterancesAsPrj(us);
+
+		sw.Stop();
+		Debug.WriteLine($"★processed: {sw.ElapsedMilliseconds} msec.");
+
 		if(castName is not null){
 			var voice = await GetVoiceByCastNameAsync(castName)
 				.ConfigureAwait(false);
 			tstprj = tstprj
 				.ReplaceVoiceAsPrj(voice);
 		}
+
 		await LibVoiSona
 			.SaveAsync(exportPath, tstprj.Data.ToArray())
 			.ConfigureAwait(false);
@@ -334,7 +336,7 @@ public partial class SongToTalk: ConsoleAppBase
 				//感情数に合わせる
 				RawFrameStyle = emotionRates is null
 					? "0:1:1.000:0.000:0.000:0.000:0.000"
-					: $"0:1:{string.Join(":", emotionRates)}",
+					: $"0:1:{string.Join(':', emotionRates)}",
 				//調整前LEN
 				PhonemeOriginalDuration = GetSplittedTiming(p, data),
 			};
@@ -367,7 +369,7 @@ public partial class SongToTalk: ConsoleAppBase
 			}
 			//「ー」の時は前のノートの母音歌詞に置換
 			var prev = p[i - 1];
-			var ph = GetPhonemeLabel(GetFullContext(new List<Note> { prev }), GetPhonemeMode.Note).Split("|");
+			var ph = GetPhonemeLabel(GetFullContext(new List<Note> { prev }), GetPhonemeMode.Note).Split('|');
 			var last = ph.Last() ?? "a";
 			p[i].Lyric = lyric
 				.Replace(
@@ -384,7 +386,8 @@ public partial class SongToTalk: ConsoleAppBase
 					data.TempoList ?? new() { { 0, 120 } })
 				.TotalMilliseconds;
 			var th = noteSplit?.threthold ?? 100000;
-			th = th < 100 ? 100 : th;
+			//th = th < 100 ? 100 : th;
+			th = Math.Max(th, 100);
 
 			if (dur < th) return n;
 
@@ -413,10 +416,11 @@ public partial class SongToTalk: ConsoleAppBase
 					.ToArray()
 			};
 			n.Phonetic = string
-				.Join(",", sph);
-			n.Lyric = GetPronounce(string.Join("|", sph));
+				.Join(',', sph);
+			n.Lyric = GetPronounce(string.Join('|', sph));
 			return n;
-		});
+		})
+;
 	}
 
 	private static WanaKanaOptions kanaOption = new()
@@ -430,11 +434,11 @@ public partial class SongToTalk: ConsoleAppBase
 	private static string GetPronounce(string phonemes)
 	{
 		var sb = new StringBuilder(phonemes);
-		sb.Replace("|", " ");
-		sb.Replace(",", "");
+		sb.Replace('|', ' ');
+		sb.Replace(",", string.Empty);
 		//読みを変えたフレーズ
 		var yomi = WanaKana.ToKatakana(sb.ToString(), kanaOption);
-		return yomi.Replace(" ", "", StringComparison.InvariantCulture);
+		return yomi.Replace(" ", string.Empty, StringComparison.InvariantCulture);
 	}
 
 	private string GetPitches(
@@ -507,8 +511,7 @@ public partial class SongToTalk: ConsoleAppBase
 			.Range(0, mCount > 1 ? mCount - 1 : 0)
 			.Select(s => "h")
 			.ToArray();
-		var accText = "l" + string.Concat(ac);
-		return accText;
+		return $"l{string.Concat(ac)}";
 	}
 
 	private static string GetPhonemeLabel(
@@ -523,18 +526,18 @@ public partial class SongToTalk: ConsoleAppBase
 			.Select(s => s
 				.Select(s2 => s2.Phoneme)
 				.Where(s2 => s2 != "sil"))
-			.Select(s => string.Join(",", s))
+			.Select(s => string.Join(',', s))
 			.Where(s => !string.IsNullOrEmpty(s))
 			;
 
-		return string.Join("|", splited);
+		return string.Join('|', splited);
 	}
 
 	private FullContextLab GetFullContext(IEnumerable<Note> notes)
 	{
 		_jtalk ??= new OpenJTalkAPI();
 
-		var lyrics = GetPhraseText(notes.ToList());
+		var lyrics = GetPhraseText(notes);
 		var text = Enumerable.Empty<string>();
 		lock(_jtalk){
 			text = _jtalk.GetLabels(lyrics);
@@ -542,7 +545,7 @@ public partial class SongToTalk: ConsoleAppBase
 
 		if (text is null)
 		{
-			return new FullContextLab("");
+			return new FullContextLab(string.Empty);
 		}
 
 		return new FullContextLab(string.Join("\n", text));
@@ -553,7 +556,7 @@ public partial class SongToTalk: ConsoleAppBase
 		//pL-pC+pR
 		return fullLabel
 			.AsParallel().AsSequential()
-			.Select(s => s.Split("/")[0])
+			.Select(s => s.Split('/')[0])
 			.Select(s => FullContextLabelRegex().Match(s).Groups[1].Value)
 			;
 	}
@@ -569,7 +572,7 @@ public partial class SongToTalk: ConsoleAppBase
 	)
 	{
 		var s = string
-			.Join(",", p.Select(n =>
+			.Join(',', p.Select(n =>
 			{
 				//音素数を数える
 				//OpenJTalkで正確に数える
@@ -599,7 +602,7 @@ public partial class SongToTalk: ConsoleAppBase
 					.Range(0, count)
 					.Select(_ => sub / 1000m)
 					.Select(v => v.ToString("N2", CultureInfo.InvariantCulture));
-				return string.Join(",", len);
+				return string.Join(',', len);
 			})
 			)
 			;
@@ -633,7 +636,7 @@ public partial class SongToTalk: ConsoleAppBase
 	/// - 「※$＄」（ファルセット）指定はALPで擬似的に再現できるが将来TODO
 	/// </remarks>
 	/// <returns></returns>
-	private static string GetPhraseText(List<Note> p)
+	private static string GetPhraseText(IEnumerable<Note> p)
 	{
 		var concated = string
 			.Concat(p.Select(n => n.Lyric));
@@ -674,7 +677,7 @@ public partial class SongToTalk: ConsoleAppBase
 				p[0].Clock
 			);
 		var seconds = (decimal)time.TotalMilliseconds / 1000.0m;
-		Console.WriteLine($"+ clock:{p[0].Clock}, time:{time.TotalMilliseconds}, seconds:{seconds}");
+		Debug.WriteLine($"+ clock:{p[0].Clock}, time:{time.TotalMilliseconds}, seconds:{seconds}");
 		return seconds
 			.ToString("N2", CultureInfo.InvariantCulture);
 	}
