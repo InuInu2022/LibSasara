@@ -67,6 +67,8 @@ WIP
 @set CAST="田中傘"
 @rem 【書き換えてOK】感情比率（キャストごとに要変更）
 @set EMOTIONS="[1.0,0.0,0.0,0.0]"
+@rem 【書き換えてOK】子音部分のオフセット秒。子音部分をノートの開始時間から前にオフセットします。
+@set OFFSET="0.075"
 ```
 
 ### command (win/mac/linux)
