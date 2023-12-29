@@ -35,6 +35,8 @@ public partial class SongToTalk: ConsoleAppBase
 		bool splitNoteByThrethold = true,
 		[Option("th", "threthold time (MessageProcessingHandler.) for note split")]
 		double splitThrethold = 250,
+		[Option("co", "offset seconds for consonant")]
+		decimal consonantOffset = 0.05m,
 		string? pathToWav = "",
 		string? pathToLab = ""
 	){
@@ -67,7 +69,8 @@ public partial class SongToTalk: ConsoleAppBase
 			pathToPrj,
 			castName,
 			(splitNoteByThrethold, splitThrethold),
-			emotions
+			emotions,
+			consonantOffset
 		)
 			.ConfigureAwait(false);
 
@@ -167,7 +170,8 @@ public partial class SongToTalk: ConsoleAppBase
 		string exportPath,
 		string? castName = null,
 		(bool isSplit, double threthold)? splitNote = null,
-		double[]? emotions = null
+		double[]? emotions = null,
+		decimal consonantOffset = 0.0m
 	)
 	{
 		var path = Path.Combine(
@@ -188,7 +192,7 @@ public partial class SongToTalk: ConsoleAppBase
 
 		var us = processed.PhraseList?
 			.AsParallel().AsOrdered()
-			.Select(ToUtterance(processed, rates, splitNote))
+			.Select(ToUtterance(processed, rates, splitNote, consonantOffset))
 			.ToImmutableList()
 			;
 
@@ -311,7 +315,8 @@ public partial class SongToTalk: ConsoleAppBase
 	ToUtterance(
 		SongData data,
 		double[]? emotionRates = null,
-		(bool isSplit, double threthold)? noteSplit = null
+		(bool isSplit, double threthold)? noteSplit = null,
+		decimal consonantOffset = 0.0m
 	)
 	{
 		return p =>
@@ -345,10 +350,10 @@ public partial class SongToTalk: ConsoleAppBase
 
 			//フレーズ最初が子音の時のオフセット
 			var offset = 0.0m;
-			var firstPh = phoneme.Split('|')[0];
+			var firstPh = phoneme.Split('|')[0].Split(',')[0];
 			if(PhonemeUtil.IsConsonant(firstPh)){
-				//とりあえず 0.05 sec.
-				offset = 0.05m;
+				//とりあえず 固定値
+				offset = consonantOffset;
 			}
 
 			var nu = new Utterance(
@@ -367,7 +372,7 @@ public partial class SongToTalk: ConsoleAppBase
 					? "0:1:1.000:0.000:0.000:0.000:0.000"
 					: $"0:1:{string.Join(':', emotionRates)}",
 				//調整前LEN
-				PhonemeOriginalDuration = GetSplittedTiming(p, data),
+				PhonemeOriginalDuration = GetSplittedTiming(p, data, offset),
 			};
 			//timing
 			if (!string.IsNullOrEmpty(timing))
@@ -579,6 +584,13 @@ public partial class SongToTalk: ConsoleAppBase
 		_jtalk ??= new OpenJTalkAPI();
 
 		var lyrics = GetPhraseText(notes);
+		if(fcLabelCache
+			.TryGetValue(lyrics, out var cachedLabel))
+		{
+			//キャッシュがあればキャッシュを返す
+			return cachedLabel;
+		}
+
 		var text = Enumerable.Empty<string>();
 		lock(_jtalk){
 			text = _jtalk.GetLabels(lyrics);
@@ -609,14 +621,20 @@ public partial class SongToTalk: ConsoleAppBase
 	/// <returns></returns>
 	private string GetSplittedTiming(
 		List<Note> p,
-		SongData song
+		SongData song,
+		decimal offset = 0.0m
 	)
 	{
 		var tempo = song.TempoList ?? new() { { 0, 120 } };
 		var a = p
 			.AsParallel().AsSequential()
-			.Select(n =>
+			.Select((n,i) =>
 			{
+				//オフセット準備
+				var is1stNote = i is 0;
+				var isConso1stPh = Check1stPhoneme(n);
+				var isConsoNext = CheckNextPhoneme(p, i);
+
 				//音素数を数える
 				//OpenJTalkで正確に数える
 				int count = CountPhonemes(n);
@@ -626,10 +644,12 @@ public partial class SongToTalk: ConsoleAppBase
 					tempo,
 					n.Clock
 				).TotalMilliseconds;
+				start = isConso1stPh ? start - (double)offset : start;
 				var end = SasaraUtil.ClockToTimeSpan(
 					tempo,
 					n.Clock + n.Duration
 				).TotalMilliseconds;
+				end = isConsoNext ? end - (double)offset : end;
 				var sub = (decimal)(end - start) / count;
 				var len = Enumerable
 					.Range(0, count)
@@ -643,6 +663,31 @@ public partial class SongToTalk: ConsoleAppBase
 		return $"0.005,{s},0.125";
 	}
 
+	private bool CheckNextPhoneme(List<Note> p, int i)
+	{
+		var isConsoNext = false;
+		if ((i + 1) < p.Count)
+		{
+			var next = p[i + 1];
+			isConsoNext = Check1stPhoneme(next);
+		}
+		return isConsoNext;
+	}
+
+	private bool Check1stPhoneme(Note n)
+	{
+		var result = GetPhonemeLabel(
+				GetFullContext(new List<Note>() { n }),
+				GetPhonemeMode.Note
+			).Split('|', StringSplitOptions.None)[0];
+		return PhonemeUtil.IsConsonant(result);
+	}
+
+	/// <summary>
+	/// フルコンテクストラベルのキャッシュ
+	/// </summary>
+	private static Dictionary<string, FullContextLab> fcLabelCache = [];
+
 	private int CountPhonemes(Note n)
 	{
 		//ノート歌詞が「ー」の時はOpenJTalkでエラーになるので解析しない
@@ -651,8 +696,15 @@ public partial class SongToTalk: ConsoleAppBase
 			//母音音素一つになるので1
 			return 1;
 		}
+		if(n.Lyric is null){
+			return 1;
+		}
 
-		var fcLabel = GetFullContext(new List<Note> { n });
+		var isCached = fcLabelCache
+			.TryGetValue(n.Lyric, out var fullContextLab);
+		var fcLabel = isCached
+			? fullContextLab!
+			: GetFullContext(new List<Note> { n });
 
 		return fcLabel
 			.Lines
@@ -717,7 +769,7 @@ public partial class SongToTalk: ConsoleAppBase
 				data.TempoList!,
 				p[0].Clock
 			);
-		var seconds = ((decimal)time.TotalMilliseconds / 1000.0m) + offset;
+		var seconds = ((decimal)time.TotalMilliseconds / 1000.0m) - offset;
 		Debug.WriteLine($"+ clock:{p[0].Clock}, time:{time.TotalMilliseconds}, seconds:{seconds}");
 		return seconds
 			.ToString("N2", CultureInfo.InvariantCulture);
