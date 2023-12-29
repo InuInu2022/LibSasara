@@ -133,7 +133,7 @@ public partial class SongToTalk: ConsoleAppBase
 	)
 	{
 		//返すよう
-		List<List<Note>> list = new();
+		List<List<Note>> list = [];
 
 		//念の為ソート
 		var notes = song
@@ -144,7 +144,7 @@ public partial class SongToTalk: ConsoleAppBase
 		foreach (var note in notes)
 		{
 			if(phrase.Count != 0){
-				var last = phrase.Last();
+				var last = phrase[^1];
 				if (phrase.Count > 0 &&
 					//しきい値以下は同じフレーズとみなす
 					Math.Abs(note.Clock - (last.Clock + last.Duration)) > threthold)
@@ -177,29 +177,11 @@ public partial class SongToTalk: ConsoleAppBase
 		var TemplateTalk = await LibVoiSona
 			.LoadAsync<TstPrj>(path)
 			.ConfigureAwait(false);
-		await InitOpenJTalk()
+		await InitOpenJTalkAsync()
 			.ConfigureAwait(false);
 
-		double[]? rates = null;
-		if(castName is not null && emotions is null){
-			//感情数を調べる
-			var cast = await GetCastDefAsync(castName)
-				.ConfigureAwait(false);
-			rates = cast
-				.Emotions
-				.Select(e => 0.00)
-				.ToArray();
-			//とりあえず最初の感情だけMAX
-			rates[0] = 1.00;
-		}
-		if(emotions is not null){
-			//感情比率設定可能に
-			if(emotions.Length == 0){
-				await Console.Error.WriteLineAsync($"emotion {emotions} is length 0.")
-					.ConfigureAwait(false);
-			}
-			rates = emotions;
-		}
+		var rates = await CulcEmoRatesAsync(castName, emotions)
+			.ConfigureAwait(false);
 		var sw = new Stopwatch();
 		sw.Start();
 
@@ -222,7 +204,8 @@ public partial class SongToTalk: ConsoleAppBase
 		sw.Stop();
 		Debug.WriteLine($"★processed: {sw.ElapsedMilliseconds} msec.");
 
-		if(castName is not null){
+		if (castName is not null)
+		{
 			var voice = await GetVoiceByCastNameAsync(castName)
 				.ConfigureAwait(false);
 			tstprj = tstprj
@@ -234,6 +217,35 @@ public partial class SongToTalk: ConsoleAppBase
 			.ConfigureAwait(false);
 	}
 
+	private async Task<double[]?> CulcEmoRatesAsync(string? castName, double[]? emotions)
+	{
+		double[]? rates = null;
+		if (castName is not null && emotions is null)
+		{
+			//感情数を調べる
+			var cast = await GetCastDefAsync(castName)
+				.ConfigureAwait(false);
+			rates = cast
+				.Emotions
+				.Select(e => 0.00)
+				.ToArray();
+			//とりあえず最初の感情だけMAX
+			rates[0] = 1.00;
+		}
+		if (emotions is not null)
+		{
+			//感情比率設定可能に
+			if (emotions.Length == 0)
+			{
+				await Console.Error.WriteLineAsync($"emotion {emotions} is length 0.")
+					.ConfigureAwait(false);
+			}
+			rates = emotions;
+		}
+
+		return rates;
+	}
+
 	private async ValueTask<Voice> GetVoiceByCastNameAsync(string castName)
 	{
 		var cast = await GetCastDefAsync(castName)
@@ -242,11 +254,10 @@ public partial class SongToTalk: ConsoleAppBase
 		return new Voice(
 			Array.Find(cast.Names, n => n.Lang == Lang.English)?.Display ?? "error",
 			cast.Cname,
-			cast.Versions.Last()
-		);
+			cast.Versions[^1]);
 	}
 
-	private async Task<Cast> GetCastDefAsync(string castName)
+	private async ValueTask<Cast> GetCastDefAsync(string castName)
 	{
 		if (_defs is not null) return _defs;
 
@@ -258,20 +269,31 @@ public partial class SongToTalk: ConsoleAppBase
 			.ReadAllTextAsync(path)
 			.ConfigureAwait(false);
 		var defs = Definitions.FromJson(jsonString);
-		if(defs is null){
+		if(defs is null)
+		{
 			await Console.Error.WriteLineAsync($"invalid cast definitions data: {path}")
 				.ConfigureAwait(false);
+			ThrowInvalidException(path);
+		}
+		_defs = Array.Find(defs.Casts,
+				c => c.Product == Product.VoiSona
+				&& c.Category == CevioCasts.Category.TextVocal
+				&& c.Names.Any(n => string.Equals(n.Display, castName, StringComparison.OrdinalIgnoreCase))
+			)
+			?? throw new ArgumentException(
+				$"cast name {castName} is not found in cast data. please check https://github.com/InuInu2022/cevio-casts/ ",
+				nameof(castName));
+		return _defs;
+
+		// use polyfill for netstandard 2.0
+		[DoesNotReturn]
+		static void ThrowInvalidException(string path)
+		{
 			throw new InvalidDataException($"invalid cast definitions data: {path}");
 		}
-		_defs = defs.Casts
-			.Where(c => c.Product == Product.VoiSona
-			&& c.Category == CevioCasts.Category.TextVocal)
-			.FirstOrDefault(c => c.Names.Any(n => n.Display == castName))
-			?? throw new ArgumentException($"cast name {castName} is not found in cast data. please check https://github.com/InuInu2022/cevio-casts/ ");
-		return _defs;
 	}
 
-	private async ValueTask InitOpenJTalk()
+	private async ValueTask InitOpenJTalkAsync()
 	{
 		var path = Path.Combine(
 			System.AppDomain.CurrentDomain.BaseDirectory,
@@ -320,7 +342,9 @@ public partial class SongToTalk: ConsoleAppBase
 			//TODO:ccsやwavがあるなら解析して割当
 			var pitch = GetPitches(p, data);
 
-			var s = string.Concat(data.TempoList!.Select(v => $"{v.Key}, {v.Value}"));
+			var s = string.Concat(
+				data.TempoList!
+					.Select(v => string.Create(CultureInfo.InvariantCulture, $"{v.Key}, {v.Value}")));
 
 			var nu = new Utterance(
 				text: text,
@@ -340,10 +364,12 @@ public partial class SongToTalk: ConsoleAppBase
 				//調整前LEN
 				PhonemeOriginalDuration = GetSplittedTiming(p, data),
 			};
+			//timing
 			if (!string.IsNullOrEmpty(timing))
 			{
-				nu.PhonemeDuration = nu.PhonemeOriginalDuration; //timing;
+				nu.PhonemeDuration = nu.PhonemeOriginalDuration;
 			}
+			//pitch
 			if (!string.IsNullOrEmpty(pitch))
 			{
 				nu.RawFrameLogF0 = pitch;
@@ -359,24 +385,7 @@ public partial class SongToTalk: ConsoleAppBase
 		List<Note> p)
 	{
 		//「ー」対応
-		for (var i = 1; i < p.Count; i++)
-		{
-			var lyric = p[i].Lyric;
-			if (lyric is null) continue;
-			if (!lyric.Contains('ー', StringComparison.InvariantCulture))
-			{
-				continue;
-			}
-			//「ー」の時は前のノートの母音歌詞に置換
-			var prev = p[i - 1];
-			var ph = GetPhonemeLabel(GetFullContext(new List<Note> { prev }), GetPhonemeMode.Note).Split('|');
-			var last = ph.Last() ?? "a";
-			p[i].Lyric = lyric
-				.Replace(
-				"ー",
-				GetPronounce(last),
-				StringComparison.InvariantCulture);
-		}
+		ManageLongVowelSymbols(p);
 
 		return p.ConvertAll(n =>
 		{
@@ -399,7 +408,7 @@ public partial class SongToTalk: ConsoleAppBase
 
 			if (add <= 0) return n;
 
-			sph = sph.Last().Split(',').Last() switch
+			sph = sph[^1].Split(',')[^1] switch
 			{
 				//ん
 				"N" => sph
@@ -420,16 +429,42 @@ public partial class SongToTalk: ConsoleAppBase
 			n.Lyric = GetPronounce(string.Join('|', sph));
 			return n;
 		})
-;
+		;
 	}
 
-	private static WanaKanaOptions kanaOption = new()
+	/// <summary>
+	/// 歌詞中の「ー」対応
+	/// </summary>
+	/// <param name="p"></param>
+	private void ManageLongVowelSymbols(List<Note> p)
 	{
-		CustomKanaMapping = new Dictionary<string, string>()
+		for (var i = 1; i < p.Count; i++)
+		{
+			var lyric = p[i].Lyric;
+			if (lyric is null) continue;
+			if (!lyric.Contains('ー', StringComparison.InvariantCulture))
 			{
-				{"cl","ッ"},
-				{"di","ディ"}
+				continue;
 			}
+			//「ー」の時は前のノートの母音歌詞に置換
+			var prev = p[i - 1];
+			var ph = GetPhonemeLabel(GetFullContext(new List<Note> { prev }), GetPhonemeMode.Note).Split('|');
+			var last = ph.Last() ?? "a";
+			p[i].Lyric = lyric
+				.Replace(
+				"ー",
+				GetPronounce(last),
+				StringComparison.InvariantCulture);
+		}
+	}
+
+	private static readonly WanaKanaOptions kanaOption = new()
+	{
+		CustomKanaMapping = new Dictionary<string, string>(StringComparer.Ordinal)
+		{
+			{"cl","ッ"},
+			{"di","ディ"},
+		},
 	};
 	private static string GetPronounce(string phonemes)
 	{
@@ -445,17 +480,18 @@ public partial class SongToTalk: ConsoleAppBase
 		List<Note> notes,
 		SongData data)
 	{
+		var tempo = data.TempoList ?? new() { { 0, 120 } };
 		List<(TimeSpan start, TimeSpan end, double logF0, int counts)> d = notes
 			.ConvertAll(n =>
 			(
 				start: SasaraUtil
 					.ClockToTimeSpan(
-						data.TempoList ?? new() { { 0, 120 } },
+						tempo,
 						n.Clock
 					),
 				end: SasaraUtil
 					.ClockToTimeSpan(
-						data.TempoList ?? new() { { 0, 120 } },
+						tempo,
 						n.Clock + n.Duration
 					),
 				logF0: Math.Log(SasaraUtil
