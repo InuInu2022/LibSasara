@@ -89,6 +89,8 @@ Since NodoAme ver. 0.4, LibSasara has been used directly.
     - [SongToTalk](./sample/csharp/SongToTalk/)
       - A converter from song notes to talk serifs.
       - This is also a sample that works with the library [Fluent CeVIO Wrapper](https://github.com/InuInu2022/FluentCeVIOWrapper).
+    - [SongToTalkVoiSona](./sample/csharp/SongToTalkVoiSona/)
+      - This is a tool for "Singing" VoiSona Talk.
     - [VoiSonaTalkLab](./sample/csharp/VoiSonaTalkLab/)
       - A timing label files (`*.lab`) exporter from VoiSona Talk project file (`*.tstprj`).
   - [wasm](./sample/wasm/)
