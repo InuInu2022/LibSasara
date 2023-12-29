@@ -142,3 +142,4 @@ dotnet run -s path/to/ccs -e path/to/dist.ttsprj -c タカハシ -emotions [1.0,
 - Newtonsoft.Json
 - SharpOpenJTalk.Lang
 - WanaKana-net
+- PolySharp

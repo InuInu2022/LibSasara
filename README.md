@@ -23,6 +23,7 @@ The .NET library for convenient handling of project files (`.ccs`), track files 
   - CeVIO track file (`.ccst`)
   - timing label file (`.lab`)
   - [WIP] VoiSona Talk project file (`.tstprj`)
+  - [Future plan] VoiSona project file (`.tssprj`)
 
 ## Supported softwares
 
@@ -71,13 +72,20 @@ Since NodoAme ver. 0.4, LibSasara has been used directly.
 
 **SasaraUtil** is an auxiliary tool that makes it easier to use the CeVIO Editor.
 
+### [LabToJimaku](https://github.com/InuInu2022/LabToJimaku)
+
+A sample code of a timing label file (`.lab`) to SubRip file (`.srt`) converter.
+
+Japanese article:
+[【C#】合成音声ソフトのタイミング情報ファイル(.lab)から字幕ファイル(.srt)をつくる](https://zenn.dev/inuinu/articles/07ea814ca573c1)
+
 ## Projects
 
 - [LibSasara](./LibSasara/)
-  - .NET Starndard 2.0 class lib.
+  - .NET Starndard 2.0 / .NET 8.0 class lib.
 - [LibSasara.VoiSona](./LibSasara.VoiSona/)
-  - [WIP] VoiSona extension
-  - .NET Starndard 2.0 class lib.
+  - [WIP] VoiSona / VoiSona Talk extension
+  - .NET Starndard 2.0 / .NET 8.0 class lib.
 - [test](./test/)
   - xunit tests
 - [sample](./sample/)
