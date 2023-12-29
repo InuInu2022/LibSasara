@@ -179,9 +179,10 @@ public partial class SongToTalk: ConsoleAppBase
 			.ConfigureAwait(false);
 		await InitOpenJTalkAsync()
 			.ConfigureAwait(false);
-
 		var rates = await CulcEmoRatesAsync(castName, emotions)
 			.ConfigureAwait(false);
+
+		processed.TempoList ??= new() { { 0, 120 } };
 		var sw = new Stopwatch();
 		sw.Start();
 
@@ -342,16 +343,20 @@ public partial class SongToTalk: ConsoleAppBase
 			//TODO:ccsやwavがあるなら解析して割当
 			var pitch = GetPitches(p, data);
 
-			var s = string.Concat(
-				data.TempoList!
-					.Select(v => string.Create(CultureInfo.InvariantCulture, $"{v.Key}, {v.Value}")));
+			//フレーズ最初が子音の時のオフセット
+			var offset = 0.0m;
+			var firstPh = phoneme.Split('|')[0];
+			if(PhonemeUtil.IsConsonant(firstPh)){
+				//とりあえず 0.05 sec.
+				offset = 0.05m;
+			}
 
 			var nu = new Utterance(
 				text: text,
 				//tsmlを無理やり生成
 				tsml: GetTsml(text, pronounce, phoneme, accent),
 				//開始時刻
-				start: GetStartTimeString(data, p),
+				start: GetStartTimeString(data, p, offset),
 				//書き出しファイル名、とりあえずセリフ
 				export_name: $"{text}"
 			)
@@ -584,7 +589,7 @@ public partial class SongToTalk: ConsoleAppBase
 			return new FullContextLab(string.Empty);
 		}
 
-		return new FullContextLab(string.Join("\n", text));
+		return new FullContextLab(string.Join('\n', text));
 	}
 
 	private static IEnumerable<string> ConvertSimpleLabel(IEnumerable<string> fullLabel)
@@ -607,48 +612,42 @@ public partial class SongToTalk: ConsoleAppBase
 		SongData song
 	)
 	{
-		var s = string
-			.Join(',', p.Select(n =>
+		var tempo = song.TempoList ?? new() { { 0, 120 } };
+		var a = p
+			.AsParallel().AsSequential()
+			.Select(n =>
 			{
 				//音素数を数える
 				//OpenJTalkで正確に数える
 				int count = CountPhonemes(n);
-				/*
-				string str = n.Lyric ?? "";
-				for (int i = 0; i < str.Length; i++)
-				{
-					char c = str[i];
-					count += IsSinglePhoneme(c) ? 1 : 2;
-				}
-				count = count == 0 ? 1 : count;
-				*/
 
 				//ノートあたりの長さを音素数で等分
 				var start = SasaraUtil.ClockToTimeSpan(
-					song.TempoList ?? new(){ { 0, 120 } },
+					tempo,
 					n.Clock
 				).TotalMilliseconds;
 				var end = SasaraUtil.ClockToTimeSpan(
-					song.TempoList ?? new(){ { 0, 120 } },
+					tempo,
 					n.Clock + n.Duration
 				).TotalMilliseconds;
 				var sub = (decimal)(end - start) / count;
-				//var sub = (decimal)dur.Milliseconds / count;
 				var len = Enumerable
 					.Range(0, count)
 					.Select(_ => sub / 1000m)
 					.Select(v => v.ToString("N2", CultureInfo.InvariantCulture));
 				return string.Join(',', len);
 			})
-			)
 			;
+		var s = string
+			.Join(',', a);
 		return $"0.005,{s},0.125";
 	}
 
 	private int CountPhonemes(Note n)
 	{
 		//ノート歌詞が「ー」の時はOpenJTalkでエラーになるので解析しない
-		if(n.Lyric == "ー"){
+		if(string.Equals(n.Lyric, "ー", StringComparison.Ordinal))
+		{
 			//母音音素一つになるので1
 			return 1;
 		}
@@ -660,7 +659,7 @@ public partial class SongToTalk: ConsoleAppBase
 			.Cast<FCLabLineJa>()
 			.Select(s => s.Phoneme)
 			//前後sil除外
-			.Count(s => s != "sil");
+			.Count(s => !string.Equals(s, "sil", StringComparison.Ordinal));
 	}
 
 	/// <summary>
@@ -690,7 +689,10 @@ public partial class SongToTalk: ConsoleAppBase
 			.Replace(concated, string.Empty);
 	}
 
-	[GeneratedRegex("[’※$＄@＠%％^＾_＿=＝]")]
+	[GeneratedRegex(
+		"[’※$＄@＠%％^＾_＿=＝]",
+		RegexOptions.None,
+		matchTimeoutMilliseconds: 1000)]
 	private static partial Regex SpecialLabelRegex();
 
 	private static string GetTsml(
@@ -705,22 +707,30 @@ public partial class SongToTalk: ConsoleAppBase
 
 	//	とりあえずnoteから算出
 	//	本当は最初の子音分、前にはみ出したほうがいい
-	private static string GetStartTimeString(SongData data, List<Note> p)
-	{
+	private static string GetStartTimeString(
+		SongData data,
+		List<Note> p,
+		decimal offset = 0.0m
+	){
 		var time = SasaraUtil
 			.ClockToTimeSpan(
-				data.TempoList ?? new(){{0,120}},
+				data.TempoList!,
 				p[0].Clock
 			);
-		var seconds = (decimal)time.TotalMilliseconds / 1000.0m;
+		var seconds = ((decimal)time.TotalMilliseconds / 1000.0m) + offset;
 		Debug.WriteLine($"+ clock:{p[0].Clock}, time:{time.TotalMilliseconds}, seconds:{seconds}");
 		return seconds
 			.ToString("N2", CultureInfo.InvariantCulture);
 	}
 
-	[GeneratedRegex("-([a-zAIUEON]+)+")]
+	[GeneratedRegex(
+		"-([a-zAIUEON]+)+",
+		RegexOptions.ExplicitCapture,
+		matchTimeoutMilliseconds: 1000)]
 	private static partial Regex FullContextLabelRegex();
-	[GeneratedRegex(@"\|,")]
+	[GeneratedRegex(@"\|,",
+		RegexOptions.None,
+		matchTimeoutMilliseconds: 1000)]
 	private static partial Regex GetPhonemeRegex();
 }
 
