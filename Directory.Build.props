@@ -2,6 +2,7 @@
   <PropertyGroup>
 	  <AnalysisLevel>6.0-All</AnalysisLevel>
     <ReportAnalyzer>true</ReportAnalyzer>
+    <EnableNETAnalyzers Condition="'$(Configuration)' == 'Debug'">true</EnableNETAnalyzers>
   </PropertyGroup>
 
   <ItemGroup>
