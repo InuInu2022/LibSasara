@@ -372,7 +372,7 @@ public partial class SongToTalk: ConsoleAppBase
 					? "0:1:1.000:0.000:0.000:0.000:0.000"
 					: $"0:1:{string.Join(':', emotionRates)}",
 				//調整前LEN
-				PhonemeOriginalDuration = GetSplittedTiming(p, data, offset),
+				PhonemeOriginalDuration = GetSplittedTiming(p, data, consonantOffset),
 			};
 			//timing
 			if (!string.IsNullOrEmpty(timing))
@@ -617,70 +617,87 @@ public partial class SongToTalk: ConsoleAppBase
 	/// <summary>
 	/// 音素数で等分分割した時間を求める
 	/// </summary>
-	/// <param name="p"></param>
+	/// <param name="notes"></param>
 	/// <returns></returns>
 	private string GetSplittedTiming(
-		List<Note> p,
+		List<Note> notes,
 		SongData song,
 		decimal offset = 0.0m
 	)
 	{
 		var tempo = song.TempoList ?? new() { { 0, 120 } };
-		var a = p
+		var timings = notes
 			.AsParallel().AsSequential()
 			.Select((n,i) =>
 			{
 				//オフセット準備
 				var is1stNote = i is 0;
-				var isConso1stPh = Check1stPhoneme(n);
-				var isConsoNext = CheckNextPhoneme(p, i);
+				var isConso1stPh = Check1stConsoPhoneme(n);
+				var isConsoNextPh = CheckNextConsoPhoneme(notes, i);
 
 				//音素数を数える
 				//OpenJTalkで正確に数える
 				int count = CountPhonemes(n);
 
-				//ノートあたりの長さを音素数で等分
+				//開始時間
 				var start = SasaraUtil.ClockToTimeSpan(
 					tempo,
 					n.Clock
 				).TotalMilliseconds;
-				start = isConso1stPh ? start - (double)offset : start;
+				if (isConso1stPh)
+				{
+					start -= (double)(offset * 1000);
+				}
+
+				//終了時間
 				var end = SasaraUtil.ClockToTimeSpan(
 					tempo,
 					n.Clock + n.Duration
 				).TotalMilliseconds;
-				end = isConsoNext ? end - (double)offset : end;
-				var sub = (decimal)(end - start) / count;
+				if (isConsoNextPh)
+				{
+					end -= (double)(offset * 1000);
+				}
+
+				var repeat = count > 1 && isConso1stPh && offset > 0 ? count - 1 : count;
+
+				//ノートあたりの長さを音素数で等分
+				var nLen = (decimal)(end - start);
+				nLen = isConso1stPh ? nLen - (offset * 1000) : nLen;
+				var sub = nLen / repeat;
 				var len = Enumerable
-					.Range(0, count)
-					.Select(_ => sub / 1000m)
-					.Select(v => v.ToString("N2", CultureInfo.InvariantCulture));
-				return string.Join(',', len);
+					.Range(0, repeat)
+					.Select(_ => sub / 1000m);
+
+				len = isConso1stPh && offset > 0 ? [offset, .. len] : len;
+
+				var str = len.Select(v => v.ToString("N3", CultureInfo.InvariantCulture));
+				return string.Join(',', str);
 			})
 			;
 		var s = string
-			.Join(',', a);
+			.Join(',', timings);
 		return $"0.005,{s},0.125";
 	}
 
-	private bool CheckNextPhoneme(List<Note> p, int i)
+	private bool CheckNextConsoPhoneme(List<Note> p, int i)
 	{
 		var isConsoNext = false;
 		if ((i + 1) < p.Count)
 		{
 			var next = p[i + 1];
-			isConsoNext = Check1stPhoneme(next);
+			isConsoNext = Check1stConsoPhoneme(next);
 		}
 		return isConsoNext;
 	}
 
-	private bool Check1stPhoneme(Note n)
+	private bool Check1stConsoPhoneme(Note n)
 	{
 		var result = GetPhonemeLabel(
 				GetFullContext(new List<Note>() { n }),
 				GetPhonemeMode.Note
-			).Split('|', StringSplitOptions.None)[0];
-		return PhonemeUtil.IsConsonant(result);
+			).Split('|', StringSplitOptions.None)[0].Split(',')[0];
+		return PhonemeUtil.IsConsonant(result) && result != "N";
 	}
 
 	/// <summary>
@@ -772,7 +789,7 @@ public partial class SongToTalk: ConsoleAppBase
 		var seconds = ((decimal)time.TotalMilliseconds / 1000.0m) - offset;
 		Debug.WriteLine($"+ clock:{p[0].Clock}, time:{time.TotalMilliseconds}, seconds:{seconds}");
 		return seconds
-			.ToString("N2", CultureInfo.InvariantCulture);
+			.ToString("N3", CultureInfo.InvariantCulture);
 	}
 
 	[GeneratedRegex(
