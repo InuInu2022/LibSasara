@@ -146,11 +146,19 @@ public partial class SongToTalk: ConsoleAppBase
 		var phrase = Enumerable.Empty<Note>().ToList();
 		foreach (var note in notes)
 		{
-			if(phrase.Count != 0){
+			if(phrase.Count != 0)
+			{
 				var last = phrase[^1];
-				if (phrase.Count > 0 &&
+				var isOver = IsOverThrethold(threthold, note, last);
+				bool isOverZero = phrase.Count > 0;
+				if (
 					//しきい値以下は同じフレーズとみなす
-					Math.Abs(note.Clock - (last.Clock + last.Duration)) > threthold)
+					isOverZero && isOver
+
+					//またはブレス指定があればしきい値以下でも別フレーズ
+					||
+					isOverZero && !isOver && last.Breath
+				)
 				{
 					list.Add(phrase);
 					phrase = Enumerable
@@ -163,6 +171,11 @@ public partial class SongToTalk: ConsoleAppBase
 		list.Add(phrase);
 
 		return list;
+
+		static bool IsOverThrethold(int threthold, Note note, Note last)
+		{
+			return Math.Abs(note.Clock - (last.Clock + last.Duration)) > threthold;
+		}
 	}
 
 	private async ValueTask GenerateFileAsync(
