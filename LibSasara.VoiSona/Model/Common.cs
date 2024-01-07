@@ -3,7 +3,7 @@ namespace LibSasara.VoiSona.Model;
 /// <summary>
 /// common
 /// </summary>
-public static class Common{
+public static class VoiSonaCommon{
 	/// <summary>
 	/// null終端区切り
 	/// </summary>
