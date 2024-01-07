@@ -116,7 +116,7 @@ public class Tree
 		return AttributeCount switch
 		{
 			<= 0 => new byte[1] {
-				Common.NULL_END,
+				VoiSonaCommon.NULL_END,
 			},
 			_ => [
 				01,
@@ -182,7 +182,7 @@ public class Tree
 		}
 
 		return endNull
-			? ret.Concat(new byte[1] { Common.NULL_END })
+			? ret.Concat(new byte[1] { VoiSonaCommon.NULL_END })
 			: ret;
 	}
 
