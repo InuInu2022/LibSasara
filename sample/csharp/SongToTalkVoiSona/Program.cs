@@ -18,8 +18,9 @@ ConsoleApp.Run<SongToTalk>(args);
 [SuppressMessage("Usage", "CA1050")]
 public partial class SongToTalk: ConsoleAppBase
 {
-	private OpenJTalkAPI? _jtalk;
-	private Cast? _defs;
+	private static OpenJTalkAPI? _jtalk;
+	[ThreadStatic]
+	private static Cast? _defs;
 
 	[RootCommand]
 	public async ValueTask<int> ExportAsync(
