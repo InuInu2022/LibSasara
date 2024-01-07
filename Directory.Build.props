@@ -1,6 +1,6 @@
 <Project>
   <PropertyGroup>
-	  <AnalysisLevel>6.0-All</AnalysisLevel>
+	  <AnalysisLevel>8.0-All</AnalysisLevel>
     <ReportAnalyzer>true</ReportAnalyzer>
     <EnableNETAnalyzers Condition="'$(Configuration)' == 'Debug'">true</EnableNETAnalyzers>
     <IncludeSourceRevisionInInformationalVersion>false</IncludeSourceRevisionInInformationalVersion>
