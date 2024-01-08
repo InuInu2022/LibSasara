@@ -29,13 +29,19 @@ public static class FileUtil
 				Path.GetFileName(path)
 			);
 		}
-
+#if NETSTANDARD2_0
+		using var fs = new FileStream(path, FileMode.Open);
+		var buffer = new byte[fs.Length];
+		var _ = await fs
+			.ReadAsync(buffer, 0, (int)fs.Length, ctx)
+			.ConfigureAwait(false);
+#else
 		await using var fs = new FileStream(path, FileMode.Open);
 		var buffer = new byte[fs.Length];
 		var _ = await fs
-			.ReadAsync(buffer, ctx)
+			.ReadAsync(buffer.AsMemory(), ctx)
 			.ConfigureAwait(false);
-
+#endif
 		return buffer;
 	}
 
@@ -53,10 +59,18 @@ public static class FileUtil
 		CancellationToken ctx = default
 	){
 		data ??= Enumerable.Empty<byte>().ToList();
+#if NETSTANDARD2_0
+		using var fs = File.Open(path, FileMode.OpenOrCreate);
+		fs.Seek(0, SeekOrigin.Begin);
+		await fs
+			.WriteAsync(data.ToArray(), 0, data.Count, ctx)
+			.ConfigureAwait(false);
+#else
 		await using var fs = File.Open(path, FileMode.OpenOrCreate);
 		fs.Seek(0, SeekOrigin.Begin);
 		await fs
 			.WriteAsync(data.ToArray().AsMemory(0, data.Count), ctx)
 			.ConfigureAwait(false);
+#endif
 	}
 }
