@@ -30,10 +30,10 @@ public static class FileUtil
 			);
 		}
 
-		using var fs = new FileStream(path, FileMode.Open);
+		await using var fs = new FileStream(path, FileMode.Open);
 		var buffer = new byte[fs.Length];
 		var _ = await fs
-			.ReadAsync(buffer, 0, buffer.Length, ctx)
+			.ReadAsync(buffer, ctx)
 			.ConfigureAwait(false);
 
 		return buffer;
@@ -53,11 +53,10 @@ public static class FileUtil
 		CancellationToken ctx = default
 	){
 		data ??= Enumerable.Empty<byte>().ToList();
-
-		using var fs = File.Open(path, FileMode.OpenOrCreate);
+		await using var fs = File.Open(path, FileMode.OpenOrCreate);
 		fs.Seek(0, SeekOrigin.Begin);
 		await fs
-			.WriteAsync(data.ToArray(), 0, data.Count, ctx)
+			.WriteAsync(data.ToArray().AsMemory(0, data.Count), ctx)
 			.ConfigureAwait(false);
 	}
 }

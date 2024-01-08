@@ -18,8 +18,8 @@ public class TalkTrack : Tree
 	/// </summary>
 	public string TrackName {
 		get => Attributes
-			.Find(v => string.Equals(v.Key, "name", System.StringComparison.Ordinal))
-			.Value;
+			.Find(v => string.Equals(v.Key, "name", System.StringComparison.Ordinal))?
+			.Value ?? string.Empty;
 		set => AddAttribute("name", value, VoiSonaValueType.String);
 	}
 
@@ -40,7 +40,6 @@ public class TalkTrack : Tree
 			.Value;
 		set => AddAttribute("pan", value, VoiSonaValueType.Double);
 	}
-
 
 	/// <summary>
 	/// Voice
@@ -76,7 +75,7 @@ public class TalkTrack : Tree
 		{
 			return HasContents ?
 				Children?
-					.Find(v => string.Equals(v.Name, nameof(Contents), System.StringComparison.Ordinal))
+					.Find(v => string.Equals(v.Name, nameof(Contents), System.StringComparison.Ordinal))?
 					.Children
 					.Cast<Utterance>()
 					.ToList()
@@ -115,6 +114,4 @@ public class TalkTrack : Tree
 			_contents = value;
 		}
 	}
-
-
 }

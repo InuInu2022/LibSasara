@@ -35,5 +35,5 @@ public record FrameStyle : SecondsValue<int>, ISecondsParam
 	/// </summary>
 	/// <returns>コロン区切り文字列。`<see cref="ISecondsParam.Seconds"/>:<see cref="Value"/>:<see cref="Rates"/>[]` </returns>
 	public override string ToString()
-		=> $"{Seconds}:{Value}:{string.Join(":", Rates)}";
+		=> $"{Seconds}:{Value}:{string.Join(':', Rates)}";
 }
