@@ -58,6 +58,11 @@
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
 
+    <PackageReference Include="PolySharp" Version="1.14.1+a7a92a9ddd050275c91c42b711d22cb41c3fbf3d">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+
 
     <PackageReference Include="System.Dynamic.Runtime" Version="4.3.0" />
     <PackageReference Include="System.Memory" Version="4.5.5" />
