@@ -531,7 +531,7 @@ public class VoiSonaTest : IAsyncLifetime
 				"ドレミ",
 				"""<acoustic_phrase><word begin_byte_index="0" chain="0" end_byte_index="15" hl="lhhhh" original="ドレミ" phoneme="d,o|r,e|m,i" pos="感動詞" pronunciation="ドレミ">ドレミ</word></acoustic_phrase>""",
 				"1.234",
-				export_name: "Talk1_1")
+				exportName: "Talk1_1")
 			{
 				//must
 				RawFrameStyle = "0:1:1.000:0.000:0.000:0.000:0.000",
@@ -547,7 +547,7 @@ public class VoiSonaTest : IAsyncLifetime
 				"ファソラ",
 				"""<acoustic_phrase><word begin_byte_index="0" chain="0" end_byte_index="15" hl="lhhhh" original="ファソラ" phoneme="f,a|s,o|r,a" pos="感動詞" pronunciation="ファソラ">ファソラ</word></acoustic_phrase>""",
 				"6.456",
-				export_name: "Talk1_2")
+				exportName: "Talk1_2")
 			{
 				//must
 				RawFrameStyle = "0:1:1.000:0.000:0.000:0.000:0.000",
@@ -560,7 +560,7 @@ public class VoiSonaTest : IAsyncLifetime
 				"シラソ",
 				"""<acoustic_phrase><word begin_byte_index="0" chain="0" end_byte_index="15" hl="lhhhh" original="シラソ" phoneme="sh,i|r,a|s,o" pos="感動詞" pronunciation="シラソ">シラソ</word></acoustic_phrase>""",
 				"10.0",
-				export_name: "Talk1_3")
+				exportName: "Talk1_3")
 			{
 				//must
 				RawFrameStyle = "0:1:1.000:0.000:0.000:0.000:0.000",
