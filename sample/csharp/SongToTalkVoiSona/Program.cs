@@ -377,7 +377,7 @@ public partial class SongToTalk: ConsoleAppBase
 				//開始時刻
 				start: GetStartTimeString(data, p, offset),
 				//書き出しファイル名、とりあえずセリフ
-				export_name: $"{text}"
+				exportName: $"{text}"
 			)
 			{
 				//感情比率
