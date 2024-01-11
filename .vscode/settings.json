@@ -10,5 +10,6 @@
         "symbolIcon.methodForeground":"#f5f2b4"
     },
     "markiscodecoverage.searchCriteria": "test/TestResults/*/coverage.lconv",
-    "dotnet-test-explorer.testProjectPath": "test/test.csproj"
+    "dotnet-test-explorer.testProjectPath": "test/test.csproj",
+    "sarif-viewer.connectToGithubCodeScanning": "off"
 }
