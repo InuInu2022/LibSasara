@@ -135,6 +135,7 @@ Japanese article:
   - [MinVer](https://github.com/adamralph/minver)
 - LibSasara.VoiSona
   - [System.Memory](https://www.nuget.org/packages/System.Memory)
+  - [Microsoft.Bcl.AsyncInterfaces](https://www.nuget.org/packages/microsoft.bcl.asyncinterfaces/)
   - [PolySharp](https://github.com/Sergio0694/PolySharp)
   - [MinVer](https://github.com/adamralph/minver)
 - test
