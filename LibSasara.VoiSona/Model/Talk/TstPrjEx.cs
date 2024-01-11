@@ -20,10 +20,14 @@ public static class TstPrjExtension
 	public static Memory<byte> Copy(
 		this TstPrj source
 	){
+#if NET7_0_OR_GREATER
+		ArgumentNullException.ThrowIfNull(source);
+#else
 		if (source is null)
 		{
 			throw new ArgumentNullException(nameof(source));
 		}
+#endif
 
 		var len = source.Data.Length;
 		var replaced = new Memory<byte>(new byte[len]);
@@ -45,10 +49,14 @@ public static class TstPrjExtension
 		int trackIndex = 0
 	)
 	{
+#if NET7_0_OR_GREATER
+		ArgumentNullException.ThrowIfNull(newVoice);
+#else
 		if (newVoice is null)
 		{
 			throw new ArgumentNullException(nameof(newVoice));
 		}
+#endif
 
 		var copied = source.Copy();
 
@@ -161,18 +169,6 @@ public static class TstPrjExtension
 			var uBytes = content.GetBytes(endNull:false);
 
 			return ConcatMemory(before, after, uBytes);
-		} else {
-			//中身くり抜くパターン
-			(var before, var after) = SplitBeforeAfter(
-				copied,
-				trackBytesIndex + contentIndex + hexName.Length + 3,
-				contentBin.Length - hexName.Length - 3);
-
-			var uBytes = newUtterances
-				.Select(u => u.GetBytes())
-				.Aggregate((x, y) => x.Concat(y));
-
-			return ConcatMemory(before, after, uBytes);
 		}
 	}
 
@@ -193,11 +189,8 @@ public static class TstPrjExtension
 		int insertIndex,
 		int insertLength)
 	{
-		var before = target.Slice(
-			0,
-			insertIndex);
-		var after = target.Slice(
-			insertIndex + insertLength);
+		var before = target[..insertIndex];
+		var after = target[(insertIndex + insertLength)..];
 		return (before, after);
 	}
 
