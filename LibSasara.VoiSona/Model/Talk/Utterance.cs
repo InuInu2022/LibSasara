@@ -23,20 +23,20 @@ public class Utterance : Tree
 		string? tsml,
 		string? start,
 		bool? disable = null,
-		string export_name = ""
+		string exportName = ""
 	) : base(nameof(Utterance))
 	{
 		_text = text ?? "";
 		_rawTsml = tsml;
 		_rawStart = start;
 		if(disable is not null)Disable = disable;
-		ExportName = export_name;
+		ExportName = exportName;
 
 		if(text is not null) AddAttribute(nameof(text), text, VoiSonaValueType.String);
 		if(tsml is not null) AddAttribute(nameof(tsml), tsml, VoiSonaValueType.String);
 		if(start is not null) AddAttribute(nameof(start), start, VoiSonaValueType.String);
 		if(disable is not null) AddAttribute(nameof(disable), disable, VoiSonaValueType.Bool);
-		if (!string.IsNullOrEmpty(export_name)) AddAttribute(nameof(export_name), export_name, VoiSonaValueType.String);
+		if (!string.IsNullOrEmpty(exportName)) AddAttribute(nameof(exportName), exportName, VoiSonaValueType.String);
 	}
 
 	/// <summary>
@@ -72,15 +72,18 @@ public class Utterance : Tree
 	public XElement Tsml {
 		get {
 			var s = $"<tsml>{RawTsml?.Replace("\\\"", "\"")}</tsml>";
-			var xml = XElement.Parse(s);
-			return xml;
+			return XElement.Parse(s);
 		}
 		set {
 			var hasRoot = value?
 					.Element("tsml") is not null;
 			var content = hasRoot
-				? value!.Element("tsml").Elements()
+				? value!.Element("tsml")?.Elements()
 				: value!.Elements("acoustic_phrase");
+			if(content is null){
+				RawTsml = string.Empty;
+				return;
+			}
 			var sb = new StringBuilder(1000);
 			foreach(var i in content)
 			{
@@ -128,6 +131,10 @@ public class Utterance : Tree
 	public decimal SpeedRatio {
 		get => TreeUtil
 			.GetValueOnlyChildValue<decimal>(this, nameof(SpeedRatio));
+		set => TreeUtil.SetValueOnlyChildValue(
+			this,
+			nameof(SpeedRatio),
+			value);
 	}
 
 	/// <summary>
@@ -136,6 +143,10 @@ public class Utterance : Tree
 	public decimal C0Shift {
 		get => TreeUtil
 			.GetValueOnlyChildValue<decimal>(this, nameof(C0Shift));
+		set => TreeUtil.SetValueOnlyChildValue(
+			this,
+			nameof(C0Shift),
+			value);
 	}
 
 	/// <summary>
@@ -144,6 +155,10 @@ public class Utterance : Tree
 	public decimal LogF0Shift {
 		get => TreeUtil
 			.GetValueOnlyChildValue<decimal>(this, nameof(LogF0Shift));
+		set => TreeUtil.SetValueOnlyChildValue(
+			this,
+			nameof(LogF0Shift),
+			value);
 	}
 
 	/// <summary>
@@ -152,6 +167,10 @@ public class Utterance : Tree
 	public decimal AlphaShift {
 		get => TreeUtil
 			.GetValueOnlyChildValue<decimal>(this, nameof(AlphaShift));
+		set => TreeUtil.SetValueOnlyChildValue(
+			this,
+			nameof(AlphaShift),
+			value);
 	}
 
 	/// <summary>
@@ -160,6 +179,10 @@ public class Utterance : Tree
 	public decimal LogF0Scale {
 		get => TreeUtil
 			.GetValueOnlyChildValue<decimal>(this, nameof(LogF0Scale));
+		set => TreeUtil.SetValueOnlyChildValue(
+			this,
+			nameof(LogF0Scale),
+			value);
 	}
 
 	/// <summary>
@@ -410,7 +433,7 @@ public class Utterance : Tree
 	)
 	{
 		ReadOnlySpan<string> pd = durations
-			.Split(",".ToCharArray())
+			.Split([','])
 			;
 		return BuildLabFromSpan(pd);
 	}
@@ -423,7 +446,7 @@ public class Utterance : Tree
 			.Select(s => s.Value)
 			.Select(s => s?.Length == 0 ? "sil" : s)
 			;
-		char[] separators = { ',', '|' };
+		char[] separators = [',', '|'];
 		ReadOnlySpan<string> phonemes = string
 			.Join("|", ph)
 			.Split(separators)
