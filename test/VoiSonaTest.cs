@@ -389,6 +389,34 @@ public class VoiSonaTest : IAsyncLifetime
 	}
 
 	[Theory]
+	[InlineData(100.0, 100.0)]
+	[InlineData(123.4, 123.4)]
+	[InlineData(-123.4, -123.4)]
+	public void UtterancePitch(decimal input, decimal expect)
+	{
+		var u = new Utterance("abc", "<word phoneme=\"a|a|a\" />", "0.00")
+		{
+			LogF0Shift = input,
+		};
+
+		u.LogF0Shift.Should().BeInRange(expect - 0.01m, expect + 0.01m);
+	}
+
+	[Theory]
+	[InlineData(1.23, 1.23)]
+	[InlineData(7.00, 7.00)]
+	[InlineData(-7.00, -7.00)]
+	public void UtteranceVolume(decimal input, decimal expect)
+	{
+		var u = new Utterance("abc", "<word phoneme=\"a|a|a\" />", "0.00")
+		{
+			C0Shift = input,
+		};
+
+		u.C0Shift.Should().BeInRange(expect - 0.01m, expect + 0.01m);
+	}
+
+	[Theory]
 	[InlineData("0.1,0.1,0.1", "")]
 	[InlineData("0.1,0.2,0.3", "1:0.4,2:0.3")]
 	public void LabelString(
@@ -398,10 +426,7 @@ public class VoiSonaTest : IAsyncLifetime
 	)
 	{
 		original.Should().NotBeNull();
-		if (original is null)
-		{
-			throw new ArgumentNullException(nameof(original));
-		}
+		ArgumentNullException.ThrowIfNull(original);
 
 		var u = new Utterance("test", tsml, "0.00")
 		{
@@ -541,7 +566,15 @@ public class VoiSonaTest : IAsyncLifetime
 				PhonemeDuration = "0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9",
 
 				//pitch write
-				RawFrameLogF0 = f0
+				RawFrameLogF0 = f0,
+
+				//direct
+				SpeedRatio = 1.23m,
+				LogF0Scale = 1.23m,
+				AlphaShift = 0.23m,
+
+				LogF0Shift = 100m,
+				C0Shift = 0.1m,
 			},
 			new(
 				"ファソラ",
@@ -554,7 +587,9 @@ public class VoiSonaTest : IAsyncLifetime
 				PhonemeOriginalDuration = "0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9",
 
 				//pitch write
-				RawFrameLogF0 = f0
+				RawFrameLogF0 = f0,
+
+				LogF0Shift = 123.4m,
 			},
 			new(
 				"シラソ",
@@ -567,7 +602,7 @@ public class VoiSonaTest : IAsyncLifetime
 				PhonemeOriginalDuration = "0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9",
 
 				//pitch write
-				RawFrameLogF0 = sb2.ToString()
+				RawFrameLogF0 = sb2.ToString(),
 			}
 		});
 
