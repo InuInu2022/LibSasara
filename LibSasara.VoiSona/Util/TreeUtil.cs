@@ -101,7 +101,11 @@ public static class TreeUtil
 		}
 		else if (typeof(T) == typeof(decimal))
 		{
-			return SasaraUtil.ConvertDecimal(value);
+			return value switch
+			{
+				T d => d,
+				_ => throw new InvalidCastException($"{value} is error!"),
+			};
 		}else if(typeof(T) == typeof(bool)){
 			return SasaraUtil.ConvertBool(value);
 		}else if(typeof(T) == typeof(string)){

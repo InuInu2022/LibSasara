@@ -140,26 +140,38 @@ public class Utterance : Tree
 	/// <summary>
 	/// セリフの音量（Volume)
 	/// </summary>
+	/// <value>7.00 ～ -7.00</value>
 	public decimal C0Shift {
-		get => TreeUtil
-			.GetValueOnlyChildValue<decimal>(this, nameof(C0Shift));
+		get => FromC0Shift(TreeUtil
+			.GetValueOnlyChildValue<decimal>(this, nameof(C0Shift)));
 		set => TreeUtil.SetValueOnlyChildValue(
 			this,
 			nameof(C0Shift),
-			value);
+			ToC0Shift(value));
 	}
+
+	private static decimal FromC0Shift(decimal value)
+		=> (value + 0.00000001758793963m) / 0.1151292877m;
+	private static decimal ToC0Shift(decimal value)
+		=> (value * 0.1151292877m) + 0.00000001758793963m;
 
 	/// <summary>
 	/// セリフの高さ（Pitch） -600 ~ +600
 	/// </summary>
+	/// <value>-600 ~ +600</value>
 	public decimal LogF0Shift {
-		get => TreeUtil
-			.GetValueOnlyChildValue<decimal>(this, nameof(LogF0Shift));
+		get => FromLogF0Shift(TreeUtil
+			.GetValueOnlyChildValue<decimal>(this, nameof(LogF0Shift)));
 		set => TreeUtil.SetValueOnlyChildValue(
 			this,
 			nameof(LogF0Shift),
-			value);
+			ToLogF0Shift(value));
 	}
+
+	private static decimal FromLogF0Shift(decimal value)
+		=> (value + -0.00000007838179519m) / 0.0005776230847m;
+	private static decimal ToLogF0Shift(decimal value)
+		=> (value * 0.0005776230847m) + -0.00000007838179519m;
 
 	/// <summary>
 	/// セリフの声質・声の幼さ（Alpha）

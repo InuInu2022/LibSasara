@@ -29,7 +29,7 @@ public static class HeaderUtil
 			var b = BitConverter.GetBytes((bool)value);
 			return new(b.Length, VoiSonaValueType.Bool, b);
 		}
-		else if (typeof(double) == type)
+		else if (typeof(double) == type || typeof(decimal) == type)
 		{
 			var b = BitConverter.GetBytes((double)value);
 			return new(b.Length, VoiSonaValueType.Double, b);
