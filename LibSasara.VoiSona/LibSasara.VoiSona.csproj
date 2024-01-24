@@ -12,6 +12,7 @@
     <InvariantGlobalization>true</InvariantGlobalization>
     <EnableNETAnalyzers>true</EnableNETAnalyzers>
     <EnableTrimAnalyzer>true</EnableTrimAnalyzer>
+    <SuppressTrimAnalysisWarnings>false</SuppressTrimAnalysisWarnings>
     <!-- nupkg -->
     <PackageId>LibSasara.VoiSona</PackageId>
     <Version>0.0.1</Version>

@@ -13,6 +13,9 @@ namespace LibSasara.VoiSona.Util;
 /// <seealso cref="SasaraUtil.ConvertInt(string?, int)"/>
 public static class TextUtil
 {
+	private static readonly char[] delimComma = [','];
+	private static readonly char[] delimColon = [':'];
+
 	/// <summary>
 	/// [seconds]:[T value] のカンマ区切り文字列を分割変換
 	/// </summary>
@@ -28,13 +31,11 @@ public static class TextUtil
 			throw new ArgumentException($"'{nameof(source)}' を NULL または空にすることはできません。", nameof(source));
 		}
 
-		char[] comma = ",".ToCharArray();
-		char[] colon = ":".ToCharArray();
 		return source
-			.Split(comma)
+			.Split(delimComma)
 			.Select(v =>
 			{
-				Span<string> span = v.Split(colon);
+				Span<string> span = v.Split(delimColon);
 				return new SecondsValue<T>(
 					SasaraUtil
 						.ConvertDecimal(span[0]),
@@ -58,13 +59,11 @@ public static class TextUtil
 			throw new ArgumentException($"'{nameof(source)}' を NULL または空にすることはできません。", nameof(source));
 		}
 
-		char[] comma = ",".ToCharArray();
-		char[] colon = ":".ToCharArray();
 		return source
-			.Split(comma)
+			.Split(delimComma)
 			.Select<string, FrameValue<T>>(v =>
 			{
-				Span<string> span = v.Split(colon);
+				Span<string> span = v.Split(delimColon);
 				return new(
 					SasaraUtil
 						.ConvertInt(span[0]),
@@ -87,9 +86,8 @@ public static class TextUtil
 			throw new ArgumentException($"'{nameof(source)}' を NULL または空にすることはできません。", nameof(source));
 		}
 
-		char[] comma = ",".ToCharArray();
 		return source
-			.Split(comma)
+			.Split(delimComma)
 			.Select(v => Cast<T>(v))
 			;
 	}

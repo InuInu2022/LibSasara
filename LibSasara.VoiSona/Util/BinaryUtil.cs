@@ -92,7 +92,7 @@ public static class BinaryUtil
 		//not found
 		if (index == -1)
 		{
-			Debug.WriteLine($"An attribute is NOT Found. key:{name}");
+			//Debug.WriteLine($"An attribute is NOT Found. key:{name}");
 			header = new Header(-1, Model.VoiSonaValueType.Unknown, Array.Empty<byte>());
 			return false;
 		}
@@ -156,7 +156,7 @@ public static class BinaryUtil
 		//not found
 		if (index == -1)
 		{
-			Debug.WriteLine($"An attribute is NOT Found. key:{name}");
+			//Debug.WriteLine($"An attribute is NOT Found. key:{name}");
 			child = ReadOnlySpan<byte>.Empty;
 			return false;
 		}

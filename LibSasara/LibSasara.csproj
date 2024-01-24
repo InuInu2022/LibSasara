@@ -22,6 +22,7 @@
     <InvariantGlobalization>true</InvariantGlobalization>
     <EnableNETAnalyzers>true</EnableNETAnalyzers>
     <EnableTrimAnalyzer>true</EnableTrimAnalyzer>
+    <SuppressTrimAnalysisWarnings>false</SuppressTrimAnalysisWarnings>
     <!-- info -->
     <Product>LibSasara</Product>
     <Description>The utility library for CeVIO project file (.ccs / .ccst) and timing label file (.lab).</Description>

@@ -63,7 +63,7 @@ public static class FileUtil
 		using var fs = File.Open(path, FileMode.OpenOrCreate);
 		fs.Seek(0, SeekOrigin.Begin);
 		await fs
-			.WriteAsync(data.ToArray(), 0, data.Count, ctx)
+			.WriteAsync([.. data], 0, data.Count, ctx)
 			.ConfigureAwait(false);
 #else
 		await using var fs = File.Open(path, FileMode.OpenOrCreate);

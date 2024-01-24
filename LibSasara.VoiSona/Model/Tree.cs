@@ -73,7 +73,7 @@ public class Tree
 		var cByte = size switch
 		{
 			sizeof(byte) => stackalloc byte[sizeof(byte)]{(byte)Count},
-			sizeof(short) => BitConverter.GetBytes((short)Count).AsSpan(),
+			sizeof(ushort) => BitConverter.GetBytes((ushort)Count).AsSpan(),
 			sizeof(int) => BitConverter.GetBytes(Count).AsSpan(),
 			sizeof(long) => BitConverter.GetBytes((long)Count).AsSpan(),
 			_ => BitConverter.GetBytes(Count).AsSpan()
@@ -89,23 +89,23 @@ public class Tree
 			var offset = withNull ? 1 : 0;
 			h[offset] = 0x00;
 			h[offset + 1] = size;
-			cByte.CopyTo(h.Slice(offset + 2));
+			cByte.CopyTo(h[(offset + 2)..]);
 			return new(h.ToArray());
 		}
 
 		//not collection
-		var n = withNull switch
+		ReadOnlyMemory<byte> n = withNull switch
 		{
-			true => new byte[2]{
+			true => stackalloc byte[2]{
 				00, Convert.ToByte(len),
-			},
+			}.ToArray(),
 			false => [
 				Convert.ToByte(len),
 			]
 		};
 		return n
 			.Concat(cByte.ToArray())
-			.ToArray();
+			;
 	}
 
 	/// <summary>
@@ -229,10 +229,9 @@ public class Tree
 			var a = Attributes
 				.First(v => string.Equals(v.Key, key, StringComparison.Ordinal));
 			return new KeyValue<T>(a.Key, (T)a.Value, a.Type);
-		}else{
-			Debug.WriteLine($"Attribute:{key} is not found!");
-			return new(key, default!, VoiSonaValueType.Unknown);
 		}
+
+		return new(key, default!, VoiSonaValueType.Unknown);
 	}
 
 	/// <summary>

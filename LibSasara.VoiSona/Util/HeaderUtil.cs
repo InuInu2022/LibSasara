@@ -70,11 +70,11 @@ public sealed record Header
 		get => Type switch
 			{
 				VoiSonaValueType.Int32
-					=> BitConverter.ToInt32(DataBytes.ToArray(),0),
+					=> BitConverter.ToInt32([.. DataBytes], 0),
 				VoiSonaValueType.Bool
-					=> BitConverter.ToBoolean(DataBytes.ToArray(),0),
+					=> BitConverter.ToBoolean([.. DataBytes], 0),
 				VoiSonaValueType.Double
-					=> BitConverter.ToDouble(DataBytes.ToArray(),0),
+					=> BitConverter.ToDouble([.. DataBytes], 0),
 				//文字列はLEN+2なのでカット
 				VoiSonaValueType.String
 					=> System.Text.Encoding.UTF8
