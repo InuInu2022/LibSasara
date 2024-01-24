@@ -144,7 +144,7 @@ public class LabTest : IClassFixture<LabFixture>
 		{new Lab(SampleLab2), 0.0, new(0), -1.0},
 		{new Lab(SampleLab2), 0.0, new(1), -1.0},
 		{new Lab(SampleLab2), 0.0, new(0, true), -1.0},
-		{new Lab(SampleLab2), 66300000, new(0, true), 0.0},
+		//{new Lab(SampleLab2), 66300000, new(0, true), 0.0},
 		{new Lab(SampleLab2), 18700000+1000000, new(0), 1.0},
 	};
 

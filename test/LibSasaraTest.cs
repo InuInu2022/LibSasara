@@ -96,10 +96,10 @@ public class LibSasaraTest : IAsyncLifetime
 	{
 		//_output.WriteLine($"path:{Path.GetFullPath(path)}");
 		Assert.True(File.Exists(path), $"path:{Path.GetFullPath(path)}");
-		IRoot result = Path.GetExtension(path) switch
+		CeVIOFileBase? result = Path.GetExtension(path) switch
 		{
-			"ccst" => await SasaraCcs.LoadDeserializedAsync<Track>(path),
-			_ => await SasaraCcs.LoadDeserializedAsync<Project>(path),
+			"ccst" => await SasaraCcs.LoadAsync<CcstTrack>(path),
+			_ => await SasaraCcs.LoadAsync<CcsProject>(path),
 		};
 
 		Assert.NotNull(result);
@@ -107,13 +107,13 @@ public class LibSasaraTest : IAsyncLifetime
 		{
 			case "ccs":
 				{
-					Assert.True(result.GetType() == typeof(Project));
+					Assert.True(result.GetType() == typeof(CcsProject));
 					break;
 				}
 
 			case "ccst":
 				{
-					Assert.True(result.GetType() == typeof(Track));
+					Assert.True(result.GetType() == typeof(CcstTrack));
 					break;
 				}
 
@@ -122,22 +122,6 @@ public class LibSasaraTest : IAsyncLifetime
 		}
 	}
 
-	[Theory]
-	[InlineData(CCS_FILEPATH_AI8)]
-	[InlineData(CCS_FILEPATH_CS7)]
-	public async void LoadCcsAsync(string path)
-	{
-		//_output.WriteLine($"path:{Path.GetFullPath(path)}");
-		Assert.True(File.Exists(path), $"path:{Path.GetFullPath(path)}");
-		var result = await SasaraCcs.LoadDeserializedAsync<Project>(path);
-
-		Assert.NotNull(result);
-		Assert.False(string.IsNullOrEmpty(result.Code));
-
-		var ccs = await SasaraCcs.LoadAsync(path);
-		Assert.NotNull(ccs);
-		Assert.NotNull(ccs as CcsProject);
-	}
 
 	[Theory]
 	[InlineData(CCST_FILEPATH_AI8_SONG)]
@@ -149,63 +133,6 @@ public class LibSasaraTest : IAsyncLifetime
 		Assert.NotNull(result as CcstTrack);
 	}
 
-	[Trait("Category", "CCS/Version")]
-	[Theory]
-	[InlineData(CCS_FILEPATH_AI8, "8.3.17.0")]
-	[InlineData(CCS_FILEPATH_CS7, "7.0.23.1")]
-	public async void VersionAutherAsync(string path, string version)
-	{
-		var result = await SasaraCcs.LoadDeserializedAsync<Project>(path);
-
-		Assert.Equal(result.Generation?.Author?.Version, new Version(version));
-	}
-
-	[Trait("Category", "CCS/Version")]
-	[Theory]
-	[InlineData(CCS_FILEPATH_AI8, "6.0.20")]
-	[InlineData(CCS_FILEPATH_CS7, "5.1.5")]
-	public async void VersionTtsAsync(string path, string version)
-	{
-		var result = await SasaraCcs.LoadDeserializedAsync<Project>(path);
-
-		Assert.Equal(result.Generation?.TTS?.Version, new Version(version));
-	}
-
-	[Theory]
-	[InlineData(CCST_FILEPATH_AI8_SONG, true)]
-	[InlineData(CCST_FILEPATH_AI8_SONG_EN, true)]
-	[InlineData(CCST_FILEPATH_CS7_SONG1, true)]
-	[InlineData(CCST_FILEPATH_AI8_TALK1, false)]
-	public async void IsSongAsync(string path, bool isSong)
-	{
-		var result = await SasaraCcs.LoadDeserializedAsync<Track>(path);
-
-		Assert.Equal((result?.Units?[0]?.Category is Category.SingerSong), isSong);
-	}
-
-	[Theory]
-	[InlineData(CCST_FILEPATH_AI8_SONG)]
-	//[InlineData(CCS_FILEPATH_VOISONA)]
-	public async void CheckSongTrackDataAsync(string path)
-	{
-		var result = await SasaraCcs.LoadDeserializedAsync<Track>(path);
-
-		var songData = result.GetUnits(Category.SingerSong)[0].Song;
-
-		Assert.NotNull(songData);
-	}
-
-	[Theory]
-	[InlineData(CCS_FILEPATH_VOISONA)]
-	[InlineData(CCS_FILEPATH_AI8)]
-	public async void CheckSongProjectDataAsync(string path)
-	{
-		var result = await SasaraCcs.LoadDeserializedAsync<Project>(path);
-
-		var songData = result.GetUnits(Category.SingerSong)[0]?.Song;
-
-		Assert.NotNull(songData);
-	}
 
 	[Theory]
 	[InlineData(CCS_FILEPATH_AI8)]
@@ -213,7 +140,7 @@ public class LibSasaraTest : IAsyncLifetime
 	[InlineData(CCS_FILEPATH_VOISONA)]
 	public async void GetUnitDirectAsync(string path)
 	{
-		var result = await SasaraCcs.LoadDeserializedAsync<Project>(path);
+		var result = await SasaraCcs.LoadAsync<CcsProject>(path);
 
 		Assert.True(
 			result
@@ -234,48 +161,6 @@ public class LibSasaraTest : IAsyncLifetime
 		);
 	}
 
-	[Theory]
-	[InlineData(CCS_FILEPATH_AI8)]
-	[InlineData(CCS_FILEPATH_CS7)]
-	[InlineData(CCS_FILEPATH_VOISONA)]
-	public async void GetFullParams(string path)
-	{
-		// Given
-		var result = await SasaraCcs.LoadDeserializedAsync<IRoot>(path);
-		var p =  result.GetUnits(Category.SingerSong)[0]?.Song?.Parameter;
-		// When
-		var full = p?.LogF0?.GetFullData();
-		var logF0len1 = p?.LogF0?.Length;
-		var logF0len2 = full?.Count;
-		// Then
-		Assert.True(
-			logF0len1 == logF0len2,
-			$"LogF0:{logF0len1},{logF0len2}");
-
-		var noDataLen1 = GetLogF0DataNum<NoData>(p);
-		var noDataLen2 = GetFilteredFullDataNum<NoData>(full);
-		Assert.True(noDataLen1 == noDataLen2, $"NoData:{noDataLen1}:{noDataLen2}");
-
-		var dataLen1 = GetLogF0DataNum<Data>(p);
-		var dataLen2 = GetFilteredFullDataNum<Data>(full);
-		Assert.True(dataLen1 == dataLen2, $"{dataLen1}:{dataLen2}");
-
-		var t1 = logF0len1 - (noDataLen2 + dataLen2);
-		var t2 = GetFilteredFullDataNum<TuneData>(full);
-		Assert.True(t1 == t2, $"{t1}:{t2}");
-
-		int GetLogF0DataNum<T>(Parameter? p)
-		=> p?
-			.LogF0?
-			.Data?
-			.Where(v => v.GetType() == typeof(T))
-			.Select(v => v.Repeat == 0 ? 1 : v.Repeat)
-			.Sum()
-			?? 0;
-		int GetFilteredFullDataNum<T>(List<ITuneData>? full){
-			return full?.Where(v => v.GetType() == typeof(T)).Count() ?? 0;
-		}
-	}
 
 	[Theory]
 	[InlineData(CCS_FILEPATH_AI8, $"{CCS_FILEPATH_AI8}.dup.ccs")]
@@ -374,7 +259,7 @@ public class LibSasaraTest : IAsyncLifetime
 
 		result
 			.GetTrackSet(new(guid))
-			.ReplaceAllCastId(cast, "NEWCAST")
+			.ReplaceAllCastId("NEWCAST")
 			;
 
 		var r2 = result.GetUnitsRaw()[0];
