@@ -22,47 +22,6 @@ public static class SasaraCcs
 
 	/// <summary>
 	/// CeVIOプロジェクトファイル(.ccs) または トラックファイル(.ccst)を読み込みます.
-	/// ※デシリアライズ版
-	/// </summary>
-	/// <typeparam name="T"><see cref="Project"/>(ccs) or <see cref="Track"/>(ccst)</typeparam>
-	/// <param name="path">path to a ccs/ccst file</param>
-	/// <returns>デシリアライズされたオブジェクト</returns>
-	/// <seealso cref="LoadAsync(string)"/>
-	/// <exception cref="FileNotFoundException"></exception>
-	/// <exception cref="InvalidDataException"></exception>
-	[Obsolete($"use {nameof(LoadAsync)}")]
-	public static async Task<T> LoadDeserializedAsync<T>(string path)
-		where T : IRoot
-	{
-		//check file exists
-		if(!File.Exists(path)){
-			throw new FileNotFoundException(
-				$"Not found: {Path.GetFileName(path)}, path:{path}",
-				Path.GetFileName(path)
-			);
-		}
-
-		//check file has extension
-		if(!Path.HasExtension(path)){
-			throw new InvalidDataException("NOT SUPPORTED FILE: file must have .ccs or .ccst extension.");
-		}
-
-		var fileExt = Path.GetExtension(path);
-		var fileType = fileExt switch
-		{
-			".ccs" => typeof(Project),
-			".ccst" => typeof(Track),
-			_ => typeof(Project)
-		};
-		using var filestream = new FileStream(path, FileMode.Open);
-		var serializer = new XmlSerializer(fileType);
-		var data = await Task.Run(()=>
-			(T) serializer.Deserialize(filestream)).ConfigureAwait(false);
-		return data;
-	}
-
-	/// <summary>
-	/// CeVIOプロジェクトファイル(.ccs) または トラックファイル(.ccst)を読み込みます.
 	/// ※LINQtoXML版
 	/// </summary>
 	/// <param name="path"></param>
