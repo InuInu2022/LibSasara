@@ -125,13 +125,11 @@ public static class BinaryUtil
 		return countType switch
 		{
 			0 or 1 => countData[0],
-			2 => BitConverter
+			sizeof(ushort) => BitConverter
 				.ToUInt16(countData.ToArray(), 0),
-			3 => BitConverter
-				.ToInt32(countData.ToArray(), 0),
 			//not tested
-			4 => (int)BitConverter
-				.ToInt64(countData.ToArray(), 0),
+			sizeof(int) => BitConverter
+				.ToInt32(countData.ToArray(), 0),
 			_ => -1
 		};
 	}
@@ -231,20 +229,20 @@ public static class BinaryUtil
 	/// <param name="memory"></param>
 	/// <param name="countType"></param>
 	/// <returns></returns>
-	public static int ParseIntegerFromBytes(
+	public static uint ParseIntegerFromBytes(
 		ReadOnlyMemory<byte> memory,
 		int countType
 	){
 		return countType switch
 		{
 			0 => 0,
-			sizeof(byte) => BitConverter
+			sizeof(byte) => (uint)BitConverter
 				.ToInt32(memory[..countType].ToArray(), 0),
 			sizeof(ushort) => BitConverter
 				.ToUInt16(memory[..countType].ToArray(), 0),
-			sizeof(int) => BitConverter
-				.ToInt32(memory[..countType].ToArray(), 0),
-			_ => -1
+			sizeof(uint) => BitConverter
+				.ToUInt32(memory[..countType].ToArray(), 0),
+			_ => throw new InvalidCastException(nameof(ParseIntegerFromBytes))
 		};
 	}
 
@@ -261,7 +259,7 @@ public static class BinaryUtil
 			<= byte.MaxValue => sizeof(byte),
 			<= ushort.MaxValue => sizeof(ushort),
 			//uint?
-			<= int.MaxValue => sizeof(int),
+			<= uint.MaxValue => sizeof(uint),
 			<= long.MaxValue => sizeof(long),
 		};
 	}
