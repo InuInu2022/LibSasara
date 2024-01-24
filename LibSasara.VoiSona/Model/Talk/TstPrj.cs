@@ -8,7 +8,7 @@
 
 名前 (utf8string)
 終端文字列 (0x00)
-データ個数の型(byte数)（0x00=なし, 0x01=int8, 0x02=int16）
+データ個数の型(byte数)（0x00=なし, 0x01=int8, 0x02=(u?)int16）
 データ個数
 データの型 (0x00=delimeter?, 0x04=float64 0x05=utf8string)
 データbytes

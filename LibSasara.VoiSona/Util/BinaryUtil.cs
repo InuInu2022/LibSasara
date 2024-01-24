@@ -30,11 +30,11 @@ public static class BinaryUtil
 		var currentIndex = 0;
 		while (currentIndex < source.Length)
 		{
-			var delimiterIndex = source.Slice(currentIndex).IndexOf(separator);
+			var delimiterIndex = source[currentIndex..].IndexOf(separator);
 
 			if (delimiterIndex == -1)
 			{
-				list.Add(source.Slice(currentIndex).ToArray());
+				list.Add(source[currentIndex..].ToArray());
 				break;
 			}
 
@@ -66,7 +66,7 @@ public static class BinaryUtil
 	)
 	{
 		Memory<byte> c = new(new byte[a.Length + b.Length]);
-		a.CopyTo(c.Slice(0, a.Length));
+		a.CopyTo(c[..a.Length]);
 		b.CopyTo(c.Slice(a.Length, b.Length));
 		return c;
 	}
@@ -97,20 +97,10 @@ public static class BinaryUtil
 			return false;
 		}
 
-		var temp = source.Slice(index + key.Length);
+		var temp = source[(index + key.Length)..];
 		var countType = (int)temp[0];
 		var countData = temp.Slice(1, countType);
-		var count = countType switch
-		{
-			0 or 1 => countData[0],
-			2 => BitConverter
-				.ToInt16(countData.ToArray(), 0),
-			3 => BitConverter
-				.ToInt32(countData.ToArray(), 0),
-			4 => (int)BitConverter
-				.ToInt64(countData.ToArray(), 0),
-			_ => -1
-		};
+		int count = ConvertCountTypeToNumber(countType, countData);
 
 		var type = (VoiSonaValueType)temp[1 + countType];
 
@@ -128,6 +118,22 @@ public static class BinaryUtil
 		}
 
 		return true;
+	}
+
+	private static int ConvertCountTypeToNumber(int countType, ReadOnlySpan<byte> countData)
+	{
+		return countType switch
+		{
+			0 or 1 => countData[0],
+			2 => BitConverter
+				.ToUInt16(countData.ToArray(), 0),
+			3 => BitConverter
+				.ToInt32(countData.ToArray(), 0),
+			//not tested
+			4 => (int)BitConverter
+				.ToInt64(countData.ToArray(), 0),
+			_ => -1
+		};
 	}
 
 	/// <summary>
@@ -157,11 +163,11 @@ public static class BinaryUtil
 
 		ReadOnlySpan<byte> endKey =
 			Encoding.UTF8.GetBytes("\0\0");
-		var endCount = source.Slice(index + key.Length).IndexOf(endKey);
+		var endCount = source[(index + key.Length)..].IndexOf(endKey);
 
 		var list = endCount == -1
 			//末端まで
-			? source.Slice(index)
+			? source[index..]
 			//終わり見つかればそこまで
 			: source.Slice(index, key.Length + endCount + endKey.Length)
 			;
@@ -196,16 +202,11 @@ public static class BinaryUtil
 			return false;
 		}
 
-		var temp = source.Slice(index + key.Length);
+		var temp = source[(index + key.Length)..];
 		var countType = (int)temp[1];
 		var countData = temp.Slice(2, countType);
 
-		var count = countType switch
-		{
-			1 => countData[0],
-			2 => BitConverter.ToInt16(countData.ToArray(), 0),
-			_ => 0
-		};
+		var count = ConvertCountTypeToNumber(countType, countData);
 
 		ReadOnlySpan<byte> childKey =
 			 Encoding.UTF8.GetBytes($"{childName}\0");
@@ -237,9 +238,12 @@ public static class BinaryUtil
 		return countType switch
 		{
 			0 => 0,
-			sizeof(byte) => BitConverter.ToInt32(memory.Slice(0,countType).ToArray(), 0),
-			sizeof(short) => BitConverter.ToInt16(memory.Slice(0,countType).ToArray(), 0),
-			sizeof(int) => BitConverter.ToInt32(memory.Slice(0,countType).ToArray(), 0),
+			sizeof(byte) => BitConverter
+				.ToInt32(memory[..countType].ToArray(), 0),
+			sizeof(ushort) => BitConverter
+				.ToUInt16(memory[..countType].ToArray(), 0),
+			sizeof(int) => BitConverter
+				.ToInt32(memory[..countType].ToArray(), 0),
 			_ => -1
 		};
 	}
@@ -255,7 +259,8 @@ public static class BinaryUtil
 		return count switch
 		{
 			<= byte.MaxValue => sizeof(byte),
-			<= short.MaxValue => sizeof(short),
+			<= ushort.MaxValue => sizeof(ushort),
+			//uint?
 			<= int.MaxValue => sizeof(int),
 			<= long.MaxValue => sizeof(long),
 		};

@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using System.Linq;
 using LibSasara.VoiSona.Util;
 
@@ -51,8 +52,7 @@ public sealed record KeyValue<T>
 	{
 		var ret = HeaderUtil.Analysis(Value!);
 
-		var isInt16 = ret.Count + 1 >= 256;
-		var cByteLen = isInt16 ? 2 : 1;
+		var cByteLen = BinaryUtil.ParseSizeBytesFromCount(ret.Count + 1);
 		var len = withNull ? cByteLen + 3 : cByteLen + 2;
 
 		Span<byte> rs = stackalloc byte[len];
@@ -60,10 +60,15 @@ public sealed record KeyValue<T>
 
 		if (withNull) rs[0] = 0x00;
 
-		rs[0 + index] = isInt16 ? (byte)0x02 : (byte)0x01;
-		Span<byte> cbytes = isInt16
-			? BitConverter.GetBytes(Convert.ToInt16(ret.Count + 1))
-			: BitConverter.GetBytes((short)Convert.ToByte(ret.Count + 1));
+		rs[0 + index] = cByteLen;
+		Span<byte> cbytes = cByteLen switch
+		{
+			1 => BitConverter.GetBytes((short)Convert.ToByte(ret.Count + 1)),
+			2 => BitConverter.GetBytes(Convert.ToUInt16(ret.Count + 1)),
+			4 => BitConverter.GetBytes(Convert.ToInt32(ret.Count + 1)),
+			8 => BitConverter.GetBytes(Convert.ToInt64(ret.Count + 1)),
+			_ => throw new InvalidDataException(nameof(GetHeaderBytes))
+		};
 		cbytes.CopyTo(rs.Slice(1 + index, cbytes.Length));
 		rs[len - 1] = (byte)ret.Type;
 
