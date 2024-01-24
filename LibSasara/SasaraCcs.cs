@@ -157,49 +157,4 @@ public static class SasaraCcs
 			.SaveAsync(path)
 			.ConfigureAwait(false);
 	}
-
-	/// <summary>
-	/// ファイルを保存
-	/// ※再現性不正確、使用非推奨
-	/// </summary>
-	/// <param name="ccs"></param>
-	/// <param name="path"></param>
-	/// <param name="isAutoExt">内容に応じた拡張子(ccs/ccst)をつけるかどうか</param>
-    [Obsolete($"use {nameof(SaveAsync)}")]
-	public static async ValueTask SaveSerializedAsync(
-		this IRoot ccs,
-		string path,
-		bool isAutoExt = true
-	)
-	{
-		var serializer = new XmlSerializer(ccs.GetType());
-
-		//内容に応じたデフォルトの拡張子にする
-		if(isAutoExt){
-			var ext = ccs switch
-			{
-				Project => "ccs",
-				Track => "ccst",
-				_ => "xml"
-			};
-			path = Path.ChangeExtension(path, ext);
-		}
-
-		var set = new XmlWriterSettings
-		{
-			Indent = true,
-			IndentChars = "  ",
-		};
-		var xw = XmlWriter.Create(path, set);
-		await Task.Run(() => {
-			try
-			{
-				serializer.Serialize(xw, ccs);
-			}
-			catch (System.Exception e)
-			{
-				Debug.WriteLine($"Save error:{e}");
-			}
-		});
-	}
 }
