@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Diagnostics.CodeAnalysis;
+using System.Globalization;
 using System.Xml.Serialization;
 
 namespace LibSasara.Model.Serialize;
@@ -65,10 +67,11 @@ public partial record Unit : IUnit
 	/// 開始時間
 	/// </summary>
 	[XmlIgnore]
+	[SuppressMessage("","MA0011")]
 	public TimeSpan? StartTime
 	{
 		get => TimeSpan.Parse(StartTimeString);
-		set { StartTimeString = value.ToString(); }
+		set => StartTimeString = value.ToString();
 	}
 
 	/// <summary>
@@ -84,6 +87,7 @@ public partial record Unit : IUnit
 	/// 長さ
 	/// </summary>
 	[XmlIgnore]
+	[SuppressMessage("","MA0011")]
 	public TimeSpan? Duration
 	{
 		get => TimeSpan.Parse(DurationString);
@@ -144,7 +148,7 @@ public partial record Unit
 	/// セリフ文字列。トークの場合のみ。
 	/// </summary>
 	[XmlAttribute]
-	public string Text { get; set; } = "";
+	public string Text { get; set; } = string.Empty;
 
 	/// <summary>
 	/// BASE64で記録された調声バイナリメタデータ

@@ -21,10 +21,11 @@ public record SoundSetting
 
 			var rhythms = RhythmStr!
 				.Split("/"[0])
-				.Select(v => System.Convert.ToUInt32(v, CultureInfo.InvariantCulture));
+				.Select(v => System.Convert.ToUInt32(v, CultureInfo.InvariantCulture))
+				.ToList();
 			return new() {
-				Beats = rhythms.ElementAt(0),
-				BeatType = rhythms.ElementAt(1),
+				Beats = rhythms[0],
+				BeatType = rhythms[1],
 			};
 		}
 

@@ -7,6 +7,7 @@ using System.Xml;
 using System.Xml.Linq;
 using System;
 using LibSasara.Model;
+using System.Diagnostics.CodeAnalysis;
 
 namespace LibSasara;
 
@@ -29,6 +30,7 @@ public static class SasaraCcs
 	/// <exception cref="FileNotFoundException"></exception>
 	/// <exception cref="InvalidDataException"></exception>
     /// <seealso cref="LoadAsync{T}(string)"/>
+	[SuppressMessage("","PH_P009")]
 	public static async Task<CeVIOFileBase> LoadAsync(string path)
 	{
 		//check file exists
@@ -49,9 +51,10 @@ public static class SasaraCcs
 			=> XDocument.Load(
 				filestream,
 				LoadOptions.PreserveWhitespace
-			));
+			))
+			.ConfigureAwait(false);
 
-		switch (x.Root.Name.LocalName)
+		switch (x.Root?.Name.LocalName)
 		{
 			case "Definition":
 			{
@@ -69,8 +72,8 @@ public static class SasaraCcs
 	}
 
 	/// <inheritdoc cref="LoadAsync(string)"/>
-    /// <typeparam name="T"><see cref="CcsProject"/>または<see cref="CcstTrack"/></typeparam>
-    /// <seealso cref="LoadAsync(string)"/>
+	/// <typeparam name="T"><see cref="CcsProject"/>または<see cref="CcstTrack"/></typeparam>
+	/// <seealso cref="LoadAsync(string)"/>
 	public static async Task<T?> LoadAsync<T>(string path)
 		where T: CeVIOFileBase,ICeVIOFile
 	{

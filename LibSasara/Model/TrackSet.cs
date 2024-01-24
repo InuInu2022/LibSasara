@@ -141,7 +141,7 @@ public class TrackSet<TUnit> : IEquatable<TrackSet<TUnit>>
 			.Where(v => v.Group == GroupId)
 			.Cast<TUnit>()
 			.ToList();
-		//set
+		set => throw new NotImplementedException(nameof(Units));
 	}
 
 	/// <summary>
@@ -162,7 +162,7 @@ public class TrackSet<TUnit> : IEquatable<TrackSet<TUnit>>
 		get => _project
 			.GetUnitsRaw(Category)
 			.Where(e
-				=> e.Attribute("Group").Value == GroupId.ToString())
+				=> string.Equals(e.Attribute("Group").Value, GroupId.ToString(), StringComparison.Ordinal))
 			.ToList();
 	}
 

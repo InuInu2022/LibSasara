@@ -83,14 +83,15 @@ public abstract class CeVIOFileBase : ICeVIOFile
 		get
 		{
 			var generator = rawXml
-				.Descendants("Generation");
-			if (!generator.Any())
+				.Descendants("Generation")
+				.ToList();
+			if (generator.Count == 0)
 			{
 				return null;
 			}
 
 			var val = generator
-				.FirstOrDefault(e => e.HasElements)?
+				.Find(e => e.HasElements)?
 				.Element("Author")?
 				.Attribute("Version")?
 				.Value;
@@ -139,12 +140,12 @@ public abstract class CeVIOFileBase : ICeVIOFile
 		var g = rawXml
 			.Descendants("Group")
 			.FirstOrDefault(e
-				=> e?.Attribute("Id")?.Value == id.ToString())
+				=> string.Equals(e?.Attribute("Id")?.Value, id.ToString(), StringComparison.Ordinal))
 			?? new XElement("Group")
 			;
 		var u = GetUnitsRaw()
 			.Where(e
-				=> e?.Attribute("Group")?.Value == id.ToString())
+				=> string.Equals(e?.Attribute("Group")?.Value, id.ToString(), StringComparison.Ordinal))
 			.ToList()
 			?? Enumerable.Empty<XElement>().ToList()
 			;
@@ -253,7 +254,7 @@ public abstract class CeVIOFileBase : ICeVIOFile
 		//var last = units.Last();
 		foreach (var item in nu)
 		{
-			units[units.Count - 1].AddAfterSelf(item);
+			units[^1].AddAfterSelf(item);
 			//last = item;
 		}
 
@@ -335,9 +336,7 @@ public abstract class CeVIOFileBase : ICeVIOFile
 	/// <seealso cref="TrackSet{TUnit}"/>
 	public void AddGroup(XElement group)
 	{
-		RawGroups
-			.Last()
-			.AddAfterSelf(group);
+		RawGroups[^1].AddAfterSelf(group);
 	}
 
 	/// <summary>
@@ -405,7 +404,7 @@ public abstract class CeVIOFileBase : ICeVIOFile
 		var parent = raw.Count switch
 		{
 			0 => rawXml.Descendants("Units").First(),
-			_ => GetUnitsRaw().Last().Parent
+			_ => GetUnitsRaw()[^1].Parent
 		};
 		parent?.Add(units);
 	}
@@ -417,10 +416,9 @@ public abstract class CeVIOFileBase : ICeVIOFile
 	/// <seealso cref="AddGroup(Guid, Category, string, string, double, double, bool, bool, string)"/>
 	public void RemoveAllGroups()
 	{
-		var groups = RawGroups
-			.Last()?
+		var groups = RawGroups[^1]?
 			.Parent;
-		if (groups?.HasElements != true)
+		if (groups?.HasElements is not true)
 		{
 			return;
 		}
@@ -571,19 +569,19 @@ public static class CeVIOFileExt
 	/// GroupのIDをまとめて設定
 	/// </summary>
 	/// <param name="groupAndUnits"></param>
-	/// <param name="guid">新しい<see cref="Guid"/></param>
+	/// <param name="newId">新しい<see cref="Guid"/></param>
 	/// <returns></returns>
 	public static (XElement, List<XElement>)
 		SetGroupId(
 			this (XElement, List<XElement>) groupAndUnits,
-			Guid guid
+			Guid newId
 	)
 	{
-		groupAndUnits.Item1.SetAttributeValue("Id", guid);
+		groupAndUnits.Item1.SetAttributeValue("Id", newId);
 		groupAndUnits.Item2
 			.ConvertAll(v =>
 			{
-				v.SetAttributeValue("Group", guid);
+				v.SetAttributeValue("Group", newId);
 				return v;
 			})
 			;

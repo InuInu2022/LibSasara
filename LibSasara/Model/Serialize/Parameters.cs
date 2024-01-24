@@ -85,17 +85,13 @@ public record Parameters{
 				.ToList()
 				;
 
-			fullB = fullB
-				.Concat(append)
-				.ToList();
+			fullB = [.. fullB, .. append];
 			//counter = nIndex;
 			counter = item.Repeat == 0 ?
 					nIndex : nIndex + item.Repeat;
 		}
 
-		return MergeData(fullA, fullB)
-			//.Where(v => v is not TuneData)
-			.ToList();
+		return [.. MergeData(fullA, fullB)];
 	}
 
 	/// <summary>

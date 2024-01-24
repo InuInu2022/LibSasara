@@ -41,11 +41,11 @@ public static class RootExt{
 		var units = new List<Unit>();
 		if (root is Project p)
 		{
-			return p?.Sequence?.Scene?.Units ?? units;
+			return p.Sequence?.Scene?.Units ?? units;
 		}
 		else if (root is Track t)
 		{
-			return t?.Units ?? units;
+			return t.Units ?? units;
 		}
 
 		return units;

@@ -88,10 +88,17 @@ public class SongUnit : UnitBase
     /// <seealso href="https://cevio.jp/guide/cevio_ai/"/>
 	public bool CommonKeys
 	{
-		get => GetAttrBool(RawScore, nameof(CommonKeys));
+		get => UnitBase.GetAttrBool(RawScore, nameof(CommonKeys));
 
 		set =>
+
+/* プロジェクト 'LibSasara (net8)' からのマージされていない変更
+前:
 			SetAttr(RawScore, nameof(CommonKeys), value);
+後:
+			UnitBase.SetAttr(RawScore, nameof(CommonKeys), value);
+*/
+            SetAttr(RawScore, nameof(CommonKeys), value);
 	}
 
 	/// <summary>
@@ -110,8 +117,8 @@ public class SongUnit : UnitBase
 				.Element("Tempo")?
 				.Elements("Sound")
 				.ToDictionary(
-					v => GetAttrInt(v, "Clock"),
-					v => GetAttrInt(v, "Tempo")
+					v => UnitBase.GetAttrInt(v, "Clock"),
+					v => UnitBase.GetAttrInt(v, "Tempo")
 				)
 				?? new Dictionary<int, int>()
 			);
@@ -131,8 +138,8 @@ public class SongUnit : UnitBase
 				.Element("Tempo")?
 				.Elements("Sound")
 				.ToDictionary(
-					v => GetAttrInt(v, "Clock"),
-					v => GetAttrDecimal(v, "Tempo")
+					v => UnitBase.GetAttrInt(v, "Clock"),
+					v => UnitBase.GetAttrDecimal(v, "Tempo")
 				)
 				?? new Dictionary<int, decimal>()
 			)
@@ -149,10 +156,10 @@ public class SongUnit : UnitBase
 				.Element("Beat")?
 				.Elements("Time")
 				.ToDictionary(
-					v => GetAttrInt(v, "Clock"),
+					v => UnitBase.GetAttrInt(v, "Clock"),
 					v => (
-						Beats: GetAttrInt(v, "Beats"),
-						BeatType: GetAttrInt(v, "BeatType")
+						Beats: UnitBase.GetAttrInt(v, "Beats"),
+						BeatType: UnitBase.GetAttrInt(v, "BeatType")
 					)
 				)
 				?? new Dictionary<int, (int,int)>()
@@ -179,8 +186,8 @@ public class SongUnit : UnitBase
     /// TODO:中央値・MAX/MINの実態調査
 	public decimal Alpha
 	{
-		get => GetAttrDecimal(RawScore, nameof(Alpha));
-		set => SetAttr(RawScore, nameof(Alpha), value);
+		get => UnitBase.GetAttrDecimal(RawScore, nameof(Alpha));
+		set => UnitBase.SetAttr(RawScore, nameof(Alpha), value);
 	}
 
 	/// <summary>
@@ -195,9 +202,9 @@ public class SongUnit : UnitBase
     /// <value>Hz. default: 440.0, max: 450.0, min: 430.0</value>
 	public decimal PitchShift
 	{
-		get => GetAttrDecimal(RawScore, nameof(PitchShift), 440.0m);
+		get => UnitBase.GetAttrDecimal(RawScore, nameof(PitchShift), 440.0m);
 
-		set => SetAttr(RawScore, nameof(PitchShift), value);
+		set => UnitBase.SetAttr(RawScore, nameof(PitchShift), value);
 	}
 
 	/// <summary>
@@ -211,8 +218,8 @@ public class SongUnit : UnitBase
 	/// <value>default: 0.0, max: 1.0, min: -1.0</value>
 	public decimal PitchTune
 	{
-		get => GetAttrDecimal(RawScore, nameof(PitchTune));
-		set => SetAttr(RawScore, nameof(PitchTune), value);
+		get => UnitBase.GetAttrDecimal(RawScore, nameof(PitchTune));
+		set => UnitBase.SetAttr(RawScore, nameof(PitchTune), value);
 	}
 
 	/// <summary>
@@ -229,8 +236,8 @@ public class SongUnit : UnitBase
     /// </value>
 	public decimal Husky
 	{
-		get => GetAttrDecimal(RawScore, nameof(Husky));
-		set => SetAttr(RawScore, nameof(Husky), value);
+		get => UnitBase.GetAttrDecimal(RawScore, nameof(Husky));
+		set => UnitBase.SetAttr(RawScore, nameof(Husky), value);
 	}
 
 	/// <summary>
@@ -265,17 +272,17 @@ public class SongUnit : UnitBase
 			{
 				var n = new Note()
 				{
-					Clock = GetAttrInt(v, "Clock"),
-					PitchStep = GetAttrInt(v, "PitchStep"),
-					PitchOctave = GetAttrInt(v, "PitchOctave"),
-					Duration = GetAttrInt(v, "Duration"),
+					Clock = UnitBase.GetAttrInt(v, "Clock"),
+					PitchStep = UnitBase.GetAttrInt(v, "PitchStep"),
+					PitchOctave = UnitBase.GetAttrInt(v, "PitchOctave"),
+					Duration = UnitBase.GetAttrInt(v, "Duration"),
 					Lyric = v.Attribute("Lyric")?.Value,
 					Phonetic = v.Attribute("Phonetic")?.Value,
-					DoReMi = GetAttrBool(v, "DoReMi"),
-					Breath = GetAttrBool(v, "Breath"),
-					SlurStart = GetAttrBool(v, "SlurStart"),
-					SlurStop = GetAttrBool(v, "SlurStop"),
-					SyllabicInt = GetAttrInt(v, "Syllabic"),
+					DoReMi = UnitBase.GetAttrBool(v, "DoReMi"),
+					Breath = UnitBase.GetAttrBool(v, "Breath"),
+					SlurStart = UnitBase.GetAttrBool(v, "SlurStart"),
+					SlurStop = UnitBase.GetAttrBool(v, "SlurStop"),
+					SyllabicInt = UnitBase.GetAttrInt(v, "Syllabic"),
 				};
 				//n.Phonetic =
 				return n;
@@ -603,7 +610,7 @@ public class SongUnit : UnitBase
 				.Parameters(paramName);
 		}
 
-		var len = GetAttrInt(raw, "Length");
+		var len = UnitBase.GetAttrInt(raw, "Length");
 		var data = raw.Elements()
 			.Select(e =>
 			{
@@ -618,12 +625,12 @@ public class SongUnit : UnitBase
 
 				if (e.HasAttributes)
 				{
-					n.Index = GetAttrInt(e, "Index", -1);
+					n.Index = UnitBase.GetAttrInt(e, "Index", -1);
 				}
 
 				if (e.Attribute("Repeat") is not null)
 				{
-					n.Repeat = GetAttrInt(e, "Repeat");
+					n.Repeat = UnitBase.GetAttrInt(e, "Repeat");
 				}
 
 				return n;

@@ -1,5 +1,6 @@
 using System;
 using System.ComponentModel;
+using System.Diagnostics.CodeAnalysis;
 using System.Xml.Linq;
 
 namespace LibSasara.Model;
@@ -21,7 +22,7 @@ public abstract class UnitBase
 	/// <summary>
 	/// ルートのオブジェクト
 	/// </summary>
-	public XDocument RawRoot => rawElem.Document;
+	public XDocument RawRoot => rawElem.Document ?? new();
 
 	/// <summary>
 	/// Unitの所属するccs/ccstファイルの管理クラス
@@ -69,7 +70,8 @@ public abstract class UnitBase
 	/// </summary>
     [Browsable(false)]
 	[EditorBrowsable(EditorBrowsableState.Never)]
-	protected XElement rawElem;
+	[SuppressMessage("","CA1051")]
+	protected internal XElement rawElem;
 
 	/// <summary>
 	/// Unit category
@@ -96,12 +98,12 @@ public abstract class UnitBase
 
 	internal string GetUnitAttributeStr(string attr)
 	{
-		return rawElem.Attribute(attr).Value;
+		return rawElem.Attribute(attr)?.Value ?? string.Empty;
 	}
 
 	internal void SetUnitAttribureStr(string attr, string value)
 	{
-		rawElem.Attribute(attr).SetValue(value);
+		rawElem.Attribute(attr)?.SetValue(value);
 	}
 
 	/// <summary>
@@ -111,7 +113,7 @@ public abstract class UnitBase
     /// <param name="attr">属性の名前</param>
     /// <param name="defVal">属性値がないときに受けとる初期値</param>
     /// <returns>属性の値</returns>
-	protected internal int GetAttrInt(XElement v, string attr, int defVal = 0)
+	protected internal static int GetAttrInt(XElement v, string attr, int defVal = 0)
 		=> SasaraUtil.ConvertInt(
 			v?.Attribute(attr)?.Value,
 			defVal
@@ -123,7 +125,7 @@ public abstract class UnitBase
     /// <param name="v">属性があるXML属性</param>
     /// <param name="attr">属性の名前</param>
     /// <returns>属性の値</returns>
-	protected internal bool GetAttrBool(XElement v, string attr)
+	protected internal static bool GetAttrBool(XElement v, string attr)
 		=> SasaraUtil.ConvertBool(
 			v?.Attribute(attr)?.Value
 		);
@@ -135,7 +137,7 @@ public abstract class UnitBase
 	/// <param name="attr">属性の名前</param>
 	/// <param name="defVal">属性値がないときに受けとる初期値</param>
 	/// <returns>属性の値</returns>
-	protected internal decimal GetAttrDecimal(
+	protected internal static decimal GetAttrDecimal(
 		XElement v, string attr, decimal defVal = 0.00m)
 		=> SasaraUtil.ConvertDecimal(
 			v?.Attribute(attr)?.Value,
@@ -149,7 +151,7 @@ public abstract class UnitBase
     /// <param name="v"></param>
     /// <param name="attr"></param>
     /// <param name="value"></param>
-	protected internal void SetAttr<T>(
+	protected internal static void SetAttr<T>(
 		XElement v,
 		string attr,
 		T value

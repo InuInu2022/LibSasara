@@ -26,6 +26,8 @@ public class Lab
 	private const int TenNanoSeconds = 10000000;
 
 	private IEnumerable<LabLine>? lines;
+	private static readonly string[] sepReturns = ["\n","\r\n","\r"];
+	private static readonly string[] sepSpace = [" "];
 
 	/// <summary>
 	/// <inheritdoc cref="Lab"/>
@@ -35,11 +37,11 @@ public class Lab
 	public Lab(string labData, int fps = 30)
 	{
 		lines = labData?
-			.Split(new string[]{"\n","\r\n","\r"}, StringSplitOptions.RemoveEmptyEntries)
+			.Split(sepReturns, StringSplitOptions.RemoveEmptyEntries)
 			.Where(s => !string.IsNullOrEmpty(s))    //空行無視
 			.Select((v) =>
 			{
-				var a = v.Split(new string[]{" "},StringSplitOptions.RemoveEmptyEntries);
+				var a = v.Split(sepSpace,StringSplitOptions.RemoveEmptyEntries);
 				return new LabLine(
 					Convert.ToDouble(a[0], CultureInfo.InvariantCulture),
 					Convert.ToDouble(a[1], CultureInfo.InvariantCulture),
@@ -77,14 +79,15 @@ public class Lab
 		var tmpList = Enumerable
 			.Empty<LabLine>()
 			.ToList();
-		var len = l.ToList().Count;
+		var list = l.ToList();
+		var len = list.Count;
 		for (int i = 0; i < len; i++)
 		{
-			var (IsSep, v) = l.ElementAt(i);
+			var (IsSep, v) = list[i];
 
 			if (i > 0)
 			{
-				var prev = l.ElementAt(i - 1);
+				var prev = list[i - 1];
 				IsSep = (v.From - prev.v.To) >= t;
 			}
 

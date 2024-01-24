@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Globalization;
 using System.Linq;
 
@@ -348,6 +349,7 @@ public sealed record ContinuousContexts<T>
 /// <summary>
 /// フルコンテクストラベルのコンテキスト情報
 /// </summary>
+[SuppressMessage("","CA1040")]
 public interface IFullContext{}
 
 /// <summary>
@@ -386,13 +388,6 @@ public enum PosOfContinous
 /// </summary>
 public sealed record WordInfo: IFullContext
 {
-	private static readonly List<List<(char Before, char? End)>> Delimiters = new()
-	{
-		new(){(':','-'), ('-','_'), ('_',null)},
-		new(){(':','_'), ('_','+'), ('+',null)},
-		new(){(':','+'), ('+','_'), ('_',null)},
-	};
-
 	/// <summary>
 	/// 単語(word)
 	/// </summary>

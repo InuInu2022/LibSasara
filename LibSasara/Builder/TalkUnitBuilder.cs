@@ -172,10 +172,9 @@ public sealed class TalkUnitBuilder : IUnitBuilder<TalkUnit, TalkUnitBuilder>
 		);
 		if(canAdd){
 			ccs.AddUnits(
-				new List<XElement>(1)
-				{
+				[
 					rawElem,
-				}
+				]
 			);
 		}
 

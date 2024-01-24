@@ -1,3 +1,4 @@
+using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using System.Threading.Tasks;
 using LibSasara.Model;
@@ -20,6 +21,7 @@ public static class SasaraLabel
 	/// </returns>
 	/// <seealso cref="Lab"/>
 	/// <exception cref="FileNotFoundException"><paramref name="path" />のファイルが見つからない</exception>
+	[SuppressMessage("","PH_P009")]
 	public static async Task<Lab> LoadAsync(
 		string path,
 		int fps = 30)
