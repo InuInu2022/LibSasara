@@ -36,7 +36,7 @@ public class Utterance : Tree
 		if(tsml is not null) AddAttribute(nameof(tsml), tsml, VoiSonaValueType.String);
 		if(start is not null) AddAttribute(nameof(start), start, VoiSonaValueType.String);
 		if(disable is not null) AddAttribute(nameof(disable), disable, VoiSonaValueType.Bool);
-		if (!string.IsNullOrEmpty(exportName)) AddAttribute(nameof(exportName), exportName, VoiSonaValueType.String);
+		if (!string.IsNullOrEmpty(exportName)) AddAttribute("export_name", exportName, VoiSonaValueType.String);
 	}
 
 	/// <summary>
