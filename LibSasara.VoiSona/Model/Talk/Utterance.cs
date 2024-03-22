@@ -140,7 +140,7 @@ public class Utterance : Tree
 	/// <summary>
 	/// セリフの音量（Volume)
 	/// </summary>
-	/// <value>7.00 ～ -7.00</value>
+	/// <value>8.00 ～ -8.00</value>
 	public decimal C0Shift {
 		get => FromC0Shift(TreeUtil
 			.GetValueOnlyChildValue<decimal>(this, nameof(C0Shift)));
@@ -194,6 +194,18 @@ public class Utterance : Tree
 		set => TreeUtil.SetValueOnlyChildValue(
 			this,
 			nameof(LogF0Scale),
+			value);
+	}
+
+	/// <summary>
+	/// セリフのハスキーさ（Husky）
+	/// </summary>
+	public decimal HuskyShift {
+		get => TreeUtil
+			.GetValueOnlyChildValue<decimal>(this, nameof(HuskyShift));
+		set => TreeUtil.SetValueOnlyChildValue(
+			this,
+			nameof(HuskyShift),
 			value);
 	}
 
