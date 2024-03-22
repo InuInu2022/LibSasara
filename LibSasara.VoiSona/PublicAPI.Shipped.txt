@@ -181,7 +181,5 @@ virtual LibSasara.VoiSona.Model.VoiSonaFileBase.Category.get -> LibSasara.Model.
 LibSasara.VoiSona.Model.Talk.Utterance.HuskyShift.get -> decimal
 LibSasara.VoiSona.Model.Talk.Utterance.HuskyShift.set -> void
 static LibSasara.VoiSona.Util.BinaryUtil.ParseIntegerFromBytes(System.ReadOnlyMemory<byte> memory, int countType) -> uint
-LibSasara.VoiSona.Model.Talk.Utterance.HuskyShift.set -> void
 static LibSasara.VoiSona.Util.BinaryUtil.ParseIntegerFromBytes(System.ReadOnlyMemory<byte> memory, int countType) -> uintequencies, System.Collections.Generic.IReadOnlyCollection<double>! pointTimes) -> System.Collections.ObjectModel.ReadOnlyCollection<decimal>!
 static LibSasara.VoiSona.Util.BinaryUtil.ParseIntegerFromBytes(System.ReadOnlyMemory<byte> memory, int countType) -> uint phonemeLengths, System.Collections.ObjectModel.ReadOnlyCollection<double>! pointRatios) -> System.Collections.ObjectModel.ReadOnlyCollection<double>!
-static LibSasara.VoiSona.Util.BinaryUtil.ParseIntegerFromBytes(System.ReadOnlyMemory<byte> memory, int countType) -> uint
