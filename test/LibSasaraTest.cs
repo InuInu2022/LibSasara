@@ -372,7 +372,7 @@ public class LibSasaraTest : IAsyncLifetime
 	[InlineData("Not a number", 0)]
 	public void ConvertStr2Decimal(string sValue, decimal dValue)
 	{
-		var result = SasaraUtil.ConvertDecimal(sValue);
+		var result =LibSasaraUtil.ConvertDecimal(sValue);
 		Assert.Equal(result, dValue);
 	}
 
@@ -566,10 +566,10 @@ public class LibSasaraTest : IAsyncLifetime
 			.Select(v => (
 				Text: v.Lyric,
 				StartTick: v.Clock,
-				StartMsec: SasaraUtil
+				StartMsec: LibSasaraUtil
 					.ClockToTimeSpan(tempo, v.Clock),
 				DurationClock: v.Duration,
-				DurationMsec: SasaraUtil
+				DurationMsec: LibSasaraUtil
 					.ClockToTimeSpan(tempo, v.Duration)
 			));
 
@@ -578,9 +578,9 @@ public class LibSasaraTest : IAsyncLifetime
 		var units = notes
 			.Select(v => (
 				Text: v.Lyric,
-				StartTime: SasaraUtil
+				StartTime: LibSasaraUtil
 					.ClockToTimeSpan(tempo, v.Clock),
-				Duration: SasaraUtil
+				Duration: LibSasaraUtil
 					.ClockToTimeSpan(tempo, v.Duration),
 				CastId: castId,
 				Group: newId
@@ -740,7 +740,7 @@ public class LibSasaraTest : IAsyncLifetime
 		_output.WriteLine(
 			$"- tick:{testClock}"
 		);
-		var result = SasaraUtil
+		var result = LibSasaraUtil
 			.ClockToTimeSpan(tempos, testClock);
 		Assert.InRange(
 			result,
@@ -753,9 +753,9 @@ public class LibSasaraTest : IAsyncLifetime
 	[InlineData(440)]
 	public void FreqNoteTest(int freq)
 	{
-		var num = SasaraUtil
+		var num = LibSasaraUtil
 			.FreqToNoteNum(freq);
-		var rFreq = SasaraUtil
+		var rFreq = LibSasaraUtil
 			.NoteNumToFreq(num);
 
 		Assert.Equal(freq, rFreq);

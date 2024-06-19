@@ -209,7 +209,7 @@ internal class CeVIOService{
 				//pitch
 
 				//target freq.
-				var tFreq = SasaraUtil.OctaveStepToFreq(v.PitchOctave, v.PitchStep);
+				var tFreq =LibSasaraUtil.OctaveStepToFreq(v.PitchOctave, v.PitchStep);
 				//Console.WriteLine($"Target Freq. {tFreq}");
 				await fcw.SetToneAsync(50);
 				var isCachedLyric = cacheTones.ContainsKey(v.Lyric!);

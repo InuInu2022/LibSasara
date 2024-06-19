@@ -413,7 +413,7 @@ public partial class SongToTalk: ConsoleAppBase
 
 		return p.ConvertAll(n =>
 		{
-			var dur = SasaraUtil
+			var dur = LibSasaraUtil
 				.ClockToTimeSpan(
 					n.Duration,
 					data.TempoList ?? new() { { 0, 120 } })
@@ -508,17 +508,17 @@ public partial class SongToTalk: ConsoleAppBase
 		List<(TimeSpan start, TimeSpan end, double logF0, int counts)> d = notes
 			.ConvertAll(n =>
 			(
-				start: SasaraUtil
+				start: LibSasaraUtil
 					.ClockToTimeSpan(
 						tempo,
 						n.Clock
 					),
-				end: SasaraUtil
+				end: LibSasaraUtil
 					.ClockToTimeSpan(
 						tempo,
 						n.Clock + n.Duration
 					),
-				logF0: Math.Log(SasaraUtil
+				logF0: Math.Log(LibSasaraUtil
 					.OctaveStepToFreq(n.PitchOctave, n.PitchStep)),
 				counts: CountPhonemes(n)
 			))
@@ -654,7 +654,7 @@ public partial class SongToTalk: ConsoleAppBase
 				int count = CountPhonemes(n);
 
 				//開始時間
-				var start = SasaraUtil.ClockToTimeSpan(
+				var start = LibSasaraUtil.ClockToTimeSpan(
 					tempo,
 					n.Clock
 				).TotalMilliseconds;
@@ -664,7 +664,7 @@ public partial class SongToTalk: ConsoleAppBase
 				}
 
 				//終了時間
-				var end = SasaraUtil.ClockToTimeSpan(
+				var end = LibSasaraUtil.ClockToTimeSpan(
 					tempo,
 					n.Clock + n.Duration
 				).TotalMilliseconds;
@@ -795,7 +795,7 @@ public partial class SongToTalk: ConsoleAppBase
 		List<Note> p,
 		decimal offset = 0.0m
 	){
-		var time = SasaraUtil
+		var time = LibSasaraUtil
 			.ClockToTimeSpan(
 				data.TempoList!,
 				p[0].Clock
