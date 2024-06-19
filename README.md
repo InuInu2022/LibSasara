@@ -133,6 +133,7 @@ Japanese article:
   - [System.Memory](https://www.nuget.org/packages/System.Memory)
   - [PolySharp](https://github.com/Sergio0694/PolySharp)
   - [MinVer](https://github.com/adamralph/minver)
+  - [CommunityToolkit.Diagnostics](https://github.com/CommunityToolkit/dotnet)
 - LibSasara.VoiSona
   - [System.Memory](https://www.nuget.org/packages/System.Memory)
   - [Microsoft.Bcl.AsyncInterfaces](https://www.nuget.org/packages/microsoft.bcl.asyncinterfaces/)
