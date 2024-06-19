@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Runtime.CompilerServices;
+using CommunityToolkit.Diagnostics;
 using LibSasara.Model;
 
 namespace LibSasara;
@@ -9,23 +10,28 @@ namespace LibSasara;
 /// <summary>
 /// ユーティリティ
 /// </summary>
-[Obsolete($"Use {nameof(LibSasaraUtil)}")]
-public static class SasaraUtil
+public static class LibSasaraUtil
 {
+	private const decimal TickPerBeat = 960;
+
 	/// <summary>
 	/// 文字列を <see cref="decimal"/> 型に変換。失敗時は第2引数<paramref name="defaultValue"/>を返す
 	/// </summary>
 	/// <param name="value">数を表す文字列</param>
 	/// <param name="defaultValue">失敗時に返す値</param>
 	/// <returns></returns>
-	[Obsolete($"Use {nameof(LibSasaraUtil.ConvertDecimal)}")]
-	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static decimal ConvertDecimal(
 		string? value,
 		decimal defaultValue = 0.00m
 	)
 	{
-		return LibSasaraUtil.ConvertDecimal(value, defaultValue);
+		var isSafe = decimal.TryParse(
+			value,
+			NumberStyles.Number,
+			CultureInfo.InvariantCulture,
+			out var val);
+
+		return isSafe ? val : defaultValue;
 	}
 
 	/// <summary>
@@ -33,14 +39,18 @@ public static class SasaraUtil
 	/// </summary>
 	/// <param name="value">数を表す文字列</param>
 	/// <param name="defaultValue">失敗時に返す値</param>
-	[Obsolete($"Use {nameof(LibSasaraUtil.ConvertInt)}")]
-	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static int ConvertInt(
 		string? value,
 		int defaultValue = 0
 	)
 	{
-		return LibSasaraUtil.ConvertInt(value, defaultValue);
+		var isSafe = int.TryParse(
+			value,
+			NumberStyles.Number,
+			CultureInfo.InvariantCulture,
+			out var val);
+
+		return isSafe ? val : defaultValue;
 	}
 
 	/// <summary>
@@ -48,15 +58,15 @@ public static class SasaraUtil
 	/// </summary>
 	/// <param name="value">数を表す文字列</param>
 	/// <param name="defaultValue">失敗時に返す値</param>
-	[Obsolete($"Use {nameof(LibSasaraUtil.ConvertBool)}")]
-	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static bool ConvertBool
 	(
 		string? value,
 		bool defaultValue = false
 	)
 	{
-		return LibSasaraUtil.ConvertBool(value, defaultValue);
+		var isSafe = bool
+			.TryParse(value, out var val);
+		return isSafe ? val : defaultValue;
 	}
 
 	/// <summary>
@@ -67,25 +77,54 @@ public static class SasaraUtil
 	/// <exception cref="ArgumentOutOfRangeException" />
 	/// <seealso cref="SongUnit.Tempos"/>
 	/// <returns></returns>
-	[Obsolete($"Use {nameof(LibSasaraUtil.ClockToTimeSpan)}")]
-	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static TimeSpan ClockToTimeSpan(
 		int clockTick,
 		SortedDictionary<int, decimal> tempoList
 	)
 	{
-		return LibSasaraUtil.ClockToTimeSpan(clockTick, tempoList);
+		//null check
+		Guard.IsNull(tempoList, nameof(ClockToTimeSpan));
+
+		//init
+		var sec = 0m;
+		var tick = 0m;
+		var tempo = 0m;
+
+		foreach (var item in tempoList)
+		{
+			var cTick = item.Key;
+			var cTempo = item.Value;
+
+			var elapsed = Math.Min(clockTick, cTick) - tick;
+			if (tempo != 0)
+			{
+				var spt = 60 / tempo / TickPerBeat;
+				sec += elapsed * spt;
+			}
+
+			//update
+			tick = cTick;
+			tempo = cTempo;
+
+			//抜ける
+			if (clockTick < cTick) break;
+		}
+		if(clockTick > tick){
+			if (tempo != 0){
+				sec += (clockTick - tick) * (60 / tempo /TickPerBeat);
+			}
+		}
+
+		return TimeSpan.FromSeconds((double)sec);
 	}
 
-	/// <inheritdoc cref="LibSasaraUtil.ClockToTimeSpan(SortedDictionary{int, decimal}, int, int)"/>
-	/// <seealso cref="LibSasaraUtil.ClockToTimeSpan(SortedDictionary{int, decimal}, int, int)"/>
-	[Obsolete($"Use {nameof(LibSasaraUtil.ClockToTimeSpan)}")]
-	[MethodImpl(MethodImplOptions.AggressiveInlining)]
+	/// <inheritdoc cref="ClockToTimeSpan(SortedDictionary{int, decimal}, int, int)"/>
+	/// <seealso cref="ClockToTimeSpan(SortedDictionary{int, decimal}, int, int)"/>
 	public static TimeSpan ClockToTimeSpan(
 		SortedDictionary<int, decimal> tempoList,
 		int clockTick,
 		int maxClock = 0
-	) => LibSasaraUtil.ClockToTimeSpan(
+	) => ClockToTimeSpan(
 			clockTick,
 			tempoList
 		);
@@ -95,15 +134,13 @@ public static class SasaraUtil
 	/// </summary>
 	/// <param name="freq">周波数</param>
 	/// <param name="baseFreq">基準ド周波数</param>
-	/// <seealso cref="LibSasaraUtil.NoteNumToFreq(int, double)"/>
+	/// <seealso cref="NoteNumToFreq(int, double)"/>
 	/// <returns></returns>
-	[Obsolete($"Use {nameof(LibSasaraUtil.FreqToNoteNum)}")]
-	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static int FreqToNoteNum(
 		double freq,
 		double baseFreq = 440.0
 	)
-		=> LibSasaraUtil.FreqToNoteNum(freq, baseFreq);
+		=> (int)Math.Round(69.0 + (12.0 * Math.Log(freq / baseFreq, 2)));
 
 	/// <summary>
 	/// MIDIノートナンバーをノート中央の周波数に変換
@@ -111,26 +148,26 @@ public static class SasaraUtil
 	/// <param name="num">MIDIノートナンバー</param>
 	/// <param name="baseFreq">基準ド周波数</param>
 	/// <returns>ノート中央の周波数</returns>
-	/// <seealso cref="LibSasaraUtil.FreqToNoteNum(double, double)"/>
-	[Obsolete($"Use {nameof(LibSasaraUtil.NoteNumToFreq)}")]
+	/// <seealso cref="FreqToNoteNum(double, double)"/>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static double NoteNumToFreq(
 		int num,
 		double baseFreq = 440.0
 	)
-		=> LibSasaraUtil.NoteNumToFreq(num, baseFreq);
+		=> Math.Pow(2.0, (num - 69.0) / 12.0) * baseFreq;
 
 	/// <summary>
 	/// MIDIノートナンバーを<see cref="Note"/>の <see cref="Note.PitchOctave"/> と <see cref="Note.PitchStep"/> に変換
 	/// </summary>
 	/// <param name="num">MIDIノートナンバー</param>
 	/// <returns></returns>
-	/// <seealso cref="LibSasaraUtil.OctaveStepToNoteNum(int, int)"/>
-	[Obsolete($"Use {nameof(LibSasaraUtil.NoteNumToOctaveStep)}")]
+	/// <seealso cref="OctaveStepToNoteNum(int, int)"/>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static (int octave, int step) NoteNumToOctaveStep(int num)
 	{
-		return LibSasaraUtil.NoteNumToOctaveStep(num);
+		var oc = num == 0 ? -1 : (num / 12) - 1;
+		var st = num == 0 ? 0 : num % 12;
+		return (oc, st);
 	}
 
 	/// <summary>
@@ -139,12 +176,11 @@ public static class SasaraUtil
 	/// <param name="octave"></param>
 	/// <param name="step"></param>
 	/// <returns></returns>
-	/// <seealso cref="LibSasaraUtil.NoteNumToOctaveStep(int)"/>
-	[Obsolete($"Use {nameof(LibSasaraUtil.OctaveStepToNoteNum)}")]
+	/// <seealso cref="NoteNumToOctaveStep(int)"/>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static int OctaveStepToNoteNum(int octave, int step)
 	{
-		return LibSasaraUtil.OctaveStepToNoteNum(octave, step);
+		return ((octave + 1) * 12) + step;
 	}
 
 	/// <summary>
@@ -152,11 +188,10 @@ public static class SasaraUtil
 	/// </summary>
 	/// <param name="freq">周波数</param>
 	/// <returns></returns>
-	/// <seealso cref="LibSasaraUtil.OctaveStepToFreq(int, int)"/>
-	[Obsolete($"Use {nameof(LibSasaraUtil.FreqToOctaveStep)}")]
-	[MethodImpl(MethodImplOptions.AggressiveInlining)]
+	/// <seealso cref="OctaveStepToFreq(int, int)"/>
 	public static (int octave, int step) FreqToOctaveStep(double freq){
-		return LibSasaraUtil.FreqToOctaveStep(freq);
+		int num = FreqToNoteNum(freq);
+		return NoteNumToOctaveStep(num);
 	}
 
 	/// <summary>
@@ -165,10 +200,9 @@ public static class SasaraUtil
 	/// <param name="octave"></param>
 	/// <param name="step"></param>
 	/// <returns></returns>
-	/// <seealso cref="LibSasaraUtil.FreqToOctaveStep(double)"/>
-	[Obsolete($"Use {nameof(LibSasaraUtil.OctaveStepToFreq)}")]
-	[MethodImpl(MethodImplOptions.AggressiveInlining)]
+	/// <seealso cref="FreqToOctaveStep(double)"/>
 	public static double OctaveStepToFreq(int octave, int step){
-		return LibSasaraUtil.OctaveStepToFreq(octave, step);
+		var num = OctaveStepToNoteNum(octave, step);
+		return NoteNumToFreq(num);
 	}
 }
