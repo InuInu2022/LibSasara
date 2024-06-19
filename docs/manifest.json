@@ -1,5 +1,4 @@
 {
-  "homepages": [],
   "source_base_path": "C:/Users/conquestarrow/Documents/my_proj/LibSasara/documents",
   "xrefmap": "xrefmap.yml",
   "files": [
@@ -47,6 +46,16 @@
       "output": {
         ".html": {
           "relative_path": "api/LibSasara.Builder.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/LibSasara.LibSasaraUtil.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibSasara.LibSasaraUtil.html"
         }
       },
       "version": ""
@@ -1123,6 +1132,16 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/LibSasara.VoiSona.Model.VoiSonaCommon.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/LibSasara.VoiSona.Model.VoiSonaCommon.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/LibSasara.VoiSona.Model.VoiSonaFileBase.yml",
       "output": {
         ".html": {
@@ -1257,6 +1276,9 @@
       "output": {
         ".html": {
           "relative_path": "api/toc.html"
+        },
+        ".json": {
+          "relative_path": "api/toc.json"
         }
       },
       "version": ""
@@ -1277,6 +1299,9 @@
       "output": {
         ".html": {
           "relative_path": "articles/toc.html"
+        },
+        ".json": {
+          "relative_path": "articles/toc.json"
         }
       },
       "version": ""
@@ -1372,9 +1397,6 @@
       "version": ""
     },
     {
-      "log_codes": [
-        "InvalidFileLink"
-      ],
       "type": "Conceptual",
       "source_relative_path": "index.md",
       "output": {
@@ -1390,12 +1412,14 @@
       "output": {
         ".html": {
           "relative_path": "toc.html"
+        },
+        ".json": {
+          "relative_path": "toc.json"
         }
       },
       "version": ""
     }
   ],
-  "version_info": {},
   "groups": [
     {
       "xrefmap": "xrefmap.yml"

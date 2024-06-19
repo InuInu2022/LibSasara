@@ -387,6 +387,181 @@ references:
   isSpec: "True"
   fullName: LibSasara.Builder.TalkUnitBuilder.Volume
   nameWithType: TalkUnitBuilder.Volume
+- uid: LibSasara.LibSasaraUtil
+  name: LibSasaraUtil
+  href: api/LibSasara.LibSasaraUtil.html
+  commentId: T:LibSasara.LibSasaraUtil
+  fullName: LibSasara.LibSasaraUtil
+  nameWithType: LibSasaraUtil
+- uid: LibSasara.LibSasaraUtil.ClockToTimeSpan(System.Collections.Generic.SortedDictionary{System.Int32,System.Decimal},System.Int32,System.Int32)
+  name: ClockToTimeSpan(SortedDictionary<int, decimal>, int, int)
+  href: api/LibSasara.LibSasaraUtil.html#LibSasara_LibSasaraUtil_ClockToTimeSpan_System_Collections_Generic_SortedDictionary_System_Int32_System_Decimal__System_Int32_System_Int32_
+  commentId: M:LibSasara.LibSasaraUtil.ClockToTimeSpan(System.Collections.Generic.SortedDictionary{System.Int32,System.Decimal},System.Int32,System.Int32)
+  name.vb: ClockToTimeSpan(SortedDictionary(Of Integer, Decimal), Integer, Integer)
+  fullName: LibSasara.LibSasaraUtil.ClockToTimeSpan(System.Collections.Generic.SortedDictionary<int, decimal>, int, int)
+  fullName.vb: LibSasara.LibSasaraUtil.ClockToTimeSpan(System.Collections.Generic.SortedDictionary(Of Integer, Decimal), Integer, Integer)
+  nameWithType: LibSasaraUtil.ClockToTimeSpan(SortedDictionary<int, decimal>, int, int)
+  nameWithType.vb: LibSasaraUtil.ClockToTimeSpan(SortedDictionary(Of Integer, Decimal), Integer, Integer)
+- uid: LibSasara.LibSasaraUtil.ClockToTimeSpan(System.Int32,System.Collections.Generic.SortedDictionary{System.Int32,System.Decimal})
+  name: ClockToTimeSpan(int, SortedDictionary<int, decimal>)
+  href: api/LibSasara.LibSasaraUtil.html#LibSasara_LibSasaraUtil_ClockToTimeSpan_System_Int32_System_Collections_Generic_SortedDictionary_System_Int32_System_Decimal__
+  commentId: M:LibSasara.LibSasaraUtil.ClockToTimeSpan(System.Int32,System.Collections.Generic.SortedDictionary{System.Int32,System.Decimal})
+  name.vb: ClockToTimeSpan(Integer, SortedDictionary(Of Integer, Decimal))
+  fullName: LibSasara.LibSasaraUtil.ClockToTimeSpan(int, System.Collections.Generic.SortedDictionary<int, decimal>)
+  fullName.vb: LibSasara.LibSasaraUtil.ClockToTimeSpan(Integer, System.Collections.Generic.SortedDictionary(Of Integer, Decimal))
+  nameWithType: LibSasaraUtil.ClockToTimeSpan(int, SortedDictionary<int, decimal>)
+  nameWithType.vb: LibSasaraUtil.ClockToTimeSpan(Integer, SortedDictionary(Of Integer, Decimal))
+- uid: LibSasara.LibSasaraUtil.ClockToTimeSpan*
+  name: ClockToTimeSpan
+  href: api/LibSasara.LibSasaraUtil.html#LibSasara_LibSasaraUtil_ClockToTimeSpan_
+  commentId: Overload:LibSasara.LibSasaraUtil.ClockToTimeSpan
+  isSpec: "True"
+  fullName: LibSasara.LibSasaraUtil.ClockToTimeSpan
+  nameWithType: LibSasaraUtil.ClockToTimeSpan
+- uid: LibSasara.LibSasaraUtil.ConvertBool(System.String,System.Boolean)
+  name: ConvertBool(string?, bool)
+  href: api/LibSasara.LibSasaraUtil.html#LibSasara_LibSasaraUtil_ConvertBool_System_String_System_Boolean_
+  commentId: M:LibSasara.LibSasaraUtil.ConvertBool(System.String,System.Boolean)
+  name.vb: ConvertBool(String, Boolean)
+  fullName: LibSasara.LibSasaraUtil.ConvertBool(string?, bool)
+  fullName.vb: LibSasara.LibSasaraUtil.ConvertBool(String, Boolean)
+  nameWithType: LibSasaraUtil.ConvertBool(string?, bool)
+  nameWithType.vb: LibSasaraUtil.ConvertBool(String, Boolean)
+- uid: LibSasara.LibSasaraUtil.ConvertBool*
+  name: ConvertBool
+  href: api/LibSasara.LibSasaraUtil.html#LibSasara_LibSasaraUtil_ConvertBool_
+  commentId: Overload:LibSasara.LibSasaraUtil.ConvertBool
+  isSpec: "True"
+  fullName: LibSasara.LibSasaraUtil.ConvertBool
+  nameWithType: LibSasaraUtil.ConvertBool
+- uid: LibSasara.LibSasaraUtil.ConvertDecimal(System.String,System.Decimal)
+  name: ConvertDecimal(string?, decimal)
+  href: api/LibSasara.LibSasaraUtil.html#LibSasara_LibSasaraUtil_ConvertDecimal_System_String_System_Decimal_
+  commentId: M:LibSasara.LibSasaraUtil.ConvertDecimal(System.String,System.Decimal)
+  name.vb: ConvertDecimal(String, Decimal)
+  fullName: LibSasara.LibSasaraUtil.ConvertDecimal(string?, decimal)
+  fullName.vb: LibSasara.LibSasaraUtil.ConvertDecimal(String, Decimal)
+  nameWithType: LibSasaraUtil.ConvertDecimal(string?, decimal)
+  nameWithType.vb: LibSasaraUtil.ConvertDecimal(String, Decimal)
+- uid: LibSasara.LibSasaraUtil.ConvertDecimal*
+  name: ConvertDecimal
+  href: api/LibSasara.LibSasaraUtil.html#LibSasara_LibSasaraUtil_ConvertDecimal_
+  commentId: Overload:LibSasara.LibSasaraUtil.ConvertDecimal
+  isSpec: "True"
+  fullName: LibSasara.LibSasaraUtil.ConvertDecimal
+  nameWithType: LibSasaraUtil.ConvertDecimal
+- uid: LibSasara.LibSasaraUtil.ConvertInt(System.String,System.Int32)
+  name: ConvertInt(string?, int)
+  href: api/LibSasara.LibSasaraUtil.html#LibSasara_LibSasaraUtil_ConvertInt_System_String_System_Int32_
+  commentId: M:LibSasara.LibSasaraUtil.ConvertInt(System.String,System.Int32)
+  name.vb: ConvertInt(String, Integer)
+  fullName: LibSasara.LibSasaraUtil.ConvertInt(string?, int)
+  fullName.vb: LibSasara.LibSasaraUtil.ConvertInt(String, Integer)
+  nameWithType: LibSasaraUtil.ConvertInt(string?, int)
+  nameWithType.vb: LibSasaraUtil.ConvertInt(String, Integer)
+- uid: LibSasara.LibSasaraUtil.ConvertInt*
+  name: ConvertInt
+  href: api/LibSasara.LibSasaraUtil.html#LibSasara_LibSasaraUtil_ConvertInt_
+  commentId: Overload:LibSasara.LibSasaraUtil.ConvertInt
+  isSpec: "True"
+  fullName: LibSasara.LibSasaraUtil.ConvertInt
+  nameWithType: LibSasaraUtil.ConvertInt
+- uid: LibSasara.LibSasaraUtil.FreqToNoteNum(System.Double,System.Double)
+  name: FreqToNoteNum(double, double)
+  href: api/LibSasara.LibSasaraUtil.html#LibSasara_LibSasaraUtil_FreqToNoteNum_System_Double_System_Double_
+  commentId: M:LibSasara.LibSasaraUtil.FreqToNoteNum(System.Double,System.Double)
+  name.vb: FreqToNoteNum(Double, Double)
+  fullName: LibSasara.LibSasaraUtil.FreqToNoteNum(double, double)
+  fullName.vb: LibSasara.LibSasaraUtil.FreqToNoteNum(Double, Double)
+  nameWithType: LibSasaraUtil.FreqToNoteNum(double, double)
+  nameWithType.vb: LibSasaraUtil.FreqToNoteNum(Double, Double)
+- uid: LibSasara.LibSasaraUtil.FreqToNoteNum*
+  name: FreqToNoteNum
+  href: api/LibSasara.LibSasaraUtil.html#LibSasara_LibSasaraUtil_FreqToNoteNum_
+  commentId: Overload:LibSasara.LibSasaraUtil.FreqToNoteNum
+  isSpec: "True"
+  fullName: LibSasara.LibSasaraUtil.FreqToNoteNum
+  nameWithType: LibSasaraUtil.FreqToNoteNum
+- uid: LibSasara.LibSasaraUtil.FreqToOctaveStep(System.Double)
+  name: FreqToOctaveStep(double)
+  href: api/LibSasara.LibSasaraUtil.html#LibSasara_LibSasaraUtil_FreqToOctaveStep_System_Double_
+  commentId: M:LibSasara.LibSasaraUtil.FreqToOctaveStep(System.Double)
+  name.vb: FreqToOctaveStep(Double)
+  fullName: LibSasara.LibSasaraUtil.FreqToOctaveStep(double)
+  fullName.vb: LibSasara.LibSasaraUtil.FreqToOctaveStep(Double)
+  nameWithType: LibSasaraUtil.FreqToOctaveStep(double)
+  nameWithType.vb: LibSasaraUtil.FreqToOctaveStep(Double)
+- uid: LibSasara.LibSasaraUtil.FreqToOctaveStep*
+  name: FreqToOctaveStep
+  href: api/LibSasara.LibSasaraUtil.html#LibSasara_LibSasaraUtil_FreqToOctaveStep_
+  commentId: Overload:LibSasara.LibSasaraUtil.FreqToOctaveStep
+  isSpec: "True"
+  fullName: LibSasara.LibSasaraUtil.FreqToOctaveStep
+  nameWithType: LibSasaraUtil.FreqToOctaveStep
+- uid: LibSasara.LibSasaraUtil.NoteNumToFreq(System.Int32,System.Double)
+  name: NoteNumToFreq(int, double)
+  href: api/LibSasara.LibSasaraUtil.html#LibSasara_LibSasaraUtil_NoteNumToFreq_System_Int32_System_Double_
+  commentId: M:LibSasara.LibSasaraUtil.NoteNumToFreq(System.Int32,System.Double)
+  name.vb: NoteNumToFreq(Integer, Double)
+  fullName: LibSasara.LibSasaraUtil.NoteNumToFreq(int, double)
+  fullName.vb: LibSasara.LibSasaraUtil.NoteNumToFreq(Integer, Double)
+  nameWithType: LibSasaraUtil.NoteNumToFreq(int, double)
+  nameWithType.vb: LibSasaraUtil.NoteNumToFreq(Integer, Double)
+- uid: LibSasara.LibSasaraUtil.NoteNumToFreq*
+  name: NoteNumToFreq
+  href: api/LibSasara.LibSasaraUtil.html#LibSasara_LibSasaraUtil_NoteNumToFreq_
+  commentId: Overload:LibSasara.LibSasaraUtil.NoteNumToFreq
+  isSpec: "True"
+  fullName: LibSasara.LibSasaraUtil.NoteNumToFreq
+  nameWithType: LibSasaraUtil.NoteNumToFreq
+- uid: LibSasara.LibSasaraUtil.NoteNumToOctaveStep(System.Int32)
+  name: NoteNumToOctaveStep(int)
+  href: api/LibSasara.LibSasaraUtil.html#LibSasara_LibSasaraUtil_NoteNumToOctaveStep_System_Int32_
+  commentId: M:LibSasara.LibSasaraUtil.NoteNumToOctaveStep(System.Int32)
+  name.vb: NoteNumToOctaveStep(Integer)
+  fullName: LibSasara.LibSasaraUtil.NoteNumToOctaveStep(int)
+  fullName.vb: LibSasara.LibSasaraUtil.NoteNumToOctaveStep(Integer)
+  nameWithType: LibSasaraUtil.NoteNumToOctaveStep(int)
+  nameWithType.vb: LibSasaraUtil.NoteNumToOctaveStep(Integer)
+- uid: LibSasara.LibSasaraUtil.NoteNumToOctaveStep*
+  name: NoteNumToOctaveStep
+  href: api/LibSasara.LibSasaraUtil.html#LibSasara_LibSasaraUtil_NoteNumToOctaveStep_
+  commentId: Overload:LibSasara.LibSasaraUtil.NoteNumToOctaveStep
+  isSpec: "True"
+  fullName: LibSasara.LibSasaraUtil.NoteNumToOctaveStep
+  nameWithType: LibSasaraUtil.NoteNumToOctaveStep
+- uid: LibSasara.LibSasaraUtil.OctaveStepToFreq(System.Int32,System.Int32)
+  name: OctaveStepToFreq(int, int)
+  href: api/LibSasara.LibSasaraUtil.html#LibSasara_LibSasaraUtil_OctaveStepToFreq_System_Int32_System_Int32_
+  commentId: M:LibSasara.LibSasaraUtil.OctaveStepToFreq(System.Int32,System.Int32)
+  name.vb: OctaveStepToFreq(Integer, Integer)
+  fullName: LibSasara.LibSasaraUtil.OctaveStepToFreq(int, int)
+  fullName.vb: LibSasara.LibSasaraUtil.OctaveStepToFreq(Integer, Integer)
+  nameWithType: LibSasaraUtil.OctaveStepToFreq(int, int)
+  nameWithType.vb: LibSasaraUtil.OctaveStepToFreq(Integer, Integer)
+- uid: LibSasara.LibSasaraUtil.OctaveStepToFreq*
+  name: OctaveStepToFreq
+  href: api/LibSasara.LibSasaraUtil.html#LibSasara_LibSasaraUtil_OctaveStepToFreq_
+  commentId: Overload:LibSasara.LibSasaraUtil.OctaveStepToFreq
+  isSpec: "True"
+  fullName: LibSasara.LibSasaraUtil.OctaveStepToFreq
+  nameWithType: LibSasaraUtil.OctaveStepToFreq
+- uid: LibSasara.LibSasaraUtil.OctaveStepToNoteNum(System.Int32,System.Int32)
+  name: OctaveStepToNoteNum(int, int)
+  href: api/LibSasara.LibSasaraUtil.html#LibSasara_LibSasaraUtil_OctaveStepToNoteNum_System_Int32_System_Int32_
+  commentId: M:LibSasara.LibSasaraUtil.OctaveStepToNoteNum(System.Int32,System.Int32)
+  name.vb: OctaveStepToNoteNum(Integer, Integer)
+  fullName: LibSasara.LibSasaraUtil.OctaveStepToNoteNum(int, int)
+  fullName.vb: LibSasara.LibSasaraUtil.OctaveStepToNoteNum(Integer, Integer)
+  nameWithType: LibSasaraUtil.OctaveStepToNoteNum(int, int)
+  nameWithType.vb: LibSasaraUtil.OctaveStepToNoteNum(Integer, Integer)
+- uid: LibSasara.LibSasaraUtil.OctaveStepToNoteNum*
+  name: OctaveStepToNoteNum
+  href: api/LibSasara.LibSasaraUtil.html#LibSasara_LibSasaraUtil_OctaveStepToNoteNum_
+  commentId: Overload:LibSasara.LibSasaraUtil.OctaveStepToNoteNum
+  isSpec: "True"
+  fullName: LibSasara.LibSasaraUtil.OctaveStepToNoteNum
+  nameWithType: LibSasaraUtil.OctaveStepToNoteNum
 - uid: LibSasara.Model
   name: LibSasara.Model
   href: api/LibSasara.Model.html
@@ -2609,6 +2784,12 @@ references:
   commentId: F:LibSasara.Model.PhonemeUtil.INVALID_PH
   fullName: LibSasara.Model.PhonemeUtil.INVALID_PH
   nameWithType: PhonemeUtil.INVALID_PH
+- uid: LibSasara.Model.PhonemeUtil.InvalidPhrase
+  name: InvalidPhrase
+  href: api/LibSasara.Model.PhonemeUtil.html#LibSasara_Model_PhonemeUtil_InvalidPhrase
+  commentId: F:LibSasara.Model.PhonemeUtil.InvalidPhrase
+  fullName: LibSasara.Model.PhonemeUtil.InvalidPhrase
+  nameWithType: PhonemeUtil.InvalidPhrase
 - uid: LibSasara.Model.PhonemeUtil.IsCL(LibSasara.Model.LabLine)
   name: IsCL(LabLine)
   href: api/LibSasara.Model.PhonemeUtil.html#LibSasara_Model_PhonemeUtil_IsCL_LibSasara_Model_LabLine_
@@ -2770,6 +2951,24 @@ references:
   commentId: F:LibSasara.Model.PhonemeUtil.NO_CONSONANT
   fullName: LibSasara.Model.PhonemeUtil.NO_CONSONANT
   nameWithType: PhonemeUtil.NO_CONSONANT
+- uid: LibSasara.Model.PhonemeUtil.NasalJapanese
+  name: NasalJapanese
+  href: api/LibSasara.Model.PhonemeUtil.html#LibSasara_Model_PhonemeUtil_NasalJapanese
+  commentId: F:LibSasara.Model.PhonemeUtil.NasalJapanese
+  fullName: LibSasara.Model.PhonemeUtil.NasalJapanese
+  nameWithType: PhonemeUtil.NasalJapanese
+- uid: LibSasara.Model.PhonemeUtil.NoConsonant
+  name: NoConsonant
+  href: api/LibSasara.Model.PhonemeUtil.html#LibSasara_Model_PhonemeUtil_NoConsonant
+  commentId: F:LibSasara.Model.PhonemeUtil.NoConsonant
+  fullName: LibSasara.Model.PhonemeUtil.NoConsonant
+  nameWithType: PhonemeUtil.NoConsonant
+- uid: LibSasara.Model.PhonemeUtil.NoSoundVowels
+  name: NoSoundVowels
+  href: api/LibSasara.Model.PhonemeUtil.html#LibSasara_Model_PhonemeUtil_NoSoundVowels
+  commentId: F:LibSasara.Model.PhonemeUtil.NoSoundVowels
+  fullName: LibSasara.Model.PhonemeUtil.NoSoundVowels
+  nameWithType: PhonemeUtil.NoSoundVowels
 - uid: LibSasara.Model.PhonemeUtil.PAU
   name: PAU
   href: api/LibSasara.Model.PhonemeUtil.html#LibSasara_Model_PhonemeUtil_PAU
@@ -2788,6 +2987,12 @@ references:
   commentId: F:LibSasara.Model.PhonemeUtil.VOWELS_JA
   fullName: LibSasara.Model.PhonemeUtil.VOWELS_JA
   nameWithType: PhonemeUtil.VOWELS_JA
+- uid: LibSasara.Model.PhonemeUtil.VowelsJapanese
+  name: VowelsJapanese
+  href: api/LibSasara.Model.PhonemeUtil.html#LibSasara_Model_PhonemeUtil_VowelsJapanese
+  commentId: F:LibSasara.Model.PhonemeUtil.VowelsJapanese
+  fullName: LibSasara.Model.PhonemeUtil.VowelsJapanese
+  nameWithType: PhonemeUtil.VowelsJapanese
 - uid: LibSasara.Model.Serialize
   name: LibSasara.Model.Serialize
   href: api/LibSasara.Model.Serialize.html
@@ -6088,22 +6293,22 @@ references:
   nameWithType: TrackSet<TUnit>.Color
   nameWithType.vb: TrackSet(Of TUnit).Color
 - uid: LibSasara.Model.TrackSet`1.Equals(LibSasara.Model.TrackSet{`0})
-  name: Equals(TrackSet<TUnit>)
+  name: Equals(TrackSet<TUnit>?)
   href: api/LibSasara.Model.TrackSet-1.html#LibSasara_Model_TrackSet_1_Equals_LibSasara_Model_TrackSet__0__
   commentId: M:LibSasara.Model.TrackSet`1.Equals(LibSasara.Model.TrackSet{`0})
   name.vb: Equals(TrackSet(Of TUnit))
-  fullName: LibSasara.Model.TrackSet<TUnit>.Equals(LibSasara.Model.TrackSet<TUnit>)
+  fullName: LibSasara.Model.TrackSet<TUnit>.Equals(LibSasara.Model.TrackSet<TUnit>?)
   fullName.vb: LibSasara.Model.TrackSet(Of TUnit).Equals(LibSasara.Model.TrackSet(Of TUnit))
-  nameWithType: TrackSet<TUnit>.Equals(TrackSet<TUnit>)
+  nameWithType: TrackSet<TUnit>.Equals(TrackSet<TUnit>?)
   nameWithType.vb: TrackSet(Of TUnit).Equals(TrackSet(Of TUnit))
 - uid: LibSasara.Model.TrackSet`1.Equals(System.Object)
-  name: Equals(object)
+  name: Equals(object?)
   href: api/LibSasara.Model.TrackSet-1.html#LibSasara_Model_TrackSet_1_Equals_System_Object_
   commentId: M:LibSasara.Model.TrackSet`1.Equals(System.Object)
   name.vb: Equals(Object)
-  fullName: LibSasara.Model.TrackSet<TUnit>.Equals(object)
+  fullName: LibSasara.Model.TrackSet<TUnit>.Equals(object?)
   fullName.vb: LibSasara.Model.TrackSet(Of TUnit).Equals(Object)
-  nameWithType: TrackSet<TUnit>.Equals(object)
+  nameWithType: TrackSet<TUnit>.Equals(object?)
   nameWithType.vb: TrackSet(Of TUnit).Equals(Object)
 - uid: LibSasara.Model.TrackSet`1.Equals*
   name: Equals
@@ -6596,22 +6801,6 @@ references:
   fullName.vb: LibSasara.SasaraCcs.LoadAsync(Of T)(String)
   nameWithType: SasaraCcs.LoadAsync<T>(string)
   nameWithType.vb: SasaraCcs.LoadAsync(Of T)(String)
-- uid: LibSasara.SasaraCcs.LoadDeserializedAsync*
-  name: LoadDeserializedAsync
-  href: api/LibSasara.SasaraCcs.html#LibSasara_SasaraCcs_LoadDeserializedAsync_
-  commentId: Overload:LibSasara.SasaraCcs.LoadDeserializedAsync
-  isSpec: "True"
-  fullName: LibSasara.SasaraCcs.LoadDeserializedAsync
-  nameWithType: SasaraCcs.LoadDeserializedAsync
-- uid: LibSasara.SasaraCcs.LoadDeserializedAsync``1(System.String)
-  name: LoadDeserializedAsync<T>(string)
-  href: api/LibSasara.SasaraCcs.html#LibSasara_SasaraCcs_LoadDeserializedAsync__1_System_String_
-  commentId: M:LibSasara.SasaraCcs.LoadDeserializedAsync``1(System.String)
-  name.vb: LoadDeserializedAsync(Of T)(String)
-  fullName: LibSasara.SasaraCcs.LoadDeserializedAsync<T>(string)
-  fullName.vb: LibSasara.SasaraCcs.LoadDeserializedAsync(Of T)(String)
-  nameWithType: SasaraCcs.LoadDeserializedAsync<T>(string)
-  nameWithType.vb: SasaraCcs.LoadDeserializedAsync(Of T)(String)
 - uid: LibSasara.SasaraCcs.Name
   name: Name
   href: api/LibSasara.SasaraCcs.html#LibSasara_SasaraCcs_Name
@@ -6634,22 +6823,6 @@ references:
   isSpec: "True"
   fullName: LibSasara.SasaraCcs.SaveAsync
   nameWithType: SasaraCcs.SaveAsync
-- uid: LibSasara.SasaraCcs.SaveSerializedAsync(LibSasara.Model.Serialize.IRoot,System.String,System.Boolean)
-  name: SaveSerializedAsync(IRoot, string, bool)
-  href: api/LibSasara.SasaraCcs.html#LibSasara_SasaraCcs_SaveSerializedAsync_LibSasara_Model_Serialize_IRoot_System_String_System_Boolean_
-  commentId: M:LibSasara.SasaraCcs.SaveSerializedAsync(LibSasara.Model.Serialize.IRoot,System.String,System.Boolean)
-  name.vb: SaveSerializedAsync(IRoot, String, Boolean)
-  fullName: LibSasara.SasaraCcs.SaveSerializedAsync(LibSasara.Model.Serialize.IRoot, string, bool)
-  fullName.vb: LibSasara.SasaraCcs.SaveSerializedAsync(LibSasara.Model.Serialize.IRoot, String, Boolean)
-  nameWithType: SasaraCcs.SaveSerializedAsync(IRoot, string, bool)
-  nameWithType.vb: SasaraCcs.SaveSerializedAsync(IRoot, String, Boolean)
-- uid: LibSasara.SasaraCcs.SaveSerializedAsync*
-  name: SaveSerializedAsync
-  href: api/LibSasara.SasaraCcs.html#LibSasara_SasaraCcs_SaveSerializedAsync_
-  commentId: Overload:LibSasara.SasaraCcs.SaveSerializedAsync
-  isSpec: "True"
-  fullName: LibSasara.SasaraCcs.SaveSerializedAsync
-  nameWithType: SasaraCcs.SaveSerializedAsync
 - uid: LibSasara.SasaraLabel
   name: SasaraLabel
   href: api/LibSasara.SasaraLabel.html
@@ -7730,6 +7903,19 @@ references:
   isSpec: "True"
   fullName: LibSasara.VoiSona.Model.Talk.Utterance.FramwC0Raw
   nameWithType: Utterance.FramwC0Raw
+- uid: LibSasara.VoiSona.Model.Talk.Utterance.HuskyShift
+  name: HuskyShift
+  href: api/LibSasara.VoiSona.Model.Talk.Utterance.html#LibSasara_VoiSona_Model_Talk_Utterance_HuskyShift
+  commentId: P:LibSasara.VoiSona.Model.Talk.Utterance.HuskyShift
+  fullName: LibSasara.VoiSona.Model.Talk.Utterance.HuskyShift
+  nameWithType: Utterance.HuskyShift
+- uid: LibSasara.VoiSona.Model.Talk.Utterance.HuskyShift*
+  name: HuskyShift
+  href: api/LibSasara.VoiSona.Model.Talk.Utterance.html#LibSasara_VoiSona_Model_Talk_Utterance_HuskyShift_
+  commentId: Overload:LibSasara.VoiSona.Model.Talk.Utterance.HuskyShift
+  isSpec: "True"
+  fullName: LibSasara.VoiSona.Model.Talk.Utterance.HuskyShift
+  nameWithType: Utterance.HuskyShift
 - uid: LibSasara.VoiSona.Model.Talk.Utterance.Label
   name: Label
   href: api/LibSasara.VoiSona.Model.Talk.Utterance.html#LibSasara_VoiSona_Model_Talk_Utterance_Label
@@ -8211,6 +8397,18 @@ references:
   isSpec: "True"
   fullName: LibSasara.VoiSona.Model.Tree.Name
   nameWithType: Tree.Name
+- uid: LibSasara.VoiSona.Model.VoiSonaCommon
+  name: VoiSonaCommon
+  href: api/LibSasara.VoiSona.Model.VoiSonaCommon.html
+  commentId: T:LibSasara.VoiSona.Model.VoiSonaCommon
+  fullName: LibSasara.VoiSona.Model.VoiSonaCommon
+  nameWithType: VoiSonaCommon
+- uid: LibSasara.VoiSona.Model.VoiSonaCommon.NULL_END
+  name: NULL_END
+  href: api/LibSasara.VoiSona.Model.VoiSonaCommon.html#LibSasara_VoiSona_Model_VoiSonaCommon_NULL_END
+  commentId: F:LibSasara.VoiSona.Model.VoiSonaCommon.NULL_END
+  fullName: LibSasara.VoiSona.Model.VoiSonaCommon.NULL_END
+  nameWithType: VoiSonaCommon.NULL_END
 - uid: LibSasara.VoiSona.Model.VoiSonaFileBase
   name: VoiSonaFileBase
   href: api/LibSasara.VoiSona.Model.VoiSonaFileBase.html

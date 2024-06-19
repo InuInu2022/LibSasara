@@ -5,12 +5,11 @@
   <head>
     <meta charset="utf-8">
       <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-      <title>Class Utterance
- | Documentation - LibSasara </title>
+      <title>Class Utterance | Documentation - LibSasara </title>
       <meta name="viewport" content="width=device-width">
-      <meta name="title" content="Class Utterance
- | Documentation - LibSasara ">
+      <meta name="title" content="Class Utterance | Documentation - LibSasara ">
     
+    <meta name="description" content="発話">
       <link rel="shortcut icon" href="../images/LibSasara_icon.ico">
       <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
       <link rel="stylesheet" href="../styles/docfx.css">
@@ -81,8 +80,7 @@
 
 
 
-  <h1 id="LibSasara_VoiSona_Model_Talk_Utterance" data-uid="LibSasara.VoiSona.Model.Talk.Utterance" class="text-break">Class Utterance
-</h1>
+  <h1 id="LibSasara_VoiSona_Model_Talk_Utterance" data-uid="LibSasara.VoiSona.Model.Talk.Utterance" class="text-break">Class Utterance</h1>
   <div class="markdown level0 summary"><p>発話</p>
 </div>
   <div class="markdown level0 conceptual"></div>
@@ -148,7 +146,7 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Utterance(string? text, string? tsml, string? start, bool? disable = null, string export_name = &quot;&quot;)</code></pre>
+    <pre><code class="lang-csharp hljs">public Utterance(string? text, string? tsml, string? start, bool? disable = null, string exportName = &quot;&quot;)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -182,7 +180,7 @@
       </tr>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
-        <td><span class="parametername">export_name</span></td>
+        <td><span class="parametername">exportName</span></td>
         <td></td>
       </tr>
     </tbody>
@@ -198,7 +196,7 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public decimal AlphaShift { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">public decimal AlphaShift { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-condensed">
@@ -224,7 +222,7 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public decimal C0Shift { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">public decimal C0Shift { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-condensed">
@@ -237,7 +235,8 @@
     <tbody>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.decimal">decimal</a></td>
-        <td></td>
+        <td><p>8.00 ～ -8.00</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -545,6 +544,32 @@ public string FramwC0Raw { get; set; }</code></pre>
   </table>
 
 
+  <a id="LibSasara_VoiSona_Model_Talk_Utterance_HuskyShift_" data-uid="LibSasara.VoiSona.Model.Talk.Utterance.HuskyShift*"></a>
+  <h4 id="LibSasara_VoiSona_Model_Talk_Utterance_HuskyShift" data-uid="LibSasara.VoiSona.Model.Talk.Utterance.HuskyShift">HuskyShift</h4>
+  <div class="markdown level1 summary"><p>セリフのハスキーさ（Husky）</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public decimal HuskyShift { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.decimal">decimal</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
   <a id="LibSasara_VoiSona_Model_Talk_Utterance_Label_" data-uid="LibSasara.VoiSona.Model.Talk.Utterance.Label*"></a>
   <h4 id="LibSasara_VoiSona_Model_Talk_Utterance_Label" data-uid="LibSasara.VoiSona.Model.Talk.Utterance.Label">Label</h4>
   <div class="markdown level1 summary"><p>調整後のタイミングの<a class="xref" href="LibSasara.Model.Lab.html">Lab</a> を返す。
@@ -584,7 +609,7 @@ public string FramwC0Raw { get; set; }</code></pre>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public decimal LogF0Scale { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">public decimal LogF0Scale { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-condensed">
@@ -610,7 +635,7 @@ public string FramwC0Raw { get; set; }</code></pre>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public decimal LogF0Shift { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">public decimal LogF0Shift { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-condensed">
@@ -623,7 +648,8 @@ public string FramwC0Raw { get; set; }</code></pre>
     <tbody>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.decimal">decimal</a></td>
-        <td></td>
+        <td><p>-600 ~ +600</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -900,7 +926,7 @@ public string FramwC0Raw { get; set; }</code></pre>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public decimal SpeedRatio { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">public decimal SpeedRatio { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-condensed">

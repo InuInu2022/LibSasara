@@ -5,12 +5,11 @@
   <head>
     <meta charset="utf-8">
       <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-      <title>Class PhonemeUtil
- | Documentation - LibSasara </title>
+      <title>Class PhonemeUtil | Documentation - LibSasara </title>
       <meta name="viewport" content="width=device-width">
-      <meta name="title" content="Class PhonemeUtil
- | Documentation - LibSasara ">
+      <meta name="title" content="Class PhonemeUtil | Documentation - LibSasara ">
     
+    <meta name="description" content="音素ユーティリティ">
       <link rel="shortcut icon" href="../images/LibSasara_icon.ico">
       <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
       <link rel="stylesheet" href="../styles/docfx.css">
@@ -81,8 +80,7 @@
 
 
 
-  <h1 id="LibSasara_Model_PhonemeUtil" data-uid="LibSasara.Model.PhonemeUtil" class="text-break">Class PhonemeUtil
-</h1>
+  <h1 id="LibSasara_Model_PhonemeUtil" data-uid="LibSasara.Model.PhonemeUtil" class="text-break">Class PhonemeUtil</h1>
   <div class="markdown level0 summary"><p>音素ユーティリティ</p>
 </div>
   <div class="markdown level0 conceptual"></div>
@@ -132,7 +130,33 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public const string INVALID_PH = &quot;xx&quot;</code></pre>
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;Use $InvalidPhrase&quot;)]
+public const string INVALID_PH = &quot;xx&quot;</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <h4 id="LibSasara_Model_PhonemeUtil_InvalidPhrase" data-uid="LibSasara.Model.PhonemeUtil.InvalidPhrase">InvalidPhrase</h4>
+  <div class="markdown level1 summary"><p>無効音素</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const string InvalidPhrase = &quot;xx&quot;</code></pre>
   </div>
   <h5 class="fieldValue">Field Value</h5>
   <table class="table table-bordered table-condensed">
@@ -157,7 +181,8 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static readonly Regex NASAL_JA</code></pre>
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;Use $NasalJapanese&quot;)]
+public static readonly Regex NASAL_JA</code></pre>
   </div>
   <h5 class="fieldValue">Field Value</h5>
   <table class="table table-bordered table-condensed">
@@ -182,7 +207,8 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static readonly Regex NOSOUND_VOWELS</code></pre>
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;Use $NoSoundVowels&quot;)]
+public static readonly Regex NOSOUND_VOWELS</code></pre>
   </div>
   <h5 class="fieldValue">Field Value</h5>
   <table class="table table-bordered table-condensed">
@@ -207,7 +233,83 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static readonly Regex NO_CONSONANT</code></pre>
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;Use $NoConsonant&quot;)]
+public static readonly Regex NO_CONSONANT</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.text.regularexpressions.regex">Regex</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <h4 id="LibSasara_Model_PhonemeUtil_NasalJapanese" data-uid="LibSasara.Model.PhonemeUtil.NasalJapanese">NasalJapanese</h4>
+  <div class="markdown level1 summary"><p>日本語の鼻音子音音素の正規表現パターン。</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly Regex NasalJapanese</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.text.regularexpressions.regex">Regex</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <h4 id="LibSasara_Model_PhonemeUtil_NoConsonant" data-uid="LibSasara.Model.PhonemeUtil.NoConsonant">NoConsonant</h4>
+  <div class="markdown level1 summary"><p>子音でない音素の正規表現パターン。</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly Regex NoConsonant</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.text.regularexpressions.regex">Regex</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <h4 id="LibSasara_Model_PhonemeUtil_NoSoundVowels" data-uid="LibSasara.Model.PhonemeUtil.NoSoundVowels">NoSoundVowels</h4>
+  <div class="markdown level1 summary"><p>日本語の無声母音音素の正規表現パターン。</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly Regex NoSoundVowels</code></pre>
   </div>
   <h5 class="fieldValue">Field Value</h5>
   <table class="table table-bordered table-condensed">
@@ -282,7 +384,33 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static readonly Regex VOWELS_JA</code></pre>
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;Use $VowelsJapanese&quot;)]
+public static readonly Regex VOWELS_JA</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.text.regularexpressions.regex">Regex</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <h4 id="LibSasara_Model_PhonemeUtil_VowelsJapanese" data-uid="LibSasara.Model.PhonemeUtil.VowelsJapanese">VowelsJapanese</h4>
+  <div class="markdown level1 summary"><p>日本語の母音音素の正規表現パターン。無声母音含む</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly Regex VowelsJapanese</code></pre>
   </div>
   <h5 class="fieldValue">Field Value</h5>
   <table class="table table-bordered table-condensed">
