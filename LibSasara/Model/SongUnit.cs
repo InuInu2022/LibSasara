@@ -382,7 +382,7 @@ public class SongUnit : UnitBase
     /// <seealso cref="Serialize.NoData"/>
 	public Serialize.Parameters Volume
 	{
-		get => GetParams(RawVolume, "Volume");
+		get => SongUnit.GetParams(RawVolume, "Volume");
 
 		set {
 			if(value is null){
@@ -603,7 +603,7 @@ public class SongUnit : UnitBase
 		return elm;
 	}
 
-	Serialize.Parameters GetParams(XElement raw, string paramName)
+	static Serialize.Parameters GetParams(XElement raw, string paramName)
 	{
 		if(!raw.HasElements){
 			return new Serialize
@@ -620,7 +620,7 @@ public class SongUnit : UnitBase
 
 				if (n is Serialize.Data d)
 				{
-					d.Value = SasaraUtil.ConvertDecimal(e.Value);
+					d.Value =LibSasaraUtil.ConvertDecimal(e.Value);
 				}
 
 				if (e.HasAttributes)

@@ -81,7 +81,7 @@ public static class FullContextLabUtil
 		int countBefore = 1
 	)
 	{
-		if (contexts.Length == 0) { return PhonemeUtil.INVALID_PH.AsMemory(); }
+		if (contexts.Length == 0) { return PhonemeUtil.InvalidPhrase.AsMemory(); }
 
 		var labels = contexts.Span;
 		var s = countBefore == 1
@@ -89,13 +89,13 @@ public static class FullContextLabUtil
 			: GetNthCharIndex(beforeChar, countBefore, labels);
 		if (s == -1)
 		{
-			return PhonemeUtil.INVALID_PH.AsMemory();
+			return PhonemeUtil.InvalidPhrase.AsMemory();
 		}
 
 		var e = labels.Slice(s + 1).IndexOf(afterChar);
 		if (e == -1)
 		{
-			return PhonemeUtil.INVALID_PH.AsMemory();
+			return PhonemeUtil.InvalidPhrase.AsMemory();
 		}
 
 		return contexts.Slice(
@@ -134,7 +134,7 @@ public static class FullContextLabUtil
 		int countBefore = 1
 	)
 	{
-		if (contexts.Length == 0) { return PhonemeUtil.INVALID_PH.AsMemory(); }
+		if (contexts.Length == 0) { return PhonemeUtil.InvalidPhrase.AsMemory(); }
 
 		var labels = contexts.Span;
 		var s = countBefore == 1
@@ -142,7 +142,7 @@ public static class FullContextLabUtil
 			: GetNthCharIndex(beforeChar, countBefore, labels);
 		if (s == -1)
 		{
-			return PhonemeUtil.INVALID_PH.AsMemory();
+			return PhonemeUtil.InvalidPhrase.AsMemory();
 		}
 
 		return contexts.Slice(

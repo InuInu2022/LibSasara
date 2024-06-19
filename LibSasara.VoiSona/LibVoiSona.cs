@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Diagnostics.CodeAnalysis;
 using LibSasara.VoiSona.Model;
 using LibSasara.VoiSona.Model.Talk;
 using LibSasara.VoiSona.Util;
@@ -19,6 +20,7 @@ public static class LibVoiSona
 	/// <param name="path"></param>
 	/// <param name="ctx"></param>
 	/// <returns></returns>
+	[SuppressMessage("ApiDesign", "RS0036")]
 	public static async ValueTask<T>
 	LoadAsync<T>(string path, CancellationToken ctx = default)
 		where T: VoiSonaFileBase
@@ -43,6 +45,7 @@ public static class LibVoiSona
 	/// <param name="data"></param>
 	/// <param name="ctx"></param>
 	/// <returns></returns>
+	[SuppressMessage("ApiDesign", "RS0036")]
 	public static async ValueTask
 	SaveAsync(
 		string path,

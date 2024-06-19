@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using System.Xml.Serialization;
-using System.Diagnostics;
 
 namespace LibSasara.Model.Serialize;
 
@@ -37,7 +36,7 @@ public record Author : IHasVersion
 	///<inheritdoc/>
 	[XmlIgnore]
 	public Version? Version {
-		get=> new(VersionString);
+		get=> VersionString is null ? null : new(VersionString);
 		set { VersionString = value?.ToString(); }
 	}
 
@@ -73,7 +72,7 @@ public record DictionaryInfo : IHasVersion
 	///<inheritdoc/>
 	[XmlIgnore]
 	public Version? Version {
-		get=> new(VersionString);
+		get=> VersionString is null ? null : new(VersionString);
 		set { VersionString = value?.ToString(); }
 	}
 
@@ -96,7 +95,7 @@ public record ExtensionInfo : IHasVersion
 	///<inheritdoc/>
 	[XmlIgnore]
 	public Version? Version {
-		get=> new(VersionString);
+		get=> VersionString is null ? null : new(VersionString);
 		set { VersionString = value?.ToString(); }
 	}
 
@@ -119,7 +118,7 @@ public record SoundSource : IHasVersion
 	///<inheritdoc/>
 	[XmlIgnore]
 	public Version? Version {
-		get=> new(VersionString);
+		get=> VersionString is null ? null : new(VersionString);
 		set { VersionString = value?.ToString(); }
 	}
 
@@ -148,7 +147,7 @@ public record TalkEngine : IEngine
 	///<inheritdoc/>
 	[XmlIgnore]
 	public Version? Version {
-		get=> new(VersionString);
+		get=> VersionString is null ? null : new(VersionString);
 		set { VersionString = value?.ToString(); }
 	}
 
@@ -174,7 +173,7 @@ public record SongEngine : IEngine
 	///<inheritdoc/>
 	[XmlIgnore]
 	public Version? Version {
-		get=> new(VersionString);
+		get=> VersionString is null ? null : new(VersionString);
 		set { VersionString = value?.ToString(); }
 	}
 

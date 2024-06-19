@@ -5,6 +5,7 @@ namespace LibSasara.Model;
 /// <summary>
 /// 強弱指定
 /// </summary>
+#pragma warning disable CA1707
 public enum Dynamics
 {
 	/// <summary>
@@ -73,3 +74,4 @@ public enum Dynamics
 	[XmlEnum]
 	FF_FF = 10,
 }
+#pragma warning restore CA1707

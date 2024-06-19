@@ -114,7 +114,7 @@ public abstract class UnitBase
     /// <param name="defVal">属性値がないときに受けとる初期値</param>
     /// <returns>属性の値</returns>
 	protected internal static int GetAttrInt(XElement v, string attr, int defVal = 0)
-		=> SasaraUtil.ConvertInt(
+		=>LibSasaraUtil.ConvertInt(
 			v?.Attribute(attr)?.Value,
 			defVal
 		);
@@ -126,7 +126,7 @@ public abstract class UnitBase
     /// <param name="attr">属性の名前</param>
     /// <returns>属性の値</returns>
 	protected internal static bool GetAttrBool(XElement v, string attr)
-		=> SasaraUtil.ConvertBool(
+		=>LibSasaraUtil.ConvertBool(
 			v?.Attribute(attr)?.Value
 		);
 
@@ -139,7 +139,7 @@ public abstract class UnitBase
 	/// <returns>属性の値</returns>
 	protected internal static decimal GetAttrDecimal(
 		XElement v, string attr, decimal defVal = 0.00m)
-		=> SasaraUtil.ConvertDecimal(
+		=>LibSasaraUtil.ConvertDecimal(
 			v?.Attribute(attr)?.Value,
 			defVal
 		);

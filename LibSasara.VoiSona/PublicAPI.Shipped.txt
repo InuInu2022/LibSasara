@@ -4,16 +4,16 @@ LibSasara.VoiSona.LibVoiSona
 LibSasara.VoiSona.Model.KeyValue<T>
 LibSasara.VoiSona.Model.KeyValue<T>.GetBytes() -> System.ReadOnlyMemory<byte>
 LibSasara.VoiSona.Model.KeyValue<T>.GetHeaderBytes(bool withNull, bool withData = false) -> System.ReadOnlyMemory<byte>
-LibSasara.VoiSona.Model.KeyValue<T>.Key.get -> string!
+LibSasara.VoiSona.Model.KeyValue<T>.Key.get -> string
 LibSasara.VoiSona.Model.KeyValue<T>.Key.set -> void
-LibSasara.VoiSona.Model.KeyValue<T>.KeyValue(string! key, T value, LibSasara.VoiSona.Model.VoiSonaValueType? type = LibSasara.VoiSona.Model.VoiSonaValueType.Unknown) -> void
+LibSasara.VoiSona.Model.KeyValue<T>.KeyValue(string key, T value, LibSasara.VoiSona.Model.VoiSonaValueType? type = LibSasara.VoiSona.Model.VoiSonaValueType.Unknown) -> void
 LibSasara.VoiSona.Model.KeyValue<T>.Type.get -> LibSasara.VoiSona.Model.VoiSonaValueType?
 LibSasara.VoiSona.Model.KeyValue<T>.Type.set -> void
 LibSasara.VoiSona.Model.KeyValue<T>.Value.get -> T
 LibSasara.VoiSona.Model.KeyValue<T>.Value.set -> void
 LibSasara.VoiSona.Model.Talk.FrameStyle
-LibSasara.VoiSona.Model.Talk.FrameStyle.FrameStyle(decimal seconds, int value, System.Collections.Generic.List<decimal>! rates) -> void
-LibSasara.VoiSona.Model.Talk.FrameStyle.Rates.get -> System.Collections.Generic.IList<decimal>!
+LibSasara.VoiSona.Model.Talk.FrameStyle.FrameStyle(decimal seconds, int value, System.Collections.Generic.List<decimal> rates) -> void
+LibSasara.VoiSona.Model.Talk.FrameStyle.Rates.get -> System.Collections.Generic.IList<decimal>
 LibSasara.VoiSona.Model.Talk.FrameStyle.Rates.set -> void
 LibSasara.VoiSona.Model.Talk.FrameStyle.Value.get -> int
 LibSasara.VoiSona.Model.Talk.FrameStyle.Value.set -> void
@@ -37,99 +37,101 @@ LibSasara.VoiSona.Model.Talk.TalkTrack.HasContents.get -> bool
 LibSasara.VoiSona.Model.Talk.TalkTrack.Pan.get -> decimal
 LibSasara.VoiSona.Model.Talk.TalkTrack.Pan.set -> void
 LibSasara.VoiSona.Model.Talk.TalkTrack.TalkTrack() -> void
-LibSasara.VoiSona.Model.Talk.TalkTrack.TrackName.get -> string!
+LibSasara.VoiSona.Model.Talk.TalkTrack.TrackName.get -> string
 LibSasara.VoiSona.Model.Talk.TalkTrack.TrackName.set -> void
-LibSasara.VoiSona.Model.Talk.TalkTrack.Utterances.get -> System.Collections.Generic.List<LibSasara.VoiSona.Model.Talk.Utterance!>!
+LibSasara.VoiSona.Model.Talk.TalkTrack.Utterances.get -> System.Collections.Generic.List<LibSasara.VoiSona.Model.Talk.Utterance>
 LibSasara.VoiSona.Model.Talk.TalkTrack.Utterances.set -> void
-LibSasara.VoiSona.Model.Talk.TalkTrack.Voice.get -> LibSasara.VoiSona.Model.Talk.Voice?
+LibSasara.VoiSona.Model.Talk.TalkTrack.Voice.get -> LibSasara.VoiSona.Model.Talk.Voice
 LibSasara.VoiSona.Model.Talk.TalkTrack.Voice.set -> void
 LibSasara.VoiSona.Model.Talk.TalkTrack.Volume.get -> decimal
 LibSasara.VoiSona.Model.Talk.TalkTrack.Volume.set -> void
 LibSasara.VoiSona.Model.Talk.TstPrj
-LibSasara.VoiSona.Model.Talk.TstPrj.GetAllTracks() -> System.Collections.ObjectModel.ReadOnlyCollection<LibSasara.VoiSona.Model.Talk.TalkTrack!>!
-LibSasara.VoiSona.Model.Talk.TstPrj.GetAllTracksBin() -> System.Collections.ObjectModel.ReadOnlyCollection<System.ReadOnlyMemory<byte>>!
+LibSasara.VoiSona.Model.Talk.TstPrj.GetAllTracks() -> System.Collections.ObjectModel.ReadOnlyCollection<LibSasara.VoiSona.Model.Talk.TalkTrack>
+LibSasara.VoiSona.Model.Talk.TstPrj.GetAllTracksBin() -> System.Collections.ObjectModel.ReadOnlyCollection<System.ReadOnlyMemory<byte>>
 LibSasara.VoiSona.Model.Talk.TstPrj.GetTrack(int index = 0) -> System.ReadOnlyMemory<byte>
-LibSasara.VoiSona.Model.Talk.TstPrj.TstPrj(System.Collections.Generic.IReadOnlyList<byte>! data) -> void
+LibSasara.VoiSona.Model.Talk.TstPrj.TstPrj(System.Collections.Generic.IReadOnlyList<byte> data) -> void
 LibSasara.VoiSona.Model.Talk.TstPrjExtension
 LibSasara.VoiSona.Model.Talk.Utterance
 LibSasara.VoiSona.Model.Talk.Utterance.AlphaShift.get -> decimal
 LibSasara.VoiSona.Model.Talk.Utterance.AlphaShift.set -> void
 LibSasara.VoiSona.Model.Talk.Utterance.C0Shift.get -> decimal
 LibSasara.VoiSona.Model.Talk.Utterance.C0Shift.set -> void
-LibSasara.VoiSona.Model.Talk.Utterance.DefaultLabel.get -> LibSasara.Model.Lab?
+LibSasara.VoiSona.Model.Talk.Utterance.DefaultLabel.get -> LibSasara.Model.Lab
 LibSasara.VoiSona.Model.Talk.Utterance.Disable.get -> bool?
-LibSasara.VoiSona.Model.Talk.Utterance.ExportName.get -> string!
-LibSasara.VoiSona.Model.Talk.Utterance.FrameAlpha.get -> System.Collections.Generic.IEnumerable<LibSasara.VoiSona.Model.Talk.SecondsValue<decimal>!>!
-LibSasara.VoiSona.Model.Talk.Utterance.FrameAlphaRaw.get -> string!
+LibSasara.VoiSona.Model.Talk.Utterance.ExportName.get -> string
+LibSasara.VoiSona.Model.Talk.Utterance.FrameAlpha.get -> System.Collections.Generic.IEnumerable<LibSasara.VoiSona.Model.Talk.SecondsValue<decimal>>
+LibSasara.VoiSona.Model.Talk.Utterance.FrameAlphaRaw.get -> string
 LibSasara.VoiSona.Model.Talk.Utterance.FrameAlphaRaw.set -> void
-LibSasara.VoiSona.Model.Talk.Utterance.FrameC0.get -> System.Collections.Generic.IEnumerable<LibSasara.VoiSona.Model.Talk.SecondsValue<decimal>!>!
-LibSasara.VoiSona.Model.Talk.Utterance.FrameLogF0.get -> System.Collections.Generic.IEnumerable<LibSasara.VoiSona.Model.Talk.SecondsValue<decimal>!>!
-LibSasara.VoiSona.Model.Talk.Utterance.FrameLogF0Raw.get -> string!
+LibSasara.VoiSona.Model.Talk.Utterance.FrameC0.get -> System.Collections.Generic.IEnumerable<LibSasara.VoiSona.Model.Talk.SecondsValue<decimal>>
+LibSasara.VoiSona.Model.Talk.Utterance.FrameLogF0.get -> System.Collections.Generic.IEnumerable<LibSasara.VoiSona.Model.Talk.SecondsValue<decimal>>
+LibSasara.VoiSona.Model.Talk.Utterance.FrameLogF0Raw.get -> string
 LibSasara.VoiSona.Model.Talk.Utterance.FrameLogF0Raw.set -> void
-LibSasara.VoiSona.Model.Talk.Utterance.FrameStyleRaw.get -> string!
+LibSasara.VoiSona.Model.Talk.Utterance.FrameStyleRaw.get -> string
 LibSasara.VoiSona.Model.Talk.Utterance.FrameStyleRaw.set -> void
-LibSasara.VoiSona.Model.Talk.Utterance.FrameStyles.get -> System.Collections.Generic.IEnumerable<LibSasara.VoiSona.Model.Talk.FrameStyle!>!
-LibSasara.VoiSona.Model.Talk.Utterance.FramwC0Raw.get -> string!
+LibSasara.VoiSona.Model.Talk.Utterance.FrameStyles.get -> System.Collections.Generic.IEnumerable<LibSasara.VoiSona.Model.Talk.FrameStyle>
+LibSasara.VoiSona.Model.Talk.Utterance.FramwC0Raw.get -> string
 LibSasara.VoiSona.Model.Talk.Utterance.FramwC0Raw.set -> void
-LibSasara.VoiSona.Model.Talk.Utterance.Label.get -> LibSasara.Model.Lab?
+LibSasara.VoiSona.Model.Talk.Utterance.HuskyShift.get -> decimal
+LibSasara.VoiSona.Model.Talk.Utterance.HuskyShift.set -> void
+LibSasara.VoiSona.Model.Talk.Utterance.Label.get -> LibSasara.Model.Lab
 LibSasara.VoiSona.Model.Talk.Utterance.LogF0Scale.get -> decimal
 LibSasara.VoiSona.Model.Talk.Utterance.LogF0Scale.set -> void
 LibSasara.VoiSona.Model.Talk.Utterance.LogF0Shift.get -> decimal
 LibSasara.VoiSona.Model.Talk.Utterance.LogF0Shift.set -> void
-LibSasara.VoiSona.Model.Talk.Utterance.PhonemeDuration.get -> string!
+LibSasara.VoiSona.Model.Talk.Utterance.PhonemeDuration.get -> string
 LibSasara.VoiSona.Model.Talk.Utterance.PhonemeDuration.set -> void
-LibSasara.VoiSona.Model.Talk.Utterance.PhonemeOriginalDuration.get -> string!
+LibSasara.VoiSona.Model.Talk.Utterance.PhonemeOriginalDuration.get -> string
 LibSasara.VoiSona.Model.Talk.Utterance.PhonemeOriginalDuration.set -> void
-LibSasara.VoiSona.Model.Talk.Utterance.PhonemeOriginalDurations.get -> System.Collections.Generic.IEnumerable<decimal>!
-LibSasara.VoiSona.Model.Talk.Utterance.RawFrameAlpha.get -> string!
+LibSasara.VoiSona.Model.Talk.Utterance.PhonemeOriginalDurations.get -> System.Collections.Generic.IEnumerable<decimal>
+LibSasara.VoiSona.Model.Talk.Utterance.RawFrameAlpha.get -> string
 LibSasara.VoiSona.Model.Talk.Utterance.RawFrameAlpha.set -> void
-LibSasara.VoiSona.Model.Talk.Utterance.RawFrameC0.get -> string!
+LibSasara.VoiSona.Model.Talk.Utterance.RawFrameC0.get -> string
 LibSasara.VoiSona.Model.Talk.Utterance.RawFrameC0.set -> void
-LibSasara.VoiSona.Model.Talk.Utterance.RawFrameLogF0.get -> string!
+LibSasara.VoiSona.Model.Talk.Utterance.RawFrameLogF0.get -> string
 LibSasara.VoiSona.Model.Talk.Utterance.RawFrameLogF0.set -> void
-LibSasara.VoiSona.Model.Talk.Utterance.RawFrameStyle.get -> string!
+LibSasara.VoiSona.Model.Talk.Utterance.RawFrameStyle.get -> string
 LibSasara.VoiSona.Model.Talk.Utterance.RawFrameStyle.set -> void
-LibSasara.VoiSona.Model.Talk.Utterance.RawStart.get -> string?
+LibSasara.VoiSona.Model.Talk.Utterance.RawStart.get -> string
 LibSasara.VoiSona.Model.Talk.Utterance.RawStart.set -> void
-LibSasara.VoiSona.Model.Talk.Utterance.RawTsml.get -> string?
+LibSasara.VoiSona.Model.Talk.Utterance.RawTsml.get -> string
 LibSasara.VoiSona.Model.Talk.Utterance.RawTsml.set -> void
 LibSasara.VoiSona.Model.Talk.Utterance.SpeedRatio.get -> decimal
 LibSasara.VoiSona.Model.Talk.Utterance.SpeedRatio.set -> void
 LibSasara.VoiSona.Model.Talk.Utterance.Start.get -> decimal
 LibSasara.VoiSona.Model.Talk.Utterance.Start.set -> void
-LibSasara.VoiSona.Model.Talk.Utterance.Text.get -> string!
+LibSasara.VoiSona.Model.Talk.Utterance.Text.get -> string
 LibSasara.VoiSona.Model.Talk.Utterance.Text.set -> void
-LibSasara.VoiSona.Model.Talk.Utterance.Tsml.get -> System.Xml.Linq.XElement!
+LibSasara.VoiSona.Model.Talk.Utterance.Tsml.get -> System.Xml.Linq.XElement
 LibSasara.VoiSona.Model.Talk.Utterance.Tsml.set -> void
-LibSasara.VoiSona.Model.Talk.Utterance.Utterance(string? text, string? tsml, string? start, bool? disable = null, string! exportName = "") -> void
+LibSasara.VoiSona.Model.Talk.Utterance.Utterance(string text, string tsml, string start, bool? disable = null, string exportName = "") -> void
 LibSasara.VoiSona.Model.Talk.Voice
-LibSasara.VoiSona.Model.Talk.Voice.Id.get -> string!
-LibSasara.VoiSona.Model.Talk.Voice.Speaker.get -> string!
-LibSasara.VoiSona.Model.Talk.Voice.Version.get -> string!
-LibSasara.VoiSona.Model.Talk.Voice.Voice(string! speaker, string! name, string! version) -> void
+LibSasara.VoiSona.Model.Talk.Voice.Id.get -> string
+LibSasara.VoiSona.Model.Talk.Voice.Speaker.get -> string
+LibSasara.VoiSona.Model.Talk.Voice.Version.get -> string
+LibSasara.VoiSona.Model.Talk.Voice.Voice(string speaker, string name, string version) -> void
 LibSasara.VoiSona.Model.Tree
-LibSasara.VoiSona.Model.Tree.AddAttribute(string! key, dynamic! value, LibSasara.VoiSona.Model.VoiSonaValueType? type) -> void
+LibSasara.VoiSona.Model.Tree.AddAttribute(string key, dynamic value, LibSasara.VoiSona.Model.VoiSonaValueType? type) -> void
 LibSasara.VoiSona.Model.Tree.AttributeCount.get -> int
-LibSasara.VoiSona.Model.Tree.Attributes.get -> System.Collections.Generic.List<LibSasara.VoiSona.Model.KeyValue<dynamic!>!>!
+LibSasara.VoiSona.Model.Tree.Attributes.get -> System.Collections.Generic.List<LibSasara.VoiSona.Model.KeyValue<dynamic>>
 LibSasara.VoiSona.Model.Tree.Attributes.set -> void
-LibSasara.VoiSona.Model.Tree.Children.get -> System.Collections.Generic.List<LibSasara.VoiSona.Model.Tree!>!
+LibSasara.VoiSona.Model.Tree.Children.get -> System.Collections.Generic.List<LibSasara.VoiSona.Model.Tree>
 LibSasara.VoiSona.Model.Tree.Children.set -> void
 LibSasara.VoiSona.Model.Tree.Count.get -> int
-LibSasara.VoiSona.Model.Tree.GetAttribute<T>(string! key) -> LibSasara.VoiSona.Model.KeyValue<T>!
+LibSasara.VoiSona.Model.Tree.GetAttribute<T>(string key) -> LibSasara.VoiSona.Model.KeyValue<T>
 LibSasara.VoiSona.Model.Tree.GetAttributeHeader() -> System.ReadOnlyMemory<byte>
-LibSasara.VoiSona.Model.Tree.GetAttributeValue<T>(string! key) -> T
+LibSasara.VoiSona.Model.Tree.GetAttributeValue<T>(string key) -> T
 LibSasara.VoiSona.Model.Tree.GetBytes(bool withNull = false, bool endNull = true) -> System.ReadOnlyMemory<byte>
 LibSasara.VoiSona.Model.Tree.GetChildHeader(bool withNull = true) -> System.ReadOnlyMemory<byte>
 LibSasara.VoiSona.Model.Tree.IsCollection.get -> bool
-LibSasara.VoiSona.Model.Tree.Name.get -> string!
+LibSasara.VoiSona.Model.Tree.Name.get -> string
 LibSasara.VoiSona.Model.Tree.Name.set -> void
-LibSasara.VoiSona.Model.Tree.Tree(string! Name, bool isCollection = false) -> void
+LibSasara.VoiSona.Model.Tree.Tree(string Name, bool isCollection = false) -> void
 LibSasara.VoiSona.Model.VoiSonaCommon
 LibSasara.VoiSona.Model.VoiSonaFileBase
 LibSasara.VoiSona.Model.VoiSonaFileBase.Data.get -> System.ReadOnlyMemory<byte>
 LibSasara.VoiSona.Model.VoiSonaFileBase.Format.get -> System.Version?
 LibSasara.VoiSona.Model.VoiSonaFileBase.Format.set -> void
-LibSasara.VoiSona.Model.VoiSonaFileBase.VoiSonaFileBase(System.Collections.Generic.IReadOnlyList<byte>! data) -> void
+LibSasara.VoiSona.Model.VoiSonaFileBase.VoiSonaFileBase(System.Collections.Generic.IReadOnlyList<byte> data) -> void
 LibSasara.VoiSona.Model.VoiSonaValueType
 LibSasara.VoiSona.Model.VoiSonaValueType.Bool = 2 -> LibSasara.VoiSona.Model.VoiSonaValueType
 LibSasara.VoiSona.Model.VoiSonaValueType.Double = 4 -> LibSasara.VoiSona.Model.VoiSonaValueType
@@ -140,46 +142,41 @@ LibSasara.VoiSona.Util.BinaryUtil
 LibSasara.VoiSona.Util.FileUtil
 LibSasara.VoiSona.Util.Header
 LibSasara.VoiSona.Util.Header.Count.get -> int
-LibSasara.VoiSona.Util.Header.Data.get -> dynamic!
-LibSasara.VoiSona.Util.Header.DataBytes.get -> System.Collections.Generic.IReadOnlyCollection<byte>!
-LibSasara.VoiSona.Util.Header.Header(int count, LibSasara.VoiSona.Model.VoiSonaValueType type, System.Collections.Generic.IReadOnlyCollection<byte>! data) -> void
+LibSasara.VoiSona.Util.Header.Data.get -> dynamic
+LibSasara.VoiSona.Util.Header.DataBytes.get -> System.Collections.Generic.IReadOnlyCollection<byte>
+LibSasara.VoiSona.Util.Header.Header(int count, LibSasara.VoiSona.Model.VoiSonaValueType type, System.Collections.Generic.IReadOnlyCollection<byte> data) -> void
 LibSasara.VoiSona.Util.Header.Type.get -> LibSasara.VoiSona.Model.VoiSonaValueType
 LibSasara.VoiSona.Util.HeaderUtil
 LibSasara.VoiSona.Util.TextUtil
 LibSasara.VoiSona.Util.TreeUtil
-override LibSasara.VoiSona.Model.Talk.FrameStyle.ToString() -> string!
-override LibSasara.VoiSona.Model.Talk.FrameValue<T>.ToString() -> string!
-override LibSasara.VoiSona.Model.Talk.SecondsValue<TValue>.ToString() -> string!
+override LibSasara.VoiSona.Model.Talk.FrameStyle.ToString() -> string
+override LibSasara.VoiSona.Model.Talk.FrameValue<T>.ToString() -> string
+override LibSasara.VoiSona.Model.Talk.SecondsValue<TValue>.ToString() -> string
 override LibSasara.VoiSona.Model.Talk.TstPrj.Category.get -> LibSasara.Model.Category
-static LibSasara.VoiSona.LibVoiSona.LoadAsync<T>(string! path, System.Threading.CancellationToken ctx = default(System.Threading.CancellationToken)) -> System.Threading.Tasks.ValueTask<T!>
-static LibSasara.VoiSona.LibVoiSona.SaveAsync(string! path, System.Collections.Generic.IReadOnlyList<byte>! data, System.Threading.CancellationToken ctx = default(System.Threading.CancellationToken)) -> System.Threading.Tasks.ValueTask
-static LibSasara.VoiSona.Model.Talk.TstPrjExtension.Copy(this LibSasara.VoiSona.Model.Talk.TstPrj! source) -> System.Memory<byte>
-static LibSasara.VoiSona.Model.Talk.TstPrjExtension.ReplaceAllUtterances(this LibSasara.VoiSona.Model.Talk.TstPrj! source, System.Collections.Generic.IEnumerable<LibSasara.VoiSona.Model.Talk.Utterance!>! newUtterances, int trackIndex = 0) -> System.Memory<byte>
-static LibSasara.VoiSona.Model.Talk.TstPrjExtension.ReplaceAllUtterancesAsPrj(this LibSasara.VoiSona.Model.Talk.TstPrj! source, System.Collections.Generic.IEnumerable<LibSasara.VoiSona.Model.Talk.Utterance!>! newUtterances, int trackIndex = 0) -> LibSasara.VoiSona.Model.Talk.TstPrj!
-static LibSasara.VoiSona.Model.Talk.TstPrjExtension.ReplaceVoice(this LibSasara.VoiSona.Model.Talk.TstPrj! source, LibSasara.VoiSona.Model.Talk.Voice! newVoice, int trackIndex = 0) -> System.Memory<byte>
-static LibSasara.VoiSona.Model.Talk.TstPrjExtension.ReplaceVoiceAsPrj(this LibSasara.VoiSona.Model.Talk.TstPrj! source, LibSasara.VoiSona.Model.Talk.Voice! newVoice, int trackIndex = 0) -> LibSasara.VoiSona.Model.Talk.TstPrj!
+static LibSasara.VoiSona.LibVoiSona.LoadAsync<T>(string path, System.Threading.CancellationToken ctx = default(System.Threading.CancellationToken)) -> System.Threading.Tasks.ValueTask<T>
+static LibSasara.VoiSona.LibVoiSona.SaveAsync(string path, System.Collections.Generic.IReadOnlyList<byte> data, System.Threading.CancellationToken ctx = default(System.Threading.CancellationToken)) -> System.Threading.Tasks.ValueTask
+static LibSasara.VoiSona.Model.Talk.TstPrjExtension.Copy(this LibSasara.VoiSona.Model.Talk.TstPrj source) -> System.Memory<byte>
+static LibSasara.VoiSona.Model.Talk.TstPrjExtension.ReplaceAllUtterances(this LibSasara.VoiSona.Model.Talk.TstPrj source, System.Collections.Generic.IEnumerable<LibSasara.VoiSona.Model.Talk.Utterance> newUtterances, int trackIndex = 0) -> System.Memory<byte>
+static LibSasara.VoiSona.Model.Talk.TstPrjExtension.ReplaceAllUtterancesAsPrj(this LibSasara.VoiSona.Model.Talk.TstPrj source, System.Collections.Generic.IEnumerable<LibSasara.VoiSona.Model.Talk.Utterance> newUtterances, int trackIndex = 0) -> LibSasara.VoiSona.Model.Talk.TstPrj
+static LibSasara.VoiSona.Model.Talk.TstPrjExtension.ReplaceVoice(this LibSasara.VoiSona.Model.Talk.TstPrj source, LibSasara.VoiSona.Model.Talk.Voice newVoice, int trackIndex = 0) -> System.Memory<byte>
+static LibSasara.VoiSona.Model.Talk.TstPrjExtension.ReplaceVoiceAsPrj(this LibSasara.VoiSona.Model.Talk.TstPrj source, LibSasara.VoiSona.Model.Talk.Voice newVoice, int trackIndex = 0) -> LibSasara.VoiSona.Model.Talk.TstPrj
 static LibSasara.VoiSona.Model.Talk.Voice.Count.get -> int
 static LibSasara.VoiSona.Util.BinaryUtil.Concat(this System.ReadOnlyMemory<byte> a, System.ReadOnlyMemory<byte> b) -> System.ReadOnlyMemory<byte>
-static LibSasara.VoiSona.Util.BinaryUtil.ParseIntegerFromBytes(System.ReadOnlyMemory<byte> memory, int countType) -> int
-static LibSasara.VoiSona.Util.BinaryUtil.ParseSizeBytesFromCount(long count) -> byte
-static LibSasara.VoiSona.Util.BinaryUtil.Split(this System.ReadOnlySpan<byte> source, System.ReadOnlySpan<byte> separator) -> System.Collections.ObjectModel.ReadOnlyCollection<System.ReadOnlyMemory<byte>>!
-static LibSasara.VoiSona.Util.BinaryUtil.Split(this System.Span<byte> source, System.ReadOnlySpan<byte> separator) -> System.Collections.ObjectModel.ReadOnlyCollection<System.ReadOnlyMemory<byte>>!
-static LibSasara.VoiSona.Util.BinaryUtil.TryFindAttribute(System.ReadOnlySpan<byte> source, string! name, out LibSasara.VoiSona.Util.Header! header) -> bool
-static LibSasara.VoiSona.Util.BinaryUtil.TryFindChild(System.ReadOnlySpan<byte> source, string! name, out System.ReadOnlySpan<byte> child) -> bool
-static LibSasara.VoiSona.Util.BinaryUtil.TryFindCollection(System.ReadOnlySpan<byte> source, string! name, string! childName, out System.Collections.ObjectModel.ReadOnlyCollection<System.ReadOnlyMemory<byte>>! collection) -> bool
-static LibSasara.VoiSona.Util.FileUtil.LoadAsync(string! path, System.Threading.CancellationToken ctx = default(System.Threading.CancellationToken)) -> System.Threading.Tasks.ValueTask<byte[]!>
-static LibSasara.VoiSona.Util.FileUtil.SaveAsync(string! path, System.Collections.Generic.IReadOnlyList<byte>! data, System.Threading.CancellationToken ctx = default(System.Threading.CancellationToken)) -> System.Threading.Tasks.ValueTask
-static LibSasara.VoiSona.Util.HeaderUtil.Analysis(dynamic! value) -> LibSasara.VoiSona.Util.Header!
-static LibSasara.VoiSona.Util.TextUtil.SplitVal<T>(string! source) -> System.Collections.Generic.IEnumerable<T>!
-static LibSasara.VoiSona.Util.TextUtil.SplitValByFrame<T>(string! source) -> System.Collections.Generic.IEnumerable<LibSasara.VoiSona.Model.Talk.FrameValue<T>!>!
-static LibSasara.VoiSona.Util.TextUtil.SplitValBySec<T>(string! source) -> System.Collections.Generic.IEnumerable<LibSasara.VoiSona.Model.Talk.SecondsValue<T>!>!
-static LibSasara.VoiSona.Util.TreeUtil.GetValueOnlyChildValue<T>(LibSasara.VoiSona.Model.Tree! tree, string! childName) -> T?
-static LibSasara.VoiSona.Util.TreeUtil.GetValuesOnlyChildrenValue<T>(LibSasara.VoiSona.Model.Tree! tree, string! childName) -> T?
-static LibSasara.VoiSona.Util.TreeUtil.SetValueOnlyChildValue<T>(LibSasara.VoiSona.Model.Tree! tree, string! childName, T value) -> void
-static LibSasara.VoiSona.Util.TreeUtil.SetValuesOnlyChildrenValue<T>(LibSasara.VoiSona.Model.Tree! tree, string! childName, T value) -> void
-virtual LibSasara.VoiSona.Model.VoiSonaFileBase.Category.get -> LibSasara.Model.Category
-LibSasara.VoiSona.Model.Talk.Utterance.HuskyShift.get -> decimal
-LibSasara.VoiSona.Model.Talk.Utterance.HuskyShift.set -> void
 static LibSasara.VoiSona.Util.BinaryUtil.ParseIntegerFromBytes(System.ReadOnlyMemory<byte> memory, int countType) -> uint
-static LibSasara.VoiSona.Util.BinaryUtil.ParseIntegerFromBytes(System.ReadOnlyMemory<byte> memory, int countType) -> uintequencies, System.Collections.Generic.IReadOnlyCollection<double>! pointTimes) -> System.Collections.ObjectModel.ReadOnlyCollection<decimal>!
-static LibSasara.VoiSona.Util.BinaryUtil.ParseIntegerFromBytes(System.ReadOnlyMemory<byte> memory, int countType) -> uint phonemeLengths, System.Collections.ObjectModel.ReadOnlyCollection<double>! pointRatios) -> System.Collections.ObjectModel.ReadOnlyCollection<double>!
+static LibSasara.VoiSona.Util.BinaryUtil.ParseSizeBytesFromCount(long count) -> byte
+static LibSasara.VoiSona.Util.BinaryUtil.Split(this System.ReadOnlySpan<byte> source, System.ReadOnlySpan<byte> separator) -> System.Collections.ObjectModel.ReadOnlyCollection<System.ReadOnlyMemory<byte>>
+static LibSasara.VoiSona.Util.BinaryUtil.Split(this System.Span<byte> source, System.ReadOnlySpan<byte> separator) -> System.Collections.ObjectModel.ReadOnlyCollection<System.ReadOnlyMemory<byte>>
+static LibSasara.VoiSona.Util.BinaryUtil.TryFindAttribute(System.ReadOnlySpan<byte> source, string name, out LibSasara.VoiSona.Util.Header header) -> bool
+static LibSasara.VoiSona.Util.BinaryUtil.TryFindChild(System.ReadOnlySpan<byte> source, string name, out System.ReadOnlySpan<byte> child) -> bool
+static LibSasara.VoiSona.Util.BinaryUtil.TryFindCollection(System.ReadOnlySpan<byte> source, string name, string childName, out System.Collections.ObjectModel.ReadOnlyCollection<System.ReadOnlyMemory<byte>> collection) -> bool
+static LibSasara.VoiSona.Util.FileUtil.LoadAsync(string path, System.Threading.CancellationToken ctx = default(System.Threading.CancellationToken)) -> System.Threading.Tasks.ValueTask<byte[]>
+static LibSasara.VoiSona.Util.FileUtil.SaveAsync(string path, System.Collections.Generic.IReadOnlyList<byte> data, System.Threading.CancellationToken ctx = default(System.Threading.CancellationToken)) -> System.Threading.Tasks.ValueTask
+static LibSasara.VoiSona.Util.HeaderUtil.Analysis(dynamic value) -> LibSasara.VoiSona.Util.Header
+static LibSasara.VoiSona.Util.TextUtil.SplitVal<T>(string source) -> System.Collections.Generic.IEnumerable<T>
+static LibSasara.VoiSona.Util.TextUtil.SplitValByFrame<T>(string source) -> System.Collections.Generic.IEnumerable<LibSasara.VoiSona.Model.Talk.FrameValue<T>>
+static LibSasara.VoiSona.Util.TextUtil.SplitValBySec<T>(string source) -> System.Collections.Generic.IEnumerable<LibSasara.VoiSona.Model.Talk.SecondsValue<T>>
+static LibSasara.VoiSona.Util.TreeUtil.GetValueOnlyChildValue<T>(LibSasara.VoiSona.Model.Tree tree, string childName) -> T
+static LibSasara.VoiSona.Util.TreeUtil.GetValuesOnlyChildrenValue<T>(LibSasara.VoiSona.Model.Tree tree, string childName) -> T
+static LibSasara.VoiSona.Util.TreeUtil.SetValueOnlyChildValue<T>(LibSasara.VoiSona.Model.Tree tree, string childName, T value) -> void
+static LibSasara.VoiSona.Util.TreeUtil.SetValuesOnlyChildrenValue<T>(LibSasara.VoiSona.Model.Tree tree, string childName, T value) -> void
+virtual LibSasara.VoiSona.Model.VoiSonaFileBase.Category.get -> LibSasara.Model.Category

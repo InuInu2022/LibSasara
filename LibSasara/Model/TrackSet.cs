@@ -9,6 +9,7 @@ using LibSasara.Builder;
 using System.Threading.Tasks;
 using System.IO;
 using System.Globalization;
+using CommunityToolkit.Diagnostics;
 
 namespace LibSasara.Model;
 
@@ -141,7 +142,7 @@ public class TrackSet<TUnit> : IEquatable<TrackSet<TUnit>>
 			.Where(v => v.Group == GroupId)
 			.Cast<TUnit>()
 			.ToList();
-		set => throw new NotImplementedException(nameof(Units));
+		//set => throw new NotImplementedException(nameof(Units));
 	}
 
 	/// <summary>
@@ -150,7 +151,7 @@ public class TrackSet<TUnit> : IEquatable<TrackSet<TUnit>>
 	public XElement RawGroup {
 		get => _project.RawGroups
 			.First(v => string.Equals(
-				v.Attribute("Id").Value,
+				v.Attribute("Id")?.Value,
 				GroupId.ToString(),
 				StringComparison.Ordinal));
 	}
@@ -162,7 +163,7 @@ public class TrackSet<TUnit> : IEquatable<TrackSet<TUnit>>
 		get => _project
 			.GetUnitsRaw(Category)
 			.Where(e
-				=> string.Equals(e.Attribute("Group").Value, GroupId.ToString(), StringComparison.Ordinal))
+				=> string.Equals(e.Attribute("Group")?.Value, GroupId.ToString(), StringComparison.Ordinal))
 			.ToList();
 	}
 
@@ -189,7 +190,7 @@ public class TrackSet<TUnit> : IEquatable<TrackSet<TUnit>>
 	}
 
 	/// <inheritdoc cref="IEquatable{T}.Equals(T)"/>
-	public bool Equals(TrackSet<TUnit> other)
+	public bool Equals(TrackSet<TUnit>? other)
 	{
 		return GroupId == other?.GroupId
 			&& string.Equals(CastId,
@@ -202,7 +203,7 @@ public class TrackSet<TUnit> : IEquatable<TrackSet<TUnit>>
 	}
 
 	/// <inheritdoc cref="IEquatable{T}.Equals(T)"/>
-	public override bool Equals(object obj)
+	public override bool Equals(object? obj)
 	{
 		if (obj is null) return false;
 		if (obj is not TrackSet<TUnit> other) return false;
@@ -251,9 +252,7 @@ public class TrackSet<TUnit> : IEquatable<TrackSet<TUnit>>
 	/// <inheritdoc cref="AddUnit(TimeSpan, TimeSpan, string)"/>
     /// <param name="unit"></param>
 	public TUnit AddUnit(TUnit unit){
-		if(unit is null){
-			throw new ArgumentNullException(nameof(unit));
-		}
+		Guard.IsNull(unit, nameof(AddUnit));
 		unit.Group = GroupId;
 		return unit;
 	}
@@ -286,9 +285,10 @@ public class TrackSet<TUnit> : IEquatable<TrackSet<TUnit>>
 	T GetGroupValue<T>(string name)
 		where T: notnull
 	{
-		var val = RawGroup
-			.Attribute(name)
-			.Value;
+		var val = (RawGroup
+			.Attribute(name)?
+			.Value)
+			?? throw new InvalidDataException($"attribute {nameof(name)} is null");
 		return Type.GetTypeCode(typeof(T)) switch
 		{
 			TypeCode.String => (T)(object)val,
@@ -319,10 +319,11 @@ public class TrackSet<TUnit> : IEquatable<TrackSet<TUnit>>
 	string GetGroupValueString(string name) =>
 		GetGroupValue<string>(name);
 
-	void SetGroupValue<T>(string name, T value) =>
-		RawGroup
-			.Attribute(name)
-			.SetValue(value);
-
+	void SetGroupValue<T>(string name, T value)
+		where T: notnull
+	=> RawGroup
+		.Attribute(name)?
+		.SetValue(value)
+		;
 	#endregion internal Group Element accessor
 }

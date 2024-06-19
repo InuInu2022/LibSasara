@@ -1,5 +1,7 @@
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -73,6 +75,7 @@ public abstract class CeVIOFileBase : ICeVIOFile
 	/// <summary>
 	/// 元のCCS or CCSTのXDocument
 	/// </summary>
+	[SuppressMessage("Design", "CA1051:参照可能なインスタンス フィールドを宣言しません", Justification = "<保留中>")]
 	protected XDocument rawXml;
 
 	/// <summary>
@@ -238,6 +241,7 @@ public abstract class CeVIOFileBase : ICeVIOFile
 	}
 
 	/// <inheritdoc/>
+	[SuppressMessage("","HLQ012")]
 	public async ValueTask<(XElement group, List<XElement> units)> DuplicateAndAddTrackSetAsync(
 		Guid targetId,
 		Guid? newId = null

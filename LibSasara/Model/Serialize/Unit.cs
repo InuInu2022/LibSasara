@@ -70,7 +70,13 @@ public partial record Unit : IUnit
 	[SuppressMessage("","MA0011")]
 	public TimeSpan? StartTime
 	{
-		get => TimeSpan.Parse(StartTimeString);
+		get
+		{
+			var isValid = TimeSpan
+				.TryParse(StartTimeString, out var timespan);
+			return isValid ? timespan : null;
+		}
+
 		set => StartTimeString = value.ToString();
 	}
 
@@ -90,7 +96,12 @@ public partial record Unit : IUnit
 	[SuppressMessage("","MA0011")]
 	public TimeSpan? Duration
 	{
-		get => TimeSpan.Parse(DurationString);
+		get
+		{
+			var isValid = TimeSpan.TryParse(DurationString, out var timespan);
+			return isValid ? timespan : null;
+		}
+
 		set { DurationString = value.ToString(); }
 	}
 
@@ -119,7 +130,7 @@ public partial record Unit : IUnit
 	[XmlIgnore]
 	public Version? Version
 	{
-		get => new(VersionString);
+		get => VersionString is null ? null : new(VersionString);
 		set { VersionString = value?.ToString(); }
 	}
 
@@ -160,6 +171,7 @@ public partial record Unit
 	/// 英語調声データ（英語ボイスのみ）
 	/// </summary>
 	[XmlElement]
+	[SuppressMessage("","CA1707")]
 	public Metadata_EN? Metadata_EN { get; set; }
 
 	/// <summary>
@@ -191,6 +203,7 @@ public partial record Unit
 /// <summary>
 /// 英語調声データ
 /// </summary>
+[SuppressMessage("","CA1707")]
 public record Metadata_EN
 {
 	/// <summary>

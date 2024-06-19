@@ -51,7 +51,11 @@ public class TalkUnit : UnitBase
 	/// </summary>
 	public string? RawMetadata
 	{
-		get => rawElem.Descendants("Metadata").FirstOrDefault().Value;
+		get => rawElem
+			.Descendants("Metadata")?
+			.FirstOrDefault()?
+			.Value
+			?? string.Empty;
 		set => rawElem.Descendants("Metadata").First().SetValue(value ?? string.Empty);
 	}
 
@@ -212,7 +216,7 @@ public class TalkUnit : UnitBase
 					.Select(e =>
 						(
 							Id: e.Attribute("Name")!.Value,
-							Value: SasaraUtil
+							Value: LibSasaraUtil
 								.ConvertDecimal(
 									e.Attribute("Value")?.Value
 								)
@@ -239,7 +243,7 @@ public class TalkUnit : UnitBase
 					{
 						return (
 							Id: e.Attribute("Name")!.Value,
-							Value: SasaraUtil
+							Value: LibSasaraUtil
 								.ConvertDecimal(
 									e.Attribute("Value")?.Value
 								)
@@ -297,13 +301,13 @@ public class TalkUnit : UnitBase
 					Data = v.Attribute("Data")?.Value,
 					Volume = (v.Attribute("Volume") is null) ?
 								null :
-								SasaraUtil.ConvertDecimal(v.Attribute("Volume")?.Value),
+							LibSasaraUtil.ConvertDecimal(v.Attribute("Volume")?.Value),
 					Speed = (v.Attribute("Speed") is null) ?
 								null :
-								SasaraUtil.ConvertDecimal(v.Attribute("Speed")?.Value),
+							LibSasaraUtil.ConvertDecimal(v.Attribute("Speed")?.Value),
 					Tone = (v.Attribute("Tone") is null) ?
 								null :
-								SasaraUtil.ConvertDecimal(v.Attribute("Tone")?.Value),
+							LibSasaraUtil.ConvertDecimal(v.Attribute("Tone")?.Value),
 				})
 			.ToList();
 	}
@@ -454,7 +458,7 @@ public class TalkUnit : UnitBase
 	}
 
 	decimal GetDirectionValue(string attr)
-		=> SasaraUtil.ConvertDecimal(
+		=>LibSasaraUtil.ConvertDecimal(
 			RawDirection.Attribute(attr)?.Value
 		);
 

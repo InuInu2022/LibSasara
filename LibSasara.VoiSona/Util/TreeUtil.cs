@@ -1,6 +1,8 @@
 using System;
 using System.Data;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
+using CommunityToolkit.Diagnostics;
 using LibSasara.VoiSona.Model;
 
 namespace LibSasara.VoiSona.Util;
@@ -25,10 +27,7 @@ public static class TreeUtil
 		string childName
 	)
 	{
-		if (tree is null)
-		{
-			throw new ArgumentNullException(nameof(tree));
-		}
+		Guard.IsNull(tree, nameof(tree));
 
 		if (string.IsNullOrEmpty(childName))
 		{
@@ -51,10 +50,7 @@ public static class TreeUtil
 		string childName
 	)
 	{
-		if (tree is null)
-		{
-			throw new ArgumentNullException(nameof(tree));
-		}
+		Guard.IsNull(tree, nameof(tree));
 
 		if (string.IsNullOrEmpty(childName))
 		{
@@ -76,14 +72,14 @@ public static class TreeUtil
 		if (!hasChild) return default;
 
 		var attrs = tree.Children
-			.Find(c => string.Equals(c.Name, childName, StringComparison.Ordinal))
+			.Find(c => string.Equals(c.Name, childName, StringComparison.Ordinal))?
 			.Attributes;
 		dynamic? value;
 #pragma warning disable CA1031 // 一般的な例外の種類はキャッチしません
 		try
 		{
-			value = attrs
-				.Find(a => string.Equals(a.Key, valueName, StringComparison.Ordinal))
+			value = attrs?
+				.Find(a => string.Equals(a.Key, valueName, StringComparison.Ordinal))?
 				.Value
 				?? default(T);
 		}
@@ -97,22 +93,29 @@ public static class TreeUtil
 		}
 		if (typeof(T) == typeof(int))
 		{
-			return SasaraUtil.ConvertInt(value);
+			return (T)(object)LibSasaraUtil.ConvertInt((string)value);
 		}
-		else if (typeof(T) == typeof(decimal))
+
+		if (typeof(T) == typeof(decimal))
 		{
 			return value switch
 			{
 				T d => d,
 				_ => throw new InvalidCastException($"{value} is error!"),
 			};
-		}else if(typeof(T) == typeof(bool)){
-			return SasaraUtil.ConvertBool(value);
-		}else if(typeof(T) == typeof(string)){
-			return (T)(object)value;
-		}else{
-			throw new NotSupportedException();
 		}
+
+		if (typeof(T) == typeof(bool))
+		{
+			return (T)(object)LibSasaraUtil.ConvertBool((string)value);
+		}
+
+		if (typeof(T) == typeof(string))
+		{
+			return (T)(object)value;
+		}
+
+		throw new NotSupportedException();
 	}
 
 	/// <summary>
@@ -123,6 +126,7 @@ public static class TreeUtil
 	/// <param name="childName"></param>
 	/// <param name="value"></param>
 	/// <seealso cref="GetValuesOnlyChildrenValue{T}(Tree, string)"/>
+	[RequiresUnreferencedCode($"Calls {nameof(SetValueChildInternal)}")]
 	public static void SetValuesOnlyChildrenValue<T>(
 		Tree tree,
 		string childName,
@@ -130,10 +134,7 @@ public static class TreeUtil
 	)
 		where T: notnull
 	{
-		if (tree is null)
-		{
-			throw new ArgumentNullException(nameof(tree));
-		}
+		Guard.IsNull(tree, nameof(tree));
 
 		if (string.IsNullOrEmpty(childName))
 		{
@@ -151,6 +152,7 @@ public static class TreeUtil
 	/// <param name="childName"></param>
 	/// <param name="value"></param>
 	/// <seealso cref="SetValuesOnlyChildrenValue{T}(Tree, string, T)"/>
+	[RequiresUnreferencedCode($"Calls {nameof(SetValueChildInternal)}")]
 	public static void SetValueOnlyChildValue<T>(
 		Tree tree,
 		string childName,
@@ -158,10 +160,7 @@ public static class TreeUtil
 	)
 		where T: notnull
 	{
-		if (tree is null)
-		{
-			throw new ArgumentNullException(nameof(tree));
-		}
+		Guard.IsNull(tree, nameof(tree));
 
 		if (string.IsNullOrEmpty(childName))
 		{
@@ -171,6 +170,7 @@ public static class TreeUtil
 		SetValueChildInternal(tree, childName, value, nameof(value));
 	}
 
+	[RequiresUnreferencedCode("Calls LibSasara.VoiSona.Util.HeaderUtil.Analysis(dynamic)")]
 	private static void SetValueChildInternal<T>(
 		Tree tree,
 		string childName,
@@ -184,11 +184,12 @@ public static class TreeUtil
 			.Exists(v => string.Equals(v.Name, childName, StringComparison.Ordinal));
 		if (hasChild)
 		{
-			tree.Children
-				.Find(c => string.Equals(c.Name, childName, StringComparison.Ordinal))
+			var target = tree.Children
+				.Find(c => string.Equals(c.Name, childName, StringComparison.Ordinal))?
 				.Attributes
-				.Find(a => string.Equals(a.Key, valueName, StringComparison.Ordinal))
-				.Value = value;
+				.Find(a => string.Equals(a.Key, valueName, StringComparison.Ordinal));
+			if (target is null) return;
+			target.Value = value;
 		}
 		else
 		{

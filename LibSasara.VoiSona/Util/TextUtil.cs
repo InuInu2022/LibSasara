@@ -8,9 +8,9 @@ namespace LibSasara.VoiSona.Util;
 /// <summary>
 /// テキスト表現を変換するユーティリティ
 /// </summary>
-/// <seealso cref="SasaraUtil.ConvertBool(string?, bool)"/>
-/// <seealso cref="SasaraUtil.ConvertDecimal(string?, decimal)"/>
-/// <seealso cref="SasaraUtil.ConvertInt(string?, int)"/>
+/// <seealso cref="LibSasaraUtil.ConvertBool(string?, bool)"/>
+/// <seealso cref="LibSasaraUtil.ConvertDecimal(string?, decimal)"/>
+/// <seealso cref="LibSasaraUtil.ConvertInt(string?, int)"/>
 public static class TextUtil
 {
 	private static readonly char[] delimComma = [','];
@@ -37,7 +37,7 @@ public static class TextUtil
 			{
 				Span<string> span = v.Split(delimColon);
 				return new SecondsValue<T>(
-					SasaraUtil
+					LibSasaraUtil
 						.ConvertDecimal(span[0]),
 					Cast<T>(v)
 				);
@@ -65,7 +65,7 @@ public static class TextUtil
 			{
 				Span<string> span = v.Split(delimColon);
 				return new(
-					SasaraUtil
+					LibSasaraUtil
 						.ConvertInt(span[0]),
 					Cast<T>(v)
 				);
@@ -101,11 +101,11 @@ public static class TextUtil
 		return code switch
 		{
 			TypeCode.Int32 =>
-				(T)(object)SasaraUtil.ConvertInt(value),
+				(T)(object)LibSasaraUtil.ConvertInt(value),
 			TypeCode.Boolean =>
-				(T)(object)SasaraUtil.ConvertBool(value),
+				(T)(object)LibSasaraUtil.ConvertBool(value),
 			TypeCode.Decimal =>
-				(T)(object)SasaraUtil.ConvertDecimal(value),
+				(T)(object)LibSasaraUtil.ConvertDecimal(value),
 			TypeCode.String => (T)(object)value,
 			_ => default
 		};

@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Xml.Serialization;
 
@@ -42,6 +43,7 @@ public record Parameters{
 	/// 省略なし、<paramref name="length"/> 数に展開された<see cref="Data"/>が返ります。データの無い場合で<see cref="NoData"/>ではない場合は<see cref="TuneData.Repeat"/>の無い<see cref="TuneData"/>になります。
 	/// </remarks>
 	/// <returns>省略なし、<paramref name="length"/> 数に展開された<see cref="Data"/></returns>
+	[SuppressMessage("","HLQ012")]
 	public List<ITuneData> GetFullData(int length)
 	{
 		var fullA = Enumerable

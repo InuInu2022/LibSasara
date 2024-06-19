@@ -16,7 +16,7 @@ namespace LibSasara;
 /// </summary>
 public static class SasaraCcs
 {
-    /// <summary>
+	/// <summary>
 	/// A name of this library.
 	/// </summary>
 	public static readonly string Name = "LibSasara";
@@ -29,7 +29,7 @@ public static class SasaraCcs
 	/// <returns>管理クラス</returns>
 	/// <exception cref="FileNotFoundException"></exception>
 	/// <exception cref="InvalidDataException"></exception>
-    /// <seealso cref="LoadAsync{T}(string)"/>
+	/// <seealso cref="LoadAsync{T}(string)"/>
 	[SuppressMessage("","PH_P009")]
 	public static async Task<CeVIOFileBase> LoadAsync(string path)
 	{

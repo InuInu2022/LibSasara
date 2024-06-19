@@ -75,7 +75,7 @@ public record MoraIndentity: IFullContext
 	/// pauやsilなどの場合はfalse
 	/// </remarks>
 	public bool IsMora
-		=> AccentPosDiff != "xx" || BackwardPos != -1 || ForwardPos != -1;
+		=> !string.Equals(AccentPosDiff, "xx", StringComparison.Ordinal) || BackwardPos != -1 || ForwardPos != -1;
 
 	/// <summary>
 	/// 有効な <see cref="AccentPosDiff"/>を持っているかどうかを調べて、有効な場合は値を返す

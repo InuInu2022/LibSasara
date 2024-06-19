@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using LibSasara.VoiSona.Model;
 
@@ -15,7 +16,9 @@ public static class HeaderUtil
 	/// </summary>
 	/// <param name="value"></param>
 	/// <returns></returns>
-	public static Header Analysis(dynamic value)
+	[RequiresUnreferencedCode($"{nameof(Analysis)} is incompatible with trimming")]
+	public static Header Analysis(
+		dynamic value)
 	{
 		Type type = value.GetType();
 
@@ -36,7 +39,7 @@ public static class HeaderUtil
 		}
 		else if (typeof(string) == type)
 		{
-			byte[] b = System.Text.Encoding.UTF8.GetBytes(value);
+			byte[] b = System.Text.Encoding.UTF8.GetBytes((string)value);
 			return new(b.Length+1, VoiSonaValueType.String, b.Append<byte>(0).ToArray());
 		}
 		else

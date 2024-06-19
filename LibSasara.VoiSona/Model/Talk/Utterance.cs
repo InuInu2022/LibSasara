@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Globalization;
 using System.Linq;
 using System.Text;
@@ -109,7 +110,7 @@ public class Utterance : Tree
 	/// </summary>
 	/// <seealso cref="RawStart"/>
 	public decimal Start{
-		get => SasaraUtil
+		get => LibSasaraUtil
 			.ConvertDecimal(RawStart);
 		set {
 			RawStart = value.ToString("N2", CultureInfo.InvariantCulture);
@@ -287,7 +288,7 @@ public class Utterance : Tree
 				.Select(v =>
 				{
 					var a = v.Split(":".ToCharArray());
-					return (SasaraUtil.ConvertInt(a[0]), a[1]);
+					return (LibSasaraUtil.ConvertInt(a[0]), a[1]);
 				})
 				;
 			foreach(var i in pd){
@@ -413,11 +414,11 @@ public class Utterance : Tree
 				.Select<string,FrameStyle>(v => {
 					Memory<string> a = v.Split(":".ToCharArray());
 					return new(
-						SasaraUtil.ConvertDecimal(a.Span[0]),
-						SasaraUtil.ConvertInt(a.Span[1]),
+					LibSasaraUtil.ConvertDecimal(a.Span[0]),
+					LibSasaraUtil.ConvertInt(a.Span[1]),
 						a.Slice(3)
 							.ToArray()
-							.Select(s => SasaraUtil.ConvertDecimal(s))
+							.Select(s =>LibSasaraUtil.ConvertDecimal(s))
 							.ToList()
 					);
 				})
@@ -462,6 +463,7 @@ public class Utterance : Tree
 		return BuildLabFromSpan(pd);
 	}
 
+	[SuppressMessage("","MA0011")]
 	private LibSasara.Model.Lab BuildLabFromSpan(ReadOnlySpan<string> pd)
 	{
 		var ph = Tsml
@@ -493,7 +495,7 @@ public class Utterance : Tree
 				? "sil"
 				: phonemes[i - 1]
 				;
-			sb.AppendLine($"{s} {e} {p}");
+			sb.Append(s).Append(' ').Append(e).Append(' ').AppendLine(p);
 		}
 		return new LibSasara.Model.Lab(sb.ToString());
 	}

@@ -66,6 +66,7 @@ Tracks 0x00 0x00 0x01 (child_num)
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Text;
 
@@ -129,17 +130,19 @@ public record TstPrj: VoiSonaFileBase
 	/// get track tree data
 	/// </summary>
 	/// <returns></returns>
+	[RequiresUnreferencedCode("Call BuildTrack")]
 	public ReadOnlyCollection<TalkTrack> GetAllTracks()
 	{
 		var bins = GetAllTracksBin();
 		var list = bins
-			.Select(v => BuildTrack(v))
+			.Select(BuildTrack)
 			.ToList()
 			.AsReadOnly()
 			;
 		return list;
 	}
 
+	[RequiresUnreferencedCode("Calls LibSasara.VoiSona.Model.Talk.TstPrj.SetAttrIfPossible(ReadOnlySpan<Byte>, String, Tree, VoiSonaValueType)")]
 	private static TalkTrack BuildTrack(ReadOnlyMemory<byte> v)
 	{
 		var track = new TalkTrack();
@@ -195,6 +198,7 @@ public record TstPrj: VoiSonaFileBase
 		{"LogF0Scale",VoiSonaValueType.String},
 	};
 
+	[RequiresUnreferencedCode("Calls LibSasara.VoiSona.Model.Talk.TstPrj.SetValueOnlyChildIfPossible(ReadOnlySpan<Byte>, String, Tree, VoiSonaValueType)")]
 	private static void BuildContentsTree(ReadOnlyCollection<ReadOnlyMemory<byte>> utterances, Tree contents)
 	{
 		for (int i = 0; i < utterances.Count; i++)
@@ -224,6 +228,7 @@ public record TstPrj: VoiSonaFileBase
 		}
 	}
 
+	[RequiresUnreferencedCode("Calls LibSasara.VoiSona.Model.Tree.AddAttribute(String, dynamic, VoiSonaValueType?)")]
 	static void SetAttrIfPossible(
 		ReadOnlySpan<byte> source,
 		string name,
@@ -239,6 +244,7 @@ public record TstPrj: VoiSonaFileBase
 		}
 	}
 
+	[RequiresUnreferencedCode("Calls LibSasara.VoiSona.Model.Talk.TstPrj.SetValueChild(ReadOnlySpan<Byte>, String, Tree, VoiSonaValueType, String)")]
 	static void SetValueOnlyChildIfPossible(
 		ReadOnlySpan<byte> source,
 		string name,
@@ -249,6 +255,7 @@ public record TstPrj: VoiSonaFileBase
 		SetValueChild(source, name, target, type, "values");
 	}
 
+	[RequiresUnreferencedCode("Calls LibSasara.VoiSona.Model.Talk.TstPrj.SetValueChild(ReadOnlySpan<Byte>, String, Tree, VoiSonaValueType, String)")]
 	static void SetSingleValOnlyChildIfPossible(
 		ReadOnlySpan<byte> source,
 		string name,
@@ -259,6 +266,7 @@ public record TstPrj: VoiSonaFileBase
 		SetValueChild(source, name, target, type, "value");
 	}
 
+	[RequiresUnreferencedCode("Calls LibSasara.VoiSona.Model.Talk.TstPrj.SetAttrIfPossible(ReadOnlySpan<Byte>, String, Tree, VoiSonaValueType)")]
 	static void SetValueChild(
 		ReadOnlySpan<byte> source,
 		string name,

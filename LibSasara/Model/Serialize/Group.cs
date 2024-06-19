@@ -34,7 +34,7 @@ public record Group : IHasVersion, IHasCategory
 	///<inheritdoc/>
 	[XmlIgnore]
 	public Version? Version {
-		get=> new(VersionString);
+		get=> VersionString is null ? null : new(VersionString);
 		set { VersionString = value?.ToString(); }
 	}
 	/// <inheritdoc cref="Version"/>
