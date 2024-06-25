@@ -18,7 +18,9 @@
     <RepositoryUrl>https://github.com/InuInu2022/LibSasara</RepositoryUrl>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <GeneratePackageOnBuild Condition="'$(Configuration)' == 'Release'">true</GeneratePackageOnBuild>
-    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <GenerateDocumentationFile Condition="'$(Configuration)' == 'Release'">true</GenerateDocumentationFile>
+    <PackageIcon>LibSasara_icon_128x128.png</PackageIcon>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
     <InvariantGlobalization>true</InvariantGlobalization>
     <EnableNETAnalyzers>true</EnableNETAnalyzers>
     <!-- info -->
@@ -63,6 +65,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Include="../docs/images/LibSasara_icon_128x128.png" Pack="true" PackagePath="\"/>
     <None Include="../README.md" Pack="true" PackagePath="\" />
     <PackageReference Include="CommunityToolkit.Diagnostics" Version="8.2.2" />
 
