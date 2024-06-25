@@ -83,7 +83,7 @@ public static class LibSasaraUtil
 	)
 	{
 		//null check
-		Guard.IsNull(tempoList, nameof(ClockToTimeSpan));
+		Guard.IsNotNull(tempoList, nameof(ClockToTimeSpan));
 
 		//init
 		var sec = 0m;
