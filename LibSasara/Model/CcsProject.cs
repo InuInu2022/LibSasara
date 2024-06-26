@@ -447,16 +447,16 @@ public abstract class CeVIOFileBase : ICeVIOFile
 		var generations = rawXml
 			.Descendants("Generation");
 
-		if (generations.Any())
+		if (!generations.Any())
 		{
 			castName = UnknownName;
 			return false;
 		}
 		var sources = generations
 			.First()
-			.Elements("SoundSource")
+			.Descendants("SoundSource")
 			;
-		if(sources.Any())
+		if(!sources.Any())
 		{
 			castName = UnknownName;
 			return false;
