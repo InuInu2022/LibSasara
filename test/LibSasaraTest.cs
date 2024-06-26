@@ -993,4 +993,27 @@ public class LibSasaraTest : IAsyncLifetime
 		su.PitchTune = valTune;
 		Assert.Equal(valTune, su.PitchTune);
 	}
+
+	[Theory]
+	[InlineData(CCS_FILEPATH_CS7,"A",true,"さとうささら")]
+	[InlineData(CCST_FILEPATH_AI8_SONG,"CSNV-ENF-FP5",true,"IA (ENG)")]
+	[InlineData(CCS_FILEPATH_AI8_5,"CSNV-JPF-THR1",true,"可不(KAFU)")]
+	[InlineData(CCS_FILEPATH_VOISONA,"",false,"")]
+	public async Task TryGetCastNameAsync(
+		string path,
+		string searchId,
+		bool hasNameData,
+		string castName = ""
+	)
+	{
+		var ccs = await SasaraCcs
+			.LoadAsync(path);
+		ccs.Should().NotBeNull();
+
+		var hasName = ccs
+			.TryGetCastName(searchId,out var name);
+		hasName.Should().Be(hasNameData);
+
+		if(hasName)name.Should().Be(castName);
+	}
 }
