@@ -433,6 +433,52 @@ public abstract class CeVIOFileBase : ICeVIOFile
 	}
 
 	/// <summary>
+	/// CCS / CCST内のデータからキャスト名の取得を試みます
+	/// </summary>
+	/// <param name="castId">キャストのCCS / CCST 内部ID</param>
+	/// <param name="castName">CCS / CCST内のデータに記録されたキャスト名</param>
+	/// <returns>取得出来たら<see langword="true"/>, できなければ<see langword="false"/></returns>
+	public bool TryGetCastName(
+		string castId,
+		out string castName
+	)
+	{
+		const string UnknownName = "Unknown Name";
+		var generations = rawXml
+			.Descendants("Generation");
+
+		if (generations.Any())
+		{
+			castName = UnknownName;
+			return false;
+		}
+		var sources = generations
+			.First()
+			.Elements("SoundSource")
+			;
+		if(sources.Any())
+		{
+			castName = UnknownName;
+			return false;
+		}
+		var target = sources
+			.FirstOrDefault(s =>
+				s.HasAttributes
+				&& s.Attribute("Id")?.Value is not null
+				&& string.Equals(s.Attribute("Id")?.Value, castId, StringComparison.OrdinalIgnoreCase)
+			)
+			;
+		if(target is null || target.Attribute("Name") is null)
+		{
+			castName = UnknownName;
+			return false;
+		}
+
+		castName = target.Attribute("Name").Value;
+		return true;
+	}
+
+	/// <summary>
 	/// ccs/ccstファイルを保存
 	/// </summary>
 	/// <remarks>
