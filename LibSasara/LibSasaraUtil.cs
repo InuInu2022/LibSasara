@@ -1,9 +1,15 @@
 using System;
 using System.Collections.Generic;
 using System.Globalization;
+using System.IO;
+using System.Linq;
 using System.Runtime.CompilerServices;
+using System.Xml.Linq;
 using CommunityToolkit.Diagnostics;
 using LibSasara.Model;
+using LibSasara.Model.Serialize;
+using Melanchall.DryWetMidi.Core;
+using Melanchall.DryWetMidi.Interaction;
 
 namespace LibSasara;
 
@@ -204,5 +210,46 @@ public static class LibSasaraUtil
 	public static double OctaveStepToFreq(int octave, int step){
 		var num = OctaveStepToNoteNum(octave, step);
 		return NoteNumToFreq(num);
+	}
+
+	/// <summary>
+	/// ノートの存在する小節数・小節内拍数を取得
+	/// </summary>
+	/// <param name="note">音符（ノート）</param>
+	/// <param name="beatList">曲の拍子変更リスト。<seealso cref="SongUnit.Beat"/> を渡してください</param>
+	/// <returns>小節数、拍数を返すタプル</returns>
+	/// <seealso cref="SongUnit.Beat"/>
+	public static (long Measure, long Beats) CalculateMeasureFromNote(
+		Model.Note note,
+		SortedDictionary<int, (int Beats, int BeatType)> beatList
+	)
+	{
+		//drywetmidiを使って解析する
+		using var tmm = new TempoMapManager(
+			new TicksPerQuarterNoteTimeDivision(960)
+		);
+		foreach (var b in beatList)
+		{
+			tmm.SetTimeSignature(
+				(ITimeSpan)new MidiTimeSpan(b.Key),
+				new TimeSignature(b.Value.Beats, b.Value.BeatType)
+			);
+		}
+
+		var noteNum = OctaveStepToNoteNum(note.PitchOctave, note.PitchStep);
+
+		var n = new Melanchall.DryWetMidi.Interaction.Note(
+			(Melanchall.DryWetMidi.Common.SevenBitNumber) noteNum
+		)
+		{
+			Time = note.Clock,
+			Length = note.Duration,
+		}
+		;
+		var result = n.TimeAs<BarBeatTicksTimeSpan>(tmm.TempoMap);
+		var measure = result.Bars;
+		var beatPos = result.Beats + 1;
+
+		return (measure, beatPos);
 	}
 }

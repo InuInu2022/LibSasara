@@ -53,8 +53,8 @@
     <SuppressTrimAnalysisWarnings>true</SuppressTrimAnalysisWarnings>
   </PropertyGroup>
 
-  <ItemGroup
-    Condition="!$([MSBuild]::IsTargetFrameworkCompatible('$(TargetFramework)', 'net8.0'))">
+  <ItemGroup Condition="!$([MSBuild]::IsTargetFrameworkCompatible('$(TargetFramework)', 'net8.0'))">
+    <PackageReference Include="Melanchall.DryWetMidi.Nativeless" Version="7.1.0" />
     <PackageReference Include="Microsoft.Bcl.AsyncInterfaces" Version="8.0.0" />
     <PackageReference Include="PolySharp" Version="1.14.1+a7a92a9ddd050275c91c42b711d22cb41c3fbf3d">
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
@@ -65,7 +65,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="../docs/images/LibSasara_icon_128x128.png" Pack="true" PackagePath="\"/>
+    <None Include="../docs/images/LibSasara_icon_128x128.png" Pack="true" PackagePath="\" />
     <None Include="../README.md" Pack="true" PackagePath="\" />
     <PackageReference Include="CommunityToolkit.Diagnostics" Version="8.2.2" />
 

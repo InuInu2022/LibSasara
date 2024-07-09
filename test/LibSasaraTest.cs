@@ -31,6 +31,8 @@ public class LibSasaraTest : IAsyncLifetime
 
 	private const string CCST_FILEPATH_CS7_SONG1 = "../../../file/test_cs7_track_ソング1.ccst";
 
+	private const string CCST_FILEPATH_NOTEMEASURE = "../../../file/test_note_measure.ccs";
+
 	private const string RIKKA_METADATA = """MAEBAXNpbAEqASoBMAEBMAEwADQB5bCP5pil5YWt6IqxAuOBp+OBmQLigKYC44CCAeOCs+ODj+ODq+ODquODg+OCqwLjg4fjgrnigJkCAgFrLG98aCxhfHIsdXxyLGl8Y2x8ayxhAmQsZXxzLFUCAnBhdQEqAioCKgIqASoCKgIqAioBMAIwAjACMAFsaGhobGwCbGwCbAJsATACMAIwAjABMAIwAjECMAA2AeODqOODvOOCsOODq+ODiALjgq3jg6Pjg6kC44GrAeODqOODvOOCsOODq+ODiALjgq3jg6Pjg6kC44OLAXksb3xvfGcsdXxyLHV8dCxvAmt5LGF8cixhAm4saQEqAioCKgEqAioCKgEwAjACMAFsaGhoaAJobAJsATACMAIwATACMAIwADEB44Gq44GjAuOBpgHjg4rjg4MC44OGAW4sYXxjbAJ0LGUBKgIqASoCKgEwAjABaGwCbAEwAjABMAIwADAB44G+44GZAeODnuOCueKAmQFtLGF8cyxVAeOBvuOBmQrjg57jgrnigJkKbSxhfHMsVQpsbAoxCjAKMAowASoBMAFsaAEwATAAMAHigKYBAQEqASoBMAFsATABMQAwAQEBc2lsASoBKgEwAQEwATA=;MAEBAXNpbAEqASoBMAEBMAEwADQB5bCP5pil5YWt6IqxAuOBp+OBmQLigKYC44CCAeOCs+ODj+ODq+ODquODg+OCqwLjg4fjgrnigJkCAgFrLG98aCxhfHIsdXxyLGl8Y2x8ayxhAmQsZXxzLFUCAnBhdQEqAioCKgIqASoCKgIqAioBMAIwAjACMAFsaGhobGwCbGwCbAJsATACMAIwAjABMAIwAjECMAA2AeODqOODvOOCsOODq+ODiALjgq3jg6Pjg6kC44GrAeODqOODvOOCsOODq+ODiALjgq3jg6Pjg6kC44OLAXksb3xvfGcsdXxyLHV8dCxvAmt5LGF8cixhAm4saQEqAioCKgEqAioCKgEwAjACMAFsaGhoaAJobAJsATACMAIwATACMAIwADEB44Gq44GjAuOBpgHjg4rjg4MC44OGAW4sYXxjbAJ0LGUBKgIqASoCKgEwAjABaGwCbAEwAjABMAIwADEB44G+44GZAeODnuOCueKAmQFtLGF8cyxVAeOBvuOBmQrjg57jgrnigJkKbSxhfHMsVQpsbAoxCjAKMAowASoBMAFobAEwATAAMAHigKYBAQEqASoBMAFsATABMQAwAQEBc2lsASoBKgEwAQEwATA""";
 
 	private readonly ITestOutputHelper _output;
@@ -1015,5 +1017,60 @@ public class LibSasaraTest : IAsyncLifetime
 		hasName.Should().Be(hasNameData);
 
 		if(hasName)name.Should().Be(castName);
+	}
+
+	[Theory]
+	[InlineData(CCS_FILEPATH_AI8_5, 3840, 1, 1)]
+	[InlineData(CCS_FILEPATH_AI8_5, 4800, 1, 2)]
+	[InlineData(CCS_FILEPATH_AI8_5, 5760, 1, 3)]
+	[InlineData(CCS_FILEPATH_AI8_5, 6720, 1, 4)]
+	[InlineData(CCST_FILEPATH_NOTEMEASURE,3840,1,1)]
+	[InlineData(CCST_FILEPATH_NOTEMEASURE,5760,1,3)]
+	[InlineData(CCST_FILEPATH_NOTEMEASURE,6720,2,1)]
+	[InlineData(CCST_FILEPATH_NOTEMEASURE,7680,2,2)]
+	[InlineData(CCST_FILEPATH_NOTEMEASURE,8640,3,1)]
+	[InlineData(CCST_FILEPATH_NOTEMEASURE,9600,4,1)]
+	[InlineData(CCST_FILEPATH_NOTEMEASURE,10080,5,1)]
+	[InlineData(CCST_FILEPATH_NOTEMEASURE,10560,6,1)]
+	[InlineData(CCST_FILEPATH_NOTEMEASURE,11040,6,2)]
+	public async Task GetMeasureFromNoteAsync(
+		string path,
+		int noteClock,
+		int expectMeasure,
+		int expectBeat
+	)
+	{
+		var ccs = await SasaraCcs
+			.LoadAsync(path);
+		ccs.Should().NotBeNull();
+		if (ccs is null) return;
+
+		var u = ccs
+			.GetTrackSets<SongUnit>()
+			.FirstOrDefault()?
+			.Units[0]
+			;
+		u.Should().NotBeNull();
+		if (u is null) return;
+
+		var noteElem = new XElement("Note");
+		noteElem.SetAttributeValue("Clock", noteClock);
+		var beatElems = u.RawSong.Element("Beat");
+		beatElems.Should().NotBeNull();
+		if (beatElems is null) return;
+
+		var result = LibSasaraUtil
+			.CalculateMeasureFromNote(
+				new Note(){
+					Clock = noteClock,
+					PitchOctave = 0,
+					PitchStep = 0,
+				},
+				u.Beat
+			);
+
+		//result.Measure.Should().BeGreaterThanOrEqualTo(1);
+		result.Beats.Should().BePositive();
+		result.Should().Be((expectMeasure,expectBeat));
 	}
 }
