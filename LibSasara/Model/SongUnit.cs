@@ -149,6 +149,7 @@ public class SongUnit : UnitBase
 	/// <summary>
 	/// 曲の拍子変更リスト
 	/// </summary>
+	/// <value>tick, (beat, beatType)</value>
 	public SortedDictionary<int, (int Beats, int BeatType)> Beat
 	{
 		get => new(
