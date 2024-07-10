@@ -237,14 +237,7 @@ public static class LibSasaraUtil
 
 		var noteNum = OctaveStepToNoteNum(note.PitchOctave, note.PitchStep);
 
-		var n = new Melanchall.DryWetMidi.Interaction.Note(
-			(Melanchall.DryWetMidi.Common.SevenBitNumber) noteNum
-		)
-		{
-			Time = note.Clock,
-			Length = note.Duration,
-		}
-		;
+		var n = Internal.DryWetMidiConnector.Convert(note);
 		var result = n.TimeAs<BarBeatTicksTimeSpan>(tmm.TempoMap);
 		var measure = result.Bars;
 		var beatPos = result.Beats + 1;
