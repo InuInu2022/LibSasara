@@ -607,8 +607,10 @@ public class SongUnit : UnitBase
 	static Serialize.Parameters GetParams(XElement raw, string paramName)
 	{
 		if(!raw.HasElements){
-			return new Serialize
-				.Parameters(paramName);
+			return new Serialize.Parameters(paramName)
+			{
+				Length = GetAttrInt(raw, "Length"),
+			};
 		}
 
 		var len = UnitBase.GetAttrInt(raw, "Length");
