@@ -383,7 +383,7 @@ public class SongUnit : UnitBase
     /// <seealso cref="Serialize.NoData"/>
 	public Serialize.Parameters Volume
 	{
-		get => SongUnit.GetParams(RawVolume, "Volume");
+		get => SongUnit.GetParams(RawVolume, "C0");
 
 		set {
 			if(value is null){
