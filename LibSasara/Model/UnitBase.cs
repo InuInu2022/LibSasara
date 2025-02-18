@@ -54,7 +54,7 @@ public abstract class UnitBase
 	/// <seealso cref="StartTime"/>
 	public TimeSpan Duration
 	{
-		get => TimeSpan.Parse(GetUnitAttributeStr(nameof(Duration)));
+		get => TimeSpan.TryParse(GetUnitAttributeStr(nameof(Duration)), out var result) ? result : TimeSpan.Zero;
 		set => SetUnitAttributeStr(nameof(Duration), value.ToString());
 	}
 
