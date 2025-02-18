@@ -35,7 +35,7 @@ public abstract class UnitBase
 	public Guid Group
 	{
 		get => new(GetUnitAttributeStr(nameof(Group)));
-		set => SetUnitAttribureStr(nameof(Group), value.ToString());
+		set => SetUnitAttributeStr(nameof(Group), value.ToString());
 	}
 
 	/// <summary>
@@ -45,7 +45,7 @@ public abstract class UnitBase
 	public TimeSpan StartTime
 	{
 		get => TimeSpan.Parse(GetUnitAttributeStr(nameof(StartTime)));
-		set => SetUnitAttribureStr(nameof(StartTime), value.ToString());
+		set => SetUnitAttributeStr(nameof(StartTime), value.ToString());
 	}
 
 	/// <summary>
@@ -55,7 +55,7 @@ public abstract class UnitBase
 	public TimeSpan Duration
 	{
 		get => TimeSpan.Parse(GetUnitAttributeStr(nameof(Duration)));
-		set => SetUnitAttribureStr(nameof(Duration), value.ToString());
+		set => SetUnitAttributeStr(nameof(Duration), value.ToString());
 	}
 
 	/// <summary>
@@ -101,7 +101,7 @@ public abstract class UnitBase
 		return rawElem.Attribute(attr)?.Value ?? string.Empty;
 	}
 
-	internal void SetUnitAttribureStr(string attr, string value)
+	internal void SetUnitAttributeStr(string attr, string value)
 	{
 		rawElem.Attribute(attr)?.SetValue(value);
 	}

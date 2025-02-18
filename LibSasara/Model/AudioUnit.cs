@@ -17,7 +17,7 @@ public class AudioUnit : UnitBase
 	public string FilePath
 	{
 		get => GetUnitAttributeStr(nameof(FilePath));
-		set => SetUnitAttribureStr(nameof(FilePath), value);
+		set => SetUnitAttributeStr(nameof(FilePath), value);
 	}
 
 	/// <inheritdoc/>

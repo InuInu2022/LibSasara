@@ -21,7 +21,7 @@ public class TalkUnit : UnitBase
 	public string CastId
 	{
 		get => GetUnitAttributeStr(nameof(CastId));
-		set => SetUnitAttribureStr(nameof(CastId), value);
+		set => SetUnitAttributeStr(nameof(CastId), value);
 	}
 
 	/// <summary>
@@ -33,7 +33,7 @@ public class TalkUnit : UnitBase
 	public string Language
 	{
 		get => GetUnitAttributeStr(nameof(Language));
-		set => SetUnitAttribureStr(nameof(Language), value);
+		set => SetUnitAttributeStr(nameof(Language), value);
 	}
 
 	/// <summary>
@@ -43,7 +43,7 @@ public class TalkUnit : UnitBase
 	public string Text
 	{
 		get => GetUnitAttributeStr(nameof(Text));
-		set => SetUnitAttribureStr(nameof(Text), value);
+		set => SetUnitAttributeStr(nameof(Text), value);
 	}
 
 	/// <summary>
